@@ -10,6 +10,7 @@
     <Prefix name="dc" IRI="http://purl.org/dc/terms/"/>
     <Prefix name="fs" IRI="http://etna.istc.cnr.it/framesterpage/data/framestercore/"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="par" IRI="http://ontologydesignpatterns.org/cp/owl/parameter.owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
@@ -63,6 +64,9 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <Literal xml:lang="en">Von Rostorff effect is a phenomenon where memory for isolated items is better than memory for non-isolated (homogeneous) items presented in the same serial list position.</Literal>
     </Annotation>
     <Declaration>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Differentiation"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Entity"/>
     </Declaration>
     <Declaration>
@@ -70,6 +74,12 @@ On the day of the exam, Maria is able to recall the highlighted information easi
     </Declaration>
     <Declaration>
         <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/High.n.1"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Low.n.3"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Engagement"/>
@@ -84,10 +94,19 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <Class abbreviatedIRI="activ:Activity"/>
     </Declaration>
     <Declaration>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#Parameter"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
     </Declaration>
     <Declaration>
         <Class IRI="StudyTechnique"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://w3id.org/affectedBy/https://w3id.org/affectedBy/#Quality"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/hasEngagement"/>
@@ -109,6 +128,12 @@ On the day of the exam, Maria is able to recall the highlighted information easi
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="leverages"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#observe_enhanced_info"/>
@@ -135,13 +160,13 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <AnnotationProperty abbreviatedIRI="dc:title"/>
     </Declaration>
     <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom"/>
+    </Declaration>
+    <Declaration>
         <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
@@ -179,12 +204,32 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <SubClassOf>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Differentiation"/>
+        <Class IRI="https://w3id.org/affectedBy/https://w3id.org/affectedBy/#Quality"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence"/>
         <Class abbreviatedIRI="activ:Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/High.n.1"/>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Differentiation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Low.n.3"/>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Differentiation"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Prompt"/>
         <Class abbreviatedIRI="activ:Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#Parameter"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="https://w3id.org/affectedBy/https://w3id.org/affectedBy/#Quality"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#Parameter"/>
     </SubClassOf>
     <DisjointClasses>
         <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Entity"/>
@@ -233,10 +278,20 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <NamedIndividual IRI="#studying"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="leverages"/>
+        <NamedIndividual IRI="#studying_technique1"/>
+        <NamedIndividual IRI="#von_rostorff_effect"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
         <NamedIndividual IRI="#von_rostorff_effect"/>
         <NamedIndividual IRI="#observe_enhanced_info"/>
     </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl"/>
+        <NamedIndividual IRI="#studying_technique1"/>
+        <Literal>high</Literal>
+    </DataPropertyAssertion>
     <InverseObjectProperties>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/hasEngagement"/>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/inActivity"/>
@@ -269,6 +324,10 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Observation"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="leverages"/>
+        <Class IRI="StudyTechnique"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/hasEngagement"/>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Engagement"/>
@@ -301,6 +360,10 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Observation"/>
     </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="leverages"/>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence"/>
+    </ObjectPropertyRange>
     <SubObjectPropertyOf>
         <ObjectPropertyChain>
             <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/hasEngagement"/>
@@ -308,6 +371,20 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         </ObjectPropertyChain>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
     </SubObjectPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#Parameter"/>
+    </DataPropertyDomain>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/Differentiation</IRI>
+        <Literal>Words in this frame have to do with a Cognizer being aware (or not being aware) of the difference between two Phenomena, which may be expressed jointly or disjointly. It is very difficult for people to visually distinguish between living and non-living things from such a great distance .</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/Differentiation</IRI>
+        <Literal>Differentiation</Literal>
+    </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/Entity</IRI>
@@ -337,6 +414,16 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence</IRI>
         <Literal>SubjectiveInfluence</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://etna.istc.cnr.it/framesterpage/data/framestersyn/High.n.1</IRI>
+        <Literal>High</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://etna.istc.cnr.it/framesterpage/data/framestersyn/Low.n.3</IRI>
+        <Literal>Low</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="dc:description"/>
@@ -440,6 +527,40 @@ On the day of the exam, Maria is able to recall the highlighted information easi
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</IRI>
+        <Literal>A concept is a SocialObject, and isDefinedIn a Description . 
+Once defined, a Concept can be used in other descriptions. 
+The classifies relation relates concepts to entities at some time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</IRI>
+        <Literal>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</IRI>
+        <Literal>Concept</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#Parameter</IRI>
+        <Literal>A Concept that classifies something having a certain value, e.g. &apos;High&apos; can be said of people taller than 185 cm.
+However, in order to formally represent this constraint, we need to add an anonymous type to a parameter instance, using a property that convey the semantics of the parameter, e.g.:
+High rdf:type Person and (some hasHeight (Height and (oneOf isTallerThan 185) and (oneOf hasUnitOfMeasure centimeter)))</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#Parameter</IRI>
+        <Literal>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#Parameter</IRI>
+        <Literal>Parameter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
         <Literal>The foaf:Person class represents people. Something is a foaf:Person if it is a person. We don&apos;t nitpic about whether they&apos;re alive, dead, real, or imaginary. The foaf:Person class is a sub-class of the foaf:Agent class, since all people are considered &apos;agents&apos; in FOAF.</Literal>
     </AnnotationAssertion>
@@ -457,6 +578,11 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>StudyTechnique</IRI>
         <Literal>StudyTechnique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>leverages</IRI>
+        <Literal>leverages</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -487,6 +613,38 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#von_rostorff_effect</IRI>
         <Literal>Von Rostorff effect</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</IRI>
+        <Literal>Parametrizes values from a datatype. For example, a Parameter AgeForDriving hasParameterDataValue 18 on datatype xsd:int, in the Italian traffic code. In this example, AgeForDriving isDefinedIn the Norm ItalianTrafficCodeAgeDriving.
+More complex parametrization requires workarounds. E.g. AgeRangeForDrugUsage could parametrize data value: 14 to 50 on the datatype: xsd:int. Since complex datatypes are not allowed in OWL1.0, a solution to this can only work by creating two &apos;sub-parameters&apos;: MinimumAgeRangeForDrugUsage (that hasParameterDataValue 14) and MaximumAgeRangeForDrugUsage (that hasParameterDataValue 50), which are components of the main Parameter AgeRangeForDrugUsage.
+Ordering on subparameters can be created by using or specializing the object property &apos;precedes&apos;.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</IRI>
+        <Literal>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</IRI>
+        <Literal>has parameter data value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://w3id.org/affectedBy/https://w3id.org/affectedBy/#Quality</IRI>
+        <Literal>https://w3id.org/affectedBy/</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://w3id.org/affectedBy/https://w3id.org/affectedBy/#Quality</IRI>
+        <Literal>A quality of a feature of interest. An aspect of a feature of interest that is intrinsec to and cannot exist without the feature of interest. Every quality belongs to the feature of interest it is intrinsic to.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://w3id.org/affectedBy/https://w3id.org/affectedBy/#Quality</IRI>
+        <Literal>Quality</Literal>
     </AnnotationAssertion>
 </Ontology>
 
