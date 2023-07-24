@@ -1,0 +1,307 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect/">
+    <Prefix name="" IRI="https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect/"/>
+    <Prefix name="fs" IRI="https://w3id.org/framester/data/framestercore/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="par" IRI="http://ontologydesignpatterns.org/cp/owl/parameter.owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</Import>
+    <Import>https://w3id.org/affectedBy</Import>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/created"/>
+        <Literal>2023-07-21</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/creator"/>
+        <Literal>Leonardo Zilli</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <Literal>The ontology for the Bizarreness effect cognitive bias</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/title"/>
+        <Literal>Bizarreness Effect Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal>The Bizarreness effect is the tendency of bizarre material to be better remembered than common material.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1.0</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="Activity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="AverageTypicality"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="BizarreContent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Cognizer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="HighTypicality"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="LowTypicality"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MentalContent"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fs:Memory"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fs:Prominence"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fs:Typicality"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="article1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="article1Typicality"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="article2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="article2Typicality"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="article3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="article3Typicality"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="memory"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="prominence"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="reader"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/created"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/creator"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="AverageTypicality"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="fs:Typicality"/>
+            <DataHasValue>
+                <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue"/>
+                <Literal>average</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="BizarreContent"/>
+        <ObjectIntersectionOf>
+            <Class IRI="MentalContent"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameter"/>
+                <Class IRI="LowTypicality"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="HighTypicality"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="fs:Typicality"/>
+            <DataHasValue>
+                <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue"/>
+                <Literal>high</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="LowTypicality"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="fs:Typicality"/>
+            <DataHasValue>
+                <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue"/>
+                <Literal>low</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="Activity"/>
+        <Class IRI="https://w3id.org/affectedBy#FeatureOfInterest"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AverageTypicality"/>
+        <Class abbreviatedIRI="fs:Typicality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="BizarreContent"/>
+        <Class IRI="MentalContent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="HighTypicality"/>
+        <Class abbreviatedIRI="fs:Typicality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="LowTypicality"/>
+        <Class abbreviatedIRI="fs:Typicality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MentalContent"/>
+        <Class IRI="https://w3id.org/affectedBy#FeatureOfInterest"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="https://w3id.org/affectedBy#FeatureOfInterest"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="https://w3id.org/affectedBy#Quality"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#Parameter"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="fs:Memory"/>
+        <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="fs:Prominence"/>
+        <Class IRI="https://w3id.org/affectedBy#Quality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="fs:Typicality"/>
+        <Class IRI="https://w3id.org/affectedBy#Quality"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="MentalContent"/>
+        <NamedIndividual IRI="article1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="fs:Typicality"/>
+        <NamedIndividual IRI="article1Typicality"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="MentalContent"/>
+        <NamedIndividual IRI="article2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="fs:Typicality"/>
+        <NamedIndividual IRI="article2Typicality"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="MentalContent"/>
+        <NamedIndividual IRI="article3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="fs:Typicality"/>
+        <NamedIndividual IRI="article3Typicality"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="fs:Memory"/>
+        <NamedIndividual IRI="memory"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="fs:Prominence"/>
+        <NamedIndividual IRI="prominence"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Cognizer"/>
+        <NamedIndividual IRI="reader"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameter"/>
+        <NamedIndividual IRI="article1"/>
+        <NamedIndividual IRI="article1Typicality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameter"/>
+        <NamedIndividual IRI="article2"/>
+        <NamedIndividual IRI="article2Typicality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameter"/>
+        <NamedIndividual IRI="article3"/>
+        <NamedIndividual IRI="article3Typicality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="https://w3id.org/affectedBy#influencedBy"/>
+        <NamedIndividual IRI="memory"/>
+        <NamedIndividual IRI="prominence"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="https://w3id.org/affectedBy#affectedBy"/>
+        <NamedIndividual IRI="prominence"/>
+        <NamedIndividual IRI="article1Typicality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="https://w3id.org/affectedBy#affectedBy"/>
+        <NamedIndividual IRI="prominence"/>
+        <NamedIndividual IRI="article2Typicality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="https://w3id.org/affectedBy#affectedBy"/>
+        <NamedIndividual IRI="prominence"/>
+        <NamedIndividual IRI="article3Typicality"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue"/>
+        <NamedIndividual IRI="article1Typicality"/>
+        <Literal>low</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue"/>
+        <NamedIndividual IRI="article2Typicality"/>
+        <Literal>high</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue"/>
+        <NamedIndividual IRI="article3Typicality"/>
+        <Literal>average</Literal>
+    </DataPropertyAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Activity</IRI>
+        <Literal>possibly also fs:MentalProperty?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>fs:Memory</AbbreviatedIRI>
+        <Literal>This frame is concerned with Cognizers remembering and forgetting mental Content.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>fs:Prominence</AbbreviatedIRI>
+        <Literal>An Entity stands out perceptually in comparison to other members of its type.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>fs:Typicality</AbbreviatedIRI>
+        <Literal>An Entity is generally, or with regard to a particular Feature, representative of the Comparison_set of which it is a member.</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
