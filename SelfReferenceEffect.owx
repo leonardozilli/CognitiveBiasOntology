@@ -1,15 +1,14 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/"
+     xml:base="https://github.com/leonardozilli/Bias_Ontology/SelfReferenceEffect/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/">
+     ontologyIRI="https://github.com/leonardozilli/Bias_Ontology/SelfReferenceEffect/">
     <Prefix name="" IRI="https://github.com/leonardozilli/Bias_Ontology/VonRostorffEffect/"/>
     <Prefix name="dc" IRI="http://purl.org/dc/terms/"/>
     <Prefix name="fs" IRI="http://etna.istc.cnr.it/framesterpage/data/framestercore/"/>
-    <Prefix name="crm" IRI="http://www.cidoc-crm.org/cidoc-crm/"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="par" IRI="http://ontologydesignpatterns.org/cp/owl/parameter.owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
@@ -24,7 +23,7 @@
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:title"/>
-        <Literal xml:lang="en">Picture Superiority effect</Literal>
+        <Literal xml:lang="en">Self-reference effect</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom"/>
@@ -52,26 +51,26 @@
     </Annotation>
     <Annotation>
         <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
-        <Literal xml:lang="en">As a science teacher, Mrs. Johnson is preparing a lesson on the solar system for her 5th-grade class. She knows from her teaching experience that students often struggle to remember the names and order of the planets in the solar system. She decides to leverage the Picture Superiority Effect to enhance her students&apos; learning and retention.
+        <Literal xml:lang="en">As a psychology student, Alice has a big exam coming up. One of the concepts she needs to understand and remember is &quot;cognitive dissonance.&quot; She reads the textbook definition, but it doesn&apos;t stick in her mind. She decides to apply the self-reference effect to help her remember.
 
-She finds a colorful and detailed diagram of the solar system, which clearly shows each planet in its correct order from the sun. During the lesson, she presents this diagram to her students, explaining each planet&apos;s unique features as she points to them on the image. She encourages the students to visualize the image in their minds as they learn about each planet.
+Alice thinks back to a time when she experienced cognitive dissonance herself. She recalls a situation where she had to choose between attending a friend&apos;s party and studying for another exam. She wanted to do both, but they were happening at the same time. She remembers the discomfort she felt at having these conflicting desires.
 
-In the following class, Mrs. Johnson conducts a pop quiz on the solar system. She is pleased to see that her students perform significantly better on this topic compared to previous ones. Many students are able to correctly name the planets and their order from the sun. Some students even mention that they remembered the planets by visualizing the colorful diagram in their minds.
+Alice then relates this personal experience to the definition of cognitive dissonance - the mental discomfort experienced by a person who holds two or more contradictory beliefs, ideas, or values. By connecting the term to her own experience, it becomes more meaningful and easier to remember.
 
-This experience reinforces Mrs. Johnson&apos;s belief in the power of visual learning. She decides to incorporate more images and diagrams into her future lessons to help her students better understand and remember complex concepts.</Literal>
+When the exam day comes, Alice sees a question about cognitive dissonance. She immediately recalls her personal experience and is able to remember the definition clearly. She writes down her answer confi</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <Literal xml:lang="en">The Picture Superiority Effect is a phenomenon in cognitive psychology where people tend to better remember images than words.</Literal>
+        <Literal xml:lang="en">Self-reference effect generally refers to the tendency for individuals to have better memory for information that they have related to themselves.</Literal>
     </Annotation>
-    <Declaration>
-        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching"/>
-    </Declaration>
     <Declaration>
         <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Entity"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage"/>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/PerceptionExperience"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Studying"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence"/>
@@ -92,7 +91,7 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
         <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
     </Declaration>
     <Declaration>
-        <Class IRI="VisualLearning"/>
+        <Class IRI="StudyTechnique"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/hasEngagement"/>
@@ -116,28 +115,25 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="crm:P65_shows_visual_item"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="leverages"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="a_colorful_and_detailed_diagram_of_the_solar_system"/>
+        <NamedIndividual IRI="self_experience"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#observe_enhanced_info"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#picture_superiority_effect"/>
+        <NamedIndividual IRI="#self_reference_effect"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#student_1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#studying_technique1"/>
+        <NamedIndividual IRI="#studying"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#teaching"/>
+        <NamedIndividual IRI="#studying_technique1"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty abbreviatedIRI="dc:creator"/>
@@ -161,7 +157,7 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
         <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
     </Declaration>
     <EquivalentClasses>
-        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching"/>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Studying"/>
         <Class abbreviatedIRI="activ:Activity"/>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -180,7 +176,7 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Engagement"/>
-        <Class IRI="VisualLearning"/>
+        <Class IRI="StudyTechnique"/>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Prompt"/>
@@ -207,8 +203,8 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
         <Class abbreviatedIRI="activ:Activity"/>
     </DisjointClasses>
     <ClassAssertion>
-        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage"/>
-        <NamedIndividual IRI="a_colorful_and_detailed_diagram_of_the_solar_system"/>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/PerceptionExperience"/>
+        <NamedIndividual IRI="self_experience"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Observation"/>
@@ -216,19 +212,19 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence"/>
-        <NamedIndividual IRI="#picture_superiority_effect"/>
+        <NamedIndividual IRI="#self_reference_effect"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
         <NamedIndividual IRI="#student_1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="VisualLearning"/>
-        <NamedIndividual IRI="#studying_technique1"/>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Studying"/>
+        <NamedIndividual IRI="#studying"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching"/>
-        <NamedIndividual IRI="#teaching"/>
+        <Class IRI="StudyTechnique"/>
+        <NamedIndividual IRI="#studying_technique1"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
@@ -237,38 +233,34 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
-        <NamedIndividual IRI="#picture_superiority_effect"/>
+        <NamedIndividual IRI="#self_reference_effect"/>
         <NamedIndividual IRI="#observe_enhanced_info"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isEngagedIn"/>
         <NamedIndividual IRI="#student_1"/>
-        <NamedIndividual IRI="#studying_technique1"/>
+        <NamedIndividual IRI="#studying"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/includes"/>
+        <NamedIndividual IRI="#studying"/>
+        <NamedIndividual IRI="#observe_enhanced_info"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/inActivity"/>
         <NamedIndividual IRI="#studying_technique1"/>
-        <NamedIndividual IRI="#teaching"/>
+        <NamedIndividual IRI="#studying"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty abbreviatedIRI="crm:P65_shows_visual_item"/>
+        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/includes"/>
         <NamedIndividual IRI="#studying_technique1"/>
-        <NamedIndividual IRI="a_colorful_and_detailed_diagram_of_the_solar_system"/>
+        <NamedIndividual IRI="self_experience"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="leverages"/>
         <NamedIndividual IRI="#studying_technique1"/>
-        <NamedIndividual IRI="#picture_superiority_effect"/>
+        <NamedIndividual IRI="#self_reference_effect"/>
     </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/includes"/>
-        <NamedIndividual IRI="#teaching"/>
-        <NamedIndividual IRI="#observe_enhanced_info"/>
-    </ObjectPropertyAssertion>
-    <SubObjectPropertyOf>
-        <ObjectProperty abbreviatedIRI="crm:P65_shows_visual_item"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
     <InverseObjectProperties>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/hasEngagement"/>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/inActivity"/>
@@ -283,7 +275,7 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/inActivity"/>
-        <Class IRI="VisualLearning"/>
+        <Class IRI="StudyTechnique"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/includes"/>
@@ -302,12 +294,8 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Observation"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="crm:P65_shows_visual_item"/>
-        <Class IRI="VisualLearning"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="leverages"/>
-        <Class IRI="VisualLearning"/>
+        <Class IRI="StudyTechnique"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/hasEngagement"/>
@@ -327,7 +315,7 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isEngagedIn"/>
-        <Class IRI="VisualLearning"/>
+        <Class IRI="StudyTechnique"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
@@ -335,15 +323,11 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
-        <Class IRI="VisualLearning"/>
+        <Class IRI="StudyTechnique"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Observation"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="crm:P65_shows_visual_item"/>
-        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="leverages"/>
@@ -358,16 +342,6 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     </SubObjectPropertyOf>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching</IRI>
-        <Literal>This frame contains words referring to teaching and the participants in teaching.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching</IRI>
-        <Literal>EducationTeaching</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/Entity</IRI>
         <Literal>This class represents any individual or system that is perceiving or processing information.</Literal>
     </AnnotationAssertion>
@@ -378,13 +352,23 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage</IRI>
-        <Literal>This frame describes non-artifact Images resulting from an interation between light and some kind of matter, usually a Source entity.</Literal>
+        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/PerceptionExperience</IRI>
+        <Literal>This frame contains perception words whose Perceivers have perceptual experiences that they do not necessarily intend to.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage</IRI>
-        <Literal>OpticalImage</Literal>
+        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/PerceptionExperience</IRI>
+        <Literal>PerceptionExperience</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/Studying</IRI>
+        <Literal>A Student enrolls and then remains at an Institution for the purposes of education within a Subject. They may receive instruction from a particular Teacher at the Institution. The Place, Time, and Duration of the study may also be specified. He spent ten years studying physics at the lycee before he flunked out.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/Studying</IRI>
+        <Literal>Studying</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -497,11 +481,6 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
         <Literal xml:lang="en">produced observation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>crm:P65_shows_visual_item</AbbreviatedIRI>
-        <Literal>shows visual item</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
         <Literal>The foaf:Person class represents people. Something is a foaf:Person if it is a person. We don&apos;t nitpic about whether they&apos;re alive, dead, real, or imaginary. The foaf:Person class is a sub-class of the foaf:Agent class, since all people are considered &apos;agents&apos; in FOAF.</Literal>
@@ -513,18 +492,13 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>VisualLearning</IRI>
+        <IRI>StudyTechnique</IRI>
         <Literal>This class represents the technique used by the student to study. It could have properties like name (e.g., &quot;highlighting&quot;) and effectiveness (how effective the technique is).</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>VisualLearning</IRI>
-        <Literal>VisualLearning</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>a_colorful_and_detailed_diagram_of_the_solar_system</IRI>
-        <Literal>a colorful and detailed diagram of the solar system</Literal>
+        <IRI>StudyTechnique</IRI>
+        <Literal>StudyTechnique</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -533,33 +507,38 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#observe_enhanced_info</IRI>
-        <Literal>An individual tends to better remember images than words.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#picture_superiority_effect</IRI>
-        <Literal>The Picture Superiority Effect is a phenomenon in cognitive psychology where people tend to better remember images than words.</Literal>
+        <IRI>self_experience</IRI>
+        <Literal>Alice remembers the concept of cognitive dissonance since it happened to her before, when she had to choose between attending a party or studying for an exam.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#picture_superiority_effect</IRI>
-        <Literal>Picture Superiority effect</Literal>
+        <IRI>#observe_enhanced_info</IRI>
+        <Literal>An individual is more likely to remember a concept by connecting it to their own memory or experience.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#self_reference_effect</IRI>
+        <Literal>The self-reference effect is a cognitive process where the self is implicated in processing personal information.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#self_reference_effect</IRI>
+        <Literal>Self-reference effect</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#student_1</IRI>
-        <Literal>Mrs. Johnson</Literal>
+        <Literal>Alice</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#studying</IRI>
+        <Literal>devote time and attention to gaining knowledge of (an academic subject), especially by means of books.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#studying_technique1</IRI>
-        <Literal>incorporate images and diagrams into her future lessons to help her students better understand and remember complex concepts.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#teaching</IRI>
-        <Literal>engagement with learners to enable their understanding and application of knowledge, concepts and processes.</Literal>
+        <Literal>relates an experience to remember a concept for the exam</Literal>
     </AnnotationAssertion>
 </Ontology>
 
