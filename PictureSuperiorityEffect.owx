@@ -1,14 +1,15 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="https://github.com/leonardozilli/Bias_Ontology/VonRostorffEffect/"
+     xml:base="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="https://github.com/leonardozilli/Bias_Ontology/VonRostorffEffect/">
+     ontologyIRI="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/">
     <Prefix name="" IRI="https://github.com/leonardozilli/Bias_Ontology/VonRostorffEffect/"/>
     <Prefix name="dc" IRI="http://purl.org/dc/terms/"/>
     <Prefix name="fs" IRI="http://etna.istc.cnr.it/framesterpage/data/framestercore/"/>
+    <Prefix name="crm" IRI="http://www.cidoc-crm.org/cidoc-crm/"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="par" IRI="http://ontologydesignpatterns.org/cp/owl/parameter.owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
@@ -23,7 +24,7 @@
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:title"/>
-        <Literal xml:lang="en">Von Rostorff effect</Literal>
+        <Literal xml:lang="en">Picture Superiority effect</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom"/>
@@ -51,26 +52,29 @@
     </Annotation>
     <Annotation>
         <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
-        <Literal xml:lang="en">As a student, Maria has a big biology exam coming up. She has a lot of material to cover and wants to ensure she remembers the most important points. She decides to use the Von Restorff effect to her advantage.
+        <Literal xml:lang="en">As a science teacher, Mrs. Johnson is preparing a lesson on the solar system for her 5th-grade class. She knows from her teaching experience that students often struggle to remember the names and order of the planets in the solar system. She decides to leverage the Picture Superiority Effect to enhance her students&apos; learning and retention.
 
-Maria goes through her biology textbook and notes, highlighting key points and important facts with a bright yellow highlighter. She doesn&apos;t highlight everything, just the points she thinks are most important and wants to remember.
+She finds a colorful and detailed diagram of the solar system, which clearly shows each planet in its correct order from the sun. During the lesson, she presents this diagram to her students, explaining each planet&apos;s unique features as she points to them on the image. She encourages the students to visualize the image in their minds as they learn about each planet.
 
-As she studies, Maria notices that the highlighted points stand out from the rest of the text. When she tries to recall information, she finds that the highlighted points come to mind first. The bright yellow color of the highlighter has made these points distinctive, and they&apos;re more memorable as a result.
+In the following class, Mrs. Johnson conducts a pop quiz on the solar system. She is pleased to see that her students perform significantly better on this topic compared to previous ones. Many students are able to correctly name the planets and their order from the sun. Some students even mention that they remembered the planets by visualizing the colorful diagram in their minds.
 
-On the day of the exam, Maria is able to recall the highlighted information easily. The Von Restorff effect has helped her remember the most important points, and she feels confident answering the exam questions. After the exam, Maria plans to use this study technique for her other subjects as well, as it has proven to be effective.</Literal>
+This experience reinforces Mrs. Johnson&apos;s belief in the power of visual learning. She decides to incorporate more images and diagrams into her future lessons to help her students better understand and remember complex concepts.</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <Literal xml:lang="en">Von Rostorff effect is a phenomenon where memory for isolated items is better than memory for non-isolated (homogeneous) items presented in the same serial list position.</Literal>
+        <Literal xml:lang="en">The Picture Superiority Effect is a phenomenon in cognitive psychology where people tend to better remember images than words.</Literal>
     </Annotation>
     <Declaration>
         <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Differentiation"/>
     </Declaration>
     <Declaration>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Entity"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Studying"/>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence"/>
@@ -103,7 +107,7 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
     </Declaration>
     <Declaration>
-        <Class IRI="StudyTechnique"/>
+        <Class IRI="VisualLearning"/>
     </Declaration>
     <Declaration>
         <Class IRI="https://w3id.org/affectedBy/https://w3id.org/affectedBy/#Quality"/>
@@ -130,25 +134,31 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty abbreviatedIRI="crm:P65_shows_visual_item"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="leverages"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="a_colorful_and_detailed_diagram_of_the_solar_system"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#observe_enhanced_info"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#picture_superiority_effect"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#student_1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#studying"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#studying_technique1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#von_rostorff_effect"/>
+        <NamedIndividual IRI="#teaching"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty abbreviatedIRI="dc:creator"/>
@@ -172,7 +182,7 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
     </Declaration>
     <EquivalentClasses>
-        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Studying"/>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching"/>
         <Class abbreviatedIRI="activ:Activity"/>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -191,7 +201,7 @@ On the day of the exam, Maria is able to recall the highlighted information easi
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Engagement"/>
-        <Class IRI="StudyTechnique"/>
+        <Class IRI="VisualLearning"/>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Prompt"/>
@@ -238,24 +248,28 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <Class abbreviatedIRI="activ:Activity"/>
     </DisjointClasses>
     <ClassAssertion>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage"/>
+        <NamedIndividual IRI="a_colorful_and_detailed_diagram_of_the_solar_system"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Observation"/>
         <NamedIndividual IRI="#observe_enhanced_info"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence"/>
+        <NamedIndividual IRI="#picture_superiority_effect"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
         <NamedIndividual IRI="#student_1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/Studying"/>
-        <NamedIndividual IRI="#studying"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="StudyTechnique"/>
+        <Class IRI="VisualLearning"/>
         <NamedIndividual IRI="#studying_technique1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence"/>
-        <NamedIndividual IRI="#von_rostorff_effect"/>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching"/>
+        <NamedIndividual IRI="#teaching"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
@@ -263,28 +277,33 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <NamedIndividual IRI="#studying_technique1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
+        <NamedIndividual IRI="#picture_superiority_effect"/>
+        <NamedIndividual IRI="#observe_enhanced_info"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isEngagedIn"/>
         <NamedIndividual IRI="#student_1"/>
         <NamedIndividual IRI="#studying_technique1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/includes"/>
-        <NamedIndividual IRI="#studying"/>
-        <NamedIndividual IRI="#observe_enhanced_info"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/inActivity"/>
         <NamedIndividual IRI="#studying_technique1"/>
-        <NamedIndividual IRI="#studying"/>
+        <NamedIndividual IRI="#teaching"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="crm:P65_shows_visual_item"/>
+        <NamedIndividual IRI="#studying_technique1"/>
+        <NamedIndividual IRI="a_colorful_and_detailed_diagram_of_the_solar_system"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="leverages"/>
         <NamedIndividual IRI="#studying_technique1"/>
-        <NamedIndividual IRI="#von_rostorff_effect"/>
+        <NamedIndividual IRI="#picture_superiority_effect"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
-        <NamedIndividual IRI="#von_rostorff_effect"/>
+        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/includes"/>
+        <NamedIndividual IRI="#teaching"/>
         <NamedIndividual IRI="#observe_enhanced_info"/>
     </ObjectPropertyAssertion>
     <DataPropertyAssertion>
@@ -292,6 +311,10 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <NamedIndividual IRI="#studying_technique1"/>
         <Literal>high</Literal>
     </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="crm:P65_shows_visual_item"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
     <InverseObjectProperties>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/hasEngagement"/>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/inActivity"/>
@@ -306,7 +329,7 @@ On the day of the exam, Maria is able to recall the highlighted information easi
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/inActivity"/>
-        <Class IRI="StudyTechnique"/>
+        <Class IRI="VisualLearning"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/includes"/>
@@ -325,8 +348,12 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Observation"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="crm:P65_shows_visual_item"/>
+        <Class IRI="VisualLearning"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="leverages"/>
-        <Class IRI="StudyTechnique"/>
+        <Class IRI="VisualLearning"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/hasEngagement"/>
@@ -346,7 +373,7 @@ On the day of the exam, Maria is able to recall the highlighted information easi
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isEngagedIn"/>
-        <Class IRI="StudyTechnique"/>
+        <Class IRI="VisualLearning"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
@@ -354,11 +381,15 @@ On the day of the exam, Maria is able to recall the highlighted information easi
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
-        <Class IRI="StudyTechnique"/>
+        <Class IRI="VisualLearning"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
         <Class IRI="http://modellingdh.github.io/ont/odp/term/Observation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="crm:P65_shows_visual_item"/>
+        <Class IRI="http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="leverages"/>
@@ -387,6 +418,16 @@ On the day of the exam, Maria is able to recall the highlighted information easi
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching</IRI>
+        <Literal>This frame contains words referring to teaching and the participants in teaching.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching</IRI>
+        <Literal>EducationTeaching</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/Entity</IRI>
         <Literal>This class represents any individual or system that is perceiving or processing information.</Literal>
     </AnnotationAssertion>
@@ -397,13 +438,13 @@ On the day of the exam, Maria is able to recall the highlighted information easi
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/Studying</IRI>
-        <Literal>A Student enrolls and then remains at an Institution for the purposes of education within a Subject. They may receive instruction from a particular Teacher at the Institution. The Place, Time, and Duration of the study may also be specified. He spent ten years studying physics at the lycee before he flunked out.</Literal>
+        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage</IRI>
+        <Literal>This frame describes non-artifact Images resulting from an interation between light and some kind of matter, usually a Source entity.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/Studying</IRI>
-        <Literal>Studying</Literal>
+        <IRI>http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage</IRI>
+        <Literal>OpticalImage</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -526,6 +567,11 @@ On the day of the exam, Maria is able to recall the highlighted information easi
         <Literal xml:lang="en">produced observation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>crm:P65_shows_visual_item</AbbreviatedIRI>
+        <Literal>shows visual item</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</IRI>
         <Literal>A concept is a SocialObject, and isDefinedIn a Description . 
@@ -543,6 +589,11 @@ Ordering on subparameters can be created by using or specializing the object pro
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</IRI>
         <Literal>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/parameter.owl</IRI>
+        <Literal>Concept</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -578,13 +629,18 @@ High rdf:type Person and (some hasHeight (Height and (oneOf isTallerThan 185) an
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>StudyTechnique</IRI>
+        <IRI>VisualLearning</IRI>
         <Literal>This class represents the technique used by the student to study. It could have properties like name (e.g., &quot;highlighting&quot;) and effectiveness (how effective the technique is).</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>StudyTechnique</IRI>
-        <Literal>StudyTechnique</Literal>
+        <IRI>VisualLearning</IRI>
+        <Literal>VisualLearning</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>a_colorful_and_detailed_diagram_of_the_solar_system</IRI>
+        <Literal>a colorful and detailed diagram of the solar system</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -594,32 +650,32 @@ High rdf:type Person and (some hasHeight (Height and (oneOf isTallerThan 185) an
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#observe_enhanced_info</IRI>
-        <Literal>An individual is more likely to remember an item that stands out from a group of similar items.</Literal>
+        <Literal>An individual tends to better remember images than words.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#picture_superiority_effect</IRI>
+        <Literal>The Picture Superiority Effect is a phenomenon in cognitive psychology where people tend to better remember images than words.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#picture_superiority_effect</IRI>
+        <Literal>Picture Superiority effect</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#student_1</IRI>
-        <Literal>Maria</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#studying</IRI>
-        <Literal>devote time and attention to gaining knowledge of (an academic subject), especially by means of books.</Literal>
+        <Literal>Mrs. Johnson</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#studying_technique1</IRI>
-        <Literal>highlighting key points during studies.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#von_rostorff_effect</IRI>
-        <Literal>The Von Restorff effect, also known as the &quot;isolation effect&quot;, is a psychological phenomenon where an individual is more likely to remember an item that stands out from a group of similar items. This effect was first identified by Hedwig von Restorff in 1933. The principle behind this effect is that the item that differs from the rest is more memorable due to its increased salience.</Literal>
+        <Literal>incorporate images and diagrams into her future lessons to help her students better understand and remember complex concepts.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#von_rostorff_effect</IRI>
-        <Literal>Von Rostorff effect</Literal>
+        <IRI>#teaching</IRI>
+        <Literal>engagement with learners to enable their understanding and application of knowledge, concepts and processes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
