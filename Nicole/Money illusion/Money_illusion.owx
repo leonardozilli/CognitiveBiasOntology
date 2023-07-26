@@ -13,6 +13,7 @@
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>https://raw.githubusercontent.com/modellingDH/odp_experience/master/owl/cp_experience.owl.ttl</Import>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="ont:moduledBy"/>
         <Literal>Nicole Liggeri</Literal>
@@ -73,9 +74,6 @@
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty abbreviatedIRI="ont:affectsEconomicDecision"/>
     </Declaration>
     <Declaration>
@@ -103,8 +101,8 @@
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <InverseObjectProperties>
+        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectedUponIn"/>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
     </InverseObjectProperties>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/inActivity"/>
@@ -166,11 +164,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>http://modellingdh.github.io/ont/odp/term/Engagement</IRI>
         <Literal>The product of a reflection upon an observation, which embodies subjective traits of an experience.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://modellingdh.github.io/ont/odp/term/Prompt</IRI>
-        <Literal>Good object of the money illusion bias</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
