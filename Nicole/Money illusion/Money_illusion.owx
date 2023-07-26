@@ -6,195 +6,55 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://www.semanticweb.org/nicole/ontologies/2023/6/money-illusion">
-    <Prefix name="" IRI="http://www.semanticweb.org/nicole/ontologies/2023/6/money-illusion/"/>
-    <Prefix name="ont" IRI="http://www.co-ode.org/ontologies/ont.owl#"/>
+    <Prefix name="" IRI="http://modellingdh.github.io/ont/odp/term/"/>
+    <Prefix name="cp" IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/terms/"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Import>https://raw.githubusercontent.com/modellingDH/odp_experience/master/owl/cp_experience.owl.ttl</Import>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="ont:moduledBy"/>
-        <Literal>Nicole Liggeri</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <Literal>Money illusion bias refers to a cognitive bias where individuals tend to misinterpret or misunderstand the true value of money due to changes in nominal prices. It occurs when people focus on the nominal value of money (i.e., the face value) rather than considering its purchasing power (i.e., the real value). This bias can lead to flawed decision-making and economic judgments.</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <Literal>https://en.wikipedia.org/wiki/Money_illusion</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <Literal>https://ui.adsabs.harvard.edu/abs/2009PNAS..106.5025W/abstract</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <Literal>https://www.jstor.org/stable/2677924</Literal>
-    </Annotation>
+    <Prefix name="activ" IRI="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/"/>
+    <Prefix name="provo" IRI="http://www.w3.org/ns/prov#"/>
     <Declaration>
-        <Class IRI="http://modellingdh.github.io/ont/odp/term/Engagement"/>
+        <Class abbreviatedIRI=":Engagement"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://modellingdh.github.io/ont/odp/term/Prompt"/>
+        <Class abbreviatedIRI="activ:Activity"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Economic_decision"/>
+        <ObjectProperty abbreviatedIRI=":hasEngagement"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Inflation"/>
+        <ObjectProperty abbreviatedIRI=":inActivity"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Inflation_rate"/>
+        <ObjectProperty abbreviatedIRI=":includes"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Material_good"/>
+        <ObjectProperty abbreviatedIRI=":isEngagedIn"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Nominal_value"/>
+        <ObjectProperty abbreviatedIRI=":isReflectedUponIn"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Real_value"/>
+        <ObjectProperty abbreviatedIRI=":isReflectionOn"/>
     </Declaration>
     <Declaration>
-        <Class IRI="https://w3id.org/framester/data/framestercore/CauseChange"/>
+        <ObjectProperty abbreviatedIRI=":producedObservation"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/inActivity"/>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isEngagedIn"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
     </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="ont:affectsEconomicDecision"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="ont:hasInflationRate"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="ont:hasNominalValue"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="ont:hasRealValue"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="ont:moduledBy"/>
-    </Declaration>
-    <SubClassOf>
-        <Class IRI="#Inflation"/>
-        <Class IRI="https://w3id.org/framester/data/framestercore/CauseChange"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Material_good"/>
-        <Class IRI="http://modellingdh.github.io/ont/odp/term/Prompt"/>
-    </SubClassOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty abbreviatedIRI="ont:hasInflationRate"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectedUponIn"/>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
-    </InverseObjectProperties>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/inActivity"/>
-        <Class IRI="http://modellingdh.github.io/ont/odp/term/Engagement"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isEngagedIn"/>
-        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
-        <Class IRI="#Nominal_value"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="ont:affectsEconomicDecision"/>
-        <Class IRI="http://modellingdh.github.io/ont/odp/term/Engagement"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="ont:hasInflationRate"/>
-        <Class IRI="#Inflation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="ont:hasNominalValue"/>
-        <Class IRI="http://modellingdh.github.io/ont/odp/term/Prompt"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="ont:hasRealValue"/>
-        <Class IRI="http://modellingdh.github.io/ont/odp/term/Prompt"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/inActivity"/>
-        <Class IRI="#Economic_decision"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isEngagedIn"/>
-        <Class IRI="http://modellingdh.github.io/ont/odp/term/Engagement"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
-        <Class IRI="http://modellingdh.github.io/ont/odp/term/Engagement"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="ont:affectsEconomicDecision"/>
-        <Class IRI="#Economic_decision"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="ont:hasInflationRate"/>
-        <Class IRI="#Inflation_rate"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="ont:hasNominalValue"/>
-        <Class IRI="#Nominal_value"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="ont:hasRealValue"/>
-        <Class IRI="#Real_value"/>
-    </ObjectPropertyRange>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://modellingdh.github.io/ont/odp/term/Engagement</IRI>
-        <Literal>The product of a reflection upon an observation, which embodies subjective traits of an experience.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person</IRI>
-        <Literal>Individual experiencing money illusion bias</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Economic_decision</IRI>
-        <Literal>Represents the various economic decisions and behaviors affected by money illusion bias, such as saving, spending, investment, and labor negotiations.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Inflation_rate</IRI>
-        <Literal>Percentage change in the general price level.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Nominal_value</IRI>
-        <Literal>Represents the nominal value of money, which refers to its face value or numerical amount.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Real_value</IRI>
-        <Literal>Represents the real value of money, which accounts for changes in purchasing power due to inflation or other factors.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://w3id.org/framester/data/framestercore/CauseChange</IRI>
-        <Literal>Context in which money illusion bias can arise.</Literal>
-    </AnnotationAssertion>
 </Ontology>
 
 
