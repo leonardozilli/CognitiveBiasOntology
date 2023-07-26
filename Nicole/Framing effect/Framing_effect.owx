@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/nicole/ontologies/2023/6/Framing_effect"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/nicole/ontologies/2023/6/Framing_effect">
+    <Prefix name="" IRI="http://www.semanticweb.org/nicole/ontologies/2023/6/Framing_effect/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>https://raw.githubusercontent.com/modellingDH/odp_experience/master/owl/cp_experience.owl.ttl</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal>The framing effect is a cognitive bias that occurs when people make decisions or judgments based on the way information is presented to them, rather than on the actual content of the information. In other words, the way a question or statement is phrased (framed) can significantly influence people&apos;s choices and perceptions, even if the underlying information is the same.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <Literal>https://en.wikipedia.org/wiki/Framing_effect_(psychology)</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <Literal>https://www.treccani.it/enciclopedia/framing-effect_%28Dizionario-di-Economia-e-Finanza%29/</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <Literal>http://ontologydesignpatterns.org/wiki/Submissions:Experience_%26_Observation</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="http://modellingdh.github.io/ont/odp/term/Engagement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://modellingdh.github.io/ont/odp/term/Prompting"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Framing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Perception"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFraming"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influences"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isInfluencedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="https://github.com/modellingDH/odp_experience#producedPerception"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasTypeOfFraming"/>
+    </Declaration>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#influences"/>
+        <ObjectProperty IRI="#isInfluencedBy"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
+        <Class IRI="http://modellingdh.github.io/ont/odp/term/Prompting"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFraming"/>
+        <Class IRI="http://modellingdh.github.io/ont/odp/term/Prompting"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#influences"/>
+        <Class IRI="/Framing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="https://github.com/modellingDH/odp_experience#producedPerception"/>
+        <Class IRI="http://modellingdh.github.io/ont/odp/term/Prompting"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFraming"/>
+        <Class IRI="/Framing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#influences"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Perception"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="https://github.com/modellingDH/odp_experience#producedPerception"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Perception"/>
+    </ObjectPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasTypeOfFraming"/>
+        <DataOneOf>
+            <Literal>negative</Literal>
+            <Literal>positive</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://modellingdh.github.io/ont/odp/term/Engagement</IRI>
+        <Literal>The product of a reflection upon an observation, which embodies subjective traits of an experience.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://modellingdh.github.io/ont/odp/term/Prompting</IRI>
+        <Literal>Good object of the framing effect</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity</IRI>
+        <Literal>Activity generated by a certain engagement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person</IRI>
+        <Literal>Individual experiencing framing effect</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Framing</IRI>
+        <Literal>The way information is presented.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://w3id.org/framester/data/framestercore/Perception</IRI>
+        <Literal>Represents the psychological perception or response to a stimulus. The product of an act of scrutiny which may or may not have been performed with a critical disposition.</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
