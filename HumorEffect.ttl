@@ -14,7 +14,9 @@
                                                                       <http://purl.org/dc/terms/creator> "Leonardo Zilli" ;
                                                                       <http://purl.org/dc/terms/description> "The Humor effect module of the Cognitive Bias Ontology." ;
                                                                       <http://purl.org/dc/terms/title> "Humor effect ontology" ;
-                                                                      rdfs:comment "The humor effect is the tendencye of humorous material to be better remembered than common material." .
+                                                                      rdfs:comment """Scenario:
+A company creates a humorous television commercial for their product. The funny storyline and witty dialogue engage viewers, making the advertisement more memorable. As a result, consumers are more likely to remember the product and its key features when making purchasing decisions.""" ,
+                                                                                   "The humor effect is the tendencye of humorous material to be better remembered than common material." .
 
 #################################################################
 #    Annotation properties
