@@ -1,0 +1,427 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://github.com/leonardozilli/Bias_Ontology/VonRostorffEffect/"
+     xml:base="https://github.com/leonardozilli/Bias_Ontology/VonRostorffEffect/"
+     xmlns:dc="http://purl.org/dc/terms/"
+     xmlns:fs="http://etna.istc.cnr.it/framesterpage/data/framestercore/"
+     xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:par="http://ontologydesignpatterns.org/cp/owl/parameter.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:term="http://modellingdh.github.io/ont/odp/term/"
+     xmlns:activ="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:PictureSuperiorityEffect="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/">
+    <owl:Ontology rdf:about="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+        <dc:creator>Evan Arnoldi</dc:creator>
+        <dc:title xml:lang="en">Picture Superiority effect</dc:title>
+        <cpannotationschema:extractedFrom rdf:resource="https://raw.githubusercontent.com/eureadit/reading-experience-ontology/master/data-model-v2.owl"/>
+        <cpannotationschema:hasComponent rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://ontologydesignpatterns.org/cp/owl/transition.owl"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/observation.owl"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/persons.owl"/>
+        <cpannotationschema:scenarios xml:lang="en">As a science teacher, Mrs. Johnson is preparing a lesson on the solar system for her 5th-grade class. She knows from her teaching experience that students often struggle to remember the names and order of the planets in the solar system. She decides to leverage the Picture Superiority Effect to enhance her students&apos; learning and retention.
+
+She finds a colorful and detailed diagram of the solar system, which clearly shows each planet in its correct order from the sun. During the lesson, she presents this diagram to her students, explaining each planet&apos;s unique features as she points to them on the image. She encourages the students to visualize the image in their minds as they learn about each planet.
+
+In the following class, Mrs. Johnson conducts a pop quiz on the solar system. She is pleased to see that her students perform significantly better on this topic compared to previous ones. Many students are able to correctly name the planets and their order from the sun. Some students even mention that they remembered the planets by visualizing the colorful diagram in their minds.
+
+This experience reinforces Mrs. Johnson&apos;s belief in the power of visual learning. She decides to incorporate more images and diagrams into her future lessons to help her students better understand and remember complex concepts.</cpannotationschema:scenarios>
+        <rdfs:comment xml:lang="en">The Picture Superiority Effect is a phenomenon in cognitive psychology where people tend to better remember images than words.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/hasEngagement -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/hasEngagement">
+        <owl:inverseOf rdf:resource="http://modellingdh.github.io/ont/odp/term/inActivity"/>
+        <rdfs:range rdf:resource="http://modellingdh.github.io/ont/odp/term/Engagement"/>
+        <rdfs:label xml:lang="en">has engagement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/inActivity -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity">
+        <rdfs:domain rdf:resource="http://modellingdh.github.io/ont/odp/term/Engagement"/>
+        <rdfs:domain rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/VisualLearning"/>
+        <rdfs:range rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+        <dc:description xml:lang="en">what activity/ies are affecting or affected by a certain engagement</dc:description>
+        <rdfs:label xml:lang="en">in activity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/includes -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/includes">
+        <rdfs:domain rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+        <rdfs:range rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <dc:description xml:lang="en">A relation of mereological nature that connects a given observation with the activity that originates them: it strengthens the argument that observations are always active processes from a cognitive standpoint, regardless of how conscious they may be.</dc:description>
+        <rdfs:comment xml:lang="en">A standard mereological property from another content pattern may be used in lieu of this one and therefore aligned with it.</rdfs:comment>
+        <rdfs:label xml:lang="en">includes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/isEngagedIn -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn">
+        <rdfs:domain rdf:resource="http://etna.istc.cnr.it/framester2/data/framestercore/Entity"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://modellingdh.github.io/ont/odp/term/Engagement"/>
+        <rdfs:range rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/VisualLearning"/>
+        <dc:description xml:lang="en">Because an activity may engage other participants than the one performing it, engagements are in general considered individual rather than collective, therefore each participants has their own engagement and only some of them will be conscious and/or documented.</dc:description>
+        <rdfs:label xml:lang="en">engaged in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/isReflectedUponIn -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectedUponIn">
+        <owl:inverseOf rdf:resource="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
+        <rdfs:label xml:lang="en">is reflected upon in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/isReflectionOn -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectionOn">
+        <rdfs:domain rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <rdfs:range rdf:resource="http://modellingdh.github.io/ont/odp/term/Engagement"/>
+        <rdfs:range rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/VisualLearning"/>
+        <dc:description xml:lang="en">Used to connect the subjective elements of an experience with the corresponding observation, which is extrapolated from the content being interacted with and in itself may not be including a critique.</dc:description>
+        <rdfs:label xml:lang="en">is reflection on</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/producedObservation -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/producedObservation">
+        <rdfs:range rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://modellingdh.github.io/ont/odp/term/hasEngagement"/>
+            <rdf:Description rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectedUponIn"/>
+        </owl:propertyChainAxiom>
+        <dc:description xml:lang="en">This property can be used to denote that something is (even indirectly, not necessary through direct reflection) responsible for the existence of an observation.</dc:description>
+        <rdfs:label xml:lang="en">produced observation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cidoc-crm.org/cidoc-crm/P65_shows_visual_item -->
+
+    <owl:ObjectProperty rdf:about="http://www.cidoc-crm.org/cidoc-crm/P65_shows_visual_item">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/VisualLearning"/>
+        <rdfs:range rdf:resource="http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage"/>
+        <rdfs:label>shows visual item</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/leverages -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/leverages">
+        <rdfs:domain rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/VisualLearning"/>
+        <rdfs:range rdf:resource="http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence"/>
+        <rdfs:label>leverages</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching -->
+
+    <owl:Class rdf:about="http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching">
+        <owl:equivalentClass rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+        <rdfs:comment>This frame contains words referring to teaching and the participants in teaching.</rdfs:comment>
+        <rdfs:label>EducationTeaching</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://etna.istc.cnr.it/framester2/data/framestercore/Entity -->
+
+    <owl:Class rdf:about="http://etna.istc.cnr.it/framester2/data/framestercore/Entity">
+        <rdfs:comment>This class represents any individual or system that is perceiving or processing information.</rdfs:comment>
+        <rdfs:label>Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage -->
+
+    <owl:Class rdf:about="http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage">
+        <rdfs:comment>This frame describes non-artifact Images resulting from an interation between light and some kind of matter, usually a Source entity.</rdfs:comment>
+        <rdfs:label>OpticalImage</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence -->
+
+    <owl:Class rdf:about="http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence">
+        <owl:equivalentClass rdf:resource="http://modellingdh.github.io/ont/odp/term/Prompt"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
+                        <owl:someValuesFrom rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+        <rdfs:comment>An Agent, Situation or Entity has an influence on a Cognizer. The influence may be general; or it may be manifested in the Cognizer&apos;s engaging in an Action as a consequence of the influence; or the Cognizer may be influenced in how they carry out a Behavior that they are engaged in already.</rdfs:comment>
+        <rdfs:label>SubjectiveInfluence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/Engagement -->
+
+    <owl:Class rdf:about="http://modellingdh.github.io/ont/odp/term/Engagement">
+        <owl:equivalentClass rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/VisualLearning"/>
+        <dc:description xml:lang="en">The product of a reflection upon an observation, which embodies subjective traits of an experience (Example: &quot;After reading this passage of &apos;To Kill a Mockingbird&apos;, I came to a clearer understanding of the many facets of social intolerance&quot;).</dc:description>
+        <rdfs:label xml:lang="en">Engagement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/Observation -->
+
+    <owl:Class rdf:about="http://modellingdh.github.io/ont/odp/term/Observation">
+        <dc:description xml:lang="en">The product of an act of scrutiny which may or may not have been performed with a critical disposition (Example: &quot;My thoughts from reading this passage of &apos;To Kill a Mockingbird&apos;&quot;).</dc:description>
+        <rdfs:comment xml:lang="en">A disjointness or alignment between this class and &lt;http://www.ontologydesignpatterns.org/cp/owl/observation.owl#Observation&gt; in the Observation content pattern is plausible but subject to debate, hence will not be formalised herein.</rdfs:comment>
+        <rdfs:label xml:lang="en">Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/Prompt -->
+
+    <owl:Class rdf:about="http://modellingdh.github.io/ont/odp/term/Prompt">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
+                        <owl:someValuesFrom rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+        <dc:description xml:lang="en">The stimulus within an activity that causes an observation.</dc:description>
+        <rdfs:label xml:lang="en">Prompt</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity -->
+
+    <owl:Class rdf:about="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:comment>The foaf:Person class represents people. Something is a foaf:Person if it is a person. We don&apos;t nitpic about whether they&apos;re alive, dead, real, or imaginary. The foaf:Person class is a sub-class of the foaf:Agent class, since all people are considered &apos;agents&apos; in FOAF.</rdfs:comment>
+        <rdfs:label>Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/VisualLearning -->
+
+    <owl:Class rdf:about="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/VisualLearning">
+        <rdfs:comment>This class represents the technique used by the student to study. It could have properties like name (e.g., &quot;highlighting&quot;) and effectiveness (how effective the technique is).</rdfs:comment>
+        <rdfs:label>VisualLearning</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/a_colorful_and_detailed_diagram_of_the_solar_system -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/a_colorful_and_detailed_diagram_of_the_solar_system">
+        <rdf:type rdf:resource="http://etna.istc.cnr.it/framester2/data/framestercore/OpticalImage"/>
+        <rdfs:label>a colorful and detailed diagram of the solar system</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#observe_enhanced_info -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#observe_enhanced_info">
+        <rdf:type rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <term:isReflectionOn rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#studying_technique1"/>
+        <rdfs:label>An individual tends to better remember images than words.</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#picture_superiority_effect -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#picture_superiority_effect">
+        <rdf:type rdf:resource="http://etna.istc.cnr.it/framester2/data/framestercore/SubjectiveInfluence"/>
+        <term:producedObservation rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#observe_enhanced_info"/>
+        <rdfs:comment>The Picture Superiority Effect is a phenomenon in cognitive psychology where people tend to better remember images than words.</rdfs:comment>
+        <rdfs:label>Picture Superiority effect</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#student_1 -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#student_1">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <term:isEngagedIn rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#studying_technique1"/>
+        <rdfs:label>Mrs. Johnson</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#studying_technique1 -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#studying_technique1">
+        <rdf:type rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/VisualLearning"/>
+        <term:inActivity rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#teaching"/>
+        <crm:P65_shows_visual_item rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/a_colorful_and_detailed_diagram_of_the_solar_system"/>
+        <PictureSuperiorityEffect:leverages rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#picture_superiority_effect"/>
+        <rdfs:label>incorporate images and diagrams into her future lessons to help her students better understand and remember complex concepts.</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#teaching -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#teaching">
+        <rdf:type rdf:resource="http://etna.istc.cnr.it/framester2/data/framestercore/EducationTeaching"/>
+        <term:includes rdf:resource="https://github.com/leonardozilli/Bias_Ontology/PictureSuperiorityEffect/#observe_enhanced_info"/>
+        <rdfs:label>engagement with learners to enable their understanding and application of knowledge, concepts and processes.</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://etna.istc.cnr.it/framester2/data/framestercore/Entity"/>
+            <rdf:Description rdf:about="http://modellingdh.github.io/ont/odp/term/Engagement"/>
+            <rdf:Description rdf:about="http://modellingdh.github.io/ont/odp/term/Observation"/>
+            <rdf:Description rdf:about="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
