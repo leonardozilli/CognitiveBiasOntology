@@ -1,102 +1,169 @@
-@prefix : <https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect#> .
-@prefix fs: <https://w3id.org/framester/data/framestercore/> .
-@prefix cbo: <https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect> .
-
-<https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect> rdf:type owl:Ontology ;
-                                                                    owl:imports <https://raw.githubusercontent.com/modellingDH/odp_experience/master/owl/cp_experience.owl.ttl> ;
-                                                                    <http://purl.org/dc/terms/created> "2023-07-23" ;
-                                                                    <http://purl.org/dc/terms/creator> "Leonardo Zilli" ;
-                                                                    <http://purl.org/dc/terms/description> "The Bizarreness effect module of the Cognitive Bias Ontology." ;
-                                                                    <http://purl.org/dc/terms/title> "Bizarreness effect ontology" ;
-                                                                    rdfs:comment "The Bizarreness effect is the tendency of bizarre material to be better remembered than common material." .
-
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  http://purl.org/dc/terms/created
-<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#"
+     xml:base="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect"
+     xmlns:fs="https://w3id.org/framester/data/framestercore/"
+     xmlns:cbo="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:term="http://modellingdh.github.io/ont/odp/term/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
+    <owl:Ontology rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect">
+        <owl:imports rdf:resource="https://raw.githubusercontent.com/modellingDH/odp_experience/master/owl/cp_experience.owl.ttl"/>
+        <terms:created>2023-07-23</terms:created>
+        <terms:creator>Leonardo Zilli</terms:creator>
+        <terms:description>The Bizarreness effect module of the Cognitive Bias Ontology.</terms:description>
+        <terms:title>Bizarreness effect ontology</terms:title>
+        <rdfs:comment>The Bizarreness effect is the tendency of bizarre material to be better remembered than common material.</rdfs:comment>
+    </owl:Ontology>
+    
 
 
-#################################################################
-#    Classes
-#################################################################
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-###  https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect#BizarreContent
-cbo:BizarreContent rdf:type owl:Class ;
-                   owl:equivalentClass fs:Prominence ;
-                   rdfs:subClassOf cbo:MentalContent .
-
-
-###  https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect#MentalContent
-cbo:MentalContent rdf:type owl:Class ;
-                  rdfs:subClassOf <http://modellingdh.github.io/ont/odp/term/Prompt> .
+    
 
 
-###  https://w3id.org/framester/data/framestercore/ExperiencerObj
-fs:ExperiencerObj rdf:type owl:Class ;
-                  rdfs:subClassOf <http://modellingdh.github.io/ont/odp/term/Engagement> ;
-                  rdfs:comment "Some phenomenon (the Stimulus) provokes a particular emotion in an Experiencer. Nightmare on Elm Street scared me silly." .
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
 
 
-###  https://w3id.org/framester/data/framestercore/Memory
-fs:Memory rdf:type owl:Class ;
-          rdfs:subClassOf <http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity> ;
-          rdfs:comment "This frame is concerned with Cognizers remembering and forgetting mental Content." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
 
 
-###  https://w3id.org/framester/data/framestercore/Prominence
-fs:Prominence rdf:type owl:Class ;
-              rdfs:subClassOf fs:Memory ;
-              rdfs:comment "An Entity stands out perceptually in comparison to other members of its type." .
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#BizarreContent -->
+
+    <owl:Class rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#BizarreContent">
+        <owl:equivalentClass rdf:resource="https://w3id.org/framester/data/framestercore/Prominence"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#MentalContent"/>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/framester/data/framestercore/Typicality
-fs:Typicality rdf:type owl:Class ;
-              rdfs:subClassOf <http://modellingdh.github.io/ont/odp/term/Observation> ;
-              rdfs:comment "An Entity is generally, or with regard to a particular Feature, representative of the Comparison_set of which it is a member." .
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#MentalContent -->
+
+    <owl:Class rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#MentalContent">
+        <rdfs:subClassOf rdf:resource="http://modellingdh.github.io/ont/odp/term/Prompt"/>
+    </owl:Class>
+    
 
 
-#################################################################
-#    Individuals
-#################################################################
+    <!-- https://w3id.org/framester/data/framestercore/ExperiencerObj -->
 
-###  https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect#bizarre_article
-cbo:bizarre_article rdf:type owl:NamedIndividual ,
-                             cbo:BizarreContent .
-
-
-###  https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect#decoded_prominent_memory
-cbo:decoded_prominent_memory rdf:type owl:NamedIndividual ,
-                                      fs:Prominence .
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/ExperiencerObj">
+        <rdfs:subClassOf rdf:resource="http://modellingdh.github.io/ont/odp/term/Engagement"/>
+        <rdfs:comment>Some phenomenon (the Stimulus) provokes a particular emotion in an Experiencer. Nightmare on Elm Street scared me silly.</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect#emotional_stimulus
-cbo:emotional_stimulus rdf:type owl:NamedIndividual ,
-                                fs:ExperiencerObj ;
-                       <http://modellingdh.github.io/ont/odp/term/inActivity> cbo:memory_encoding .
+    <!-- https://w3id.org/framester/data/framestercore/Memory -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Memory">
+        <rdfs:subClassOf rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+        <rdfs:comment>This frame is concerned with Cognizers remembering and forgetting mental Content.</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect#memory_encoding
-cbo:memory_encoding rdf:type owl:NamedIndividual ,
-                             fs:Memory .
+    <!-- https://w3id.org/framester/data/framestercore/Prominence -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Prominence">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
+        <rdfs:comment>An Entity stands out perceptually in comparison to other members of its type.</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect#mundane_article
-cbo:mundane_article rdf:type owl:NamedIndividual ,
-                             cbo:MentalContent .
+    <!-- https://w3id.org/framester/data/framestercore/Typicality -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Typicality">
+        <rdfs:subClassOf rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <rdfs:comment>An Entity is generally, or with regard to a particular Feature, representative of the Comparison_set of which it is a member.</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://github.com/leonardozilli/Bias_Ontology/BizarrenessEffect#newspaper_reader
-cbo:newspaper_reader rdf:type owl:NamedIndividual ,
-                              <http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person> ;
-                     <http://modellingdh.github.io/ont/odp/term/isEngagedIn> cbo:emotional_stimulus .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
 
 
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#bizarre_article -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#bizarre_article">
+        <rdf:type rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#BizarreContent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#decoded_prominent_memory -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#decoded_prominent_memory">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Prominence"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#emotional_stimulus -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#emotional_stimulus">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/ExperiencerObj"/>
+        <term:inActivity rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#memory_encoding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#memory_encoding -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#memory_encoding">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#mundane_article -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#mundane_article">
+        <rdf:type rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#MentalContent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#newspaper_reader -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#newspaper_reader">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person"/>
+        <term:isEngagedIn rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/BizarrenessEffect#emotional_stimulus"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
