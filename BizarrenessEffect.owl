@@ -17,6 +17,7 @@
         <terms:creator>Leonardo Zilli</terms:creator>
         <terms:description>The Bizarreness effect module of the Cognitive Bias Ontology.</terms:description>
         <terms:title>Bizarreness effect ontology</terms:title>
+        <cpannotationschema:scenarios>A newspaper publishes an article that includes a bizarre or unexpected element. Out of all the articles in the newspaper, readers are more likely to remember and share such article due to its intriguing and unusual nature.</cpannotationschema:scenarios>
         <rdfs:comment>The Bizarreness effect is the tendency of bizarre material to be better remembered than common material.</rdfs:comment>
     </owl:Ontology>
     
