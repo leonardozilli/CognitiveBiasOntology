@@ -1,0 +1,116 @@
+@prefix : <https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#> .
+@prefix fs: <https://w3id.org/framester/data/framestercore/> .
+@prefix cbo: <https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect> .
+
+<https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect> rdf:type owl:Ontology ;
+                                                                      owl:imports <https://raw.githubusercontent.com/modellingDH/odp_experience/master/owl/cp_experience.owl.ttl> ;
+                                                                      <http://purl.org/dc/terms/created> "2023-07-23" ;
+                                                                      <http://purl.org/dc/terms/creator> "Leonardo Zilli" ;
+                                                                      <http://purl.org/dc/terms/description> "The Humor effect module of the Cognitive Bias Ontology." ;
+                                                                      <http://purl.org/dc/terms/title> "Humor effect ontology" ;
+                                                                      rdfs:comment """Scenario:
+A company creates a humorous television commercial for their product. The funny storyline and witty dialogue engage viewers, making the advertisement more memorable. As a result, consumers are more likely to remember the product and its key features when making purchasing decisions.""" ,
+                                                                                   "The humor effect is the tendencye of humorous material to be better remembered than common material." .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#Humor
+cbo:Humor rdf:type owl:Class ;
+          rdfs:subClassOf fs:Feeling .
+
+
+###  https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#HumorousContent
+cbo:HumorousContent rdf:type owl:Class ;
+                    owl:equivalentClass fs:Prominence ;
+                    rdfs:subClassOf cbo:MentalContent .
+
+
+###  https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#MentalContent
+cbo:MentalContent rdf:type owl:Class ;
+                  rdfs:subClassOf <http://modellingdh.github.io/ont/odp/term/Prompt> .
+
+
+###  https://w3id.org/framester/data/framestercore/ExperiencerObj
+fs:ExperiencerObj rdf:type owl:Class ;
+                  rdfs:subClassOf <http://modellingdh.github.io/ont/odp/term/Engagement> ;
+                  rdfs:comment "Some phenomenon (the Stimulus) provokes a particular emotion in an Experiencer. Nightmare on Elm Street scared me silly." .
+
+
+###  https://w3id.org/framester/data/framestercore/Feeling
+fs:Feeling rdf:type owl:Class ;
+           rdfs:subClassOf <http://modellingdh.github.io/ont/odp/term/Observation> ;
+           rdfs:comment "In this frame an Experiencer experiences an Emotion or is in an Emotional_state." .
+
+
+###  https://w3id.org/framester/data/framestercore/Memory
+fs:Memory rdf:type owl:Class ;
+          rdfs:subClassOf <http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity> ;
+          rdfs:comment "This frame is concerned with Cognizers remembering and forgetting mental Content." .
+
+
+###  https://w3id.org/framester/data/framestercore/Prominence
+fs:Prominence rdf:type owl:Class ;
+              rdfs:subClassOf fs:Memory ;
+              rdfs:comment "An Entity stands out perceptually in comparison to other members of its type." .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#consumer
+cbo:consumer rdf:type owl:NamedIndividual ,
+                      <http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person> ;
+             <http://modellingdh.github.io/ont/odp/term/isEngagedIn> cbo:emotional_stimulus .
+
+
+###  https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#decoded_prominent_memory
+cbo:decoded_prominent_memory rdf:type owl:NamedIndividual ,
+                                      fs:Prominence .
+
+
+###  https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#emotional_stimulus
+cbo:emotional_stimulus rdf:type owl:NamedIndividual ,
+                                fs:ExperiencerObj ;
+                       <http://modellingdh.github.io/ont/odp/term/inActivity> cbo:memory_encoding .
+
+
+###  https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#humorous_advertisement
+cbo:humorous_advertisement rdf:type owl:NamedIndividual ,
+                                    cbo:HumorousContent ;
+                           <http://modellingdh.github.io/ont/odp/term/producedObservation> cbo:laugh .
+
+
+###  https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#laugh
+cbo:laugh rdf:type owl:NamedIndividual ,
+                   cbo:Humor ;
+          <http://modellingdh.github.io/ont/odp/term/isReflectionOn> cbo:emotional_stimulus .
+
+
+###  https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#memory_encoding
+cbo:memory_encoding rdf:type owl:NamedIndividual ,
+                             fs:Memory .
+
+
+###  https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#mundane_advertisement
+cbo:mundane_advertisement rdf:type owl:NamedIndividual ,
+                                   cbo:MentalContent .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
