@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#"
+     xml:base="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect"
+     xmlns:odp="http://modellingdh.github.io/ont/odp/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:term="http://modellingdh.github.io/ont/odp/term/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:partof="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#"
+     xmlns:participation="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:RelativeRelationshipPattern="http://purl.org/net/rr/RelativeRelationshipPattern#">
+    <owl:Ontology rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl"/>
+        <owl:imports rdf:resource="https://raw.githubusercontent.com/modellingDH/odp_experience/master/owl/cp_experience.owl.ttl"/>
+        <terms:created>2023-07-28</terms:created>
+        <terms:creator>Leonardo Zilli</terms:creator>
+        <terms:description>The Focusing effect module of the Cognitive Bias Ontology</terms:description>
+        <terms:title>Focusing effect ontology</terms:title>
+        <rdfs:comment>Scenario:
+A consumer chooses a smartphone based solely on the camera quality, without considering other important features like battery life, durability, or software performance.</rdfs:comment>
+        <rdfs:comment>The focusing effect bias involves placing excessive importance on a particular aspect or factor of an event or situation while neglecting other relevant information. It arises from the tendency to disproportionately focus on one salient detail. The focus may be on positive or negative aspects, but the key point is that other factors are overlooked or given less weight. This bias leads to an imbalanced evaluation of the situation, potentially leading to inaccurate judgments or decisions.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#involves -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#involves">
+        <owl:inverseOf rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#isInvolvedIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant -->
+
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant">
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#hasOutcome -->
+
+
+    <owl:ObjectProperty rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#hasOutcome">
+        <rdfs:domain rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+        <rdfs:range rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Outcome"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#isInvolvedIn -->
+
+
+    <owl:ObjectProperty rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#isInvolvedIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/Prompt -->
+
+
+    <owl:Class rdf:about="http://modellingdh.github.io/ont/odp/term/Prompt"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person -->
+
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person"/>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Detail -->
+
+
+    <owl:Class rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Detail"/>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#NegativeSalientDetail -->
+
+
+    <owl:Class rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#NegativeSalientDetail">
+        <rdfs:subClassOf rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#SalientDetail"/>
+        <owl:disjointWith rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#PositiveSalientDetail"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Option -->
+
+
+    <owl:Class rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Option"/>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Outcome -->
+
+
+    <owl:Class rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Outcome">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Option"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart"/>
+                        <owl:someValuesFrom rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#SalientDetail"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Option"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#PositiveSalientDetail -->
+
+
+    <owl:Class rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#PositiveSalientDetail">
+        <rdfs:subClassOf rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#SalientDetail"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#SalientDetail -->
+
+
+    <owl:Class rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#SalientDetail">
+        <rdfs:subClassOf rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Detail"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/EvaluativeComparison -->
+
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/EvaluativeComparison">
+        <rdfs:subClassOf rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
+        <rdfs:comment>This frame is about the static comparison of an Profiled_item to a Standard_item, often with respect to some Attribute.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/FirstRank -->
+
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/FirstRank">
+        <rdfs:subClassOf rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <rdfs:comment>An Item is located at the top end of a scale of importance or social rank (or some other Attribute) in comparison to other members of a Contrast_set (usually, implicit) that is otherwise similar in kind to the Item.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/PlaceWeightOn -->
+
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/PlaceWeightOn">
+        <rdfs:subClassOf rdf:resource="http://modellingdh.github.io/ont/odp/term/Engagement"/>
+        <rdfs:comment>An Agent who is engaged in an Undertaking accords a Degree of importance to a Consideration that influences the success of an Undertaking. As a consequence, the Agent acts in a way that reflects that judgment of importance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/Scrutiny -->
+
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Scrutiny">
+        <rdfs:subClassOf rdf:resource="http://modellingdh.github.io/ont/odp/term/Prompt"/>
+        <rdfs:comment>This frame concerns a Cognizer (a person or other intelligent being) paying close attention to something, the Ground, in order to discover and note its salient characteristics.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#better_battery_life -->
+
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#better_battery_life">
+        <rdf:type rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Detail"/>
+        <participation:isParticipantIn rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#scrutiny"/>
+        <partof:isPartOf rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#smartphoneB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#better_camera_quality -->
+
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#better_camera_quality">
+        <rdf:type rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#PositiveSalientDetail"/>
+        <participation:isParticipantIn rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#scrutiny"/>
+        <partof:isPartOf rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#smartphoneA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#better_durability -->
+
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#better_durability">
+        <rdf:type rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Detail"/>
+        <participation:isParticipantIn rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#scrutiny"/>
+        <partof:isPartOf rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#smartphoneB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#better_performance -->
+
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#better_performance">
+        <rdf:type rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Detail"/>
+        <participation:isParticipantIn rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#scrutiny"/>
+        <partof:isPartOf rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#smartphoneB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#consumer -->
+
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#consumer">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person"/>
+        <term:isEngagedIn rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#weighting_the_details"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#decision -->
+
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#decision">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
+        <RelativeRelationshipPattern:involves rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#smartphoneA"/>
+        <RelativeRelationshipPattern:involves rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#smartphoneB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#scrutiny -->
+
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#scrutiny">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Scrutiny"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#smartphoneA -->
+
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#smartphoneA">
+        <rdf:type rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#smartphoneB -->
+
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#smartphoneB">
+        <rdf:type rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#weighting_the_details -->
+
+
+    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#weighting_the_details">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/PlaceWeightOn"/>
+        <term:inActivity rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/FocusingEffect#decision"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.13.2020-01-27T22:08:36Z) https://github.com/owlcs/owlapi/ -->
+
+
