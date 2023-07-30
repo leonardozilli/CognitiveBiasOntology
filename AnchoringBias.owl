@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#"
+     xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl"
+     xmlns:fs="https://w3id.org/framester/data/framestercore/"
+     xmlns:cbo="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:sequence="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#"
+     xmlns:participation="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
+    <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl"/>
+        <terms:created>2023-07-28</terms:created>
+        <terms:creator>Leonardo Zilli</terms:creator>
+        <terms:description>The Anchoring bias module of the Cognitive Bias Ontology</terms:description>
+        <terms:title>Anchoring bias ontology</terms:title>
+        <cpannotationschema:scenarios xml:lang="en">During a job interview, the interviewer asks the candidate about their salary expectations. The first number mentioned by the interviewer, whether high or low, serves as an anchor for the candidate&apos;s response. The candidate&apos;s salary expectations tend to cluster around the initial anchor, potentially influencing the subsequent salary negotiation.</cpannotationschema:scenarios>
+        <rdfs:comment xml:lang="en">The anchoring bias occurs when individuals rely too heavily on an initial piece of information, called an anchor, when making judgments or decisions. The anchor could be a number, value, or any relevant information provided at the beginning of a decision-making process. Subsequently, individuals adjust their judgments or decisions around this initial anchor. The bias occurs because people tend to insufficiently adjust their judgments from the initial reference point, resulting in systematic errors.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#affects -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#affects">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#isAffectedBy"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#AnchorInformation"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#hasOutcome -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#hasOutcome">
+        <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#isOutcomeOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Information"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#isAffectedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#isAffectedBy">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#AnchorInformation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#hasOutcome"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#isEngagedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#isEngagedIn">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#isOutcomeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#isOutcomeOf">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Information"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#InformationOrdering -->
+
+    <owl:DatatypeProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#InformationOrdering">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Information"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#AnchorInformation -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#AnchorInformation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Information"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/framester/data/framestercore/Information"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/framester/data/framestercore/Information"/>
+        <rdfs:comment>An initial piece of information or reference point that individuals rely on heavily when making subsequent evaluations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#SubsequentInformation -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#SubsequentInformation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Information"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows"/>
+                        <owl:someValuesFrom rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#AnchorInformation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/framester/data/framestercore/Information"/>
+        <rdfs:comment xml:lang="en">An information following an anchor.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/Assessing -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Assessing">
+        <rdfs:comment>An Assessor examines a Phenomenon to figure out its Value according to some Feature of the Phenomenon.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/Information -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Information">
+        <rdfs:comment>A Cognizer knows or comes to know some piece of Information about a Topic.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#candidate -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#candidate">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#candidate_salary_rebuttal_cogitation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#candidate_salary_rebuttal_cogitation -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#candidate_salary_rebuttal_cogitation">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+        <hasOutcome rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#subsequent_salary_counteroffer"/>
+        <participation:hasParticipant rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#first_proposed_salary"/>
+        <rdfs:comment>the candidate thinks about a counteroffer to the interviewer&apos;s proposed salary.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#first_proposed_salary -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#first_proposed_salary">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#AnchorInformation"/>
+        <sequence:directlyPrecedes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#subsequent_salary_counteroffer"/>
+        <rdfs:comment>the first salary proposed by the interviewer.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#subsequent_salary_counteroffer -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringBias.owl#subsequent_salary_counteroffer">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Information"/>
+        <rdfs:comment>the candidate&apos;s rebuttal.</rdfs:comment>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
