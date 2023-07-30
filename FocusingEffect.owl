@@ -484,6 +484,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#decision">
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
+        <hasOutcome rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#smartphoneA"/>
         <rdfs:comment xml:lang="en">The act of deciding between which of the two smartphones to buy.</rdfs:comment>
     </owl:NamedIndividual>
     
