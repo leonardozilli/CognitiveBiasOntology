@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#"
+     xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl"
+     xmlns:fs="https://w3id.org/framester/data/framestercore/"
+     xmlns:cbo="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:term="http://modellingdh.github.io/ont/odp/term/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:participation="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
+    <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
+        <owl:imports rdf:resource="https://raw.githubusercontent.com/modellingDH/odp_experience/master/owl/cp_experience.owl.ttl"/>
+        <terms:created>2023-07-26</terms:created>
+        <terms:creator>Leonardo Zilli</terms:creator>
+        <terms:description>The Distinction bias module of the Cognitive Bias Ontology</terms:description>
+        <terms:title>Distinciton bias ontology</terms:title>
+        <cpannotationschema:scenarios xml:lang="en">In a job interview, the hiring manager is comparing two candidates for a software developer position. Candidate A has more experience but lacks expertise in a specific programming language, while candidate B has less experience but is proficient in that language. The hiring manager focuses solely on the language skill, overlooking the broader skill set of candidate A.</cpannotationschema:scenarios>
+        <rdfs:comment xml:lang="en">The Distinction bias is the tendency to view two options as more distinctive when evaluating them simultaneously than when evaluating them separately.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#Option -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#Option">
+        <rdfs:comment>Something that can be chosen from a set of possibilities.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/Assessing -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Assessing">
+        <rdfs:comment>An Assessor examines a Phenomenon to figure out its Value according to some Feature of the Phenomenon.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/Deciding -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Deciding"/>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/Differentiation -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Differentiation">
+        <rdfs:comment>Words in this frame have to do with a Cognizer being aware (or not being aware) of the difference between two Phenomena, which may be expressed jointly or disjointly.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/EvaluativeComparison -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/EvaluativeComparison">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#Option"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>This frame is about the static comparison of an Profiled_item to a Standard_item, often with respect to some Attribute.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#assessment">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+        <term:inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#decision"/>
+        <rdfs:comment>the act of judging the importance of something</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#candidate1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#candidate1">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#candidate2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#candidate2">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#decision -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#decision">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
+        <term:includes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#distinct_view"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#distinct_view -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#distinct_view">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Differentiation"/>
+        <term:isReflectionOn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#assessment"/>
+        <rdfs:comment>the cognizer has a more distinct view of the options he&apos;s evaluating</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#hiring_manager -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#hiring_manager">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <term:isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#assessment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#joint_evaluation -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#joint_evaluation">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
+        <term:producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#distinct_view"/>
+        <participation:hasParticipant rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#candidate1"/>
+        <participation:hasParticipant rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#candidate2"/>
+        <rdfs:comment>The act of comparing the elements of a set of possibilities.</rdfs:comment>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+

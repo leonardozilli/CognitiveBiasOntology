@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#"
-     xml:base="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect"
+<rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#"
+     xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect"
      xmlns:fs="https://w3id.org/framester/data/framestercore/"
-     xmlns:cbo="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#"
+     xmlns:cbo="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -10,15 +10,17 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:term="http://modellingdh.github.io/ont/odp/term/"
      xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:participation="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
-    <owl:Ontology rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect">
+    <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
         <owl:imports rdf:resource="https://raw.githubusercontent.com/modellingDH/odp_experience/master/owl/cp_experience.owl.ttl"/>
         <terms:created>2023-07-23</terms:created>
         <terms:creator>Leonardo Zilli</terms:creator>
         <terms:description>The Humor effect module of the Cognitive Bias Ontology.</terms:description>
         <terms:title>Humor effect ontology</terms:title>
-        <cpannotationschema:scenarios>A company creates a humorous television commercial for their product. The funny storyline and witty dialogue engage viewers, making the advertisement more memorable. As a result, consumers are more likely to remember the product and its key features when making purchasing decisions.</cpannotationschema:scenarios>
-        <rdfs:comment>The humor effect is the tendencye of humorous material to be better remembered than common material.</rdfs:comment>
+        <cpannotationschema:scenarios xml:lang="en">A company creates a humorous television commercial for their product. The funny storyline and witty dialogue engage viewers, making the advertisement more memorable. As a result, consumers are more likely to remember the product and its key features when making purchasing decisions.</cpannotationschema:scenarios>
+        <rdfs:comment xml:lang="en">The humor effect is the tendency of humorous material to be better remembered than common material.</rdfs:comment>
     </owl:Ontology>
     
 
@@ -43,6 +45,70 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#hasOutcome -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#hasOutcome">
+        <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isOutcomeOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Prominence"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#hasSubject -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#hasSubject">
+        <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isSubjectOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isOutcomeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isOutcomeOf"/>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isSubjectOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isSubjectOf">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEncoding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isHumorous -->
+
+    <owl:DatatypeProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isHumorous">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -51,45 +117,67 @@
     
 
 
-    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#Humor -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#Amusement -->
 
-    <owl:Class rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#Humor">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/framester/data/framestercore/Feeling"/>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#Amusement"/>
     
 
 
-    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#HumorousContent -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#HumorousContent -->
 
-    <owl:Class rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#HumorousContent">
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#HumorousContent">
         <owl:equivalentClass rdf:resource="https://w3id.org/framester/data/framestercore/Prominence"/>
-        <rdfs:subClassOf rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#MentalContent"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isHumorous"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent"/>
+        <rdfs:comment xml:lang="en">Any material that is able to amuse and provoke laughter or amusement in an audience or individual.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#MentalContent -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEncoding -->
 
-    <owl:Class rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#MentalContent">
-        <rdfs:subClassOf rdf:resource="http://modellingdh.github.io/ont/odp/term/Prompt"/>
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEncoding">
+        <rdfs:comment>The process of converting sensory information and experiences into a form that can be stored in the brain for later retrieval.</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEnhancement -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEnhancement">
+        <rdfs:comment xml:lang="en">Heightened ability to remember and retain information.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent">
+        <rdfs:comment>Internal representations, thoughts, ideas, perceptions, and knowledge that exist within an individual&apos;s mind, and that said individual is able to recollect.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
     
 
 
     <!-- https://w3id.org/framester/data/framestercore/ExperiencerObj -->
 
     <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/ExperiencerObj">
-        <rdfs:subClassOf rdf:resource="http://modellingdh.github.io/ont/odp/term/Engagement"/>
         <rdfs:comment>Some phenomenon (the Stimulus) provokes a particular emotion in an Experiencer. Nightmare on Elm Street scared me silly.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/framester/data/framestercore/Feeling -->
-
-    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Feeling">
-        <rdfs:subClassOf rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
-        <rdfs:comment>In this frame an Experiencer experiences an Emotion or is in an Emotional_state.</rdfs:comment>
     </owl:Class>
     
 
@@ -97,7 +185,6 @@
     <!-- https://w3id.org/framester/data/framestercore/Memory -->
 
     <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Memory">
-        <rdfs:subClassOf rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/Activity"/>
         <rdfs:comment>This frame is concerned with Cognizers remembering and forgetting mental Content.</rdfs:comment>
     </owl:Class>
     
@@ -106,8 +193,7 @@
     <!-- https://w3id.org/framester/data/framestercore/Prominence -->
 
     <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Prominence">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
-        <rdfs:comment>An Entity stands out perceptually in comparison to other members of its type.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An Entity stands out perceptually in comparison to other members of its type.</rdfs:comment>
     </owl:Class>
     
 
@@ -123,62 +209,94 @@
     
 
 
-    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#consumer -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#advertisement1 -->
 
-    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#consumer">
-        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/persons.owl#Person"/>
-        <term:isEngagedIn rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#emotional_stimulus"/>
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#advertisement1">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent"/>
+        <isSubjectOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_encoding"/>
+        <participation:isParticipantIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_decoding"/>
+        <isHumorous rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHumorous>
+        <rdfs:comment>An advertisement. A funny one.</rdfs:comment>
     </owl:NamedIndividual>
     
 
 
-    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#decoded_prominent_memory -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#advertisement2 -->
 
-    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#decoded_prominent_memory">
-        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Prominence"/>
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#advertisement2">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent"/>
+        <isSubjectOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_encoding"/>
+        <participation:isParticipantIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_decoding"/>
+        <isHumorous rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isHumorous>
+        <rdfs:comment>An advertisement. An ordinary one.</rdfs:comment>
     </owl:NamedIndividual>
     
 
 
-    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#emotional_stimulus -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#amusement -->
 
-    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#emotional_stimulus">
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#amusement">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#Amusement"/>
+        <term:producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_enhancement"/>
+        <rdfs:comment>A state of entertainment, enjoyment, or lighthearted pleasure.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#consumer -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#consumer">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <term:isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#emotional_stimulus"/>
+        <rdfs:comment xml:lang="en">A TV aficionado.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#emotional_stimulus -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#emotional_stimulus">
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/ExperiencerObj"/>
-        <term:inActivity rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#memory_encoding"/>
+        <term:inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_encoding"/>
+        <rdfs:comment>The cognizer is experiencing an emotion.</rdfs:comment>
     </owl:NamedIndividual>
     
 
 
-    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#humorous_advertisement -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_decoding -->
 
-    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#humorous_advertisement">
-        <rdf:type rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#HumorousContent"/>
-        <term:producedObservation rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#laugh"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#laugh -->
-
-    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#laugh">
-        <rdf:type rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#Humor"/>
-        <term:isReflectionOn rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#emotional_stimulus"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#memory_encoding -->
-
-    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#memory_encoding">
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_decoding">
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
+        <hasOutcome rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#prominent_memory"/>
+        <rdfs:comment xml:lang="en">The process of retrieving and reconstructing stored information from the memory.</rdfs:comment>
     </owl:NamedIndividual>
     
 
 
-    <!-- https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#mundane_advertisement -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_encoding -->
 
-    <owl:NamedIndividual rdf:about="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#mundane_advertisement">
-        <rdf:type rdf:resource="https://github.com/leonardozilli/CognitiveBiasOntology/HumorEffect#MentalContent"/>
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_encoding">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEncoding"/>
+        <term:includes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_enhancement"/>
+        <rdfs:comment xml:lang="en">The process of storing information in the brain for later retrieval.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_enhancement -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_enhancement">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEnhancement"/>
+        <term:isReflectionOn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#emotional_stimulus"/>
+        <rdfs:comment>Improvement of the memory function for certain memories.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#prominent_memory -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#prominent_memory">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Prominence"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
