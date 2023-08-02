@@ -1,0 +1,307 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#"
+     xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl"
+     xmlns:cbo="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl">
+        <terms:creator>Nicole Liggeri</terms:creator>
+        <terms:description>Money illusion bias refers to a cognitive bias where individuals tend to misinterpret or misunderstand the true value of money due to changes in nominal prices. It occurs when people focus on the nominal value of money (i.e., the face value) rather than considering its purchasing power (i.e., the real value). This bias can lead to flawed decision-making and economic judgments.</terms:description>
+        <terms:title>Money illusion</terms:title>
+        <rdfs:isDefinedBy>https://en.wikipedia.org/wiki/Money_illusion</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>https://ui.adsabs.harvard.edu/abs/2009PNAS..106.5025W/abstract</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>https://www.jstor.org/stable/2677924</rdfs:isDefinedBy>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/author -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/author"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/authors -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/authors"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/isEngagedIn -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn">
+        <rdfs:domain rdf:resource="https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Engagement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/isReflectedUponIn -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectedUponIn">
+        <owl:inverseOf rdf:resource="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/isReflectionOn -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectionOn">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#NominalValue"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Engagement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#affectsEconomicDecision -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#affectsEconomicDecision">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Engagement"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#EconomicDecision"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasCauseChange -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasCauseChange">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#RealValue"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#CauseChange"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasInflationRate -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasInflationRate">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#CauseChange"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#InflationRate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasNominalValue -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasNominalValue">
+        <rdfs:domain rdf:resource="http://modellingdh.github.io/ont/odp/term/Prompt"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#NominalValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasRealValue -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasRealValue">
+        <rdfs:domain rdf:resource="http://modellingdh.github.io/ont/odp/term/Prompt"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#RealValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/Prompt -->
+
+    <owl:Class rdf:about="http://modellingdh.github.io/ont/odp/term/Prompt"/>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#CauseChange -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#CauseChange">
+        <terms:description>Context in which money illusion bias can arise.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#EconomicDecision -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#EconomicDecision">
+        <terms:description>Represents the various economic decisions and behaviors affected by money illusion bias, such as saving, spending, investment, and labor negotiations.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Engagement -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Engagement">
+        <terms:description>The product of a reflection upon an observation, which embodies subjective traits of an experienc</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#InflationRate -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#InflationRate">
+        <terms:description>Percentage change in the general price level.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#MaterialGood -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#MaterialGood">
+        <rdfs:subClassOf rdf:resource="http://modellingdh.github.io/ont/odp/term/Prompt"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#NominalValue -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#NominalValue">
+        <terms:description>Represents the nominal value of money, which refers to its face value or numerical amount.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#RealValue -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#RealValue">
+        <terms:description>Represents the real value of money, which accounts for changes in purchasing power due to inflation or other factors.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person -->
+
+    <owl:Class rdf:about="https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person">
+        <terms:description>Individual experiencing money illusion</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Sarah -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Sarah">
+        <rdf:type rdf:resource="https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#inflation -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#inflation">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#CauseChange"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#portfolioOfInvestments -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#portfolioOfInvestments">
+        <rdf:type rdf:resource="http://modellingdh.github.io/ont/odp/term/Prompt"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#10Percent -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#10Percent">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#InflationRate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#15PercentIncresement -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#15PercentIncresement">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#NominalValue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#5Percent -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#5Percent">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#RealValue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#EconomicDecision"/>
+            <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Engagement"/>
+            <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#NominalValue"/>
+            <rdf:Description rdf:about="https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
