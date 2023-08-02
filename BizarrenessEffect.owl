@@ -1,29 +1,27 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#"
      xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl"
-     xmlns:fs="https://w3id.org/framester/data/framestercore/"
-     xmlns:cbo="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:exob="http://modellingdh.github.io/ont/odp/term/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:sequence="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#"
      xmlns:parameter="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#"
      xmlns:participation="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#"
      xmlns:classification="http://www.ontologydesignpatterns.org/cp/owl/classification.owl#"
+     xmlns:BizarrenessEffect="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
     <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl">
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/classification.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl"/>
         <terms:created>2023-07-23</terms:created>
         <terms:creator>Leonardo Zilli</terms:creator>
         <terms:description xml:lang="en">The Bizarreness effect module of the Cognitive Bias Ontology.</terms:description>
         <terms:title>Bizarreness effect ontology</terms:title>
+        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Classification</cpannotationschema:hasComponent>
+        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Parameter</cpannotationschema:hasComponent>
+        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Participation</cpannotationschema:hasComponent>
+        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Sequence</cpannotationschema:hasComponent>
         <cpannotationschema:scenarios xml:lang="en">A newspaper publishes an article that includes a bizarre or unexpected element. Out of all the articles in the newspaper, readers are more likely to remember and share such article due to its intriguing and unusual nature.</cpannotationschema:scenarios>
         <rdfs:comment xml:lang="en">The Bizarreness effect is the tendency of bizarre material to be better remembered than common material.</rdfs:comment>
     </owl:Ontology>
@@ -62,6 +60,18 @@
     <!-- http://purl.org/dc/terms/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
     
 
 
@@ -112,18 +122,51 @@
 
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#isOutcomeOf -->
 
-    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#isOutcomeOf"/>
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#isOutcomeOf">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Prominence"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/classification.owl#classifies -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/classification.owl#classifies"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameter"/>
     
 
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn -->
 
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn">
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn">
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
             <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows"/>
         </owl:propertyChainAxiom>
-    </rdf:Description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
     
 
 
@@ -140,10 +183,10 @@
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue -->
 
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue">
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue">
         <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Typicality"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </rdf:Description>
+    </owl:DatatypeProperty>
     
 
 
@@ -237,13 +280,17 @@
 
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MemoryEncoding -->
 
-    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MemoryEncoding"/>
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MemoryEncoding">
+        <rdfs:comment xml:lang="en">The process of storing information in the brain for later retrieval.</rdfs:comment>
+    </owl:Class>
     
 
 
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MentalContent -->
 
-    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MentalContent"/>
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MentalContent">
+        <rdfs:comment xml:lang="en">Any type of mental content.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -302,6 +349,7 @@
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article1_typicality -->
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article1_typicality">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#AverageTypicality"/>
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Typicality"/>
         <parameter:hasParameterDataValue>average</parameter:hasParameterDataValue>
         <rdfs:comment xml:lang="en">The degree of typicality of the first article.</rdfs:comment>
@@ -312,6 +360,7 @@
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article2 -->
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article2">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#BizarreContent"/>
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MentalContent"/>
         <classification:isClassifiedBy rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#prominence"/>
         <parameter:hasParameter rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article2_typicality"/>
@@ -324,6 +373,7 @@
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article2_typicality -->
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article2_typicality">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#LowTypicality"/>
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Typicality"/>
         <parameter:hasParameterDataValue>low</parameter:hasParameterDataValue>
         <rdfs:comment xml:lang="en">The degree of typicality of the second article.</rdfs:comment>
@@ -345,6 +395,7 @@
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article3_typicality -->
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article3_typicality">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#HighTypicality"/>
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Typicality"/>
         <parameter:hasParameterDataValue>high</parameter:hasParameterDataValue>
         <rdfs:comment xml:lang="en">The degree of typicality of the third article.</rdfs:comment>

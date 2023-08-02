@@ -1,25 +1,22 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#"
      xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl"
-     xmlns:fs="https://w3id.org/framester/data/framestercore/"
-     xmlns:cbo="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:term="http://modellingdh.github.io/ont/odp/term/"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:participation="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
     <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl">
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
-        <owl:imports rdf:resource="https://raw.githubusercontent.com/modellingDH/odp_experience/master/owl/cp_experience.owl.ttl"/>
         <terms:created>2023-07-26</terms:created>
         <terms:creator>Leonardo Zilli</terms:creator>
         <terms:description>The Distinction bias module of the Cognitive Bias Ontology</terms:description>
         <terms:title>Distinction bias ontology</terms:title>
+        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Experience_%26_Observation</cpannotationschema:hasComponent>
+        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Participation</cpannotationschema:hasComponent>
         <cpannotationschema:scenarios xml:lang="en">In a job interview, the hiring manager is comparing two candidates for a software developer position. Candidate A has more experience but lacks expertise in a specific programming language, while candidate B has less experience but is proficient in that language. The hiring manager focuses solely on the language skill, overlooking the broader skill set of candidate A.</cpannotationschema:scenarios>
         <rdfs:comment xml:lang="en">The Distinction bias is the tendency to view two options as more distinctive when evaluating them simultaneously than when evaluating them separately.</rdfs:comment>
     </owl:Ontology>
@@ -58,6 +55,65 @@
     <!-- http://purl.org/dc/terms/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/inActivity -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity"/>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/includes -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/includes"/>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/isEngagedIn -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn"/>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/isReflectionOn -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/producedObservation -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
     
 
 
