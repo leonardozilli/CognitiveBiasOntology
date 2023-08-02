@@ -15,8 +15,8 @@
         <terms:creator>Leonardo Zilli</terms:creator>
         <terms:description>The Distinction bias module of the Cognitive Bias Ontology</terms:description>
         <terms:title>Distinction bias ontology</terms:title>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Experience_%26_Observation</cpannotationschema:hasComponent>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Participation</cpannotationschema:hasComponent>
+        <cpannotationschema:hasComponent rdf:resource="http://ontologydesignpatterns.org/wiki/Submissions:Participation"/>
+        <cpannotationschema:hasComponent rdf:resource="http://ontologydesignpatterns.org/wiki/Submissions:Experience_%26_Observation"/>
         <cpannotationschema:scenarios xml:lang="en">In a job interview, the hiring manager is comparing two candidates for a software developer position. Candidate A has more experience but lacks expertise in a specific programming language, while candidate B has less experience but is proficient in that language. The hiring manager focuses solely on the language skill, overlooking the broader skill set of candidate A.</cpannotationschema:scenarios>
         <rdfs:comment xml:lang="en">The Distinction bias is the tendency to view two options as more distinctive when evaluating them simultaneously than when evaluating them separately.</rdfs:comment>
     </owl:Ontology>
