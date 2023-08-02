@@ -167,13 +167,6 @@
     <!-- https://w3id.org/framester/data/framestercore/EvaluativeComparison -->
 
     <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/EvaluativeComparison">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#Option"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment>This frame is about the static comparison of an Profiled_item to a Standard_item, often with respect to some Attribute.</rdfs:comment>
     </owl:Class>
     
