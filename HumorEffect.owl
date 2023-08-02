@@ -18,10 +18,10 @@
         <terms:creator>Leonardo Zilli</terms:creator>
         <terms:description>The Humor effect module of the Cognitive Bias Ontology.</terms:description>
         <terms:title>Humor effect ontology</terms:title>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Classification</cpannotationschema:hasComponent>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Experience_%26_Observation</cpannotationschema:hasComponent>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Participation</cpannotationschema:hasComponent>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Sequence</cpannotationschema:hasComponent>
+        <cpannotationschema:hasComponent rdf:resource="http://ontologydesignpatterns.org/wiki/Submissions:Classification"/>
+        <cpannotationschema:hasComponent rdf:resource="http://ontologydesignpatterns.org/wiki/Submissions:Participation"/>
+        <cpannotationschema:hasComponent rdf:resource="http://ontologydesignpatterns.org/wiki/Submissions:Sequence"/>
+        <cpannotationschema:hasComponent rdf:resource="http://ontologydesignpatterns.org/wiki/Submissions:Experience_%26_Observation"/>
         <cpannotationschema:scenarios xml:lang="en">A company creates a humorous television commercial for their product. The funny storyline and witty dialogue engage viewers, making the advertisement more memorable. As a result, consumers are more likely to remember the product and its key features when making purchasing decisions.</cpannotationschema:scenarios>
         <rdfs:comment xml:lang="en">The humor effect is the tendency of humorous material to be better remembered than common material.</rdfs:comment>
     </owl:Ontology>

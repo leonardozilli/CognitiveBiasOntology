@@ -16,8 +16,8 @@
         <terms:creator>Leonardo Zilli</terms:creator>
         <terms:description>The Anchoring bias module of the Cognitive Bias Ontology</terms:description>
         <terms:title>Anchoring effect ontology</terms:title>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Participation</cpannotationschema:hasComponent>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Sequence</cpannotationschema:hasComponent>
+        <cpannotationschema:hasComponent rdf:resource="http://ontologydesignpatterns.org/wiki/Submissions:Participation"/>
+        <cpannotationschema:hasComponent rdf:resource="http://ontologydesignpatterns.org/wiki/Submissions:Sequence"/>
         <cpannotationschema:scenarios xml:lang="en">During a job interview, the interviewer asks the candidate about their salary expectations. The first number mentioned by the interviewer, whether high or low, serves as an anchor for the candidate&apos;s response. The candidate&apos;s salary expectations tend to cluster around the initial anchor, potentially influencing the subsequent salary negotiation.</cpannotationschema:scenarios>
         <rdfs:comment xml:lang="en">The anchoring bias occurs when individuals rely too heavily on an initial piece of information, called an anchor, when making judgments or decisions. The anchor could be a number, value, or any relevant information provided at the beginning of a decision-making process. Subsequently, individuals adjust their judgments or decisions around this initial anchor. The bias occurs because people tend to insufficiently adjust their judgments from the initial reference point, resulting in systematic errors.</rdfs:comment>
     </owl:Ontology>
@@ -160,11 +160,11 @@
 
     <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
 
-    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
         <owl:inverseOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-    </rdf:Description>
+    </owl:ObjectProperty>
     
 
 
