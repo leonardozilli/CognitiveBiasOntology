@@ -18,10 +18,10 @@
         <terms:creator>Leonardo Zilli</terms:creator>
         <terms:description xml:lang="en">The Bizarreness effect module of the Cognitive Bias Ontology.</terms:description>
         <terms:title>Bizarreness effect ontology</terms:title>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Classification</cpannotationschema:hasComponent>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Parameter</cpannotationschema:hasComponent>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Participation</cpannotationschema:hasComponent>
-        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:Sequence</cpannotationschema:hasComponent>
+        <cpannotationschema:hasComponent rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://ontologydesignpatterns.org/wiki/Submissions:Classification</cpannotationschema:hasComponent>
+        <cpannotationschema:hasComponent rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://ontologydesignpatterns.org/wiki/Submissions:Parameter</cpannotationschema:hasComponent>
+        <cpannotationschema:hasComponent rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://ontologydesignpatterns.org/wiki/Submissions:Participation</cpannotationschema:hasComponent>
+        <cpannotationschema:hasComponent rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://ontologydesignpatterns.org/wiki/Submissions:Sequence</cpannotationschema:hasComponent>
         <cpannotationschema:scenarios xml:lang="en">A newspaper publishes an article that includes a bizarre or unexpected element. Out of all the articles in the newspaper, readers are more likely to remember and share such article due to its intriguing and unusual nature.</cpannotationschema:scenarios>
         <rdfs:comment xml:lang="en">The Bizarreness effect is the tendency of bizarre material to be better remembered than common material.</rdfs:comment>
     </owl:Ontology>
