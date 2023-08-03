@@ -121,14 +121,9 @@
     <!-- http://modellingdh.github.io/ont/odp/term/isEngagedIn -->
 
     <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn">
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Assessing"/>
-                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
     </owl:ObjectProperty>
     
 
@@ -156,13 +151,18 @@
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasSubject">
         <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isSubjectOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Scrutiny"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isOutcomeOf -->
 
-    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isOutcomeOf"/>
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isOutcomeOf">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
+    </owl:ObjectProperty>
     
 
 
@@ -179,6 +179,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/componency.owl#hasComponent">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
     </owl:ObjectProperty>
     
 
@@ -187,6 +189,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/componency.owl#isComponentOf">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
     </owl:ObjectProperty>
     
 
@@ -204,6 +208,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant">
         <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
     </owl:ObjectProperty>
     
 
@@ -370,7 +376,9 @@
 
     <!-- https://w3id.org/framester/data/framestercore/Deciding -->
 
-    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Deciding"/>
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Deciding">
+        <rdfs:comment>A Cognizer makes a Decision, which may be about an entity or a course of action. How (and whether) this frame is distinct from Choosing is currently up for debate. Mo decided to quit the program.</rdfs:comment>
+    </owl:Class>
     
 
 
