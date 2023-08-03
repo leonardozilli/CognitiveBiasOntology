@@ -89,22 +89,10 @@
     <!-- http://modellingdh.github.io/ont/odp/term/inActivity -->
 
     <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Assessing"/>
-                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Deciding"/>
-                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Scrutiny"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Scrutiny"/>
     </owl:ObjectProperty>
     
 
