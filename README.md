@@ -1,1 +1,1 @@
-# Bias_Ontology
+# CognitiveBiasOntology

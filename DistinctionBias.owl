@@ -83,37 +83,55 @@
 
     <!-- http://modellingdh.github.io/ont/odp/term/inActivity -->
 
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity"/>
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://modellingdh.github.io/ont/odp/term/includes -->
 
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/includes"/>
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/includes">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Differentiation"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://modellingdh.github.io/ont/odp/term/isEngagedIn -->
 
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn"/>
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://modellingdh.github.io/ont/odp/term/isReflectionOn -->
 
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectionOn">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Differentiation"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://modellingdh.github.io/ont/odp/term/producedObservation -->
 
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/producedObservation">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Differentiation"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl#Option"/>
+    </owl:ObjectProperty>
     
 
 

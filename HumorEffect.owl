@@ -88,19 +88,27 @@
 
     <!-- http://modellingdh.github.io/ont/odp/term/inActivity -->
 
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity"/>
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/ExperiencerObj"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEncoding"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://modellingdh.github.io/ont/odp/term/includes -->
 
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/includes"/>
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/includes">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEncoding"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#Amusement"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://modellingdh.github.io/ont/odp/term/isEngagedIn -->
 
     <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/ExperiencerObj"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn"/>
             <rdf:Description rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity"/>
@@ -112,13 +120,19 @@
 
     <!-- http://modellingdh.github.io/ont/odp/term/isReflectionOn -->
 
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectionOn">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#Amusement"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/ExperiencerObj"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://modellingdh.github.io/ont/odp/term/producedObservation -->
 
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/producedObservation">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#Amusement"/>
+    </owl:ObjectProperty>
     
 
 
@@ -155,9 +169,21 @@
     
 
 
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/classification.owl#classifies -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/classification.owl#classifies">
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Prominence"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#HumorousContent"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy -->
 
     <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#HumorousContent"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Prominence"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isSubjectOf"/>
             <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows"/>
@@ -169,19 +195,29 @@
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows">
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEncoding"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEncoding"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
+    </owl:ObjectProperty>
     
 
 

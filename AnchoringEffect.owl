@@ -136,25 +136,29 @@
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Information"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows">
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringEffect.owl#SubsequentInformation"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringEffect.owl#AnchorInformation"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringEffect.owl#AnchorInformation"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringEffect.owl#SubsequentInformation"/>
+    </owl:ObjectProperty>
     
 
 
@@ -297,7 +301,7 @@
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringEffect.owl#first_proposed_salary">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringEffect.owl#AnchorInformation"/>
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Information"/>
-        <sequence:directlyPrecedes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringEffect.owl#subsequent_salary_counteroffer"/>
+        <sequence:precedes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringEffect.owl#subsequent_salary_counteroffer"/>
         <rdfs:comment>the first salary proposed by the interviewer.</rdfs:comment>
     </owl:NamedIndividual>
     
