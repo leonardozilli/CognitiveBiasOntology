@@ -1,0 +1,297 @@
+@prefix : <http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#> .
+
+<http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl> rdf:type owl:Ontology ;
+                                                                         <http://purl.org/dc/terms/creator> "Nicole Liggeri" ;
+                                                                         <http://purl.org/dc/terms/description> "The Weber-Fechner law, also known as the Weber's law or Fechner's law, is a principle in psychophysics that describes the relationship between the intensity of a physical stimulus and the psychological perception of that stimulus. It states that the subjective perception of a stimulus's magnitude is proportional to the logarithm of the stimulus intensity." ;
+                                                                         <http://purl.org/spar/deo/Scenario> """User Story: Temperature Perception - Improving Comfort
+
+As a user, I want to adjust the temperature of my air conditioning system to achieve a comfortable environment in my home.
+
+Scenario:
+
+As a user, I set the air conditioning system to a temperature of 24 degrees Celsius in my room.
+Initially, the room feels slightly warm, and I desire a cooler environment.
+To perceive a noticeable change in temperature, I decrease the thermostat setting by 2 degrees to 22 degrees Celsius.
+As the air conditioning system adjusts to the new setting and begins cooling the room, I start to feel a significant difference in the temperature.
+The sensation of coolness becomes more pronounced as the temperature drops, providing a refreshing and comfortable environment.
+If I had initially set the air conditioning system to a lower temperature, such as 18 degrees Celsius, I would need to decrease the thermostat setting by a larger amount, such as 4 degrees, to achieve a similar noticeable change in temperature.
+With the Weber-Fechner law in action, I appreciate that a small adjustment in temperature settings can yield a perceptible difference when the initial temperature is relatively high.
+This user story showcases how the Weber-Fechner law can be applied in a practical context, where users seek to create a comfortable environment by adjusting temperature settings. It highlights the concept that the perceived change in temperature depends on the initial temperature, emphasizing the relative nature of our perception of temperature sensations.""" ;
+                                                                         rdf:title "Weber-Fecher law" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/spar/deo/Scenario
+<http://purl.org/spar/deo/Scenario> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#scenario
+:scenario rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#title
+rdf:title rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://modellingdh.github.io/ont/odp/term/hasEngagement
+<http://modellingdh.github.io/ont/odp/term/hasEngagement> rdf:type owl:ObjectProperty ;
+                                                          owl:inverseOf <http://modellingdh.github.io/ont/odp/term/inActivity> ;
+                                                          rdfs:range :Engagement .
+
+
+###  http://modellingdh.github.io/ont/odp/term/inActivity
+<http://modellingdh.github.io/ont/odp/term/inActivity> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain :Engagement ;
+                                                       rdfs:range :Activity .
+
+
+###  http://modellingdh.github.io/ont/odp/term/isEngagedIn
+<http://modellingdh.github.io/ont/odp/term/isEngagedIn> rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain <https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person> ;
+                                                        rdfs:range :Engagement .
+
+
+###  http://modellingdh.github.io/ont/odp/term/isReflectedUponIn
+<http://modellingdh.github.io/ont/odp/term/isReflectedUponIn> rdf:type owl:ObjectProperty ;
+                                                              owl:inverseOf <http://modellingdh.github.io/ont/odp/term/isReflectionOn> .
+
+
+###  http://modellingdh.github.io/ont/odp/term/isReflectionOn
+<http://modellingdh.github.io/ont/odp/term/isReflectionOn> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain :Observation ;
+                                                           rdfs:range :Engagement .
+
+
+###  http://modellingdh.github.io/ont/odp/term/producedObservation
+<http://modellingdh.github.io/ont/odp/term/producedObservation> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <https://w3id.org/framester/data/framestercore/Origin> ;
+                                                                rdfs:range :Observation ;
+                                                                owl:propertyChainAxiom ( <http://modellingdh.github.io/ont/odp/term/hasEngagement>
+                                                                                         <http://modellingdh.github.io/ont/odp/term/isReflectedUponIn>
+                                                                                       ) .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#determinedBy
+:determinedBy rdf:type owl:ObjectProperty ;
+              owl:inverseOf :determines ;
+              rdfs:domain [ rdf:type owl:Class ;
+                            owl:unionOf ( :ObjectiveDifference
+                                          :PerceivedDifference
+                                        )
+                          ] ;
+              rdfs:range :Observation .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#determines
+:determines rdf:type owl:ObjectProperty .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#feelsTheEffectsOf
+:feelsTheEffectsOf rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :hasEffectsOn .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#follows
+:follows rdf:type owl:ObjectProperty ;
+         owl:inverseOf :precedes .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#hasEffectsOn
+:hasEffectsOn rdf:type owl:ObjectProperty ;
+              rdfs:domain <https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person> ;
+              rdfs:range :KFactor .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#hasKProperty
+:hasKProperty rdf:type owl:ObjectProperty ;
+              rdfs:domain :SensoryDomain ;
+              rdfs:range :KFactor .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#hasObjectiveDifference
+:hasObjectiveDifference rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :hasSubjectiveExperience .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#hasSensoryDomain
+:hasSensoryDomain rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Observation ;
+                  rdfs:range :SensoryDomain .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#hasSubjectiveExperience
+:hasSubjectiveExperience rdf:type owl:ObjectProperty ;
+                         rdfs:domain :ObjectiveDifference ;
+                         rdfs:range :PerceivedDifference .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#influences
+:influences rdf:type owl:ObjectProperty ;
+            owl:inverseOf :isInfluencedBy ;
+            rdfs:domain :KFactor ;
+            rdfs:range :PerceivedDifference .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#isInfluencedBy
+:isInfluencedBy rdf:type owl:ObjectProperty .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#precedes
+:precedes rdf:type owl:ObjectProperty ;
+          rdfs:domain :Observation ;
+          rdfs:range :Observation .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#typeOfDifference
+:typeOfDifference rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :PerceivedDifference ;
+                  rdfs:range [ rdf:type rdfs:Datatype ;
+                               owl:oneOf [ rdf:type rdf:List ;
+                                           rdf:first "notSignificant" ;
+                                           rdf:rest [ rdf:type rdf:List ;
+                                                      rdf:first "significant" ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+                             ] .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#Activity
+:Activity rdf:type owl:Class ;
+          rdfs:comment "Action influeced by a certain experience" .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#Engagement
+:Engagement rdf:type owl:Class ;
+            rdfs:comment "The experience a subject lives when a certain observation takes place" .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#KFactor
+:KFactor rdf:type owl:Class ;
+         rdfs:comment "The constant factor that influences perception. It is influenced by the subject himself and the kind of sense involved during the observation." .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#ObjectiveDifference
+:ObjectiveDifference rdf:type owl:Class ;
+                     rdfs:comment "That's the objective difference between two observations." .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#Observation
+:Observation rdf:type owl:Class ;
+             rdfs:comment "The product of an act of scrutiny which may or may not have been performed with a critical disposition." .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#PerceivedDifference
+:PerceivedDifference rdf:type owl:Class ;
+                     rdfs:comment "Subjective perceived difference between two successive observations. It is influenced by the KFactor." .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#SensoryDomain
+:SensoryDomain rdf:type owl:Class ;
+               rdfs:comment "The sensory domain of the perception. It can influece the K constant in the Weber-Fecher law." .
+
+
+###  https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person
+<https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person> rdf:type owl:Class ;
+                                                           rdfs:comment "Someone that can be influnced by Weber-Fecher bias." .
+
+
+###  https://w3id.org/framester/data/framestercore/Origin
+<https://w3id.org/framester/data/framestercore/Origin> rdf:type owl:Class ;
+                                                       rdfs:comment "The entity observed." .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#colderTemperature
+:colderTemperature rdf:type owl:NamedIndividual ,
+                            :PerceivedDifference ;
+                   :hasObjectiveDifference :twoDegreesCelsius ;
+                   :typeOfDifference "significant" .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#me
+:me rdf:type owl:NamedIndividual ,
+             <https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person> ;
+    <http://modellingdh.github.io/ont/odp/term/isEngagedIn> :theTemperatureHasDecreased .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#temperatureInRoom
+:temperatureInRoom rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/framester/data/framestercore/Origin> ;
+                   <http://modellingdh.github.io/ont/odp/term/producedObservation> <http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#22DegreesCelsius> ,
+                                                                                   <http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#24DegreesCelsius> .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#theTemperatureHasDecreased
+:theTemperatureHasDecreased rdf:type owl:NamedIndividual ,
+                                     :Engagement .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#thermoception
+:thermoception rdf:type owl:NamedIndividual ,
+                        :SensoryDomain .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#twoDegreesCelsius
+:twoDegreesCelsius rdf:type owl:NamedIndividual ,
+                            :ObjectiveDifference .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#22DegreesCelsius
+<http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#22DegreesCelsius> rdf:type owl:NamedIndividual ,
+                                                                                                  :Observation ;
+                                                                                         :follows <http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#24DegreesCelsius> ;
+                                                                                         :hasSensoryDomain :thermoception .
+
+
+###  http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#24DegreesCelsius
+<http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#24DegreesCelsius> rdf:type owl:NamedIndividual ,
+                                                                                                  :Observation ;
+                                                                                         :hasSensoryDomain :thermoception .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Activity
+                :Engagement
+                :Observation
+                <https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person>
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
