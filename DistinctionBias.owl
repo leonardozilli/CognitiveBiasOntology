@@ -11,6 +11,7 @@
      xmlns:participation="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
     <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl">
+        <owl:imports rdf:resource="https://raw.githubusercontent.com/modellingDH/odp_experience/master/owl/cp_experience.owl.ttl"/>
         <terms:created>2023-07-26</terms:created>
         <terms:creator>Leonardo Zilli</terms:creator>
         <terms:description>The Distinction bias module of the Cognitive Bias Ontology</terms:description>
