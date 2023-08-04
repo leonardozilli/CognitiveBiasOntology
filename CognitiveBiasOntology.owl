@@ -21,7 +21,6 @@
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FramingEffect.owl"/>
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl"/>
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl"/>
-        <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl"/>
         <terms:contributor>Aldo Gangemi</terms:contributor>
         <terms:contributor>Stefano De Giorgis</terms:contributor>
         <terms:created>July 2023</terms:created>
