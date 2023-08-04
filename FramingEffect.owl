@@ -104,7 +104,7 @@ Ultimately, by acknowledging the framing effect and taking the time to gather ad
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FramingEffect.owl#inEngagement -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FramingEffect.owl#inEngagement">
-        <rdfs:domain rdf:resource="https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FramingEffect.owl#Engagement"/>
     </owl:ObjectProperty>
     
@@ -214,9 +214,9 @@ Ultimately, by acknowledging the framing effect and taking the time to gather ad
     
 
 
-    <!-- https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person -->
+    <!-- http://xmlns.com/foaf/0.1/Person -->
 
-    <owl:Class rdf:about="https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person">
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
         <rdfs:comment>Someone that can be influnced by the framing effect.</rdfs:comment>
     </owl:Class>
     
@@ -280,7 +280,7 @@ Ultimately, by acknowledging the framing effect and taking the time to gather ad
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FramingEffect.owl#me -->
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FramingEffect.owl#me">
-        <rdf:type rdf:resource="https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <inEngagement rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FramingEffect.owl#positiveOpinion"/>
     </owl:NamedIndividual>
     

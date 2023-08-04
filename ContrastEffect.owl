@@ -9,8 +9,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:term="http://modellingdh.github.io/ont/odp/term/"
      xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:dterms="http://www.leonardozilli.it/CognitiveBiasOntology/ConstrastEffect.owl#dterms:"
-     xmlns:dterms1="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#dterms:">
+     xmlns:dterms="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#dterms:">
     <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl">
         <terms:creator>Nicole Liggeri</terms:creator>
         <terms:description>The contrast effect bias, also known as the &quot;contrast effect,&quot; is a cognitive bias that influences how people perceive information or experiences in relation to the context in which they are presented. This bias occurs when the perception of something is significantly influenced by the presence of a previous or simultaneous event, object, or experience that differs from it.
@@ -28,7 +27,7 @@ After discussing John&apos;s situation in detail, I provide him with examples of
 Recognizing the contrast effect bias, I ensure that John&apos;s evaluation focuses on his individual progress rather than comparing him to others. I propose a performance improvement plan (PIP) that includes targeted training and mentoring sessions to help John refine his sales techniques and boost his confidence. The plan also includes regular follow-up meetings to track his progress and provide ongoing support.
 
 By approaching the performance evaluation with consideration for the contrast effect bias, I aim to help John see his potential for growth and motivate him to improve without feeling unfairly compared to his colleagues. My goal is to create a positive and supportive environment where all employees can thrive and achieve their professional goals</deo:Scenario>
-        <dterms1:title>Contrast effect</dterms1:title>
+        <dterms:title>Contrast effect</dterms:title>
     </owl:Ontology>
     
 

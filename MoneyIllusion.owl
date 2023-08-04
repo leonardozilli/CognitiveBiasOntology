@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#"
      xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl"
-     xmlns:cbo="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -75,7 +74,7 @@
     <!-- http://modellingdh.github.io/ont/odp/term/isEngagedIn -->
 
     <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn">
-        <rdfs:domain rdf:resource="https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Engagement"/>
     </owl:ObjectProperty>
     
@@ -101,7 +100,7 @@
     <!-- http://modellingdh.github.io/ont/odp/term/producedObservation -->
 
     <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/producedObservation">
-        <rdfs:domain rdf:resource="http://modellingdh.github.io/ont/odp/term/https://w3id.org/framester/data/framestercore/Origin"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Origin"/>
         <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Observation"/>
     </owl:ObjectProperty>
     
@@ -137,7 +136,7 @@
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasNominalValue -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasNominalValue">
-        <rdfs:domain rdf:resource="http://modellingdh.github.io/ont/odp/term/https://w3id.org/framester/data/framestercore/Origin"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Origin"/>
         <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#NominalValue"/>
     </owl:ObjectProperty>
     
@@ -146,7 +145,7 @@
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasRealValue -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#hasRealValue">
-        <rdfs:domain rdf:resource="http://modellingdh.github.io/ont/odp/term/https://w3id.org/framester/data/framestercore/Origin"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Origin"/>
         <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#RealValue"/>
     </owl:ObjectProperty>
     
@@ -160,14 +159,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://modellingdh.github.io/ont/odp/term/https://w3id.org/framester/data/framestercore/Origin -->
-
-    <owl:Class rdf:about="http://modellingdh.github.io/ont/odp/term/https://w3id.org/framester/data/framestercore/Origin">
-        <rdfs:comment>The object that is assessed from an economic standpoint.</rdfs:comment>
-    </owl:Class>
     
 
 
@@ -215,7 +206,7 @@
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#MaterialGood -->
 
     <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#MaterialGood">
-        <rdfs:subClassOf rdf:resource="http://modellingdh.github.io/ont/odp/term/https://w3id.org/framester/data/framestercore/Origin"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/framester/data/framestercore/Origin"/>
     </owl:Class>
     
 
@@ -246,10 +237,18 @@
     
 
 
-    <!-- https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person -->
+    <!-- http://xmlns.com/foaf/0.1/Person -->
 
-    <owl:Class rdf:about="https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person">
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
         <terms:description>Individual experiencing money illusion.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/Origin -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Origin">
+        <rdfs:comment>The object that is assessed from an economic standpoint.</rdfs:comment>
     </owl:Class>
     
 
@@ -268,7 +267,7 @@
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Sarah -->
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Sarah">
-        <rdf:type rdf:resource="https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <term:isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#thePortfolioHasGrown"/>
     </owl:NamedIndividual>
     
@@ -286,7 +285,7 @@
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#portfolioOfInvestments -->
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#portfolioOfInvestments">
-        <rdf:type rdf:resource="http://modellingdh.github.io/ont/odp/term/https://w3id.org/framester/data/framestercore/Origin"/>
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Origin"/>
         <hasNominalValue rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#15PercentIncresement"/>
         <hasRealValue rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#5PercentIncresement"/>
     </owl:NamedIndividual>
@@ -341,7 +340,7 @@
             <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#EconomicDecision"/>
             <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Engagement"/>
             <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#NominalValue"/>
-            <rdf:Description rdf:about="https://lov.linkeddata.es/dataset/lov/vocabs/foaf#Person"/>
+            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
