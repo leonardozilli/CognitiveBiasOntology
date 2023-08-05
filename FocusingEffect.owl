@@ -125,6 +125,12 @@
     
 
 
+    <!-- http://modellingdh.github.io/ont/odp/term/producedObservation -->
+
+    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/producedObservation"/>
+    
+
+
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasOutcome -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasOutcome">
@@ -589,6 +595,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#weighting_the_details">
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/PlaceWeightOn"/>
+        <term:producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#most_important_detail"/>
         <rdfs:comment xml:lang="en">The act of determining which details of the smartphones the consumer is most concerned about.</rdfs:comment>
     </owl:NamedIndividual>
 </rdf:RDF>
