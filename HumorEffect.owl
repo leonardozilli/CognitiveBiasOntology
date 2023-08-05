@@ -91,6 +91,10 @@
     <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity">
         <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/ExperiencerObj"/>
         <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MemoryEncoding"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -109,11 +113,6 @@
     <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn">
         <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/ExperiencerObj"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn"/>
-            <rdf:Description rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity"/>
-            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
-        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -344,6 +343,7 @@
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent"/>
         <term:producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#laugh"/>
         <HumorEffect:isSubjectOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_encoding"/>
+        <classification:isClassifiedBy rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#prominence"/>
         <participation:isParticipantIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_decoding"/>
         <HumorEffect:isHumorous rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</HumorEffect:isHumorous>
         <rdfs:comment>An advertisement. A funny one.</rdfs:comment>
@@ -356,7 +356,6 @@
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#advertisement2">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#MentalContent"/>
         <HumorEffect:isSubjectOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_encoding"/>
-        <classification:isClassifiedBy rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#prominence"/>
         <participation:isParticipantIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#memory_decoding"/>
         <HumorEffect:isHumorous rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</HumorEffect:isHumorous>
         <rdfs:comment>An advertisement. An ordinary one.</rdfs:comment>
@@ -368,7 +367,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#amusement">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#Amusement"/>
-        <term:producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#laugh"/>
+        <term:isReflectionOn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#emotional_stimulus"/>
         <rdfs:comment>A state of entertainment, enjoyment, or lighthearted pleasure.</rdfs:comment>
     </owl:NamedIndividual>
     

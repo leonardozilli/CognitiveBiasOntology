@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#"
      xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl"
+     xmlns:fs="https://w3id.org/framester/data/framestercore/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -100,8 +101,14 @@
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#isEngagedIn">
         <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MemoryEncoding"/>
-        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MemoryEncoding"/>
+                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Memory"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#isEngagedIn"/>
             <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows"/>
@@ -155,8 +162,14 @@
 
     <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant">
         <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MemoryEncoding"/>
-        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MemoryEncoding"/>
+                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Memory"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MentalContent"/>
     </owl:ObjectProperty>
     
@@ -166,8 +179,14 @@
 
     <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn">
         <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MentalContent"/>
-        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MemoryEncoding"/>
-        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MemoryEncoding"/>
+                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Memory"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
             <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows"/>
@@ -433,7 +452,9 @@
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#memory_decoding">
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Memory"/>
         <hasOutcome rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#prominence"/>
-        <sequence:precedes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#memory_encoding"/>
+        <participation:hasParticipant rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article1"/>
+        <participation:hasParticipant rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article2"/>
+        <participation:hasParticipant rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#article3"/>
         <rdfs:comment xml:lang="en">The process of retrieving and reconstructing stored information from the memory.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -443,6 +464,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#memory_encoding">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#MemoryEncoding"/>
+        <sequence:precedes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl#memory_decoding"/>
         <rdfs:comment xml:lang="en">The process of storing information in the brain for later retrieval.</rdfs:comment>
     </owl:NamedIndividual>
     
