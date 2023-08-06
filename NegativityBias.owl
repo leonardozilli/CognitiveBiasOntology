@@ -62,12 +62,6 @@ Jake recalls how people tend to focus more on negative evaluations, as they ofte
         <Literal xml:lang="en">Negativity bias is an idea that negative events, information, or stimuli often have a more profound and lasting impact on individuals compared to positive ones.</Literal>
     </Annotation>
     <Declaration>
-        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Negativity.n.3"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Positivity.n.4"/>
-    </Declaration>
-    <Declaration>
         <Class abbreviatedIRI="term:Observation"/>
     </Declaration>
     <Declaration>
@@ -81,6 +75,12 @@ Jake recalls how people tend to focus more on negative evaluations, as they ofte
     </Declaration>
     <Declaration>
         <Class IRI="https://w3id.org/framester/data/framestercore/Examination"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Negativity.n.3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Positivity.n.4"/>
     </Declaration>
     <Declaration>
         <Class IRI="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
@@ -146,11 +146,11 @@ Jake recalls how people tend to focus more on negative evaluations, as they ofte
         <AnnotationProperty abbreviatedIRI="cpannotationschema:scenarios"/>
     </Declaration>
     <SubClassOf>
-        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Negativity.n.3"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Negativity.n.3"/>
         <Class IRI="https://w3id.org/framester/data/framestercore/Differentiation"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Positivity.n.4"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Positivity.n.4"/>
         <Class IRI="https://w3id.org/framester/data/framestercore/Differentiation"/>
     </SubClassOf>
     <ClassAssertion>
@@ -258,7 +258,7 @@ Jake recalls how people tend to focus more on negative evaluations, as they ofte
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isReflectionOn"/>
-        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Negativity.n.3"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Negativity.n.3"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#leverages"/>
@@ -268,16 +268,6 @@ Jake recalls how people tend to focus more on negative evaluations, as they ofte
         <ObjectProperty IRI="#producedObservation"/>
         <Class abbreviatedIRI="term:Observation"/>
     </ObjectPropertyRange>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://etna.istc.cnr.it/framesterpage/data/framestersyn/Negativity.n.3</IRI>
-        <Literal>Negativity</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://etna.istc.cnr.it/framesterpage/data/framestersyn/Positivity.n.4</IRI>
-        <Literal>Positivity</Literal>
-    </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="dc:description"/>
         <AbbreviatedIRI>term:Observation</AbbreviatedIRI>
@@ -437,6 +427,16 @@ Jake recalls how people tend to focus more on negative evaluations, as they ofte
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>https://w3id.org/framester/data/framestercore/Examination</IRI>
         <Literal>Examination</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://w3id.org/framester/data/framestercore/Negativity.n.3</IRI>
+        <Literal>Negativity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://w3id.org/framester/data/framestercore/Positivity.n.4</IRI>
+        <Literal>Positivity</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
