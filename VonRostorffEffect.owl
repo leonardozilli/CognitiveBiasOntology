@@ -232,52 +232,52 @@ On the day of the exam, Maria is able to recall the highlighted information easi
     
 
 
-    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##observe_enhanced_info -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#observe_enhanced_info -->
 
-    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##observe_enhanced_info">
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#observe_enhanced_info">
         <rdf:type rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
-        <term:isReflectionOn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##studying_technique1"/>
+        <term:isReflectionOn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying_technique1"/>
         <rdfs:label>An individual is more likely to remember an item that stands out from a group of similar items.</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##student_1 -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#student_1 -->
 
-    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##student_1">
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#student_1">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <term:isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##studying_technique1"/>
+        <term:isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying_technique1"/>
         <rdfs:label>Maria</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##studying -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying -->
 
-    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##studying">
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying">
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Studying"/>
-        <term:includes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##observe_enhanced_info"/>
+        <term:includes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#observe_enhanced_info"/>
         <rdfs:label>devote time and attention to gaining knowledge of (an academic subject), especially by means of books.</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##studying_technique1 -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying_technique1 -->
 
-    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##studying_technique1">
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying_technique1">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#StudyTechnique"/>
-        <term:inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##studying"/>
-        <leverages rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##von_rostorff_effect"/>
+        <term:inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying"/>
+        <leverages rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#von_rostorff_effect"/>
         <rdfs:label>highlighting key points during studies.</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##von_rostorff_effect -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#von_rostorff_effect -->
 
-    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##von_rostorff_effect">
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#von_rostorff_effect">
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
-        <term:producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl##observe_enhanced_info"/>
+        <term:producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#observe_enhanced_info"/>
         <rdfs:comment>The Von Restorff effect, also known as the &quot;isolation effect&quot;, is a psychological phenomenon where an individual is more likely to remember an item that stands out from a group of similar items. This effect was first identified by Hedwig von Restorff in 1933. The principle behind this effect is that the item that differs from the rest is more memorable due to its increased salience.</rdfs:comment>
         <rdfs:label>Von Rostorff effect</rdfs:label>
     </owl:NamedIndividual>
