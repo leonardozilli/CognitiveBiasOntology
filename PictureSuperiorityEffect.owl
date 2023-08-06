@@ -103,7 +103,7 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#inActivity -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#inActivity">
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owlVisualLearning"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#VisualLearning"/>
         <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/EducationTeaching"/>
         <dc:description xml:lang="en">what activity/ies are affecting or affected by a certain engagement</dc:description>
         <rdfs:label xml:lang="en">inActivity</rdfs:label>
@@ -127,7 +127,7 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#isEngagedIn">
         <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owlVisualLearning"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#VisualLearning"/>
         <dc:description xml:lang="en">Because an activity may engage other participants than the one performing it, engagements are in general considered individual rather than collective, therefore each participants has their own engagement and only some of them will be conscious and/or documented.</dc:description>
         <rdfs:label xml:lang="en">isEngagedIn</rdfs:label>
     </owl:ObjectProperty>
@@ -138,7 +138,7 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#isReflectionOn">
         <rdfs:domain rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
-        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owlVisualLearning"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#VisualLearning"/>
         <dc:description xml:lang="en">Used to connect the subjective elements of an experience with the corresponding observation, which is extrapolated from the content being interacted with and in itself may not be including a critique.</dc:description>
         <rdfs:label xml:lang="en">isReflectionOn</rdfs:label>
     </owl:ObjectProperty>
@@ -148,7 +148,7 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#leverages -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#leverages">
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owlVisualLearning"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#VisualLearning"/>
         <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
         <rdfs:label>leverages</rdfs:label>
     </owl:ObjectProperty>
@@ -169,7 +169,7 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#showsItem -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#showsItem">
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owlVisualLearning"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#VisualLearning"/>
         <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/OpticalImage"/>
         <rdfs:label>showsItem</rdfs:label>
     </owl:ObjectProperty>
@@ -197,9 +197,9 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     
 
 
-    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owlVisualLearning -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#VisualLearning -->
 
-    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owlVisualLearning">
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#VisualLearning">
         <rdfs:comment>This class represents the technique used by the student to study. It could have properties like name (e.g., &quot;highlighting&quot;) and effectiveness (how effective the technique is).</rdfs:comment>
         <rdfs:label>VisualLearning</rdfs:label>
     </owl:Class>
@@ -286,7 +286,7 @@ This experience reinforces Mrs. Johnson&apos;s belief in the power of visual lea
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#studying_technique1 -->
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#studying_technique1">
-        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owlVisualLearning"/>
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#VisualLearning"/>
         <inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#teaching"/>
         <leverages rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#picture_superiority_effect"/>
         <showsItem rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl#a_colorful_and_detailed_diagram_of_the_solar_system"/>

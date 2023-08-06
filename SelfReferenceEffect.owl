@@ -102,7 +102,7 @@ When the exam day comes, Alice sees a question about cognitive dissonance. She i
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#inActivity -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#inActivity">
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owlStudyTechnique"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
         <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Studying"/>
         <dc:description xml:lang="en">what activity/ies are affecting or affected by a certain engagement</dc:description>
         <rdfs:label xml:lang="en">inActivity</rdfs:label>
@@ -113,7 +113,7 @@ When the exam day comes, Alice sees a question about cognitive dissonance. She i
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#includes -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#includes">
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owlStudyTechnique"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
         <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Studying"/>
         <rdfs:range rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
         <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/PerceptionExperience"/>
@@ -128,7 +128,7 @@ When the exam day comes, Alice sees a question about cognitive dissonance. She i
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#isEngagedIn">
         <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owlStudyTechnique"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
         <dc:description xml:lang="en">Because an activity may engage other participants than the one performing it, engagements are in general considered individual rather than collective, therefore each participants has their own engagement and only some of them will be conscious and/or documented.</dc:description>
         <rdfs:label xml:lang="en">isEngagedIn</rdfs:label>
     </owl:ObjectProperty>
@@ -139,7 +139,7 @@ When the exam day comes, Alice sees a question about cognitive dissonance. She i
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#isReflectionOn">
         <rdfs:domain rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
-        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owlStudyTechnique"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
         <dc:description xml:lang="en">Used to connect the subjective elements of an experience with the corresponding observation, which is extrapolated from the content being interacted with and in itself may not be including a critique.</dc:description>
         <rdfs:label xml:lang="en">isReflectionOn</rdfs:label>
     </owl:ObjectProperty>
@@ -149,7 +149,7 @@ When the exam day comes, Alice sees a question about cognitive dissonance. She i
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#leverages -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#leverages">
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owlStudyTechnique"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
         <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
         <rdfs:label>leverages</rdfs:label>
     </owl:ObjectProperty>
@@ -188,9 +188,9 @@ When the exam day comes, Alice sees a question about cognitive dissonance. She i
     
 
 
-    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owlStudyTechnique -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique -->
 
-    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owlStudyTechnique">
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique">
         <rdfs:comment>This class represents the technique used by the student to study. It could have properties like name (e.g., &quot;highlighting&quot;) and effectiveness (how effective the technique is).</rdfs:comment>
         <rdfs:label>StudyTechnique</rdfs:label>
     </owl:Class>
@@ -297,7 +297,7 @@ When the exam day comes, Alice sees a question about cognitive dissonance. She i
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#studying_technique1 -->
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#studying_technique1">
-        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owlStudyTechnique"/>
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
         <inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#studying"/>
         <includes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#self_experience"/>
         <leverages rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#self_reference_effect"/>
