@@ -92,7 +92,6 @@
     <!-- http://modellingdh.github.io/ont/odp/term/isReflectedUponIn -->
 
     <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectedUponIn">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://modellingdh.github.io/ont/odp/term/isReflectionOn"/>
     </owl:ObjectProperty>
     
@@ -101,7 +100,6 @@
     <!-- http://modellingdh.github.io/ont/odp/term/isReflectionOn -->
 
     <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectionOn">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Observation"/>
         <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl#Engagement"/>
     </owl:ObjectProperty>
