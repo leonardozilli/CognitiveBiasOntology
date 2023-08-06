@@ -249,9 +249,9 @@
     
 
 
-    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isHumorous -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#isHumorous -->
 
-    <owl:DatatypeProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isHumorous">
+    <owl:DatatypeProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#isHumorous">
         <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#MentalContent"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
@@ -285,7 +285,7 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#MentalContent"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#isHumorous"/>
+                        <owl:onProperty rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#isHumorous"/>
                         <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -363,7 +363,7 @@
         <isParticipantIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#memory_decoding"/>
         <isSubjectOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#memory_encoding"/>
         <producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#laugh"/>
-        <HumorEffect1:isHumorous rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</HumorEffect1:isHumorous>
+        <isHumorous rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHumorous>
         <rdfs:comment>An advertisement. A funny one.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -375,7 +375,7 @@
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#MentalContent"/>
         <isParticipantIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#memory_decoding"/>
         <isSubjectOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#memory_encoding"/>
-        <HumorEffect1:isHumorous rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</HumorEffect1:isHumorous>
+        <isHumorous rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isHumorous>
         <rdfs:comment>An advertisement. An ordinary one.</rdfs:comment>
     </owl:NamedIndividual>
     
