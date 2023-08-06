@@ -1,28 +1,20 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/leo/ontologies/2023/7/untitled-ontology-84/"
-     xml:base="http://www.semanticweb.org/leo/ontologies/2023/7/untitled-ontology-84/"
-     xmlns:deo="http://purl.org/spar/deo/"
+<rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/CognitiveBiasOntology.owl#"
+     xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/CognitiveBiasOntology.owl"
+     xmlns:cbo="http://www.leonardozilli.it/CognitiveBiasOntology/CognitiveBiasOntology.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:dterms="http://www.leonardozilli.it/CognitiveBiasOntology/ConstrastEffect.owl#dterms:"
-     xmlns:dterms1="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#dterms:"
-     xmlns:Weber-FecherLaw="http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
     <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/CognitiveBiasOntology.owl">
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringEffect.owl"/>
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/BizarrenessEffect.owl"/>
-        <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ConservatismBias.owl"/>
-        <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl"/>
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/DistinctionBias.owl"/>
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl"/>
-        <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FramingEffect.owl"/>
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl"/>
-        <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/MoneyIllusion.owl"/>
-        <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl"/>
         <terms:contributor>Aldo Gangemi</terms:contributor>
         <terms:contributor>Stefano De Giorgis</terms:contributor>
         <terms:created>July 2023</terms:created>
