@@ -7,7 +7,8 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:terms="http://purl.org/dc/terms/">
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:FramingEffect="http://www.leonardozilli.it/CognitiveBiasOntology/FramingEffect.owl#">
     <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FramingEffect.owl">
         <terms:creator>Nicole Liggeri</terms:creator>
         <terms:description>The framing effect is a cognitive bias that occurs when people make decisions or judgments based on the way information is presented to them, rather than on the actual content of the information. In other words, the way a question or statement is phrased (framed) can significantly influence people&apos;s choices and perceptions, even if the underlying information is the same.
