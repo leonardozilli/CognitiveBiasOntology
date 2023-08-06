@@ -1,0 +1,456 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/NegativityBias.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.leonardozilli.it/CognitiveBiasOntology/NegativityBias.owl#">
+    <Prefix name="" IRI="http://www.leonardozilli.it/CognitiveBiasOntology/NegativityBias.owl#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/terms/"/>
+    <Prefix name="fs" IRI="http://etna.istc.cnr.it/framesterpage/data/framestercore/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="par" IRI="http://ontologydesignpatterns.org/cp/owl/parameter.owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="term" IRI="http://modellingdh.github.io/ont/odp/term/"/>
+    <Prefix name="activ" IRI="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/"/>
+    <Prefix name="NegativityBias" IRI="http://www.leonardozilli.it/CognitiveBiasOntology/NegativityBias.owl#"/>
+    <Prefix name="cpannotationschema" IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"/>
+    <Import>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal>Evan Arnoldi</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+        <Literal xml:lang="en">Self-reference effect</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="cpannotationschema:extractedFrom"/>
+        <IRI>https://raw.githubusercontent.com/eureadit/reading-experience-ontology/master/data-model-v2.owl</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="cpannotationschema:hasComponent"/>
+        <IRI>http://ontology.eil.utoronto.ca/icity/ActivitySpecification</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="cpannotationschema:relatedCPs"/>
+        <IRI>http://ontology.eil.utoronto.ca/icity/ActivitySpecification</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="cpannotationschema:relatedCPs"/>
+        <IRI>http://ontologydesignpatterns.org/cp/owl/transition.owl</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="cpannotationschema:relatedCPs"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/observation.owl</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="cpannotationschema:relatedCPs"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/persons.owl</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="cpannotationschema:scenarios"/>
+        <Literal xml:lang="en">Jake is attending the monthly team review meeting where individual performances are discussed. As the meeting progresses, Jake notices that he&apos;s instinctively paying more attention to the negative feedback points mentioned about his work than the positive ones. Even though he received several compliments on his project management skills, he finds himself ruminating over a single point of criticism about missing a minor deadline.
+Jake recalls how people tend to focus more on negative evaluations, as they often have a stronger impact. Recognizing this inherent bias, he decides to take a balanced approach, giving equal importance to both positive feedback and areas of improvement.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en">Negativity bias is an idea that negative events, information, or stimuli often have a more profound and lasting impact on individuals compared to positive ones.</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Negativity.n.3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Positivity.n.4"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="term:Observation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://w3id.org/framester/data/framestercore/CommunicationResponse"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Differentiation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Examination"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="term:inActivity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="term:includes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="term:isEngagedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="term:isReflectionOn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="term:producedObservation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="EmotionalResponse"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="leverages"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="communication_response1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="differentiation1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="employee_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="examination1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="negativity_bias"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="observe_negative_effect"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="cpannotationschema:extractedFrom"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="cpannotationschema:hasComponent"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="cpannotationschema:relatedCPs"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="cpannotationschema:scenarios"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Negativity.n.3"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Differentiation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Positivity.n.4"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Differentiation"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="https://w3id.org/framester/data/framestercore/CommunicationResponse"/>
+        <NamedIndividual IRI="communication_response1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Differentiation"/>
+        <NamedIndividual IRI="differentiation1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+        <NamedIndividual IRI="employee_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Examination"/>
+        <NamedIndividual IRI="examination1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
+        <NamedIndividual IRI="negativity_bias"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="term:Observation"/>
+        <NamedIndividual IRI="observe_negative_effect"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="term:inActivity"/>
+        <NamedIndividual IRI="communication_response1"/>
+        <NamedIndividual IRI="examination1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="term:includes"/>
+        <NamedIndividual IRI="communication_response1"/>
+        <NamedIndividual IRI="differentiation1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="leverages"/>
+        <NamedIndividual IRI="communication_response1"/>
+        <NamedIndividual IRI="negativity_bias"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="term:isEngagedIn"/>
+        <NamedIndividual IRI="employee_1"/>
+        <NamedIndividual IRI="examination1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="term:includes"/>
+        <NamedIndividual IRI="examination1"/>
+        <NamedIndividual IRI="observe_negative_effect"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="term:producedObservation"/>
+        <NamedIndividual IRI="negativity_bias"/>
+        <NamedIndividual IRI="observe_negative_effect"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="term:isReflectionOn"/>
+        <NamedIndividual IRI="observe_negative_effect"/>
+        <NamedIndividual IRI="communication_response1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="term:inActivity"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/CommunicationResponse"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="term:includes"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Examination"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="term:isEngagedIn"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="term:isReflectionOn"/>
+        <Class abbreviatedIRI="term:Observation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="term:producedObservation"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="EmotionalResponse"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/CommunicationResponse"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="leverages"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/CommunicationResponse"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="term:inActivity"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Examination"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="term:includes"/>
+        <Class abbreviatedIRI="term:Observation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="term:isEngagedIn"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/CommunicationResponse"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="term:isReflectionOn"/>
+        <Class IRI="http://etna.istc.cnr.it/framesterpage/data/framestersyn/Negativity.n.3"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="term:producedObservation"/>
+        <Class abbreviatedIRI="term:Observation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="EmotionalResponse"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/Differentiation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="leverages"/>
+        <Class IRI="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
+    </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://etna.istc.cnr.it/framesterpage/data/framestersyn/Negativity.n.3</IRI>
+        <Literal>Negativity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://etna.istc.cnr.it/framesterpage/data/framestersyn/Positivity.n.4</IRI>
+        <Literal>Positivity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <AbbreviatedIRI>term:Observation</AbbreviatedIRI>
+        <Literal xml:lang="en">The product of an act of scrutiny which may or may not have been performed with a critical disposition (Example: &quot;My thoughts from reading this passage of &apos;To Kill a Mockingbird&apos;&quot;).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>term:Observation</AbbreviatedIRI>
+        <Literal xml:lang="en">A disjointness or alignment between this class and &lt;http://www.ontologydesignpatterns.org/cp/owl/observation.owl#Observation&gt; in the Observation content pattern is plausible but subject to debate, hence will not be formalised herein.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>term:Observation</AbbreviatedIRI>
+        <Literal xml:lang="en">Observation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <AbbreviatedIRI>term:inActivity</AbbreviatedIRI>
+        <Literal xml:lang="en">what activity/ies are affecting or affected by a certain engagement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>term:inActivity</AbbreviatedIRI>
+        <Literal xml:lang="en">NegativityBias:inActivity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <AbbreviatedIRI>term:includes</AbbreviatedIRI>
+        <Literal xml:lang="en">A relation of mereological nature that connects a given observation with the activity that originates them: it strengthens the argument that observations are always active processes from a cognitive standpoint, regardless of how conscious they may be.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>term:includes</AbbreviatedIRI>
+        <Literal xml:lang="en">A standard mereological property from another content pattern may be used in lieu of this one and therefore aligned with it.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>term:includes</AbbreviatedIRI>
+        <Literal xml:lang="en">NegativityBias:Includes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <AbbreviatedIRI>term:isEngagedIn</AbbreviatedIRI>
+        <Literal xml:lang="en">Because an activity may engage other participants than the one performing it, engagements are in general considered individual rather than collective, therefore each participants has their own engagement and only some of them will be conscious and/or documented.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>term:isEngagedIn</AbbreviatedIRI>
+        <Literal xml:lang="en">NegativityBias:isEngagedIn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <AbbreviatedIRI>term:isReflectionOn</AbbreviatedIRI>
+        <Literal xml:lang="en">Used to connect the subjective elements of an experience with the corresponding observation, which is extrapolated from the content being interacted with and in itself may not be including a critique.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>term:isReflectionOn</AbbreviatedIRI>
+        <Literal xml:lang="en">NegativityBias:isReflectionOn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <AbbreviatedIRI>term:producedObservation</AbbreviatedIRI>
+        <Literal xml:lang="en">This property can be used to denote that something is (even indirectly, not necessary through direct reflection) responsible for the existence of an observation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>term:producedObservation</AbbreviatedIRI>
+        <Literal xml:lang="en">NegativityBias:producedObservation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>EmotionalResponse</IRI>
+        <Literal>The emotional response from the communication or feedback that the individual received.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>EmotionalResponse</IRI>
+        <Literal>NegativityBias:EmotionalResponse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>communication_response1</IRI>
+        <Literal>How Jake response to feedback in the team meeting.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>differentiation1</IRI>
+        <Literal>Jake notices that he instinctively paying more attention to the negative feedback points mentioned about his work than the positive ones.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>employee_1</IRI>
+        <Literal>Jake</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>examination1</IRI>
+        <Literal>monthly team review meeting where individual performances are discussed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>leverages</IRI>
+        <Literal>NegativityBias:leverages</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>negativity_bias</IRI>
+        <Literal>Negativity bias is an idea that negative events, information, or stimuli often have a more profound and lasting impact on individuals compared to positive ones.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>negativity_bias</IRI>
+        <Literal>Negativity bias</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>observe_negative_effect</IRI>
+        <Literal>An individual is more likely to remember negative events, information, or stimuli often have a more profound and lasting impact on individuals compared to positive ones.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
+        <Literal>The foaf:Person class represents people. Something is a foaf:Person if it is a person. We don&apos;t nitpic about whether they&apos;re alive, dead, real, or imaginary. The foaf:Person class is a sub-class of the foaf:Agent class, since all people are considered &apos;agents&apos; in FOAF.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
+        <Literal>Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://w3id.org/framester/data/framestercore/CommunicationResponse</IRI>
+        <Literal>This class deals with communicating a reply or response to some prior communication or action.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://w3id.org/framester/data/framestercore/CommunicationResponse</IRI>
+        <Literal>CommunicationResponse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://w3id.org/framester/data/framestercore/Differentiation</IRI>
+        <Literal>Words in this frame have to do with a Cognizer being aware (or not being aware) of the difference between two Phenomena, which may be expressed jointly or disjointly. It is very difficult for people to visually distinguish between living and non-living things from such a great distance.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://w3id.org/framester/data/framestercore/Differentiation</IRI>
+        <Literal>Differentiation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://w3id.org/framester/data/framestercore/Examination</IRI>
+        <Literal>This frame deals with testing or examination of someone&apos;s Knowledge or skill in a particular area. An Examiner conducts an Examination to an Examinee to determine the Examinee&apos;s Knowledge and/or determine their Qualification for some privilege; this proceeds either by the Examinee demonstrating a skill or by writing responses to questions.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://w3id.org/framester/data/framestercore/Examination</IRI>
+        <Literal>Examination</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://w3id.org/framester/data/framestercore/SubjectiveInfluence</IRI>
+        <Literal>An Agent, Situation or Entity has an influence on a Cognizer. The influence may be general; or it may be manifested in the Cognizer&apos;s engaging in an Action as a consequence of the influence; or the Cognizer may be influenced in how they carry out a Behavior that they are engaged in already.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://w3id.org/framester/data/framestercore/SubjectiveInfluence</IRI>
+        <Literal>SubjectiveInfluence</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
