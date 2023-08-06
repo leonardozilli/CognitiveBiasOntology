@@ -93,7 +93,7 @@
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#classifies">
         <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#isClassifiedBy"/>
         <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Prominence"/>
-        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#HumorousContent"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#HumorousContent"/>
     </owl:ObjectProperty>
     
 
@@ -155,7 +155,7 @@
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#isClassifiedBy -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#isClassifiedBy">
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#HumorousContent"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#HumorousContent"/>
         <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Prominence"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#isSubjectOf"/>
@@ -269,9 +269,17 @@
     
 
 
-    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#HumorousContent -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#Amusement -->
 
-    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#HumorousContent">
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#Amusement">
+        <rdfs:comment xml:lang="en">The state or experience of finding something funny.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#HumorousContent -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#HumorousContent">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -285,14 +293,6 @@
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#MentalContent"/>
         <rdfs:comment xml:lang="en">Any material that is able to amuse and provoke laughter or amusement in an audience or individual.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#Amusement -->
-
-    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#Amusement">
-        <rdfs:comment xml:lang="en">The state or experience of finding something funny.</rdfs:comment>
     </owl:Class>
     
 
@@ -357,7 +357,7 @@
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#advertisement1 -->
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#advertisement1">
-        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect#HumorousContent"/>
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#HumorousContent"/>
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#MentalContent"/>
         <isClassifiedBy rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#prominence"/>
         <isParticipantIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/HumorEffect.owl#memory_decoding"/>
