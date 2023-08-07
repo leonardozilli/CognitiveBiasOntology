@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#"
      xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl"
+     xmlns:fs="https://w3id.org/framester/data/framestercore/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -86,41 +87,11 @@
     
 
 
-    <!-- http://modellingdh.github.io/ont/odp/term/inActivity -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasComponent -->
 
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/inActivity">
-        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
-        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
-        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
-        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Scrutiny"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://modellingdh.github.io/ont/odp/term/includes -->
-
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/includes">
-        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Scrutiny"/>
-        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/FirstRank"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://modellingdh.github.io/ont/odp/term/isEngagedIn -->
-
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isEngagedIn">
-        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
-        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://modellingdh.github.io/ont/odp/term/isReflectionOn -->
-
-    <owl:ObjectProperty rdf:about="http://modellingdh.github.io/ont/odp/term/isReflectionOn">
-        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/FirstRank"/>
-        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasComponent">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
     </owl:ObjectProperty>
     
 
@@ -129,6 +100,26 @@
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasOutcome">
         <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isOutcomeOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasParameter">
+        <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isParameterFor"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Importance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasParticipant">
+        <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isParticipantIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
         <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
     </owl:ObjectProperty>
@@ -145,11 +136,96 @@
     
 
 
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#inActivity -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#inActivity">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Assessing"/>
+                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Deciding"/>
+                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Scrutiny"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#includes -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#includes">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Scrutiny"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/FirstRank"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isComponentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isComponentOf">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isEngagedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isEngagedIn">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Assessing"/>
+                    <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isOutcomeOf -->
 
     <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isOutcomeOf">
         <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
         <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isParameterFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isParameterFor">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Importance"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isParticipantIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isParticipantIn">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isReflectionOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#isReflectionOn">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/FirstRank"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
     </owl:ObjectProperty>
     
 
@@ -163,52 +239,11 @@
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/componency.owl#hasComponent -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#producedObservation -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/componency.owl#hasComponent">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
-        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/componency.owl#isComponentOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/componency.owl#isComponentOf">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
-        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameter -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameter">
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
-        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Importance"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant">
-        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
-        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
-        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
-        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Deciding"/>
-        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#producedObservation">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/PlaceWeightOn"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/FirstRank"/>
     </owl:ObjectProperty>
     
 
@@ -234,9 +269,9 @@
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue -->
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasParameterDataValue -->
 
-    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue">
+    <owl:DatatypeProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasParameterDataValue">
         <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Importance"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
@@ -262,7 +297,7 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/componency.owl#hasComponent"/>
+                        <owl:onProperty rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasComponent"/>
                         <owl:someValuesFrom rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#SalientDetail"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -290,7 +325,7 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Importance"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue"/>
+                        <owl:onProperty rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasParameterDataValue"/>
                         <owl:hasValue>high</owl:hasValue>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -309,7 +344,7 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Importance"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameterDataValue"/>
+                        <owl:onProperty rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasParameterDataValue"/>
                         <owl:hasValue>low</owl:hasValue>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -336,7 +371,7 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameter"/>
+                        <owl:onProperty rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#hasParameter"/>
                         <owl:someValuesFrom rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#HighImportance"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -425,7 +460,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#assessing_importance">
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Assessing"/>
-        <term:inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#scrutiny"/>
+        <inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#scrutiny"/>
         <rdfs:comment xml:lang="en">The act of assessing the importance of a detail.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -436,7 +471,7 @@
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#battery_life_importance">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#LowImportance"/>
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Importance"/>
-        <parameter:hasParameterDataValue>low</parameter:hasParameterDataValue>
+        <hasParameterDataValue>low</hasParameterDataValue>
     </owl:NamedIndividual>
     
 
@@ -445,8 +480,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#better_battery_life">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
-        <componency:isComponentOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#smartphoneA"/>
-        <parameter:hasParameter rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#battery_life_importance"/>
+        <hasParameter rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#battery_life_importance"/>
+        <isComponentOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#smartphoneA"/>
         <rdfs:comment>A detail of one of the smartphones. The Consumer does not seem to care about this detail much.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -457,8 +492,8 @@
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#better_camera_quality">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#SalientDetail"/>
-        <componency:isComponentOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#smartphoneB"/>
-        <parameter:hasParameter rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#camera_quality_importance"/>
+        <hasParameter rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#camera_quality_importance"/>
+        <isComponentOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#smartphoneB"/>
         <rdfs:comment xml:lang="en">A detail of one of the smartphones. The Consumer seems to care a lot about this detail.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -468,8 +503,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#better_durability">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
-        <componency:isComponentOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#smartphoneA"/>
-        <parameter:hasParameter rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#durability_importance"/>
+        <hasParameter rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#durability_importance"/>
+        <isComponentOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#smartphoneA"/>
         <rdfs:comment xml:lang="en">A detail of one of the smartphones. The Consumer does not seem to care about this detail much.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -479,8 +514,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#better_performance">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Detail"/>
-        <componency:isComponentOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#smartphoneB"/>
-        <parameter:hasParameter rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#performance_importance"/>
+        <hasParameter rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#performance_importance"/>
+        <isComponentOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#smartphoneB"/>
         <rdfs:comment xml:lang="en">A detail of one of the smartphones. The Consumer does not seem to care about this detail much.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -491,7 +526,7 @@
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#camera_quality_importance">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#HighImportance"/>
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Importance"/>
-        <parameter:hasParameterDataValue>high</parameter:hasParameterDataValue>
+        <hasParameterDataValue>high</hasParameterDataValue>
     </owl:NamedIndividual>
     
 
@@ -500,7 +535,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#comparison">
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/EvaluativeComparison"/>
-        <term:inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#decision"/>
+        <inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#decision"/>
         <rdfs:comment xml:lang="en">The act of comparing the two smartphones as wholes.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -510,8 +545,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#consumer">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <term:isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#assessing_importance"/>
-        <term:isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#comparison"/>
+        <isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#assessing_importance"/>
+        <isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#comparison"/>
         <rdfs:comment>A consumer deciding between which smartphone to buy.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -532,7 +567,7 @@
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#durability_importance">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#LowImportance"/>
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Importance"/>
-        <parameter:hasParameterDataValue>low</parameter:hasParameterDataValue>
+        <hasParameterDataValue>low</hasParameterDataValue>
     </owl:NamedIndividual>
     
 
@@ -541,7 +576,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#most_important_detail">
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/FirstRank"/>
-        <term:isReflectionOn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#assessing_importance"/>
+        <isReflectionOn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#assessing_importance"/>
     </owl:NamedIndividual>
     
 
@@ -551,7 +586,7 @@
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#performance_importance">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#LowImportance"/>
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Importance"/>
-        <parameter:hasParameterDataValue>low</parameter:hasParameterDataValue>
+        <hasParameterDataValue>low</hasParameterDataValue>
     </owl:NamedIndividual>
     
 
@@ -569,7 +604,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#smartphoneA">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
-        <participation:isParticipantIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#decision"/>
+        <isParticipantIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#decision"/>
         <rdfs:comment xml:lang="en">A white smartphone.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -579,7 +614,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#smartphoneB">
         <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#Option"/>
-        <participation:isParticipantIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#decision"/>
+        <isParticipantIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#decision"/>
         <rdfs:comment xml:lang="en">A black smartphone.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -589,6 +624,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#weighting_the_details">
         <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/PlaceWeightOn"/>
+        <producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/FocusingEffect.owl#most_important_detail"/>
         <rdfs:comment xml:lang="en">The act of determining which details of the smartphones the consumer is most concerned about.</rdfs:comment>
     </owl:NamedIndividual>
 </rdf:RDF>
