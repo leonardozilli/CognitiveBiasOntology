@@ -10,7 +10,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:dterms="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#dterms:"
-     xmlns:Weber-FecherLaw="http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl#"
+     xmlns:Weber-FechnerLaw="http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FechnerLaw.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
     <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/CognitiveBiasOntology.owl">
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/AnchoringEffect.owl"/>
@@ -26,7 +26,8 @@
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/PictureSuperiorityEffect.owl"/>
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl"/>
         <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl"/>
-        <owl:imports rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FecherLaw.owl"/>
+        <owl:imports
+        rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/Weber-FechnerLaw.owl"/>
         <terms:contributor>Aldo Gangemi</terms:contributor>
         <terms:contributor>Stefano De Giorgis</terms:contributor>
         <terms:created>July 2023</terms:created>
