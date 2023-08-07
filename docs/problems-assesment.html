@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+        />
+        <style>
+            /* This is needed because the page cover bleed (100vw) will cause horizontal scrolling */
+            /* FIXME: use :has once it is ready for Firefox and lift these back to PageSheetView.module.css */
+            html,
+            body{
+                overflow-x: clip;
+            }
+
+            body.theme-overlay {
+                position: fixed;
+                width: 0;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: var(--theme-overlay-background);
+                z-index: 10000;
+            }
+
+            body.dragging * {
+                cursor: grabbing !important;
+            }
+            .gitbook-splashscreen {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: flex;
+                width: 100%;
+                height: 100%;
+            }
+            .slate-spacer {
+                height: 0;
+                color: transparent;
+                outline: none;
+                position: absolute;
+            }
+        </style>
+        <title>Problems Assesment - CognitiveBiasOntology - Documentation</title><style id="__style-root-primary-color" type="text/css">:root {
+                        --custom-theme-color-primary-xxlight: #cddaf6;
+--custom-theme-color-primary-xlight: #a9c0f0;
+--custom-theme-color-primary-light: #648fe4;
+--custom-theme-color-primary-base: #346DDB;
+--custom-theme-color-primary-dark: #395794;
+--custom-theme-color-primary-xdark: #263b66;
+--custom-theme-color-primary-xxdark: #1a202b;
+                  }
+            </style><link rel="preload" as="font" type="font/woff2" href="https://app.gitbook.com/public/fonts/Inter/Inter-Bold.woff2?v=3.19" crossorigin="anonymous"/><link rel="preload" as="font" type="font/woff2" href="https://app.gitbook.com/public/fonts/Inter/Inter-BoldItalic.woff2?v=3.19" crossorigin="anonymous"/><link rel="preload" as="font" type="font/woff2" href="https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBold.woff2?v=3.19" crossorigin="anonymous"/><link rel="preload" as="font" type="font/woff2" href="https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBoldItalic.woff2?v=3.19" crossorigin="anonymous"/><link rel="preload" as="font" type="font/woff2" href="https://app.gitbook.com/public/fonts/Inter/Inter-Medium.woff2?v=3.19" crossorigin="anonymous"/><link rel="preload" as="font" type="font/woff2" href="https://app.gitbook.com/public/fonts/Inter/Inter-MediumItalic.woff2?v=3.19" crossorigin="anonymous"/><link rel="preload" as="font" type="font/woff2" href="https://app.gitbook.com/public/fonts/Inter/Inter-Regular.woff2?v=3.19" crossorigin="anonymous"/><link rel="preload" as="font" type="font/woff2" href="https://app.gitbook.com/public/fonts/Inter/Inter-Italic.woff2?v=3.19" crossorigin="anonymous"/><style id="__font-Inter-gitbook-content-font">@font-face {
+            font-family: 'gitbook-content-font';
+            font-style:  normal;
+            font-weight: 700;
+            font-display: swap;
+            src: local("Inter Bold"), local("Inter-Bold"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Bold.woff2?v=3.19") format("woff2"),
+                    url("https://app.gitbook.com/public/fonts/Inter/Inter-Bold.woff?v=3.19") format("woff");
+        }
+@font-face {
+            font-family: 'gitbook-content-font';
+            font-style:  italic;
+            font-weight: 700;
+            font-display: swap;
+            src: local("Inter BoldItalic"), local("Inter-BoldItalic"), url("https://app.gitbook.com/public/fonts/Inter/Inter-BoldItalic.woff2?v=3.19") format("woff2"),
+                    url("https://app.gitbook.com/public/fonts/Inter/Inter-BoldItalic.woff?v=3.19") format("woff");
+        }
+@font-face {
+            font-family: 'gitbook-content-font';
+            font-style:  normal;
+            font-weight: 800;
+            font-display: swap;
+            src: local("Inter ExtraBold"), local("Inter-ExtraBold"), url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBold.woff2?v=3.19") format("woff2"),
+                    url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBold.woff?v=3.19") format("woff");
+        }
+@font-face {
+            font-family: 'gitbook-content-font';
+            font-style:  italic;
+            font-weight: 800;
+            font-display: swap;
+            src: local("Inter ExtraBoldItalic"), local("Inter-ExtraBoldItalic"), url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBoldItalic.woff2?v=3.19") format("woff2"),
+                    url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBoldItalic.woff?v=3.19") format("woff");
+        }
+@font-face {
+            font-family: 'gitbook-content-font';
+            font-style:  normal;
+            font-weight: 500;
+            font-display: swap;
+            src: local("Inter Medium"), local("Inter-Medium"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Medium.woff2?v=3.19") format("woff2"),
+                    url("https://app.gitbook.com/public/fonts/Inter/Inter-Medium.woff?v=3.19") format("woff");
+        }
+@font-face {
+            font-family: 'gitbook-content-font';
+            font-style:  italic;
+            font-weight: 500;
+            font-display: swap;
+            src: local("Inter MediumItalic"), local("Inter-MediumItalic"), url("https://app.gitbook.com/public/fonts/Inter/Inter-MediumItalic.woff2?v=3.19") format("woff2"),
+                    url("https://app.gitbook.com/public/fonts/Inter/Inter-MediumItalic.woff?v=3.19") format("woff");
+        }
+@font-face {
+            font-family: 'gitbook-content-font';
+            font-style:  normal;
+            font-weight: 400;
+            font-display: swap;
+            src: local("Inter Regular"), local("Inter-Regular"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Regular.woff2?v=3.19") format("woff2"),
+                    url("https://app.gitbook.com/public/fonts/Inter/Inter-Regular.woff?v=3.19") format("woff");
+        }
+@font-face {
+            font-family: 'gitbook-content-font';
+            font-style:  italic;
+            font-weight: 400;
+            font-display: swap;
+            src: local("Inter Italic"), local("Inter-Italic"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Italic.woff2?v=3.19") format("woff2"),
+                    url("https://app.gitbook.com/public/fonts/Inter/Inter-Italic.woff?v=3.19") format("woff");
+        }</style><meta name="description" content="Problems encountered while progressing the KRE Final Project - Cognitive Bias." id="__meta-description"/><meta name="og:description" content="Problems encountered while progressing the KRE Final Project - Cognitive Bias." id="__meta-og:description"/><meta name="og:image" content="https://app.gitbook.com/share/space/thumbnail/iCZgpcEUWhzT2CJDHLqX/page/3MxOlK8IPZoWZn5PVC3R.png?color=%23346DDB&amp;logo=&amp;theme=default" id="__meta-og:image"/><meta name="twitter:card" content="summary_large_image" id="__meta-twitter:card"/><meta name="og:title" content="Problems Assesment" id="__meta-og:title"/><meta name="twitter:site" content="CognitiveBiasOntology - Documentation" id="__meta-twitter:site"/><meta name="robots" content="index" id="__meta-robots"/><link rel="icon" href="https://app.gitbook.com/public/emojis/1f5d2.png?v=6.0.0" id="__link-icon"/><link rel="apple-touch-icon" href="https://app.gitbook.com/public/emojis/1f5d2.png?v=6.0.0"/><link rel="stylesheet" href="https://app.gitbook.com/public/emojis/emoji-assets-sprite.css?v=6.0.0" type="text/css" media="all"/><link rel="preload" as="image" href="https://content.gitbook.com/content/iCZgpcEUWhzT2CJDHLqX/blobs/rOvZIwktiCWr51aIHywP/image.png"/>
+                
+                <script type="module" defer src="https://app.gitbook.com/public/app/public-5UH3UNV4.min.js?v=10.9.393-f05e0d9beba97c76d743582838f76ec4d7712d67-5763288894"></script>
+                <link as="style" rel="preload" href="https://app.gitbook.com/public/app/public-3FQ474QJ.css?v=10.9.393-f05e0d9beba97c76d743582838f76ec4d7712d67-5763288894">
+                <link rel="stylesheet" href="https://app.gitbook.com/public/app/public-3FQ474QJ.css?v=10.9.393-f05e0d9beba97c76d743582838f76ec4d7712d67-5763288894">
+                <style id="react-native-stylesheet">[stylesheet-group="0"]{}
+body{margin:0;}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+input::-webkit-search-cancel-button,input::-webkit-search-decoration,input::-webkit-search-results-button,input::-webkit-search-results-decoration{display:none;}
+[stylesheet-group="1"]{}
+.css-11aywtz{-moz-appearance:textfield;-webkit-appearance:none;background-color:rgba(0,0,0,0.00);border-bottom-left-radius:0px;border-bottom-right-radius:0px;border-top-left-radius:0px;border-top-right-radius:0px;border:0 solid black;box-sizing:border-box;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;margin:0px;padding:0px;resize:none;}
+.css-175oi2r{align-items:stretch;background-color:rgba(0,0,0,0.00);border:0 solid black;box-sizing:border-box;display:flex;flex-basis:auto;flex-direction:column;flex-shrink:0;list-style:none;margin:0px;min-height:0px;min-width:0px;padding:0px;position:relative;text-decoration:none;z-index:0;}
+.css-1qaijid{background-color:rgba(0,0,0,0.00);border:0 solid black;box-sizing:border-box;color:inherit;display:inline;font:inherit;list-style:none;margin:0px;padding:0px;text-align:inherit;text-decoration:none;white-space:inherit;word-wrap:break-word;}
+.css-1rynq56{background-color:rgba(0,0,0,0.00);border:0 solid black;box-sizing:border-box;color:rgba(0,0,0,1.00);display:inline;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;list-style:none;margin:0px;padding:0px;text-align:inherit;text-decoration:none;white-space:pre-wrap;word-wrap:break-word;}
+.css-9pa8cd{bottom:0px;height:100%;left:0px;opacity:0;position:absolute;right:0px;top:0px;width:100%;z-index:-1;}
+[stylesheet-group="2"]{}
+.r-1064s9p{margin:4px;}
+.r-11mg6pl{border-bottom-color:rgba(255,255,255,1.00);border-left-color:rgba(255,255,255,1.00);border-right-color:rgba(255,255,255,1.00);border-top-color:rgba(255,255,255,1.00);}
+.r-13awgt0{flex:1;}
+.r-13fxbef{border-bottom-color:rgba(211,61,61,1.00);border-left-color:rgba(211,61,61,1.00);border-right-color:rgba(211,61,61,1.00);border-top-color:rgba(211,61,61,1.00);}
+.r-1471scf{display:inline;}
+.r-156hn8l{border-bottom-color:rgba(211,220,228,1.00);border-left-color:rgba(211,220,228,1.00);border-right-color:rgba(211,220,228,1.00);border-top-color:rgba(211,220,228,1.00);}
+.r-17gur6a{border-bottom-left-radius:0px;border-bottom-right-radius:0px;border-top-left-radius:0px;border-top-right-radius:0px;}
+.r-18c69zk{border-bottom-left-radius:100px;border-bottom-right-radius:100px;border-top-left-radius:100px;border-top-right-radius:100px;}
+.r-190qawg{border-bottom-color:rgba(227,232,237,1.00);border-left-color:rgba(227,232,237,1.00);border-right-color:rgba(227,232,237,1.00);border-top-color:rgba(227,232,237,1.00);}
+.r-19dn8jc{border-bottom-color:rgba(104,60,17,1.00);border-left-color:rgba(104,60,17,1.00);border-right-color:rgba(104,60,17,1.00);border-top-color:rgba(104,60,17,1.00);}
+.r-19nkufj{border-bottom-color:rgba(40,49,67,1.00);border-left-color:rgba(40,49,67,1.00);border-right-color:rgba(40,49,67,1.00);border-top-color:rgba(40,49,67,1.00);}
+.r-1awa8pu{border-bottom-color:rgba(101,119,134,1.00);border-left-color:rgba(101,119,134,1.00);border-right-color:rgba(101,119,134,1.00);border-top-color:rgba(101,119,134,1.00);}
+.r-1c57tb8{border-bottom-left-radius:34px;border-bottom-right-radius:34px;border-top-left-radius:34px;border-top-right-radius:34px;}
+.r-1d4xg89{border-bottom-color:rgba(170,184,194,1.00);border-left-color:rgba(170,184,194,1.00);border-right-color:rgba(170,184,194,1.00);border-top-color:rgba(170,184,194,1.00);}
+.r-1dqxon3{overflow-x:auto;overflow-y:auto;}
+.r-1edjr5w{padding:80px;}
+.r-1f0042m{border-bottom-left-radius:5px;border-bottom-right-radius:5px;border-top-left-radius:5px;border-top-right-radius:5px;}
+.r-1fdo3w0{margin:16px;}
+.r-1fuqb1j{border-bottom-left-radius:24px;border-bottom-right-radius:24px;border-top-left-radius:24px;border-top-right-radius:24px;}
+.r-1j16mh1{border-bottom-left-radius:100%;border-bottom-right-radius:100%;border-top-left-radius:100%;border-top-right-radius:100%;}
+.r-1jkafct{border-bottom-left-radius:2px;border-bottom-right-radius:2px;border-top-left-radius:2px;border-top-right-radius:2px;}
+.r-1jyn79y{border-bottom-color:rgba(0,150,136,1.00);border-left-color:rgba(0,150,136,1.00);border-right-color:rgba(0,150,136,1.00);border-top-color:rgba(0,150,136,1.00);}
+.r-1p0fg95{border-bottom-color:rgba(245,247,249,1.00);border-left-color:rgba(245,247,249,1.00);border-right-color:rgba(245,247,249,1.00);border-top-color:rgba(245,247,249,1.00);}
+.r-1phboty{border-bottom-style:solid;border-left-style:solid;border-right-style:solid;border-top-style:solid;}
+.r-1rwzld0{border-bottom-color:rgba(11,79,47,1.00);border-left-color:rgba(11,79,47,1.00);border-right-color:rgba(11,79,47,1.00);border-top-color:rgba(11,79,47,1.00);}
+.r-1tgwseu{border-bottom-color:rgba(52,109,219,1.00);border-left-color:rgba(52,109,219,1.00);border-right-color:rgba(52,109,219,1.00);border-top-color:rgba(52,109,219,1.00);}
+.r-1tw7wh{border-bottom-left-radius:50px;border-bottom-right-radius:50px;border-top-left-radius:50px;border-top-right-radius:50px;}
+.r-1udh08x{overflow-x:hidden;overflow-y:hidden;}
+.r-1w1o3af{border-bottom-color:rgba(251,232,240,1.00);border-left-color:rgba(251,232,240,1.00);border-right-color:rgba(251,232,240,1.00);border-top-color:rgba(251,232,240,1.00);}
+.r-1wgstfn{border-bottom-style:none;border-left-style:none;border-right-style:none;border-top-style:none;}
+.r-1x6f3t4{border-bottom-color:rgba(236,243,255,1.00);border-left-color:rgba(236,243,255,1.00);border-right-color:rgba(236,243,255,1.00);border-top-color:rgba(236,243,255,1.00);}
+.r-1xc7w19{border-bottom-color:rgba(0,0,0,1.00);border-left-color:rgba(0,0,0,1.00);border-right-color:rgba(0,0,0,1.00);border-top-color:rgba(0,0,0,1.00);}
+.r-1xfd6ze{border-bottom-left-radius:8px;border-bottom-right-radius:8px;border-top-left-radius:8px;border-top-right-radius:8px;}
+.r-1xutcf9{padding:40px;}
+.r-1yadl64{border-bottom-width:0px;border-left-width:0px;border-right-width:0px;border-top-width:0px;}
+.r-42olwf{border-bottom-color:rgba(0,0,0,0.00);border-left-color:rgba(0,0,0,0.00);border-right-color:rgba(0,0,0,0.00);border-top-color:rgba(0,0,0,0.00);}
+.r-4a18lf{border-bottom-color:rgba(255,0,0,1.00);border-left-color:rgba(255,0,0,1.00);border-right-color:rgba(255,0,0,1.00);border-top-color:rgba(255,0,0,1.00);}
+.r-4qtqp9{display:inline-block;}
+.r-60ke3l{border-bottom-color:rgba(0,128,0,1.00);border-left-color:rgba(0,128,0,1.00);border-right-color:rgba(0,128,0,1.00);border-top-color:rgba(0,128,0,1.00);}
+.r-6578ry{margin:40px;}
+.r-6koalj{display:flex;}
+.r-6ncur5{border-bottom-left-radius:18px;border-bottom-right-radius:18px;border-top-left-radius:18px;border-top-right-radius:18px;}
+.r-6t2glc{border-bottom-left-radius:40px;border-bottom-right-radius:40px;border-top-left-radius:40px;border-top-right-radius:40px;}
+.r-9x6qib{border-bottom-color:rgba(204,214,221,1.00);border-left-color:rgba(204,214,221,1.00);border-right-color:rgba(204,214,221,1.00);border-top-color:rgba(204,214,221,1.00);}
+.r-ancj0c{border-bottom-color:rgba(218,212,255,1.00);border-left-color:rgba(218,212,255,1.00);border-right-color:rgba(218,212,255,1.00);border-top-color:rgba(218,212,255,1.00);}
+.r-by8dw1{margin:24px;}
+.r-bztko3{overflow-x:visible;overflow-y:visible;}
+.r-cdmcib{border-bottom-left-radius:3px;border-bottom-right-radius:3px;border-top-left-radius:3px;border-top-right-radius:3px;}
+.r-cpet4d{border-bottom-left-radius:999px;border-bottom-right-radius:999px;border-top-left-radius:999px;border-top-right-radius:999px;}
+.r-crgep1{margin:0px;}
+.r-d045u9{border-bottom-width:2px;border-left-width:2px;border-right-width:2px;border-top-width:2px;}
+.r-d23pfw{padding:24px;}
+.r-dta0w2{flex:2;}
+.r-edyy15{padding:8px;}
+.r-eg6o18{border-bottom-style:dashed;border-left-style:dashed;border-right-style:dashed;border-top-style:dashed;}
+.r-egco7n{border-bottom-color:rgba(253,195,137,1.00);border-left-color:rgba(253,195,137,1.00);border-right-color:rgba(253,195,137,1.00);border-top-color:rgba(253,195,137,1.00);}
+.r-fx7oqy{border-bottom-color:rgba(0,0,255,1.00);border-left-color:rgba(0,0,255,1.00);border-right-color:rgba(0,0,255,1.00);border-top-color:rgba(0,0,255,1.00);}
+.r-gav1f{border-bottom-color:rgba(24,28,31,1.00);border-left-color:rgba(24,28,31,1.00);border-right-color:rgba(24,28,31,1.00);border-top-color:rgba(24,28,31,1.00);}
+.r-hvic4v{display:none;}
+.r-hwh8t1{margin:8px;}
+.r-jqra5g{border-bottom-color:rgba(55,65,81,1.00);border-left-color:rgba(55,65,81,1.00);border-right-color:rgba(55,65,81,1.00);border-top-color:rgba(55,65,81,1.00);}
+.r-jxo161{border-bottom-color:rgba(255,204,203,1.00);border-left-color:rgba(255,204,203,1.00);border-right-color:rgba(255,204,203,1.00);border-top-color:rgba(255,204,203,1.00);}
+.r-kdyh1x{border-bottom-left-radius:6px;border-bottom-right-radius:6px;border-top-left-radius:6px;border-top-right-radius:6px;}
+.r-krxsd3{display:-webkit-box;}
+.r-m2nopt{border-bottom-color:rgba(43,46,57,1.00);border-left-color:rgba(43,46,57,1.00);border-right-color:rgba(43,46,57,1.00);border-top-color:rgba(43,46,57,1.00);}
+.r-m7id7e{flex:unset;}
+.r-m9k8lk{border-bottom-color:rgba(223,255,240,1.00);border-left-color:rgba(223,255,240,1.00);border-right-color:rgba(223,255,240,1.00);border-top-color:rgba(223,255,240,1.00);}
+.r-nsbfu8{padding:16px;}
+.r-p4pd8u{border-bottom-color:rgba(36,42,49,1.00);border-left-color:rgba(36,42,49,1.00);border-right-color:rgba(36,42,49,1.00);border-top-color:rgba(36,42,49,1.00);}
+.r-qwd59z{border-bottom-left-radius:1px;border-bottom-right-radius:1px;border-top-left-radius:1px;border-top-right-radius:1px;}
+.r-rs99b7{border-bottom-width:1px;border-left-width:1px;border-right-width:1px;border-top-width:1px;}
+.r-t60dpp{padding:0px;}
+.r-texgdz{margin:80px;}
+.r-tuq35u{padding:4px;}
+.r-tyhe3k{border-bottom-left-radius:64px;border-bottom-right-radius:64px;border-top-left-radius:64px;border-top-right-radius:64px;}
+.r-xoduu5{display:inline-flex;}
+.r-xyw6el{padding:12px;}
+.r-ywje51{margin:auto;}
+.r-z2wwpe{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-top-left-radius:4px;border-top-right-radius:4px;}
+.r-zhp00w{padding:2px;}
+[stylesheet-group="2.1"]{}
+.r-10x3wzx{padding-bottom:40px;padding-top:40px;}
+.r-11yq8vr{margin-left:40px;margin-right:40px;}
+.r-1e081e0{padding-left:12px;padding-right:12px;}
+.r-1guathk{padding-left:24px;padding-right:24px;}
+.r-1h4fu65{padding-bottom:24px;padding-top:24px;}
+.r-1hy1u7s{margin-left:24px;margin-right:24px;}
+.r-1isdzm1{padding-left:80px;padding-right:80px;}
+.r-1jgb5lz{margin-left:auto;margin-right:auto;}
+.r-1p02zvt{padding-left:48px;padding-right:48px;}
+.r-1p4rafz{padding-left:2px;padding-right:2px;}
+.r-1p6iasa{margin-bottom:4px;margin-top:4px;}
+.r-1pn2ns4{padding-left:8px;padding-right:8px;}
+.r-1r5su4o{margin-bottom:16px;margin-top:16px;}
+.r-1unineu{margin-bottom:40px;margin-top:40px;}
+.r-1vvnge1{padding-bottom:2px;padding-top:2px;}
+.r-1w3m5we{padding-bottom:80px;padding-top:80px;}
+.r-1ybube5{margin-left:8px;margin-right:8px;}
+.r-1ydw1k6{margin-left:16px;margin-right:16px;}
+.r-1yzf0co{padding-bottom:16px;padding-top:16px;}
+.r-4amgru{margin-left:4px;margin-right:4px;}
+.r-5njf8e{padding-bottom:8px;padding-top:8px;}
+.r-5wp0in{padding-left:40px;padding-right:40px;}
+.r-c8eef1{margin-bottom:8px;margin-top:8px;}
+.r-g4w12b{padding-left:94px;padding-right:94px;}
+.r-g8va3u{margin-left:80px;margin-right:80px;}
+.r-lz04qo{margin-left:-4px;margin-right:-4px;}
+.r-mgi0kt{margin-left:-24px;margin-right:-24px;}
+.r-mk0yit{padding-left:0px;padding-right:0px;}
+.r-mvpalk{margin-left:0px;margin-right:0px;}
+.r-oyd9sg{padding-bottom:4px;padding-top:4px;}
+.r-pw2am6{margin-bottom:24px;margin-top:24px;}
+.r-r0h9e2{margin-bottom:0px;margin-top:0px;}
+.r-r26ds4{margin-bottom:80px;margin-top:80px;}
+.r-rjfia{padding-bottom:0px;padding-top:0px;}
+.r-s1qlax{padding-left:4px;padding-right:4px;}
+.r-ymttw5{padding-left:16px;padding-right:16px;}
+[stylesheet-group="2.2"]{}
+.r-100vyta{margin-top:7px;}
+.r-1029d6i{top:-24px;}
+.r-105ug2t{pointer-events:auto!important;}
+.r-109y4c4{height:1px;}
+.r-10drpc{color:rgba(0,73,215,1.00);}
+.r-10kz8ia{color:rgba(228,79,137,1.00);}
+.r-10ptun7{height:16px;}
+.r-10pyoum{color:rgba(5,5,5,1.00);}
+.r-10sqg0u{margin-bottom:1px;}
+.r-10x49cs{font-size:10px;}
+.r-10xqauy{padding-top:env(safe-area-inset-top);}
+.r-111w7nw{box-shadow:0px 1px 2px rgba(0,0,0,0.69);}
+.r-113qch9{cursor:auto;}
+.r-116b19x{padding-left:40px;}
+.r-119vxgs{border-top-style:dashed;}
+.r-11c0sde{margin-top:24px;}
+.r-11f42r{height:314px;}
+.r-11g3r6m{padding-right:24px;}
+.r-11j9u27{visibility:hidden;}
+.r-11mo1y0{margin-bottom:7px;}
+.r-11mpjr4{background-color:rgba(223,223,223,1.00);}
+.r-11udlyb{background-color:rgba(0,150,136,1.00);}
+.r-11vxtcu{background-color:rgba(211,220,228,1.00);}
+.r-11wlrp9{border-top-color:rgba(52,109,219,1.00);}
+.r-11wrixw{margin-left:0px;}
+.r-11yh6sk{overflow-x:hidden;}
+.r-11ys0m{-webkit-break-before:auto;break-before:auto;}
+.r-123mryc{color:rgba(185,94,4,1.00);}
+.r-127358a{animation-name:r-9p3sdl;}
+.r-127gp16{max-width:150px;}
+.r-12dqhl9{height:calc(100vh - 80px);}
+.r-12mrs02{object-fit:contain;}
+.r-12vffkv>*{pointer-events:auto;}
+.r-12vffkv{pointer-events:none!important;}
+.r-12ym1je{width:18px;}
+.r-12zb1j4{margin-right:7px;}
+.r-135wba7{line-height:24px;}
+.r-13gfk22{animation-delay:250ms;}
+.r-13hce6t{margin-left:4px;}
+.r-13i40vn{box-shadow:0px 12px 13px rgba(0,0,0,0.02);}
+.r-13i4ljo{width:172px;}
+.r-13l2t4g{border-right-width:1px;}
+.r-13ll0g2{color:rgba(10,48,105,1.00);}
+.r-13lvk87{margin-left:110px;}
+.r-13qz1uu{width:100%;}
+.r-13tjlyg{transition-duration:0.1s;}
+.r-13yce4e{border-top-width:0px;}
+.r-142tt33{-webkit-text-decoration-line:line-through;text-decoration-line:line-through;}
+.r-144uupt{left:2px;}
+.r-146iojx{max-width:300px;}
+.r-1472mwg{height:24px;}
+.r-14bkmb3{bottom:-3px;}
+.r-14eup4l{top:3px;}
+.r-14gqq1x{margin-top:4px;}
+.r-14lw9ot{background-color:rgba(255,255,255,1.00);}
+.r-14sbq61{background-color:rgba(33,150,243,1.00);}
+.r-14utu6a{line-height:8px;}
+.r-14vq63g{background-color:rgba(3,58,22,1.00);}
+.r-14yzgew{line-height:18px;}
+.r-150rngu{-webkit-overflow-scrolling:touch;}
+.r-157h22z{background-color:rgba(45,50,58,1.00);}
+.r-15czi30{background-image:linear-gradient(90deg, #e44f89, #c62c68);}
+.r-15d4u6f{background-color:rgba(145,176,240,1.00);}
+.r-15g7tld{margin-bottom:80px;}
+.r-15m1z73{margin-left:40px;}
+.r-15n4387{outline-color:#2662d7;}
+.r-15o5oer{bottom:auto;}
+.r-15ysp7h{min-height:32px;}
+.r-15zivkp{margin-bottom:4px;}
+.r-16dba41{font-weight:400;}
+.r-16l9doz{height:auto;}
+.r-16vg0q1{max-width:225px;}
+.r-16y2uox{flex-grow:1;}
+.r-173mn98{align-self:flex-end;}
+.r-1777fci{justify-content:center;}
+.r-17bb2tj{animation-duration:0.75s;}
+.r-17giqoz{box-shadow:0px 0px 7px rgba(0,0,0,0.52);}
+.r-17grq5a{margin-right:-8px;}
+.r-17leim2{background-repeat:repeat;}
+.r-17rnw9f{line-height:30px;}
+.r-17s6mgv{justify-content:flex-end;}
+.r-17tb59b{opacity:0.7;}
+.r-17tloay{opacity:0.6;}
+.r-17wrw06{color:rgba(180,26,26,1.00);}
+.r-184en5c{z-index:1;}
+.r-18ayb63{border-right-color:rgba(227,232,237,1.00);}
+.r-18kxxzh{flex-grow:0;}
+.r-18nhz7w{top:-3px;}
+.r-18p6if4{border-right-width:2px;}
+.r-18u37iz{flex-direction:row;}
+.r-18y5qoh{color:rgba(165,214,255,1.00);}
+.r-190thrv{color:rgba(145,75,5,1.00);}
+.r-19554kt{width:90px;}
+.r-19akecc{color:rgba(175,245,180,1.00);}
+.r-19byhck{flex-basis:32%;}
+.r-19lq7b1{top:16px;}
+.r-19r33im{letter-spacing:1.2px;}
+.r-19tq15n{margin-top:80px;}
+.r-19wmn03{width:20px;}
+.r-19z077z{touch-action:none;}
+.r-1a3cspq{background-color:rgba(40,49,67,1.00);}
+.r-1abnn5w{animation-play-state:paused;}
+.r-1acpoxo{width:36px;}
+.r-1aerykh{border-top-color:rgba(211,220,228,1.00);}
+.r-1aockid{width:40px;}
+.r-1armvtb{font-size:8px;}
+.r-1awozwy{align-items:center;}
+.r-1axcl7z{border:1px solid #d3dce4;}
+.r-1ay1djp{animation-duration:1s;}
+.r-1b00too{background-color:rgba(236,239,241,1.00);}
+.r-1b096ap{border-bottom-color:rgba(36,42,49,1.00);}
+.r-1b1g84l{bottom:-8px;}
+.r-1b43r93{font-size:14px;}
+.r-1bcbbo8{color:rgba(17,99,41,1.00);}
+.r-1bnj018{color:rgba(92,105,117,1.00);}
+.r-1bwbpp8{color:rgba(57,87,148,1.00);}
+.r-1bwgafa{-webkit-text-decoration-color:rgba(136,153,168,1.00);text-decoration-color:rgba(136,153,168,1.00);}
+.r-1c681wc{color:rgba(77,222,152,1.00);}
+.r-1c6unfx{forced-color-adjust:none;}
+.r-1ce3o0f{max-height:80vh;}
+.r-1ceczpf{min-height:24px;}
+.r-1clhhh9{-moz-transition-property:all;-webkit-transition-property:all;transition-property:all;}
+.r-1cmwbt1{gap:8px;}
+.r-1d09ksm{align-items:baseline;}
+.r-1d2f490{left:0px;}
+.r-1d4mawv{margin-right:4px;}
+.r-1d5kdc7{flex-direction:column-reverse;}
+.r-1d7fvdj{justify-content:space-evenly;}
+.r-1d9grui{border-bottom-color:rgba(211,220,228,1.00);}
+.r-1ddef8g{-webkit-text-decoration-line:underline;text-decoration-line:underline;}
+.r-1dernwh{height:70%;}
+.r-1dlgt49{max-height:30px;}
+.r-1dmvmgl{background-color:rgba(36,42,49,1.00);}
+.r-1dn12g7{line-height:48px;}
+.r-1dpl46z{border-bottom-right-radius:4px;}
+.r-1dqbpge{cursor:text;}
+.r-1dumtqg{background-color:rgba(253,195,137,1.00);}
+.r-1e1gmzv{color:rgba(38,59,102,1.00);}
+.r-1efo1hp{border-bottom-color:rgba(43,46,57,1.00);}
+.r-1ei5mc7{cursor:inherit;}
+.r-1eic64l{color:rgba(198,44,104,1.00);}
+.r-1enofrn{font-size:12px;}
+.r-1etz4cy{color:rgba(194,217,255,1.00);}
+.r-1euycsn{flex-direction:row-reverse;}
+.r-1ewcgjf{box-shadow:0px 1px 3px rgba(0,0,0,0.5);}
+.r-1f2v84d{color:rgba(204,207,212,1.00);}
+.r-1f529hi{line-height:14px;}
+.r-1fd96xs{padding-left:50px;}
+.r-1fdih9r{gap:24px;}
+.r-1fe0xdi{left:0%;}
+.r-1ff274t{text-align:right;}
+.r-1fi01yr{background-color:rgba(55,65,81,1.00);}
+.r-1fiaf3z{opacity:0.05;}
+.r-1fo40xd{top:80px;}
+.r-1fq43b1{flex-basis:100%;}
+.r-1g7fiml{height:30px;}
+.r-1g80fh1{margin-right:80px;}
+.r-1ghhsy9{color:rgba(52,109,219,1.00);}
+.r-1gigy5k{border-bottom-color:rgba(45,50,58,1.00);}
+.r-1glc72y{border-bottom-color:rgba(245,247,249,1.00);}
+.r-1glkqn6{width:80px;}
+.r-1h0z5md{justify-content:flex-start;}
+.r-1h2t8mc{width:0px;}
+.r-1h815vi{right:92%;}
+.r-1h8ys4a{padding-top:4px;}
+.r-1h9q8wt{color:rgba(69,69,69,1.00);}
+.r-1habvwh{align-items:flex-start;}
+.r-1hjwoze{height:18px;}
+.r-1hlnpa{height:3px;}
+.r-1hpgsb4{;}
+.r-1hqdnve{box-shadow:0px 0px 4px inset rgba(0,0,0, 0.08);}
+.r-1hrvmjx{border-top-color:rgba(55,65,81,1.00);}
+.r-1hvgd7h{background-color:rgba(52,109,219,1.00);}
+.r-1hvjb8t{padding-right:4px;}
+.r-1hy97zq{padding-top:80px;}
+.r-1hycxz{width:350px;}
+.r-1i6wzkk{-moz-transition-property:opacity;-webkit-transition-property:opacity;transition-property:opacity;}
+.r-1i7sdiz{box-shadow:0px 4px 10px rgba(0,0,0,0.05);}
+.r-1i93rbr{right:0%;}
+.r-1ielgck{animation-duration:300ms;}
+.r-1ifxtd0{margin-bottom:16px;}
+.r-1ik5qf4{max-width:500px;}
+.r-1iln25a{word-wrap:normal;}
+.r-1ioqa4e{border-top-right-radius:7px;}
+.r-1ipicw7{width:300px;}
+.r-1j7aebl{width:880px;}
+.r-1janqcz{width:16px;}
+.r-1jg9483{width:8px;}
+.r-1jj8364{margin-left:auto;}
+.r-1jkjb{margin-left:8px;}
+.r-1jnzvcq{padding-bottom:80px;}
+.r-1jocfgc{width:290px;}
+.r-1jpmnxg{word-wrap:anywhere;}
+.r-1jsra8{box-shadow:inset 0px 0px 0px 1px #e3e8ed;}
+.r-1jxfwug{border-top-width:2px;}
+.r-1k1q3bj{max-height:300px;}
+.r-1k25im9{height:26px;}
+.r-1kb76zh{margin-right:8px;}
+.r-1kf75xu{color:rgba(12,105,61,1.00);}
+.r-1kfrs79{font-weight:600;}
+.r-1ki14p2{top:10px;}
+.r-1kihuf0{align-self:center;}
+.r-1kjq87h{width:376px;}
+.r-1knl56f{animation-name:r-1hunrpy;}
+.r-1kvn7zp{max-height:150px;}
+.r-1kx0pzc{background-image:radial-gradient(rgba(0, 0, 0, 0.1), #181c1f);}
+.r-1l0m7dr{background-image:radial-gradient(rgba(0, 0, 0, 0.1), #ffffff);}
+.r-1l7z4oj{padding-bottom:16px;}
+.r-1l94q7l{box-shadow:inset 0px 0px 1px rgb(0 0 0 / 30%);}
+.r-1ld3bg{top:-4px;}
+.r-1ldzwu0{animation-timing-function:linear;}
+.r-1ljd8xs{border-left-width:1px;}
+.r-1lky6n1{background-color:rgba(227,232,237,1.00);}
+.r-1lnfjr6{-webkit-background-clip:text;}
+.r-1lnt56z{color:rgba(211,220,228,1.00);}
+.r-1loqt21{cursor:pointer;}
+.r-1m04atk{padding-left:8px;}
+.r-1m4drjs{top:-6px;}
+.r-1maqer6{max-width:860px;}
+.r-1mdbw0j{padding-bottom:0px;}
+.r-1mdsxwj{color:rgba(237,159,81,1.00);}
+.r-1mgmw1x{background-image:linear-gradient(90deg, #5f45ff, #442fc8);}
+.r-1mhb1uw{width:42px;}
+.r-1mhtwjo{left:-3px;}
+.r-1mlwlqe{flex-basis:auto;}
+.r-1mnahxq{margin-top:0px;}
+.r-1moh23t{bottom:16px;}
+.r-1mrlafo{background-position:0;}
+.r-1ms9ukt{bottom:-5px;}
+.r-1mtwht8{color:rgba(210,168,255,1.00);}
+.r-1muvv40{animation-iteration-count:infinite;}
+.r-1n20pny{width:140px;}
+.r-1n6k3lk{color:rgba(36,42,49,1.00);}
+.r-1na1l7e{animation-play-state:running;}
+.r-1nf4jbm{color:rgba(59,69,78,1.00);}
+.r-1niwhzg{background-color:rgba(0,0,0,0.00);}
+.r-1nj16ve{left:-10px;}
+.r-1nlw0im{bottom:8px;}
+.r-1nq9s1i{color:rgba(145,176,240,1.00);}
+.r-1ny4l3l{outline-style:none;}
+.r-1o9jcv2{max-width:660px;}
+.r-1ocf4r9{scroll-snap-type:y mandatory;}
+.r-1odw9d6{background-color:rgba(20,23,28,1.00);}
+.r-1oec5bt{opacity:0.2;}
+.r-1oep0n4{left:-12px;}
+.r-1ois7e2{color:rgba(55,65,81,1.00);}
+.r-1or9b2r{height:10px;}
+.r-1osy6ei{color:rgba(255,220,215,1.00);}
+.r-1oszu61{align-items:stretch;}
+.r-1otgn73{touch-action:manipulation;}
+.r-1ow6zhx{margin-left:16px;}
+.r-1p0dtai{bottom:0px;}
+.r-1p3vkdf{border-right-color:rgba(45,50,58,1.00);}
+.r-1p5i0ed{bottom:-24px;}
+.r-1p69tiw{border-top-color:rgba(43,46,57,1.00);}
+.r-1peese0{margin-bottom:24px;}
+.r-1ph75f1{height:80px;}
+.r-1pi2tsx{height:100%;}
+.r-1pl7oy7{min-height:48px;}
+.r-1pos5eu{vertical-align:middle;}
+.r-1ptriwd{right:2px;}
+.r-1pyaxff{padding-right:8px;}
+.r-1q142lx{flex-shrink:0;}
+.r-1q3nxaj{z-index:300;}
+.r-1q6rxnj{padding-right:110px;}
+.r-1q77oe7{background-color:rgba(171,183,202,1.00);}
+.r-1q9jyb7{-webkit-filter:blur(16px) contrast(110%) hue-rotate(10deg) brightness(1.2) saturate(1.2);filter:blur(16px) contrast(110%) hue-rotate(10deg) brightness(1.2) saturate(1.2);}
+.r-1qc3rpd{transform:scaleY(-1);}
+.r-1qd0xha{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.r-1qdbj55{animation-name:r-ndfo3d;}
+.r-1qefu2b{right:-3px;}
+.r-1qhn6m8{padding-left:16px;}
+.r-1quu1zo{;}
+.r-1r0uwd5{color:rgba(255,166,87,1.00);}
+.r-1r74h94{left:8px;}
+.r-1r8g8re{height:36px;}
+.r-1rasi3h{color:rgba(136,153,168,1.00);}
+.r-1rbj2e8{outline-color:#f5f7f9;}
+.r-1rdth4h{border-left-color:rgba(55,65,81,1.00);}
+.r-1rho1gz{box-shadow:0px 12px 13px rgba(0,0,0,0.12);}
+.r-1rkdych{max-width:1040px;}
+.r-1rla0r3{background-image:linear-gradient(90deg, #d33d3d, #b41a1a);}
+.r-1rnoaur{overflow-y:auto;}
+.r-1ro0kt6{flex-basis:0%;}
+.r-1ro7rbe{right:100%;}
+.r-1rttkqs{width:400px;}
+.r-1rxb9bi{row-gap:4px;}
+.r-1s3egr7{z-index:100;}
+.r-1s8p94s{max-width:832px;}
+.r-1sc18lr{padding-bottom:88px;}
+.r-1sncvnh{transform:translateZ(0px);}
+.r-1sxrcry{background-size:auto;}
+.r-1t2qqvi{flex-basis:50%;}
+.r-1t7uo4s{object-fit:cover;}
+.r-1t8m4kl{text-shadow:0px 0px 3px rgba(36,42,49,1.00);}
+.r-1ta3fxp{-webkit-column-gap:8px;column-gap:8px;}
+.r-1tazni7{cursor:not-allowed;}
+.r-1ts5s6y{aspect-ratio:1.7777777777777777;}
+.r-1ttybm1{border-top-color:rgba(45,50,58,1.00);}
+.r-1ty4vvm{left:40px;}
+.r-1tymxbh{box-shadow:5px 0px 7px rgba(36,42,49,0.60);}
+.r-1u8kdu{bottom:24px;}
+.r-1ua3vzd{background-color:rgba(223,255,240,1.00);}
+.r-1ub1aon{transform:translateY(100%);}
+.r-1udbk01{text-overflow:ellipsis;}
+.r-1ufdtu9{background-image:linear-gradient(270deg, #e3e8ed 10%, #f5f7f9, #e3e8ed 90%);}
+.r-1ufr4wv{z-index:9;}
+.r-1ug9s38{box-shadow:inset 0px 0px 0px 1px #374151;}
+.r-1ui5ee8{font-size:32px;}
+.r-1ul06mb{margin-left:32px;}
+.r-1ulgld5{color:rgba(255,123,114,1.00);}
+.r-1um4q9x{-moz-transition:opacity 800ms ease;-webkit-transition:opacity 800ms ease;transition:opacity 800ms ease;}
+.r-1uql0sn{top:-1.2em;}
+.r-1ur9v65{padding-top:40px;}
+.r-1ut4w64{margin-bottom:-1px;}
+.r-1uwte3a{padding-bottom:40px;}
+.r-1uypc71{animation-timing-function:ease-in;}
+.r-1v2oles{top:50%;}
+.r-1v4p587{border-bottom-color:rgba(24,28,31,1.00);}
+.r-1v7fmog{background-color:rgba(236,243,255,1.00);}
+.r-1v7sw2p{background-size:50% 80px;}
+.r-1vamr63{max-width:720px;}
+.r-1vckr1u{background-color:rgba(245,247,249,1.00);}
+.r-1vex5ub{color:rgba(68,47,200,1.00);}
+.r-1vo7ria{color:rgba(38,98,215,1.00);}
+.r-1vutw0s{background-color:rgba(103,6,12,1.00);}
+.r-1vz48go{background-image:radial-gradient(rgba(255, 255, 255, 0.1), #181c1f);}
+.r-1vzi8xi{vertical-align:middle;}
+.r-1w2pmg{height:0px;}
+.r-1w6e6rj{flex-wrap:wrap;}
+.r-1wan564{color:rgba(169,192,240,1.00);}
+.r-1wb8bfx{text-decoration-thickness:2px;}
+.r-1wbh5a2{flex-shrink:1;}
+.r-1wezhl{margin-left:80px;}
+.r-1wfhzrg{height:120px;}
+.r-1wghi3f{top:-8px;}
+.r-1wtj0ep{justify-content:space-between;}
+.r-1wv73ep{align-self:baseline;}
+.r-1ww30s9{max-width:30px;}
+.r-1wyyakw{z-index:-1;}
+.r-1wzrnnt{margin-top:16px;}
+.r-1x35g6{font-size:24px;}
+.r-1xbve24{height:6px;}
+.r-1xcajam{position:fixed;}
+.r-1xnzce8{-moz-user-select:text;-webkit-user-select:text;user-select:text;}
+.r-1xoqk23{background-color:rgba(68,47,200,1.00);}
+.r-1y14msn{border-bottom-color:rgba(55,65,81,1.00);}
+.r-1y9xkqr{left:8%;}
+.r-1yb8zos{background-color:rgba(162,169,185,1.00);}
+.r-1ybp48z{background-image:linear-gradient(90deg, #cc3131, #b41a1a);}
+.r-1ye8kvj{max-width:600px;}
+.r-1ygmrgt{padding-top:24px;}
+.r-1ylffjs{-webkit-text-decoration-style:dotted;text-decoration-style:dotted;}
+.r-1yv4afn{border-top-color:rgba(227,232,237,1.00);}
+.r-1yvhtrz{width:32px;}
+.r-1yxedwg{top:8px;}
+.r-1yyzdbt{border-left-color:rgba(227,232,237,1.00);}
+.r-257lmc{width:1180px;}
+.r-29dh1f{background-image:linear-gradient(90deg, #eceff1, #e3e8ed);}
+.r-2awvau{min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content;}
+.r-2eszeu::-webkit-scrollbar{display:none}
+.r-2eszeu{scrollbar-width:none;}
+.r-2fm7cc{color:rgba(139,148,158,1.00);}
+.r-2fw26j{outline-offset:0px;}
+.r-2jelyo{background-color:rgba(24,28,31,1.00);}
+.r-2jxp4q{background-color:rgba(34,39,46,1.00);}
+.r-2kxcpj{inset:0px;}
+.r-2llsf{min-height:100%;}
+.r-2o02ov{margin-top:40px;}
+.r-2tavb8{background-color:rgba(0,0,0,0.60);}
+.r-2zpn8w{-webkit-break-inside:avoid;break-inside:avoid;}
+.r-30o5oe{-moz-appearance:none;-ms-appearance:none;-webkit-appearance:none;appearance:none;}
+.r-30qeir{bottom:-4px;}
+.r-36ujnk{font-style:italic;}
+.r-37tt59{line-height:32px;}
+.r-3da1kt{height:8px;}
+.r-3dgjpp{border-top-color:rgba(36,42,49,1.00);}
+.r-3hw5f6{color:rgba(149,56,0,1.00);}
+.r-3mc0re{right:8px;}
+.r-3mtglp{row-gap:16px;}
+.r-3o833n{background-color:rgba(251,232,240,1.00);}
+.r-3pxcvb{border-bottom-color:rgba(255,255,255,1.00);}
+.r-3s2u2q{white-space:nowrap;}
+.r-417010{z-index:0;}
+.r-41syhy{max-width:504px;}
+.r-432wen{width:3px;}
+.r-44c749{border-bottom-left-radius:7px;}
+.r-493a2x{width:680px;}
+.r-4c3hy2{max-width:245px;}
+.r-4d76ec{height:200px;}
+.r-4dj0k7{box-shadow:0px 1px 2px rgba(0,0,0,0.12);}
+.r-4gszlv{background-size:cover;}
+.r-4jz4xt{background-image:linear-gradient(90deg, #374151, #374151);}
+.r-4v7adb{height:5px;}
+.r-59fiw0{max-width:416px;}
+.r-5cpxsl{stroke-width:3;}
+.r-5is6sd{max-width:460px;}
+.r-5kkj8d{border-top-width:1px;}
+.r-5ks0hp{right:3.5px;}
+.r-5kx3fr{page-break-inside:avoid;}
+.r-5oul0u{margin-bottom:8px;}
+.r-5soawk{width:10px;}
+.r-5xr8s6{outline-width:2px;}
+.r-60emj1{background-color:rgba(255,204,203,1.00);}
+.r-61z16t{margin-right:0px;}
+.r-633pao{pointer-events:none!important;}
+.r-6b6lzv{color:rgba(100,143,228,1.00);}
+.r-6dt33c{opacity:1;}
+.r-6k4xqk{margin-top:-40px;}
+.r-6t5ypu{border-bottom-left-radius:4px;}
+.r-6taxm2:-ms-input-placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-6taxm2::-moz-placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-6taxm2::-webkit-input-placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-6taxm2::placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-6uxfom{margin-left:24px;}
+.r-6wscbn{max-width:252px;}
+.r-73dpzl{border-top-color:rgba(245,247,249,1.00);}
+.r-7b7h2f{left:100%;}
+.r-7bxf49{background-color:rgba(205,218,246,1.00);}
+.r-7cikom{font-size:inherit;}
+.r-7l9xyp{background-color:rgba(255,255,255,0.20);}
+.r-7q8q6z{cursor:default;}
+.r-7xmw5f{width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;}
+.r-81rbui{animation-name:r-1ak6360;}
+.r-855088{border-left-color:rgba(0,0,0,0.00);}
+.r-88pszg{margin-right:16px;}
+.r-8akbws{-webkit-box-orient:vertical;}
+.r-8d26hk{margin-bottom:40px;}
+.r-8hc5te{width:6px;}
+.r-8jwyv6{-moz-transition:opacity 0.2s ease-in-out;-webkit-transition:opacity 0.2s ease-in-out;transition:opacity 0.2s ease-in-out;}
+.r-8upyzv{width:260px;}
+.r-8v5hsd{color:rgba(126,231,135,1.00);}
+.r-9030i9{box-shadow:0px 4px 10px rgba(0,0,0,0.99);}
+.r-9111t9{padding-right:410px;}
+.r-92ng3h{width:1px;}
+.r-934yyj{padding-left:34px;}
+.r-9358xi{background-color:rgba(35,131,226,0.14);}
+.r-95jzfe{padding-top:16px;}
+.r-97e31f{padding-bottom:env(safe-area-inset-bottom);}
+.r-97prym{flex-basis:16px;}
+.r-99m41f{color:rgba(110,119,129,1.00);}
+.r-9aemit{padding-right:0px;}
+.r-9ji8r7{transform:translateY(0%);}
+.r-9jpwak{min-width:auto;}
+.r-a21fva{box-shadow:0px -1px 2px rgba(0,0,0,0.69);}
+.r-a2tzq0{justify-content:space-around;}
+.r-a5pmau{margin-right:2px;}
+.r-a9hzal{height:660px;}
+.r-adacv{min-height:64px;}
+.r-adyw6z{font-size:20px;}
+.r-ah5dr5>*{pointer-events:none;}
+.r-ah5dr5{pointer-events:auto!important;}
+.r-ak0haq{color:rgba(121,192,255,1.00);}
+.r-aqxs90{-moz-transition:opacity 500ms ease-in, z-index 1000ms ease-in;-webkit-transition:opacity 500ms ease-in, z-index 1000ms ease-in;transition:opacity 500ms ease-in, z-index 1000ms ease-in;}
+.r-b4cb4{max-height:440px;}
+.r-b88u0q{font-weight:700;}
+.r-bcqeeo{min-width:0px;}
+.r-bcycc3{box-shadow:0px -1px 2px rgba(0,0,0,0.12);}
+.r-bgnin{min-width:150px;}
+.r-bnwqim{position:relative;}
+.r-bsjocg{@media print:[object Object];}
+.r-bta5j5{right:40px;}
+.r-buy8e9{overflow-y:hidden;}
+.r-bv2aro{padding-left:env(safe-area-inset-left);}
+.r-bxaprw{border-top-left-radius:7px;}
+.r-c68hjy{color:rgba(161,161,161,1.00);}
+.r-cb7i37{outline-color:#395794;}
+.r-cdhzog{padding-right:80px;}
+.r-cpa5s6{scroll-snap-align:start;}
+.r-d822y2{color:rgba(5,80,174,1.00);}
+.r-deolkf{box-sizing:border-box;}
+.r-dflpy8{height:1.2em;}
+.r-dkge59{background-color:rgba(170,184,194,1.00);}
+.r-dnmrzs{max-width:100%;}
+.r-dse9kg{outline-style:auto;}
+.r-dvzd6p{right:-1px;}
+.r-dvzwsg{border-left-color:rgba(211,220,228,1.00);}
+.r-dwliz8{border-left-width:2px;}
+.r-e1k2in{right:16px;}
+.r-e9uq0i{animation-duration:1200ms;}
+.r-ea455c{border:none;}
+.r-eafdt9{transition-duration:0.15s;}
+.r-ecifi{max-width:970px;}
+.r-ehq7j7{background-size:contain;}
+.r-epq5cr{height:2px;}
+.r-eqo98v{top:24px;}
+.r-eqz5dr{flex-direction:column;}
+.r-ero68b{min-height:40px;}
+.r-eu3ka{height:40px;}
+.r-f4gmv6{gap:16px;}
+.r-fa5tdg{max-width:456px;}
+.r-fdjqy7{text-align:left;}
+.r-flmpir{border-bottom-color:rgba(40,49,67,1.00);}
+.r-fnigne{border-right-width:0px;}
+.r-fpub7{color:rgba(0,0,0,0.00);}
+.r-g3mlsw{animation-name:r-t2lo5v;}
+.r-gg6oyi{font-family:gitbook-content-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
+.r-ggadg3{left:-2px;}
+.r-givd4m{left:-5px;}
+.r-gl891g{min-width:420px;}
+.r-gpge5b{right:calc(50% + 11px);}
+.r-gtdqiz{position:-webkit-sticky;position:sticky;}
+.r-gu0qjt{padding-left:32px;}
+.r-gxnn5r{border-left-width:0px;}
+.r-gxopl6{left:316px;}
+.r-gy4na3{padding-left:0px;}
+.r-gys0vz{color:rgba(0,136,71,1.00);}
+.r-h2mvr{min-width:8px;}
+.r-h2q2x{transform:scaleX(-1);}
+.r-h3s6tt{height:48px;}
+.r-h7ga17{background-color:rgba(43,46,57,1.00);}
+.r-h7gdob{color:currentColor;}
+.r-ha54is{icon-color:#a2a9b9;}
+.r-hauab{-moz-transition:width 50ms ease-in-out;-webkit-transition:width 50ms ease-in-out;transition:width 50ms ease-in-out;}
+.r-hbpseb{line-height:22px;}
+.r-hd655f{color:rgba(162,169,185,1.00);}
+.r-homxoj{color:inherit;}
+.r-hq6u89{left:92%;}
+.r-hqnlqz{border-left-color:rgba(52,109,219,1.00);}
+.r-htfu76{margin-left:-8px;}
+.r-hvns9x{max-width:400px;}
+.r-hxflta{padding-right:env(safe-area-inset-right);}
+.r-i023vh{padding-right:16px;}
+.r-i7h7g2{-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);}
+.r-i8xx8x{color:rgba(207,34,46,1.00);}
+.r-ia06lx{background-color:rgba(115,92,255,1.00);}
+.r-ibjss6{background-color:rgba(136,153,168,1.00);}
+.r-icoktb{opacity:0.5;}
+.r-ifefl9{min-height:0px;}
+.r-ihd41t{border:1px solid #374151;}
+.r-iphfwy{padding-bottom:4px;}
+.r-ipm5af{top:0px;}
+.r-iqs06e{background-image:radial-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1));}
+.r-ir6n1k{border-top-right-radius:6px;}
+.r-ixzivm{@media print:[object Object];}
+.r-iyfy8q{width:auto;}
+.r-j300sb{animation-name:r-1rx4pb;}
+.r-jfrpv2{color:rgba(130,80,223,1.00);}
+.r-jn0m22{top:54px;}
+.r-jn5ml{right:-5px;}
+.r-jvuzdy{top:-5px;}
+.r-jwli3a{color:rgba(255,255,255,1.00);}
+.r-jxjwwx{left:24px;}
+.r-k200y{align-self:flex-start;}
+.r-k923pl{background-color:rgba(218,212,255,1.00);}
+.r-kcufgn{cursor:ew-resize;}
+.r-key0ze{height:240px;}
+.r-kicko2{border-top-left-radius:4px;}
+.r-kls4rr{padding-right:40px;}
+.r-knv0ih{margin-top:8px;}
+.r-kquydp{right:-4px;}
+.r-ky29hr{bottom:2px;}
+.r-l0gwng{width:200px;}
+.r-l13dpy{z-index:200;}
+.r-l27s25{background-color:rgba(204,207,212,1.00);}
+.r-l9hqf4{box-shadow:0px 1px 1px rgba(0,0,0,0.69);}
+.r-l9st2p{-webkit-text-decoration-color:rgba(162,169,185,1.00);text-decoration-color:rgba(162,169,185,1.00);}
+.r-labphf{height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;}
+.r-lchren{margin-right:auto;}
+.r-ld67tl{left:-72px;}
+.r-lk1fr1{icon-color:#8899a8;}
+.r-lltvgl{overflow-x:auto;}
+.r-lqms97{margin-left:-1px;}
+.r-lrsllp{width:24px;}
+.r-lrvibr{-moz-user-select:none;-webkit-user-select:none;user-select:none;}
+.r-lv5dtd{padding-left:110px;}
+.r-lx1l9k{background-image:radial-gradient(rgba(255, 255, 255, 0.1), #ffffff);}
+.r-m0vln2{border-left-color:rgba(43,46,57,1.00);}
+.r-m2pi6t{padding-left:4px;}
+.r-m5arl1{width:2px;}
+.r-mabqd8{height:32px;}
+.r-majxgm{font-weight:500;}
+.r-mbgqwd{margin-right:24px;}
+.r-mfh4gg{scroll-snap-type:x mandatory;}
+.r-mfzc6t{background-color:rgba(0,0,0,0.10);}
+.r-mhe3cw{z-index:10;}
+.r-ms8t9i{border-left-width:3px;}
+.r-na6qhi{;}
+.r-ng8e2f{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab;}
+.r-nkouq2{box-shadow:-5px 0px 7px rgba(36,42,49,0.60);}
+.r-notknq{border-top-right-radius:4px;}
+.r-nvplwv{animation-timing-function:ease-out;}
+.r-nvvorq{top:3.5px;}
+.r-nwxazl{line-height:40px;}
+.r-nzcix3{border-bottom-color:rgba(227,232,237,1.00);}
+.r-o2ldwd{left:calc(50% + 11px);}
+.r-o8yidv{border-top-left-radius:6px;}
+.r-o9xkwf{top:2px;}
+.r-obd0qt{align-items:flex-end;}
+.r-onxxid{background-color:rgba(27,30,33,0.77);}
+.r-op3p1c{width:520px;}
+.r-orgf3d{opacity:0;}
+.r-ou6ah9{border-top-left-radius:0px;}
+.r-oucylx{border-bottom-color:rgba(0,0,0,0.00);}
+.r-oz83uh{box-shadow:0px 1px 1px rgba(0,0,0,0.12);}
+.r-p1pxzi{margin-bottom:0px;}
+.r-pex7a0{color:rgba(130,7,30,1.00);}
+.r-pi8zqv{box-shadow:0px 0px 7px rgba(0,0,0,0.04);}
+.r-pm9dpa{max-height:100%;}
+.r-puj83k{padding-left:24px;}
+.r-py1axk{border-bottom-right-radius:7px;}
+.r-q4m81j{text-align:center;}
+.r-qklmqi{border-bottom-width:1px;}
+.r-qn3fzs{padding-bottom:24px;}
+.r-qyrhsv{border-right-color:rgba(40,49,67,1.00);}
+.r-r1s0sa{background-color:rgba(255,235,233,1.00);}
+.r-r9hte5{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);}
+.r-rs94m5{background-image:url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8cGF0aAogICAgIGQ9Ik0gMC4wNDAzODA1OSwwLjYyNjc3NjcgMC4xNDY0NDY2MSwwLjUyMDcxMDY4IDAuNDI5Mjg5MzIsMC44MDM1NTMzOSAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IE0gMC4yMTcxNTcyOSwwLjgwMzU1MzM5IDAuODUzNTUzMzksMC4xNjcxNTcyOSAwLjk1OTYxOTQxLDAuMjczMjIzMyAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IgogICAgIGlkPSJyZWN0Mzc4MCIKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgo8L3N2Zz4K");}
+.r-rwqe4o{width:48px;}
+.r-s09aw7{background-image:linear-gradient(to left, #735cff, rgb(109 28 169), rgb(96 104 191), #008847, #FFD139, #b95e04, #d33d3d);}
+.r-s0e3za{padding-left:80px;}
+.r-s8bhmr{min-width:56px;}
+.r-sa2ff0{min-height:100vh;}
+.r-sfbmgh{z-index:9999;}
+.r-sga3zk{height:64px;}
+.r-sgscqh{width:250px;}
+.r-t12b5v{border-top-right-radius:0px;}
+.r-t3lkjx{background-color:rgba(228,79,137,1.00);}
+.r-t9hbny{background-color:rgba(211,61,61,1.00);}
+.r-tceitz{left:16px;}
+.r-tni569{background-color:rgba(11,79,47,1.00);}
+.r-tskmnb{padding-top:8px;}
+.r-tsynxw{text-transform:uppercase;}
+.r-u529wo{transform:translateY(-2px);}
+.r-u6sd8q{background-repeat:no-repeat;}
+.r-u8s1d{position:absolute;}
+.r-u92y06{background-color:rgba(255,165,0,1.00);}
+.r-u9bbvc{;}
+.r-u9z937{bottom:80px;}
+.r-ubezar{font-size:16px;}
+.r-ud0q2t{letter-spacing:1px;}
+.r-ufs8t{background-clip:text;}
+.r-uibjmv{font-family:gitbook-code-font, Menlo, monospace;}
+.r-upfvwg{box-shadow:0px 0px 1px rgb(255 255 255 / 30%);}
+.r-uweo6c{bottom:136px;}
+.r-ux9zog{background-color:rgba(51,61,85,1.00);}
+.r-v2u3o6{right:4px;}
+.r-vlcob{color:rgba(24,28,31,1.00);}
+.r-vq47rg{color:rgba(211,61,61,1.00);}
+.r-vvn4in{background-position:center;}
+.r-w0va4e{margin-right:40px;}
+.r-w9n8ly{transition-delay:200ms;}
+.r-wc24c3{z-index:20;}
+.r-wech8c{max-width:1280px;}
+.r-wgabs5{border-bottom-width:2px;}
+.r-wk8lta{padding-top:0px;}
+.r-ws9h79{left:4px;}
+.r-wwqw7s{left:-1px;}
+.r-wy61xf{height:72px;}
+.r-x1dlf0{max-width:200px;}
+.r-x3cy2q{background-size:100% 100%;}
+.r-xb2eav{font-size:40px;}
+.r-xbwjba{border-bottom-color:rgba(52,109,219,1.00);}
+.r-xd6kpl{padding-bottom:8px;}
+.r-xifl00{left:-4px;}
+.r-xky0vn{background-color:rgba(104,60,17,1.00);}
+.r-xnn892{background-color:rgba(218,251,225,1.00);}
+.r-xx3c9p{animation-name:r-imtty0;}
+.r-xzortm{margin-right:-16px;}
+.r-y3rmyz{width:120px;}
+.r-ye2ihm{background-image:none;}
+.r-yh6aho{background-image:linear-gradient(270deg, #2b2e39 10%, #22272e, #2b2e39 90%);}
+.r-yj30ev{right:24px;}
+.r-yrgyi6{white-space:pre;}
+.r-ywxogp{color:rgba(115,92,255,1.00);}
+.r-z3s97b{border-right-color:rgba(43,46,57,1.00);}
+.r-z80fyv{height:20px;}
+.r-z9jf92{color:rgba(234,242,247,1.00);}
+.r-zchlnj{right:0px;}
+.r-zh076v{height:100vh;}
+.r-zits6j{right:8%;}
+.r-znv4k7{border-right-color:rgba(52,109,219,1.00);}
+.r-zo7nv5{-webkit-column-gap:16px;column-gap:16px;}
+.r-ztyd71{background-color:rgba(0,0,0,0.20);}
+@-webkit-keyframes r-1ak6360{0%{background-position-x:0%;}100%{background-position-x:100%;}}
+@-webkit-keyframes r-1hunrpy{0%{transform:translateY(100%);}100%{transform:translateY(0%);}}
+@-webkit-keyframes r-1rx4pb{0%{transform:translateX(-100%);}100%{transform:translateX(400%);}}
+@-webkit-keyframes r-9p3sdl{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+@-webkit-keyframes r-imtty0{0%{opacity:0;}100%{opacity:1;}}
+@-webkit-keyframes r-ndfo3d{0%{transform:translateY(0%);}100%{transform:translateY(100%);}}
+@-webkit-keyframes r-t2lo5v{0%{opacity:1;}100%{opacity:0;}}
+@keyframes r-1ak6360{0%{background-position-x:0%;}100%{background-position-x:100%;}}
+@keyframes r-1hunrpy{0%{transform:translateY(100%);}100%{transform:translateY(0%);}}
+@keyframes r-1rx4pb{0%{transform:translateX(-100%);}100%{transform:translateX(400%);}}
+@keyframes r-9p3sdl{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+@keyframes r-imtty0{0%{opacity:0;}100%{opacity:1;}}
+@keyframes r-ndfo3d{0%{transform:translateY(0%);}100%{transform:translateY(100%);}}
+@keyframes r-t2lo5v{0%{opacity:1;}100%{opacity:0;}}
+[stylesheet-group="10"]{}
+[data-rnwrdesktop-166pt5r]{width:max(220px, calc(100vw - max(300px, calc((100vw - 970px) / 2 - 0px)) - 750px - 110px - 300px - 0px));}
+[data-rnwrdesktop-18u37iz]{flex-direction:row;}
+[data-rnwrdesktop-1hy97zq-1q6rxnj-lv5dtd-9111t9]{padding-left:110px;padding-right:410px;padding-top:80px;}
+[data-rnwrdesktop-1jkjb]{margin-left:8px;}
+[data-rnwrdesktop-1kb76zh]{margin-right:8px;}
+[data-rnwrdesktop-1ph75f1]{height:80px;}
+[data-rnwrdesktop-1uwte3a]{padding-bottom:40px;}
+[data-rnwrdesktop-fnigne]{border-right-width:0px;}
+[data-rnwrdesktop-gg6oyi-1x35g6-37tt59-b88u0q]{font-family:gitbook-content-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:24px;font-weight:700;line-height:32px;}
+[data-rnwrdesktop-gg6oyi-ubezar-135wba7-1kfrs79]{font-family:gitbook-content-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;font-weight:600;line-height:24px;}
+[data-rnwrdesktop-gg6oyi-xb2eav-1dn12g7-b88u0q]{font-family:gitbook-content-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:40px;font-weight:700;line-height:48px;}
+[data-rnwrdesktop-h3s6tt]{height:48px;}
+[data-rnwrdesktop-hidden]{display: none;}
+[data-rnwrdesktop-iyfy8q-1qhn6m8-11g3r6m-1h0z5md]{justify-content:flex-start;padding-left:16px;padding-right:24px;width:auto;}
+[data-rnwrdesktop-u8s1d-1qhn6m8-i023vh]{padding-left:16px;padding-right:16px;position:absolute;}
+[data-rnwrdesktop-visible]{display: flex;}
+[stylesheet-group="11"]{}
+@media (max-width: 1024px) and (max-width: 9999999.494850524510111312253100114px) { [data-rnwr1024-eqz5dr] {flex-direction:column;} }
+@media (max-width: 1024px) and (max-width: 9999999.49485052454910510212011610048px) { [data-rnwr1024-1ifxtd0] {margin-bottom:16px;} }
+@media (max-width: 1280px) and (max-width: 9999999.4950564845104105100100101110px) { [data-rnwr1280-hidden] {display: none;} }
+@media (max-width: 1280px) and (max-width: 9999999.49505648454955555510299105px) { [data-rnwr1280-1777fci] {justify-content:center;} }
+@media (max-width: 1430px) and (max-width: 9999999.495251484511810511510598108101px) { [data-rnwr1430-visible] {display: flex;} }
+@media (max-width: 1490px) and (max-width: 9999999.49525748454955555510299105px) { [data-rnwr1490-1777fci] {justify-content:center;} }
+[stylesheet-group="12"]{}
+@media (max-width: 700px) and (max-width: 9999999.5548484510111312253100114px) { [data-rnwr700-eqz5dr] {flex-direction:column;} }
+@media (max-width: 700px) and (max-width: 9999999.55484845103103541111211054511798101122971144549515311998975545491071021141155557px) { [data-rnwr700-gg6oyi-ubezar-135wba7-1kfrs79] {font-family:gitbook-content-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;font-weight:600;line-height:24px;} }
+@media (max-width: 700px) and (max-width: 9999999.55484845103103541111211054549117105531011015645110119120971221084598565611748113px) { [data-rnwr700-gg6oyi-1ui5ee8-nwxazl-b88u0q] {font-family:gitbook-content-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:32px;font-weight:700;line-height:40px;} }
+@media (max-width: 700px) and (max-width: 9999999.5548484510310354111121105459710012111954122454951531199897554598565611748113px) { [data-rnwr700-gg6oyi-adyw6z-135wba7-b88u0q] {font-family:gitbook-content-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:20px;font-weight:700;line-height:24px;} }
+@media (max-width: 700px) and (max-width: 9999999.55484845104105100100101110px) { [data-rnwr700-hidden] {display: none;} }
+@media (max-width: 700px) and (max-width: 9999999.5548484510512110212156113451011175110797px) { [data-rnwr700-iyfy8q-eu3ka] {height:40px;width:auto;} }
+@media (max-width: 700px) and (max-width: 9999999.554848451051211021215611345103121521109751451054850511181044549119981045397504549104481225310910045px) { [data-rnwr700-iyfy8q-gy4na3-i023vh-1wbh5a2-1h0z5md-] {flex-shrink:1;justify-content:flex-start;padding-left:0px;padding-right:16px;width:auto;} }
+@media (max-width: 700px) and (max-width: 9999999.554848451151039751122107px) { [data-rnwr700-sga3zk] {height:64px;} }
+@media (max-width: 700px) and (max-width: 9999999.5548484511810511510598108101px) { [data-rnwr700-visible] {display: flex;} }
+@media (max-width: 700px) and (max-width: 9999999.55484845491195410154114106454955555510299105px) { [data-rnwr700-1w6e6rj-1777fci] {flex-wrap:wrap;justify-content:center;} }
+@media (max-width: 700px) and (max-width: 9999999.5548484549511085011652103px) { [data-rnwr700-13l2t4g] {border-right-width:1px;} }
+@media (max-width: 700px) and (max-width: 9999999.5548484557531061221021014549113104110541095645105485051118104px) { [data-rnwr700-95jzfe-1qhn6m8-i023vh] {padding-left:16px;padding-right:16px;padding-top:16px;} }
+@media (max-width: 700px) and (max-width: 9999999.55484845981101191131051094510312152110975145105485051118104px) { [data-rnwr700-bnwqim-gy4na3-i023vh] {padding-left:0px;padding-right:16px;position:relative;} }
+@media (max-width: 970px) and (max-width: 9999999.5755484510111312253100114px) { [data-rnwr970-eqz5dr] {flex-direction:column;} }
+@media (max-width: 970px) and (max-width: 9999999.5755484549491191141051201194510711011848105104px) { [data-rnwr970-11wrixw-knv0ih] {margin-left:0px;margin-top:8px;} }
+@media (max-width: 970px) and (max-width: 9999999.5755484554491224954116455311111710848117px) { [data-rnwr970-61z16t-5oul0u] {margin-bottom:8px;margin-right:0px;} }
+[stylesheet-group="13"]{}
+@media (max-width: 700px) and (max-width: 9999999.554848454955555510299105px) { [data-rnwr700-1777fci] {justify-content:center;} }
+[stylesheet-group="20"]{}
+[data-rnwi-1rasi3h-]{color:rgba(136,153,168,1.00);}
+[data-rnwi-handle="link"] [data-rnwilink--1ghhsy9-]{color:rgba(52,109,219,1.00);}
+[data-rnwi-handle="nearest"] [data-rnwinearest-1nf4jbm-]{color:rgba(59,69,78,1.00);}
+body:not(.dragging) [data-rnwi--1ghhsy9-hover-focus]:hover, body:not(.dragging) [data-rnwi--1ghhsy9-hover-focus]:focus{color:rgba(52,109,219,1.00);}
+body:not(.dragging) [data-rnwi--1tgwseu--focus]:focus{border-bottom-color:rgba(52,109,219,1.00);border-left-color:rgba(52,109,219,1.00);border-right-color:rgba(52,109,219,1.00);border-top-color:rgba(52,109,219,1.00);}
+body:not(.dragging) [data-rnwi-190qawg-hover-focus]:hover, body:not(.dragging) [data-rnwi-190qawg-hover-focus]:focus{border-bottom-color:rgba(227,232,237,1.00);border-left-color:rgba(227,232,237,1.00);border-right-color:rgba(227,232,237,1.00);border-top-color:rgba(227,232,237,1.00);}
+body:not(.dragging) [data-rnwi-1b00too-hover]:hover{background-color:rgba(236,239,241,1.00);}
+body:not(.dragging) [data-rnwi-1vckr1u-hover-focus]:hover, body:not(.dragging) [data-rnwi-1vckr1u-hover-focus]:focus{background-color:rgba(245,247,249,1.00);}
+body:not(.dragging) [data-rnwi-5xr8s6-dse9kg-2fw26j-15n4387-focus-visible]:focus-visible{outline-color:#2662d7;outline-offset:0px;outline-style:auto;outline-width:2px;}
+body:not(.dragging) [data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible]:focus-visible{outline-color:#395794;outline-offset:0px;outline-style:auto;outline-width:2px;}
+body:not(.dragging) [data-rnwi-handle="BaseCard"]:hover [data-rnwibasecard--1ghhsy9-hover-focus], body:not(.dragging) [data-rnwi-handle="BaseCard"]:focus [data-rnwibasecard--1ghhsy9-hover-focus]{color:rgba(52,109,219,1.00);}
+body:not(.dragging) [data-rnwi-handle="BaseCard"]:hover [data-rnwibasecard--1ghhsy9-hover]{color:rgba(52,109,219,1.00);}
+body:not(.dragging) [data-rnwi-handle="button"]:hover [data-rnwibutton--1ghhsy9-hover-focus], body:not(.dragging) [data-rnwi-handle="button"]:focus [data-rnwibutton--1ghhsy9-hover-focus]{color:rgba(52,109,219,1.00);}
+body:not(.dragging) [data-rnwi-handle="button"]:hover [data-rnwibutton-1bnj018-hover-focus], body:not(.dragging) [data-rnwi-handle="button"]:focus [data-rnwibutton-1bnj018-hover-focus]{color:rgba(92,105,117,1.00);}
+body:not(.dragging) [data-rnwi-handle="link"]:hover [data-rnwilink--1e1gmzv-1ddef8g-hover]{-webkit-text-decoration-line:underline;color:rgba(38,59,102,1.00);text-decoration-line:underline;}
+body:not(.dragging) [data-rnwi-handle="nearest"]:hover [data-rnwinearest--1ghhsy9-hover-focus], body:not(.dragging) [data-rnwi-handle="nearest"]:focus [data-rnwinearest--1ghhsy9-hover-focus]{color:rgba(52,109,219,1.00);}
+body:not(.dragging) [data-rnwi-handle="nearest"]:hover [data-rnwinearest--1ghhsy9-hover]{color:rgba(52,109,219,1.00);}
+body:not(.dragging) [data-rnwi-handle="nearest"]:hover [data-rnwinearest-1nf4jbm-hover-focus], body:not(.dragging) [data-rnwi-handle="nearest"]:focus [data-rnwinearest-1nf4jbm-hover-focus]{color:rgba(59,69,78,1.00);}
+body:not(.dragging) [data-rnwi-u529wo-aq1qub-c1zw6o-1khlhp8-1cut0bx-na6qhi--hover]:hover{box-shadow:0px 12px 13px rgba(0,0,0,0.02);transform:translateY(-2px);}</style>
+                <style>
+                    html,
+                    body {
+                        -webkit-font-smoothing: antialiased;
+                        text-rendering: optimizelegibility;
+                        width: 100%;
+                        min-height: 100vh;
+                        user-select: none;
+                        outline: none;
+                        position: relative;
+                    }
+                    /* Avoid Chrome to see Safari hack */
+                    @supports (-webkit-touch-callout: none) {
+                        html,
+                        body,
+                        .gitbook-root {
+                            /* The hack for Safari */
+                            min-height: -webkit-fill-available;
+                        }
+                    }
+                    .gitbook-root {
+                        display: flex;
+                        min-height: 100vh;
+                    }
+                </style>
+            
+        <script type="text/javascript" defer src="https://cdn.iframe.ly/embed.js" async></script>
+        <script
+            type="text/javascript"
+            defer
+            src="https://cdn.polyfill.io/v2/polyfill.js?features=Intl.~locale.en"
+            crossorigin="anonymous"
+        ></script>
+
+    </head>
+    <body class="theme-color-light theme-radius-rounded">
+        <script>
+                    (function () {
+                        var theme = null;
+
+                        try {
+                          var rawValue = localStorage.getItem("@gitbook/themeMode");
+                          if (rawValue !== null) {
+                            theme = JSON.parse(rawValue);
+                          }
+                        } catch (err) {
+                          // Make an attempt in case it's not a JSON value
+                          if (theme !== "light" && theme !== "dark") {
+                            theme = null;
+                          }
+                        }
+                        if (true && theme && theme !== "light") {
+                          document.body.classList.add("theme-overlay");
+                          document.body.classList.remove("theme-color-light");
+                          document.body.classList.add("theme-color-" + theme);
+                        }
+                      })();
+                </script>
+                   <div class="gitbook-root"><div class="css-175oi2r r-13awgt0 r-12vffkv"><div class="css-175oi2r r-13awgt0 r-12vffkv"><!--$--><header data-rnwrdesktop-1ph75f1="true" data-rnwr700-sga3zk="true" class="r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-nzcix3 r-qklmqi r-gtdqiz r-ipm5af r-184en5c r-18u37iz r-1awozwy" style="background-color:rgba(255,255,255,1.00)"><div class="view_SggA- flex_jZskO publicContainer_11UZS smallHorizontal_kBCzR alignCenter_zl3iW withStickyHeader_HQiM-"><div aria-label="Show Table of Content" role="button" data-rnwrdesktop-hidden="true" data-rnwr700-visible="true" data-rnwi-1vckr1u-hover-focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="button" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1awozwy r-42olwf r-rs99b7 r-18u37iz r-18kxxzh r-1cmwbt1 r-1777fci r-1ny4l3l r-eu3ka r-1bnj018 r-1kb76zh r-18c69zk r-mk0yit r-1aockid" style="transition-duration:0.15s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet" data-rnwibutton-1bnj018-hover-focus="true" data-rnwi-handle="nearest" class="r-h7gdob" style="vertical-align:middle;width:18px;height:18px"><path d="M3 12h18M3 6h18M3 18h18"></path></svg></div><a href="index.html" aria-label="CognitiveBiasOntology - Documentation" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" data-rnwrdesktop-iyfy8q-1qhn6m8-11g3r6m-1h0z5md="true" data-rnwr700-iyfy8q-gy4na3-i023vh-1wbh5a2-1h0z5md-="true" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-18u37iz r-1awozwy" style="transition-duration:0.15s" data-testid="public.headerHomeLink"><div class="css-175oi2r r-6wscbn r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1h0z5md r-1awozwy"><div class="css-175oi2r"><div data-rnwrdesktop-visible="true" data-rnwr700-hidden="true" class="css-175oi2r"><div class="css-175oi2r r-18u37iz r-1awozwy r-1777fci r-z2wwpe r-14lw9ot r-1l94q7l r-88pszg" style="width:40px;height:40px;overflow-x:hidden;overflow-y:hidden"><div class="css-175oi2r r-4qtqp9 r-1q9jyb7 r-1oec5bt r-u8s1d" style="width:80px;height:80px"><span class="emj-objects _1f5d2" role="img" title="spiral notepad" aria-label="spiral notepad" style="transform:translate(-50%, -50%) scale(1.25)">🗒</span></div><div class="css-175oi2r r-4qtqp9 r-bnwqim" style="width:28.16px;height:28.16px"><span class="emj-objects _1f5d2" role="img" title="spiral notepad" aria-label="spiral notepad" style="transform:translate(-50%, -50%) scale(0.44)">🗒</span></div></div></div><div data-rnwrdesktop-hidden="true" data-rnwr700-visible="true" class="css-175oi2r"><div class="css-175oi2r r-18u37iz r-1awozwy r-1777fci r-z2wwpe r-14lw9ot r-1l94q7l r-88pszg" style="width:24px;height:24px;overflow-x:hidden;overflow-y:hidden"><div class="css-175oi2r r-4qtqp9 r-1q9jyb7 r-1oec5bt r-u8s1d" style="width:48px;height:48px"><span class="emj-objects _1f5d2" role="img" title="spiral notepad" aria-label="spiral notepad" style="transform:translate(-50%, -50%) scale(0.75)">🗒</span></div><div class="css-175oi2r r-4qtqp9 r-bnwqim" style="width:16.64px;height:16.64px"><span class="emj-objects _1f5d2" role="img" title="spiral notepad" aria-label="spiral notepad" style="transform:translate(-50%, -50%) scale(0.26)">🗒</span></div></div></div></div><div dir="auto" data-rnwrdesktop-gg6oyi-ubezar-135wba7-1kfrs79="true" data-rnwr700-gg6oyi-ubezar-135wba7-1kfrs79="true" class="css-1rynq56 r-1udh08x"><span data-rnwinearest-1nf4jbm-="true" data-rnwinearest--1ghhsy9-hover-focus="true" data-rnwi-handle="nearest" class="css-1qaijid r-8akbws r-krxsd3 r-dnmrzs r-1udh08x r-1udbk01" style="-webkit-line-clamp:2;color:rgba(59,69,78,1.00)">CognitiveBiasOntology - Documentation</span></div></div></a><div data-rnwr700-hidden="true" class="css-175oi2r r-18u37iz r-17s6mgv r-1awozwy r-1ro0kt6 r-16y2uox r-1wbh5a2 r-1qhn6m8"></div><div data-rnwrdesktop-visible="true" data-rnwr700-hidden="true" class="css-175oi2r"><button type="button" role="switch" aria-label="Switch to dark mode" aria-checked="false" class="view_SggA- flex_jZskO container_UPXwU lightestParentBackground_FL4je"><div class="view_SggA- flex_jZskO toggle_siihR toggleSwitch_NtUzX main_kxvok xsmall_zYy9L toggleLightMode_-FLG4"><svg viewBox="0 0 16 16" fill="currentColor" preserveAspectRatio="xMidYMid meet" class="toggleIcon_-vIfn xsmall_RNpQJ" style="vertical-align:middle"><path d="M8 1.167a.6.6 0 01.6.6v1.804c0 .317-.283.558-.6.558s-.6-.24-.6-.558V1.767a.6.6 0 01.6-.6zM5.405 5.309c.227-.22.264-.587.046-.815L4.5 3.5a.6.6 0 00-.849.849l.933.974c.22.23.592.207.821-.014zM4.054 8c0-.317-.24-.6-.557-.6H1.82a.6.6 0 100 1.2h1.677c.317 0 .557-.283.557-.6zM5.21 10.692c-.22-.226-.586-.264-.814-.046L3.5 11.5a.6.6 0 10.848.848l.876-.834c.23-.22.207-.592-.014-.822zM8 11.884c-.317 0-.6.24-.6.558v1.67a.6.6 0 101.2 0v-1.67c0-.317-.283-.558-.6-.558zM10.67 10.723c-.223.215-.264.574-.056.804l.886.973a.6.6 0 00.848-.848l-.846-.932c-.218-.239-.598-.22-.831.003zM12.008 8c0 .317.24.6.557.6h1.717a.6.6 0 000-1.2h-1.717c-.317 0-.557.283-.557.6zM10.616 5.384c.224.224.594.254.818.03L12.5 4.35a.6.6 0 00-.849-.849l-1.065 1.066c-.224.224-.194.594.03.818z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M8.05 6.256a1.744 1.744 0 100 3.488 1.744 1.744 0 000-3.488zM5.107 8a2.944 2.944 0 115.89 0 2.944 2.944 0 01-5.89 0z"></path></svg></div></button></div><div data-rnwrdesktop-visible="true" data-rnwr700-hidden="true" class="css-175oi2r r-1jj8364 r-puj83k r-1pyaxff r-16vg0q1 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div aria-label="Search" data-rnwi-190qawg-hover-focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-42olwf r-kdyh1x r-rs99b7 r-eu3ka r-13qz1uu r-18u37iz r-1wtj0ep r-1awozwy r-1qhn6m8 r-1pyaxff" style="background-color:rgba(59,69,78,0.10);transition-duration:0.15s"><div class="css-175oi2r r-18u37iz r-1awozwy"><svg viewBox="0 0 24 24" fill="none" preserveAspectRatio="xMidYMid meet" class="r-1kb76zh" style="vertical-align:middle;width:16px;height:16px;color:rgba(59,69,78,1.00)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 4a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM2 10.5a8.5 8.5 0 1117 0 8.5 8.5 0 01-17 0z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.093 15.093a1 1 0 011.414 0l5.2 5.2a1 1 0 01-1.414 1.414l-5.2-5.2a1 1 0 010-1.414z" fill="currentColor"></path></svg><div dir="auto" data-rnwinearest-1nf4jbm-hover-focus="true" data-rnwi-handle="nearest" class="css-1rynq56 r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb" style="color:rgba(59,69,78,1.00)">Search</div></div><div class="css-175oi2r"><span class="base_UAIdb shortcut_2Blls xsmallHorizontal_j9kFq base_UAIdb groupTitle_xV-vG flex_jZskO row_PhhRi alignCenter_zl3iW main_Iciyi">⌃K</span></div></div></div><div data-rnwrdesktop-hidden="true" data-rnwr700-visible="true" class="css-175oi2r r-1jj8364 r-puj83k r-1pyaxff"><div aria-label="Search" role="button" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="button" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1awozwy r-42olwf r-rs99b7 r-18u37iz r-18kxxzh r-1cmwbt1 r-1777fci r-1ny4l3l r-z2wwpe r-mabqd8 r-1bnj018 r-mk0yit r-1yvhtrz" style="transition-duration:0.15s"><svg viewBox="0 0 24 24" fill="none" preserveAspectRatio="xMidYMid meet" data-rnwibutton--1ghhsy9-hover-focus="true" data-rnwi-handle="nearest" style="vertical-align:middle;width:16px;height:16px;color:rgba(59,69,78,1.00)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 4a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM2 10.5a8.5 8.5 0 1117 0 8.5 8.5 0 01-17 0z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.093 15.093a1 1 0 011.414 0l5.2 5.2a1 1 0 01-1.414 1.414l-5.2-5.2a1 1 0 010-1.414z" fill="currentColor"></path></svg></div></div></div></header><div data-rnwrdesktop-hidden="true" data-rnwr700-visible="true" class="css-175oi2r"></div><div data-rnwrdesktop-18u37iz="true" data-rnwr700-eqz5dr="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-14lw9ot"><div class="view_SggA- flex_jZskO publicContainer_11UZS"><div data-rnwrdesktop-visible="true" data-rnwr1430-visible="true" data-rnwr700-hidden="true" class="css-175oi2r r-k200y r-14lw9ot r-18ayb63 r-13l2t4g r-12dqhl9 r-1rnoaur r-gtdqiz r-1fo40xd r-18u37iz r-17s6mgv" data-testid="page.desktopTableOfContents"><nav aria-label="Table of contents" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ipicw7 r-eqz5dr"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-puj83k"><div class="css-175oi2r r-150rngu r-eqz5dr r-11yh6sk r-1rnoaur r-1sncvnh r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r r-1yzf0co r-1sc18lr"><!--$--><div class="css-175oi2r"><a href="index.html" data-rnwrdesktop-fnigne="true" data-rnwr700-13l2t4g="true" data-rnwi-1b00too-hover="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1awozwy r-42olwf r-z2wwpe r-rs99b7 r-18u37iz r-1ceczpf r-1pn2ns4 r-1kb76zh r-15zivkp" style="transition-duration:0.15s"><div class="css-175oi2r r-88pszg"><div class="css-175oi2r r-4qtqp9 r-bnwqim r-1bnj018" style="width:17.92px;height:17.92px"><span class="emj-objects _1f5d2" role="img" title="spiral notepad" aria-label="spiral notepad" style="transform:translate(-50%, -50%) scale(0.28)">🗒</span></div></div><div dir="auto" class="css-1rynq56 r-1ro0kt6 r-16y2uox r-1wbh5a2 r-oyd9sg r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb r-1bnj018">CognitiveBiasOntology - Report</div></a></div><!--/$--><!--$--><div class="css-175oi2r"><a href="methodology.html" data-rnwrdesktop-fnigne="true" data-rnwr700-13l2t4g="true" data-rnwi-1b00too-hover="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1awozwy r-42olwf r-z2wwpe r-rs99b7 r-18u37iz r-1ceczpf r-1pn2ns4 r-1kb76zh r-15zivkp" style="transition-duration:0.15s"><div class="css-175oi2r r-88pszg"><div class="css-175oi2r r-4qtqp9 r-bnwqim r-1bnj018" style="width:17.92px;height:17.92px"><span class="emj-people _1f45f" role="img" title="running shoe" aria-label="running shoe" style="transform:translate(-50%, -50%) scale(0.28)">👟</span></div></div><div dir="auto" class="css-1rynq56 r-1ro0kt6 r-16y2uox r-1wbh5a2 r-oyd9sg r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb r-1bnj018">Methodology</div></a></div><!--/$--><!--$--><div class="css-175oi2r"><a href="problems-assesment.html" data-rnwrdesktop-fnigne="true" data-rnwr700-13l2t4g="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1awozwy r-42olwf r-z2wwpe r-rs99b7 r-18u37iz r-1ceczpf r-1pn2ns4 r-1kb76zh r-15zivkp" style="background-color:rgba(133,163,224,0.10);transition-duration:0.15s"><div class="css-175oi2r r-88pszg"><div class="css-175oi2r r-4qtqp9 r-bnwqim r-1ghhsy9" style="width:17.92px;height:17.92px"><span class="emj-symbols _26a0" role="img" title="warning" aria-label="warning" style="transform:translate(-50%, -50%) scale(0.28)">⚠</span></div></div><div dir="auto" class="css-1rynq56 r-1ro0kt6 r-16y2uox r-1wbh5a2 r-oyd9sg r-gg6oyi r-1b43r93 r-hbpseb r-1ghhsy9 r-b88u0q">Problems Assesment</div></a></div><!--/$--><!--$--><div class="css-175oi2r"><a href="ontologies.html" data-rnwrdesktop-fnigne="true" data-rnwr700-13l2t4g="true" data-rnwi-1b00too-hover="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1awozwy r-42olwf r-z2wwpe r-rs99b7 r-18u37iz r-1ceczpf r-1pn2ns4 r-1kb76zh r-15zivkp" style="transition-duration:0.15s"><div class="css-175oi2r r-88pszg"><div class="css-175oi2r r-4qtqp9 r-bnwqim r-1bnj018" style="width:17.92px;height:17.92px"><span class="emj-objects _1f4da" role="img" title="books" aria-label="books" style="transform:translate(-50%, -50%) scale(0.28)">📚</span></div></div><div dir="auto" class="css-1rynq56 r-1ro0kt6 r-16y2uox r-1wbh5a2 r-oyd9sg r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb r-1bnj018">Ontologies</div><div tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-18u37iz r-1awozwy" style="transition-duration:0.15s"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" class="r-1bnj018" style="vertical-align:middle;width:18px;height:18px"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.576 3.576a.6.6 0 01.848 0l4 4a.6.6 0 010 .848l-4 4a.6.6 0 01-.848-.848L9.15 8 5.576 4.424a.6.6 0 010-.848z" fill="currentColor"></path></svg></div></a></div><!--/$--><!--$--><div class="css-175oi2r"><a href="reflections.html" data-rnwrdesktop-fnigne="true" data-rnwr700-13l2t4g="true" data-rnwi-1b00too-hover="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1awozwy r-42olwf r-z2wwpe r-rs99b7 r-18u37iz r-1ceczpf r-1pn2ns4 r-1kb76zh" style="transition-duration:0.15s"><div class="css-175oi2r r-88pszg"><div class="css-175oi2r r-4qtqp9 r-bnwqim r-1bnj018" style="width:17.92px;height:17.92px"><span class="emj-objects _1f4a1" role="img" title="light bulb" aria-label="light bulb" style="transform:translate(-50%, -50%) scale(0.28)">💡</span></div></div><div dir="auto" class="css-1rynq56 r-1ro0kt6 r-16y2uox r-1wbh5a2 r-oyd9sg r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb r-1bnj018">Reflections</div></a></div><!--/$--></div></div></div><div class="css-175oi2r r-1p0dtai r-u8s1d r-13qz1uu r-184en5c"><div class="css-175oi2r r-10ptun7" style="background-image:linear-gradient(3.141592653589793rad,#ffffff00,#ffffff)"></div><div class="css-175oi2r r-ymttw5 r-1l7z4oj r-14lw9ot"><a href="https://www.gitbook.com/?utm_source=content&amp;utm_medium=trademark&amp;utm_campaign=iCZgpcEUWhzT2CJDHLqX" data-rnwi--1ghhsy9-hover-focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-15n4387-focus-visible="true" data-rnwi-handle="nearest" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-18u37iz r-1awozwy r-1b00too r-1xfd6ze r-5njf8e r-ymttw5" style="transition-duration:0.15s"><svg viewBox="0 0 1000 1000" fill="none" preserveAspectRatio="xMidYMid meet" data-rnwi--1ghhsy9-hover-focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-15n4387-focus-visible="true" data-rnwi-handle="nearest" class="r-1rasi3h" style="vertical-align:middle;width:40px;height:40px"><path fill-rule="evenodd" clip-rule="evenodd" d="M562.168 159.724l325.95 162.727c15.062 7.519 15.298 28.898.404 36.746L465.19 582.283a82.875 82.875 0 01-75.639.83L123.74 450.409c-32.376-12.972-68.568 10.748-68.568 46.474 0 28.728 16.256 54.991 41.99 67.839l266.48 133.036c16.267-16.537 38.918-26.795 63.967-26.795 24.334 0 46.404 9.68 62.558 25.394L822.075 521.45a89.893 89.893 0 01-1.385-15.755c0-49.44 40.14-89.519 89.655-89.519S1000 456.255 1000 505.695c0 49.439-40.14 89.518-89.655 89.518-24.21 0-46.178-9.581-62.31-25.153L515.94 745.065a90.036 90.036 0 011.324 15.417c0 49.439-40.14 89.518-89.655 89.518s-89.655-40.079-89.655-89.518c0-4.572.343-9.063 1.006-13.451L68.622 612.068C26.566 591.072 0 548.153 0 501.205v-26.15c0-35.755 19.82-68.574 51.49-85.261l435.039-229.24a82.87 82.87 0 0175.639-.83zM427.609 794.912c19.044 0 34.483-15.415 34.483-34.43 0-19.016-15.439-34.431-34.483-34.431-19.044 0-34.482 15.415-34.482 34.431 0 19.015 15.438 34.43 34.482 34.43zm517.219-289.217c0 19.015-15.438 34.43-34.483 34.43-19.044 0-34.482-15.415-34.482-34.43s15.438-34.43 34.482-34.43c19.045 0 34.483 15.415 34.483 34.43z" fill="currentColor"></path></svg><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-1qhn6m8"><div dir="auto" data-rnwinearest--1ghhsy9-hover-focus="true" data-rnwi-handle="nearest" class="css-1rynq56 r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb r-1rasi3h">Powered By <span class="css-1qaijid r-b88u0q">GitBook</span></div></div></a></div></div></nav></div><div class="css-175oi2r r-13awgt0" style="background-color:rgba(255,255,255,1.00)"><!--$--><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz"><div class="view_SggA- flex_jZskO pageWrapper_ca2kA noneVertical_jpmaI autoHorizontal_dqmM- flex1_aMpAE column_C3yiR"><main class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2 r-eqz5dr"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1280-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO relative_F68jE column_C3yiR xlargeTop_38ZbM largeBottom_v1r32"><div class="view_SggA- flex_jZskO row_PhhRi justifySpaceBetween_js4s1 alignCenter_zl3iW"><div class="css-175oi2r r-18u37iz r-1ro0kt6 r-16y2uox r-1wbh5a2"><div data-rnwrdesktop-h3s6tt="true" data-rnwr700-iyfy8q-eu3ka="true" class="css-175oi2r r-18u37iz r-17s6mgv r-1awozwy"><div data-rnwrdesktop-u8s1d-1qhn6m8-i023vh="true" data-rnwr700-bnwqim-gy4na3-i023vh="true" class="css-175oi2r"><div class="css-175oi2r r-4qtqp9 r-bnwqim" style="width:24.32px;height:24.32px"><span class="emj-symbols _26a0" role="img" title="warning" aria-label="warning" style="transform:translate(-50%, -50%) scale(0.38)">⚠</span></div></div></div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><h1 data-rnwrdesktop-gg6oyi-xb2eav-1dn12g7-b88u0q="true" data-rnwr700-gg6oyi-1ui5ee8-nwxazl-b88u0q="true" class="r-1xnzce8 r-crgep1 r-1nf4jbm" data-testid="page.title">Problems Assesment</h1></div></div><div aria-label="Page actions" role="button" data-rnwi-1vckr1u-hover-focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="button" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1awozwy r-42olwf r-rs99b7 r-18u37iz r-18kxxzh r-1cmwbt1 r-1777fci r-1ny4l3l r-eu3ka r-1bnj018 r-18c69zk r-mk0yit r-1aockid" style="transition-duration:0.15s" data-testid="pageToolbar.paletteButton"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" data-rnwibutton-1bnj018-hover-focus="true" data-rnwi-handle="nearest" class="r-h7gdob" style="vertical-align:middle;width:18px;height:18px"><path d="M8 2.4a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2zM8 6.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2zM8 11.4a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z" fill="currentColor"></path></svg></div></div><div class="view_SggA- flex_jZskO row_PhhRi justifySpaceBetween_js4s1 alignCenter_zl3iW"><div class="css-175oi2r r-1wzrnnt r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div dir="auto" class="css-1rynq56 r-gg6oyi r-adyw6z r-16dba41 r-17rnw9f r-1rasi3h r-1xnzce8">Problems encountered while progressing the KRE Final Project - Cognitive Bias.</div></div></div></div></div></div></div></div><div data-rnwrdesktop-1uwte3a="true" class="css-175oi2r"><div class="css-175oi2r r-bnwqim"><div data-testid="page.contentEditor" data-slate-editor="true" data-document-key="912f7ed05813489abd044ff4d63a4f80" data-key="912f7ed05813489abd044ff4d63a4f80" autoCorrect="on" spellcheck="true" style="outline:none;white-space:pre-wrap;word-wrap:break-word"><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="dbe241b5098b4271b9005ce905dd175d" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii largeTop_ejwCW smallBottom_BmSGf"><div data-block-content="dbe241b5098b4271b9005ce905dd175d" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><h2 class="r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-18u37iz r-obd0qt" id="limitation-of-llm-large-language-model"><div dir="auto" data-rnwrdesktop-gg6oyi-1x35g6-37tt59-b88u0q="true" data-rnwr700-gg6oyi-adyw6z-135wba7-b88u0q="true" class="css-1rynq56 r-1nf4jbm r-fdjqy7 r-1xnzce8" id="text-limitation-of-llm-large-language-model"><span data-key="93d636b4320047e1a12a17e0de103f09"><span data-offset-key="93d636b4320047e1a12a17e0de103f09:0">Limitation of LLM (Large Language Model)</span></span><a href="problems-assesment.html#limitation-of-llm-large-language-model" aria-label="Direct link to heading" data-rnwi-1rasi3h-="true" data-rnwi--1ghhsy9-hover-focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" class="css-1qaijid r-1awozwy r-xoduu5 r-1jkjb r-orgf3d r-1loqt21"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" role="presentation" style="vertical-align:middle;width:20px;height:20px"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.42 1.925a.6.6 0 01.405.745L7.167 4.9h3.998l.76-2.57a.6.6 0 111.15.34l-.659 2.23H14a.6.6 0 010 1.2h-1.938l-1.123 3.8H13a.6.6 0 010 1.2h-2.415l-.76 2.57a.6.6 0 01-1.15-.34l.658-2.23H5.335l-.76 2.57a.6.6 0 11-1.15-.34l.658-2.23H2a.6.6 0 110-1.2h2.438l1.123-3.8H3a.6.6 0 010-1.2h2.915l.76-2.57a.6.6 0 01.745-.405zM6.812 6.1L5.689 9.9h3.999l1.123-3.8H6.812z" fill="currentColor"></path></svg></a></div></h2></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="51c29dfa39bb4959a4e5c53230e175da" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii smallTop_crzBC smallBottom_BmSGf"><div data-block-content="51c29dfa39bb4959a4e5c53230e175da" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="b0cc17701d9c4973b29c4a655b2dc9ae"><span data-offset-key="b0cc17701d9c4973b29c4a655b2dc9ae:0">An early problem became apparent when we are initially using ChatGPT to generate a definition for each of our biases. The free version of the AI model was outdated in terms of information, and its knowledge became questionable as we detected flaws within the definition that the AI formulated. </span></span></div></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="0504d24f8a6e4b089ba9e6589e6404b4" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii mediumTop_QDiZG mediumBottom_jdYUb"><div data-block-content="0504d24f8a6e4b089ba9e6589e6404b4" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div data-rnwr700-1w6e6rj-1777fci="true" class="css-175oi2r r-18u37iz r-1777fci r-zo7nv5 r-3mtglp"><div data-slate-void="true" data-key="fafa4dd486cb4f94a82a246bd2815ce7"><div><div class="css-175oi2r r-1awozwy r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r r-z2wwpe r-bnwqim" style="max-width:100%;max-height:100%"><div data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1awozwy" style="transition-duration:0.15s"><img alt="" src="https://content.gitbook.com/content/iCZgpcEUWhzT2CJDHLqX/blobs/rOvZIwktiCWr51aIHywP/image.png" width="100%" height="auto" decoding="async" class="r-z2wwpe r-dnmrzs"/></div></div></div><div class="css-175oi2r r-bnwqim r-q4m81j r-tskmnb"><div data-key="7c79b35a59d34d5bbbe21e54e983a36a" data-fragment="true" data-slate-editor="true" data-document-key="912f7ed05813489abd044ff4d63a4f80"><div data-key="8f2b10680168461d92e0914fd70533bd" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><div dir="auto" class="css-1rynq56 r-q4m81j r-1rasi3h r-gg6oyi r-1enofrn r-16dba41 r-14yzgew r-1xnzce8"><span data-key="d1988f45321b420ba8eee80abcdb8b6e"><span data-offset-key="d1988f45321b420ba8eee80abcdb8b6e:0">An example of ChatGPT prompt for one of the bias definition</span></span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="f9f4249b8c1a4cc1ae82e98afb5c1b7f" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii largeTop_ejwCW smallBottom_BmSGf"><div data-block-content="f9f4249b8c1a4cc1ae82e98afb5c1b7f" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><h2 class="r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-18u37iz r-obd0qt" id="llm-user-story-and-cqs"><div dir="auto" data-rnwrdesktop-gg6oyi-1x35g6-37tt59-b88u0q="true" data-rnwr700-gg6oyi-adyw6z-135wba7-b88u0q="true" class="css-1rynq56 r-1nf4jbm r-fdjqy7 r-1xnzce8" id="text-llm-user-story-and-cqs"><span data-key="3f78042c702f4825b7a3a44f0a817acd"><span data-offset-key="3f78042c702f4825b7a3a44f0a817acd:0">LLM - User Story and CQs</span></span><a href="problems-assesment.html#llm-user-story-and-cqs" aria-label="Direct link to heading" data-rnwi-1rasi3h-="true" data-rnwi--1ghhsy9-hover-focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" class="css-1qaijid r-1awozwy r-xoduu5 r-1jkjb r-orgf3d r-1loqt21"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" role="presentation" style="vertical-align:middle;width:20px;height:20px"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.42 1.925a.6.6 0 01.405.745L7.167 4.9h3.998l.76-2.57a.6.6 0 111.15.34l-.659 2.23H14a.6.6 0 010 1.2h-1.938l-1.123 3.8H13a.6.6 0 010 1.2h-2.415l-.76 2.57a.6.6 0 01-1.15-.34l.658-2.23H5.335l-.76 2.57a.6.6 0 11-1.15-.34l.658-2.23H2a.6.6 0 110-1.2h2.438l1.123-3.8H3a.6.6 0 010-1.2h2.915l.76-2.57a.6.6 0 01.745-.405zM6.812 6.1L5.689 9.9h3.999l1.123-3.8H6.812z" fill="currentColor"></path></svg></a></div></h2></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="f50abe8ff5f74726b3eb90b1351590bc" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii smallTop_crzBC smallBottom_BmSGf"><div data-block-content="f50abe8ff5f74726b3eb90b1351590bc" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="e0d38d7abcfe487d8d3f18fe26b7afb1"><span data-offset-key="e0d38d7abcfe487d8d3f18fe26b7afb1:0">The next problem we encountered was the difficulty in associating the user stories that we have gathered from the AI to the competency questions (</span><strong data-slate-leaf="true" data-offset-key="e0d38d7abcfe487d8d3f18fe26b7afb1:1" class="r-crgep1 r-b88u0q">CQ</strong><span data-offset-key="e0d38d7abcfe487d8d3f18fe26b7afb1:2">s) that was required by the eXtreme Design. To solve this, we wrote the CQs ourselves and analyzed whether the user stories could solve the questions or not. </span></span></div></div></div></div></div></div></div></div></div></div><div><div data-slate-void="true" data-key="01f69a339d5e41fca6e6b0eb605c1cd6"><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="01f69a339d5e41fca6e6b0eb605c1cd6" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii mediumTop_QDiZG mediumBottom_jdYUb"><div data-block-content="01f69a339d5e41fca6e6b0eb605c1cd6" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r r-150rngu r-18u37iz r-16y2uox r-1wbh5a2 r-lltvgl r-buy8e9 r-1sncvnh r-1yadl64"><div class="css-175oi2r r-eqz5dr r-1udh08x r-bnwqim"><table class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><thead class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><tr class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-18u37iz r-1vckr1u r-nzcix3 r-wgabs5"><div data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="table-column" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><th class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-fdjqy7 r-18u37iz r-1777fci"><div class="css-175oi2r" style="position:relative;padding-top:8px;padding-bottom:8px;padding-right:16px;padding-left:16px;border-left-width:0px;border-top-width:0px;border-top-color:rgba(227,232,237,1.00);border-right-color:rgba(227,232,237,1.00);border-bottom-color:rgba(227,232,237,1.00);border-left-color:rgba(227,232,237,1.00);flex-direction:row;align-items:center;background-color:rgba(0,0,0,0.00);font-weight:700;width:748px"><div dir="auto" class="css-1rynq56 r-18u37iz r-fdjqy7 r-gg6oyi r-ubezar r-135wba7 r-1bnj018 r-majxgm r-1jpmnxg r-1ro0kt6 r-16y2uox r-1wbh5a2 r-1xnzce8">Evan&#x27;s Personal Comment</div></div></th></div></tr></thead><tbody class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><tr data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="table-row" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-18u37iz"><td class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-fdjqy7 r-18u37iz r-1777fci"><div class="css-175oi2r" style="position:relative;padding-top:8px;padding-bottom:8px;padding-right:16px;padding-left:16px;border-left-width:0px;border-top-width:1px;border-top-color:rgba(227,232,237,1.00);border-right-color:rgba(227,232,237,1.00);border-bottom-color:rgba(227,232,237,1.00);border-left-color:rgba(227,232,237,1.00);flex-direction:row;align-items:center;border-bottom-width:1px;width:748px"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div data-key="368a2ef647df4103b33e43745942c06f" data-fragment="true" data-slate-editor="true" data-document-key="912f7ed05813489abd044ff4d63a4f80"><div data-key="f389dc9243af4b6d942bc8ea3da20a93" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="49f469d254884178a41aa96983bd995d"><span data-offset-key="49f469d254884178a41aa96983bd995d:0">Personally, I found the user stories from the AI to be able to answer the CQs, and I was able to progress the project further. Furthermore, asking the AI to answer the CQs based on the previous user story its generated also proved to be fruitful, as it was capable of answering it as long as the answer is analyzed further. Therefore, I decided to &#x27;feed&#x27; the AI our own definition of the biases first to ensure the information to stay updated.</span></span></div></div></div></div></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div><div data-slate-void="true" data-key="684cdc0e85c5464daf27fd6d3c2e4046"><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="684cdc0e85c5464daf27fd6d3c2e4046" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii mediumTop_QDiZG mediumBottom_jdYUb"><div data-block-content="684cdc0e85c5464daf27fd6d3c2e4046" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r r-150rngu r-18u37iz r-16y2uox r-1wbh5a2 r-lltvgl r-buy8e9 r-1sncvnh r-1yadl64"><div class="css-175oi2r r-eqz5dr r-1udh08x r-bnwqim"><table class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><thead class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><tr class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-18u37iz r-1vckr1u r-nzcix3 r-wgabs5"><div data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="table-column" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><th class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-fdjqy7 r-18u37iz r-1777fci"><div class="css-175oi2r" style="position:relative;padding-top:8px;padding-bottom:8px;padding-right:16px;padding-left:16px;border-left-width:0px;border-top-width:0px;border-top-color:rgba(227,232,237,1.00);border-right-color:rgba(227,232,237,1.00);border-bottom-color:rgba(227,232,237,1.00);border-left-color:rgba(227,232,237,1.00);flex-direction:row;align-items:center;background-color:rgba(0,0,0,0.00);font-weight:700;width:748px"><div dir="auto" class="css-1rynq56 r-18u37iz r-fdjqy7 r-gg6oyi r-ubezar r-135wba7 r-1bnj018 r-majxgm r-1jpmnxg r-1ro0kt6 r-16y2uox r-1wbh5a2 r-1xnzce8">Leonardo&#x27;s Personal Comment</div></div></th></div></tr></thead><tbody class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><tr data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="table-row" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-18u37iz"><td class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-fdjqy7 r-18u37iz r-1777fci"><div class="css-175oi2r" style="position:relative;padding-top:8px;padding-bottom:8px;padding-right:16px;padding-left:16px;border-left-width:0px;border-top-width:1px;border-top-color:rgba(227,232,237,1.00);border-right-color:rgba(227,232,237,1.00);border-bottom-color:rgba(227,232,237,1.00);border-left-color:rgba(227,232,237,1.00);flex-direction:row;align-items:center;border-bottom-width:1px;width:748px"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div data-key="52571b9a3396485daff0cfc9e16c5c17" data-fragment="true" data-slate-editor="true" data-document-key="912f7ed05813489abd044ff4d63a4f80"><div data-key="b97de8e56e7a4a6199c3ef459eddb534" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="93fc5df332654f02a28cea4b295bab83"><span data-offset-key="93fc5df332654f02a28cea4b295bab83:0">I personally found the user stories created by the AI to be too broad and vague to be useful in the extraction of CQs. The stories generated by ChatGPT seemed to be too concerned with the general influence that a bias has in the context in which it appears, rather than with the way in which it functions and the elements from which it is composed.  </span></span></div></div></div></div></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div><div data-slate-void="true" data-key="0156f39240554435a04103393881e378"><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="0156f39240554435a04103393881e378" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii mediumTop_QDiZG mediumBottom_jdYUb"><div data-block-content="0156f39240554435a04103393881e378" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r r-150rngu r-18u37iz r-16y2uox r-1wbh5a2 r-lltvgl r-buy8e9 r-1sncvnh r-1yadl64"><div class="css-175oi2r r-eqz5dr r-1udh08x r-bnwqim"><table class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><thead class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><tr class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-18u37iz r-1vckr1u r-nzcix3 r-wgabs5"><div data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="table-column" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><th class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-fdjqy7 r-18u37iz r-1777fci"><div class="css-175oi2r" style="position:relative;padding-top:8px;padding-bottom:8px;padding-right:16px;padding-left:16px;border-left-width:0px;border-top-width:0px;border-top-color:rgba(227,232,237,1.00);border-right-color:rgba(227,232,237,1.00);border-bottom-color:rgba(227,232,237,1.00);border-left-color:rgba(227,232,237,1.00);flex-direction:row;align-items:center;background-color:rgba(0,0,0,0.00);font-weight:700;width:748px"><div dir="auto" class="css-1rynq56 r-18u37iz r-fdjqy7 r-gg6oyi r-ubezar r-135wba7 r-1bnj018 r-majxgm r-1jpmnxg r-1ro0kt6 r-16y2uox r-1wbh5a2 r-1xnzce8">Nicole&#x27;s Personal Comment</div></div></th></div></tr></thead><tbody class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><tr data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="table-row" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-18u37iz"><td class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-fdjqy7 r-18u37iz r-1777fci"><div class="css-175oi2r" style="position:relative;padding-top:8px;padding-bottom:8px;padding-right:16px;padding-left:16px;border-left-width:0px;border-top-width:1px;border-top-color:rgba(227,232,237,1.00);border-right-color:rgba(227,232,237,1.00);border-bottom-color:rgba(227,232,237,1.00);border-left-color:rgba(227,232,237,1.00);flex-direction:row;align-items:center;border-bottom-width:1px;width:748px"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div data-key="5234462639b24e268c29b0d21d9a1211" data-fragment="true" data-slate-editor="true" data-document-key="912f7ed05813489abd044ff4d63a4f80"><div data-key="785d762dcb6f46d692dc6f9ee53c8858" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="44a81aced56d4d1193c8471751628505"><span data-offset-key="44a81aced56d4d1193c8471751628505:0">I found the scenarios proposed by AI generally sufficient for describing cognitive biases. I appreciated their brevity as it allowed me to quickly identify the essential elements that artificial intelligence deemed indispensable for each bias. Of course, at times, the stories were somewhat repetitive, but I believe it was functional. Nevertheless, delving into scientific papers provided a deeper understanding.</span></span></div></div></div></div></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="c728110f0484496ca57b60056ba7d5df" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii largeTop_ejwCW smallBottom_BmSGf"><div data-block-content="c728110f0484496ca57b60056ba7d5df" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><h2 class="r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-18u37iz r-obd0qt" id="framester-frames-limited-entities"><div dir="auto" data-rnwrdesktop-gg6oyi-1x35g6-37tt59-b88u0q="true" data-rnwr700-gg6oyi-adyw6z-135wba7-b88u0q="true" class="css-1rynq56 r-1nf4jbm r-fdjqy7 r-1xnzce8" id="text-framester-frames-limited-entities"><span data-key="4f82bb01583b4629baec115937922aa2"><span data-offset-key="4f82bb01583b4629baec115937922aa2:0">Framester Frames&#x27; Limited Entities</span></span><a href="problems-assesment.html#framester-frames-limited-entities" aria-label="Direct link to heading" data-rnwi-1rasi3h-="true" data-rnwi--1ghhsy9-hover-focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" class="css-1qaijid r-1awozwy r-xoduu5 r-1jkjb r-orgf3d r-1loqt21"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" role="presentation" style="vertical-align:middle;width:20px;height:20px"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.42 1.925a.6.6 0 01.405.745L7.167 4.9h3.998l.76-2.57a.6.6 0 111.15.34l-.659 2.23H14a.6.6 0 010 1.2h-1.938l-1.123 3.8H13a.6.6 0 010 1.2h-2.415l-.76 2.57a.6.6 0 01-1.15-.34l.658-2.23H5.335l-.76 2.57a.6.6 0 11-1.15-.34l.658-2.23H2a.6.6 0 110-1.2h2.438l1.123-3.8H3a.6.6 0 010-1.2h2.915l.76-2.57a.6.6 0 01.745-.405zM6.812 6.1L5.689 9.9h3.999l1.123-3.8H6.812z" fill="currentColor"></path></svg></a></div></h2></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="32e09287dd0241bbae421652ab2178fa" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii smallTop_crzBC smallBottom_BmSGf"><div data-block-content="32e09287dd0241bbae421652ab2178fa" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="32b5c117592d4f45b955c49dcf0fb2df"><span data-offset-key="32b5c117592d4f45b955c49dcf0fb2df:0">The next challenge was using Framester Frames to use in the ontologies that the AI had made. We were required to align existing entities with the Framester Frames within our own ontology using the </span></span><!--$--><a href="http://etna.istc.cnr.it/quokka/concepts" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="link" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1471scf" style="transition-duration:0.15s"><span data-key="864427683fde4695acd51f6ac07771e3" data-rnwilink--1ghhsy9-="true" data-rnwilink--1e1gmzv-1ddef8g-hover="true" data-rnwi-handle="nearest" class="r-crgep1"><span data-key="785672d31a1849788e7d0996f32eb4de"><span data-offset-key="785672d31a1849788e7d0996f32eb4de:0">QUOKKA tool</span></span></span></a><!--/$--><span data-key="7f0f51e2a768440fa8b54f55290828d0"><span data-offset-key="7f0f51e2a768440fa8b54f55290828d0:0">. We found our progress to be quite hindered by this predicament, as we found most of the AI-made ontology to be incompatible/unable to be aligned with any of the entities within Framester Frames. </span></span></div></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="8ea83c8145714b75b8147b2a3060041b" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii smallTop_crzBC smallBottom_BmSGf"><div data-block-content="8ea83c8145714b75b8147b2a3060041b" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="7f6e0251de3142d7815393a35d43c752"><span data-offset-key="7f6e0251de3142d7815393a35d43c752:0">Upon further research, we found adequate amount of entities from the Framester Frames that we are able to integrate to our own ontologies, although the keyword need to be changed in order to conform with the chosen Framester Frames&#x27; entities. Furthermore, additional meeting with the supervisors of the projects explained that we should not limit ourselves to the Framester Frames.</span></span></div></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="7f27ebadc83a4a448603ef166bc89519" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii mediumTop_QDiZG mediumBottom_jdYUb"><div data-block-content="7f27ebadc83a4a448603ef166bc89519" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div data-rnwr700-1w6e6rj-1777fci="true" class="css-175oi2r r-18u37iz r-1777fci r-zo7nv5 r-3mtglp"><div data-slate-void="true" data-key="533f91fbf1204af7853fe136bfe0990a"><div><div class="css-175oi2r r-1awozwy r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r r-z2wwpe r-bnwqim" style="max-width:100%;max-height:100%"><div data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1awozwy" style="transition-duration:0.15s"><img alt="" loading="lazy" src="https://content.gitbook.com/content/iCZgpcEUWhzT2CJDHLqX/blobs/MXd1NSPoVmEWMwccOdHB/image.png" width="100%" height="auto" decoding="async" class="r-z2wwpe r-dnmrzs"/></div></div></div><div class="css-175oi2r r-bnwqim r-q4m81j r-tskmnb"><div data-key="0bc93817b39440dcb0ed574fdf175ff7" data-fragment="true" data-slate-editor="true" data-document-key="912f7ed05813489abd044ff4d63a4f80"><div data-key="36bfbf0dd18847d799853c8b4df87e14" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><div dir="auto" class="css-1rynq56 r-q4m81j r-1rasi3h r-gg6oyi r-1enofrn r-16dba41 r-14yzgew r-1xnzce8"><span data-key="aba7ce7ce45b496ab707717bbf6f793e"><span data-offset-key="aba7ce7ce45b496ab707717bbf6f793e:0">Lack of Framester Frames for the specified keyword - &quot;MemoryPerformance&quot;</span></span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="fc80ca0b023f4cf188af52f2000f4330" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii largeTop_ejwCW smallBottom_BmSGf"><div data-block-content="fc80ca0b023f4cf188af52f2000f4330" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><h2 class="r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-18u37iz r-obd0qt" id="choosing-the-appropriate-odps"><div dir="auto" data-rnwrdesktop-gg6oyi-1x35g6-37tt59-b88u0q="true" data-rnwr700-gg6oyi-adyw6z-135wba7-b88u0q="true" class="css-1rynq56 r-1nf4jbm r-fdjqy7 r-1xnzce8" id="text-choosing-the-appropriate-odps"><span data-key="c7b589d5ea234568af1d36739ff4fb28"><span data-offset-key="c7b589d5ea234568af1d36739ff4fb28:0">Choosing The Appropriate ODPs</span></span><a href="problems-assesment.html#choosing-the-appropriate-odps" aria-label="Direct link to heading" data-rnwi-1rasi3h-="true" data-rnwi--1ghhsy9-hover-focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" class="css-1qaijid r-1awozwy r-xoduu5 r-1jkjb r-orgf3d r-1loqt21"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" role="presentation" style="vertical-align:middle;width:20px;height:20px"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.42 1.925a.6.6 0 01.405.745L7.167 4.9h3.998l.76-2.57a.6.6 0 111.15.34l-.659 2.23H14a.6.6 0 010 1.2h-1.938l-1.123 3.8H13a.6.6 0 010 1.2h-2.415l-.76 2.57a.6.6 0 01-1.15-.34l.658-2.23H5.335l-.76 2.57a.6.6 0 11-1.15-.34l.658-2.23H2a.6.6 0 110-1.2h2.438l1.123-3.8H3a.6.6 0 010-1.2h2.915l.76-2.57a.6.6 0 01.745-.405zM6.812 6.1L5.689 9.9h3.999l1.123-3.8H6.812z" fill="currentColor"></path></svg></a></div></h2></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="19e6e148304d4509bacbcc1e6f038136" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii smallTop_crzBC smallBottom_BmSGf"><div data-block-content="19e6e148304d4509bacbcc1e6f038136" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="eafddcf8c2174b25a308566fe85017d8"><span data-offset-key="eafddcf8c2174b25a308566fe85017d8:0">Another problem that we found is choosing the appropriate ODPs for each of our cognitive biases ontology. We found there are only few ODPs that correspond to the cognitive bias phenomenon, which corresponds to the field of Humanities, Psychology, and Social Studies. </span></span></div></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="69e3acdeaa9e4dc9ad8065c8628ca381" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii smallTop_crzBC smallBottom_BmSGf"><div data-block-content="69e3acdeaa9e4dc9ad8065c8628ca381" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="85477f6e331c45009ed046be69a48457"><span data-offset-key="85477f6e331c45009ed046be69a48457:0">At first, we addressed this problem by choosing certain ODPs which fit our understanding of each biases that we are working on. A further meeting with Prof. Gangemi solved the problem further as he told us about the freedom of using multiple ODPs and integrating it in each of our ontologies. Therefore, four of the problems are able to be addressed to enable progress to our project. </span></span></div></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="fcc7097d02b141d29a1bfab3c06a3475" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii mediumTop_QDiZG mediumBottom_jdYUb"><div data-block-content="fcc7097d02b141d29a1bfab3c06a3475" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div data-rnwr700-1w6e6rj-1777fci="true" class="css-175oi2r r-18u37iz r-1777fci r-zo7nv5 r-3mtglp"><div data-slate-void="true" data-key="964a8d6fc5c14be3af99daedb61ee316"><div><div class="css-175oi2r r-1awozwy r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r r-z2wwpe r-bnwqim" style="max-width:100%;max-height:100%"><div data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1awozwy" style="transition-duration:0.15s"><img alt="" loading="lazy" src="https://content.gitbook.com/content/iCZgpcEUWhzT2CJDHLqX/blobs/QvyV7t4Fw4VOJpVTWHc7/image.png" width="100%" height="auto" decoding="async" class="r-z2wwpe r-dnmrzs"/></div></div></div><div class="css-175oi2r r-bnwqim r-q4m81j r-tskmnb"><div data-key="01274b01129746d4a0085b97cb7add16" data-fragment="true" data-slate-editor="true" data-document-key="912f7ed05813489abd044ff4d63a4f80"><div data-key="15109d81872d49fe97e114dd0f6c1641" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><div dir="auto" class="css-1rynq56 r-q4m81j r-1rasi3h r-gg6oyi r-1enofrn r-16dba41 r-14yzgew r-1xnzce8"><span data-key="cb74fc9d45954583a02b2a9bdd10dc98"><span data-offset-key="cb74fc9d45954583a02b2a9bdd10dc98:0">List of potential ODPs to be chosen.</span></span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="f24835bc86bc4c5b9125eb346b5d7937" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii largeTop_ejwCW smallBottom_BmSGf"><div data-block-content="f24835bc86bc4c5b9125eb346b5d7937" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><h2 class="r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-18u37iz r-obd0qt" id="summary"><div dir="auto" data-rnwrdesktop-gg6oyi-1x35g6-37tt59-b88u0q="true" data-rnwr700-gg6oyi-adyw6z-135wba7-b88u0q="true" class="css-1rynq56 r-1nf4jbm r-fdjqy7 r-1xnzce8" id="text-summary"><span data-key="982eba9bd3d14fc2906ab99664665134"><span data-offset-key="982eba9bd3d14fc2906ab99664665134:0">Summary</span></span><a href="problems-assesment.html#summary" aria-label="Direct link to heading" data-rnwi-1rasi3h-="true" data-rnwi--1ghhsy9-hover-focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" class="css-1qaijid r-1awozwy r-xoduu5 r-1jkjb r-orgf3d r-1loqt21"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" role="presentation" style="vertical-align:middle;width:20px;height:20px"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.42 1.925a.6.6 0 01.405.745L7.167 4.9h3.998l.76-2.57a.6.6 0 111.15.34l-.659 2.23H14a.6.6 0 010 1.2h-1.938l-1.123 3.8H13a.6.6 0 010 1.2h-2.415l-.76 2.57a.6.6 0 01-1.15-.34l.658-2.23H5.335l-.76 2.57a.6.6 0 11-1.15-.34l.658-2.23H2a.6.6 0 110-1.2h2.438l1.123-3.8H3a.6.6 0 010-1.2h2.915l.76-2.57a.6.6 0 01.745-.405zM6.812 6.1L5.689 9.9h3.999l1.123-3.8H6.812z" fill="currentColor"></path></svg></a></div></h2></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="d8c91a2992dc4a85ac3e167fface1e86" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii smallTop_crzBC smallBottom_BmSGf"><div data-block-content="d8c91a2992dc4a85ac3e167fface1e86" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="a1e752e2d31b4461a3c645223f1a2df5"><span data-offset-key="a1e752e2d31b4461a3c645223f1a2df5:0">To summarize, here are the problems we face in the project, with checklists to keep track of them:</span></span></div></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="815d6afcb33a494297f7e74debc5afc5" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii mediumTop_QDiZG mediumBottom_jdYUb"><div data-block-content="815d6afcb33a494297f7e74debc5afc5" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><ul data-key="815d6afcb33a494297f7e74debc5afc5" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><div class="css-175oi2r"><div class="css-175oi2r"><li data-key="041fc431412040ceab866c60d3a1fc8a" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii noneTop_aMiQj xsmallBottom_NnBZ6"><div data-block-content="041fc431412040ceab866c60d3a1fc8a" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2 r-6koalj r-18u37iz r-bnwqim"><div contenteditable="false" class="r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1awozwy r-6koalj r-18u37iz r-1jkjb r-1kb76zh" style="height:24px"><div class="css-175oi2r r-1awozwy r-z2wwpe r-rs99b7 r-1777fci r-1hvgd7h r-1tgwseu" style="width:18px;height:18px"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" class="r-jwli3a r-5cpxsl" style="vertical-align:middle;width:16.2px;height:16.2px"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.378 3.534a.6.6 0 01.088.844l-6.5 8a.6.6 0 01-.918.017l-3.5-4a.6.6 0 01.904-.79l3.031 3.464 6.051-7.447a.6.6 0 01.844-.088z" fill="currentColor"></path></svg></div></div><div class="css-175oi2r r-13awgt0"><div data-key="d1e9d556cee647f7a1be10ffbe998581" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="5945b1ae5438448096a29cb77afdae6b"><span data-offset-key="5945b1ae5438448096a29cb77afdae6b:0"><span data-slate-zero-width="z">​</span></span></span><!--$--><a href="problems-assesment.html#limitation-of-llm-large-language-model" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="link" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1471scf" style="transition-duration:0.15s"><span data-key="220b808a16db46788c8da5ca3febab15" data-rnwilink--1ghhsy9-="true" data-rnwilink--1e1gmzv-1ddef8g-hover="true" data-rnwi-handle="nearest" class="r-crgep1"><span data-key="8026e59952eb45f89a8964fbd9e1f268"><strong data-slate-leaf="true" data-offset-key="8026e59952eb45f89a8964fbd9e1f268:0" class="r-crgep1 r-b88u0q">Limitation of LLM</strong></span></span></a><!--/$--><span data-key="d6e25aca0b58427cb03e268fd4b018d9"><span data-offset-key="d6e25aca0b58427cb03e268fd4b018d9:0"> - Outdated knowledge for definition of biases. 
+</span><em data-slate-leaf="true" data-offset-key="d6e25aca0b58427cb03e268fd4b018d9:1" class="r-crgep1 r-36ujnk">Solution: Write own definitions first and give it to the AI before generating user story.</em></span></div></div></div></div></li></div></div><div class="css-175oi2r"><div class="css-175oi2r"><li data-key="44880012967a4c1cacdcb3c406691953" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii xsmallTop_ABm9D xsmallBottom_NnBZ6"><div data-block-content="44880012967a4c1cacdcb3c406691953" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2 r-6koalj r-18u37iz r-bnwqim"><div contenteditable="false" class="r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1awozwy r-6koalj r-18u37iz r-1jkjb r-1kb76zh" style="height:24px"><div class="css-175oi2r r-1awozwy r-z2wwpe r-rs99b7 r-1777fci r-1hvgd7h r-1tgwseu" style="width:18px;height:18px"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" class="r-jwli3a r-5cpxsl" style="vertical-align:middle;width:16.2px;height:16.2px"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.378 3.534a.6.6 0 01.088.844l-6.5 8a.6.6 0 01-.918.017l-3.5-4a.6.6 0 01.904-.79l3.031 3.464 6.051-7.447a.6.6 0 01.844-.088z" fill="currentColor"></path></svg></div></div><div class="css-175oi2r r-13awgt0"><div data-key="bbd2b9d70b1446efaab1407db072969b" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="e351d99b7f3743799fa39a41c1c82fc8"><span data-offset-key="e351d99b7f3743799fa39a41c1c82fc8:0"><span data-slate-zero-width="z">​</span></span></span><!--$--><a href="problems-assesment.html#llm-user-story-and-cqs" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="link" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1471scf" style="transition-duration:0.15s"><span data-key="6e53d66a6dd74e2a9d6d6af8d5bb226a" data-rnwilink--1ghhsy9-="true" data-rnwilink--1e1gmzv-1ddef8g-hover="true" data-rnwi-handle="nearest" class="r-crgep1"><span data-key="2f3550eb31ff4a7fb4b8b37e85bd7087"><strong data-slate-leaf="true" data-offset-key="2f3550eb31ff4a7fb4b8b37e85bd7087:0" class="r-crgep1 r-b88u0q">Limitation of LLM</strong></span></span></a><!--/$--><span data-key="d9e4f68eb9ce481c8402a52996a8c426"><strong data-slate-leaf="true" data-offset-key="d9e4f68eb9ce481c8402a52996a8c426:0" class="r-crgep1 r-b88u0q"> </strong><span data-offset-key="d9e4f68eb9ce481c8402a52996a8c426:1">- Associating AI-generated user stories with CQs can be difficult. 
+</span><em data-slate-leaf="true" data-offset-key="d9e4f68eb9ce481c8402a52996a8c426:2" class="r-crgep1 r-36ujnk">Solution: Ask the AI the CQs based on the generated user stories.</em></span></div></div></div></div></li></div></div><div class="css-175oi2r"><div class="css-175oi2r"><li data-key="a3f615d1dd8a481f9910feab67cf67c1" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii xsmallTop_ABm9D xsmallBottom_NnBZ6"><div data-block-content="a3f615d1dd8a481f9910feab67cf67c1" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2 r-6koalj r-18u37iz r-bnwqim"><div contenteditable="false" class="r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1awozwy r-6koalj r-18u37iz r-1jkjb r-1kb76zh" style="height:24px"><div class="css-175oi2r r-1awozwy r-z2wwpe r-rs99b7 r-1777fci r-1hvgd7h r-1tgwseu" style="width:18px;height:18px"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" class="r-jwli3a r-5cpxsl" style="vertical-align:middle;width:16.2px;height:16.2px"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.378 3.534a.6.6 0 01.088.844l-6.5 8a.6.6 0 01-.918.017l-3.5-4a.6.6 0 01.904-.79l3.031 3.464 6.051-7.447a.6.6 0 01.844-.088z" fill="currentColor"></path></svg></div></div><div class="css-175oi2r r-13awgt0"><div data-key="dce8e328024c4e69aba964415a41516e" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="ee5706bd6eaf4b70916154137b88dd84"><span data-offset-key="ee5706bd6eaf4b70916154137b88dd84:0"><span data-slate-zero-width="z">​</span></span></span><!--$--><a href="problems-assesment.html#framester-frames-limited-entities" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="link" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1471scf" style="transition-duration:0.15s"><span data-key="51f1ce2ca4fc4d86b8d90e5db3a67910" data-rnwilink--1ghhsy9-="true" data-rnwilink--1e1gmzv-1ddef8g-hover="true" data-rnwi-handle="nearest" class="r-crgep1"><span data-key="97194990a8e74355a0c8acea34994d22"><strong data-slate-leaf="true" data-offset-key="97194990a8e74355a0c8acea34994d22:0" class="r-crgep1 r-b88u0q">Framester Frames&#x27; Limited Entities</strong></span></span></a><!--/$--><span data-key="1704037b6367433e90cef74438c429ec"><strong data-slate-leaf="true" data-offset-key="1704037b6367433e90cef74438c429ec:0" class="r-crgep1 r-b88u0q"> </strong><span data-offset-key="1704037b6367433e90cef74438c429ec:1">- Inadequate choice of keywords.
+</span><em data-slate-leaf="true" data-offset-key="1704037b6367433e90cef74438c429ec:2" class="r-crgep1 r-36ujnk">Solution: Compromise by not rigidly following the keywords, look for alternative entities.</em></span></div></div></div></div></li></div></div><div class="css-175oi2r"><div class="css-175oi2r"><li data-key="f50543999b794aa4827c902b6b12ae5b" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii xsmallTop_ABm9D noneBottom_ovUyz"><div data-block-content="f50543999b794aa4827c902b6b12ae5b" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2 r-6koalj r-18u37iz r-bnwqim"><div contenteditable="false" class="r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-1mlwlqe r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1awozwy r-6koalj r-18u37iz r-1jkjb r-1kb76zh" style="height:24px"><div class="css-175oi2r r-1awozwy r-z2wwpe r-rs99b7 r-1777fci r-1hvgd7h r-1tgwseu" style="width:18px;height:18px"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" class="r-jwli3a r-5cpxsl" style="vertical-align:middle;width:16.2px;height:16.2px"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.378 3.534a.6.6 0 01.088.844l-6.5 8a.6.6 0 01-.918.017l-3.5-4a.6.6 0 01.904-.79l3.031 3.464 6.051-7.447a.6.6 0 01.844-.088z" fill="currentColor"></path></svg></div></div><div class="css-175oi2r r-13awgt0"><div data-key="88c24d8dfe2f4f4fbfc721b3e84d1ab9" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="32bd621753f04500ad16d4038120cc1f"><span data-offset-key="32bd621753f04500ad16d4038120cc1f:0"><span data-slate-zero-width="z">​</span></span></span><!--$--><a href="problems-assesment.html#choosing-the-appropriate-odps" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="link" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-1471scf" style="transition-duration:0.15s"><span data-key="ae102b9995914341b37465881093cae1" data-rnwilink--1ghhsy9-="true" data-rnwilink--1e1gmzv-1ddef8g-hover="true" data-rnwi-handle="nearest" class="r-crgep1"><span data-key="ebf31ab9314f41c1b5694c48f7e450e2"><strong data-slate-leaf="true" data-offset-key="ebf31ab9314f41c1b5694c48f7e450e2:0" class="r-crgep1 r-b88u0q">Choosing The Appropriate ODPs</strong></span></span></a><!--/$--><span data-key="fe60981a5201479f9a38525d91b69aba"><strong data-slate-leaf="true" data-offset-key="fe60981a5201479f9a38525d91b69aba:0" class="r-crgep1 r-b88u0q"> </strong><span data-offset-key="fe60981a5201479f9a38525d91b69aba:1">- Few appropriate ODPs can be chosen to create an ontology out of the cognitive biases.
+</span><em data-slate-leaf="true" data-offset-key="fe60981a5201479f9a38525d91b69aba:2" class="r-crgep1 r-36ujnk">Solution: Use multiple ODPs is allowed, use only the appropriate properties for the ontologies. </em></span></div></div></div></div></li></div></div></ul></div></div></div></div></div></div></div></div></div><div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM-"><div data-rnwr1490-1777fci="true" data-rnwr700-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz r-1777fci"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div class="css-175oi2r"><div data-key="271c0f3a0efd4d679c5c1cefe7f9521a" class="view_SggA- flex_jZskO relative_F68jE column_C3yiR mediumVertical_-Vaii smallTop_crzBC smallBottom_BmSGf"><div data-block-content="271c0f3a0efd4d679c5c1cefe7f9521a" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-eqz5dr r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-bnwqim r-417010 r-1ro0kt6 r-16y2uox r-1wbh5a2"><div dir="auto" class="css-1rynq56 r-gg6oyi r-ubezar r-16dba41 r-135wba7 r-1nf4jbm r-fdjqy7 r-1xnzce8"><span data-key="a40b524a10b442c1941af8a0df19163f"><span data-offset-key="a40b524a10b442c1941af8a0df19163f:0"><span data-slate-zero-width="n">​</span></span></span></div></div></div></div></div></div></div></div></div></div></div></div><div class="view_SggA- flex_jZskO blockWrapper_y0Ubs noneVertical_jpmaI autoHorizontal_dqmM- largeTop_jdaOn"><div data-rnwr1280-1777fci="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-18u37iz"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div data-rnwrdesktop-18u37iz="true" data-rnwr970-eqz5dr="true" class="css-175oi2r r-1peese0"><a href="methodology.html" data-rnwrdesktop-1kb76zh="true" data-rnwr970-61z16t-5oul0u="true" data-rnwi-u529wo-aq1qub-c1zw6o-1khlhp8-1cut0bx-na6qhi--hover="true" data-rnwi--1tgwseu--focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="BaseCard" class="css-175oi2r r-lrvibr r-1loqt21 r-1otgn73 r-190qawg r-z2wwpe r-rs99b7 r-1udh08x r-1clhhh9 r-18u37iz r-1awozwy r-nsbfu8 r-1ro0kt6 r-16y2uox r-1wbh5a2" style="background-color:rgba(255,255,255,1.00);transition-duration:0.15s"><div class="css-175oi2r r-88pszg"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" data-rnwibasecard--1ghhsy9-hover="true" data-rnwi-handle="nearest" class="r-1rasi3h" style="vertical-align:middle;width:24px;height:24px"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.924 3.576a.6.6 0 010 .848L3.95 7.4H13.5a.6.6 0 110 1.2H3.949l2.975 2.976a.6.6 0 01-.848.848l-4-4a.6.6 0 010-.848l4-4a.6.6 0 01.848 0z" fill="currentColor"></path></svg></div><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2 r-obd0qt"><div class="css-175oi2r"><div dir="auto" class="css-1rynq56 r-gg6oyi r-1enofrn r-16dba41 r-14yzgew r-1rasi3h">Previous</div></div><div dir="auto" data-rnwibasecard--1ghhsy9-hover-focus="true" data-rnwi-handle="nearest" class="css-1rynq56 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a r-gg6oyi r-ubezar r-135wba7 r-majxgm r-1nf4jbm">Methodology</div></div></a><a href="ontologies.html" data-rnwrdesktop-1jkjb="true" data-rnwr970-11wrixw-knv0ih="true" data-rnwi-u529wo-aq1qub-c1zw6o-1khlhp8-1cut0bx-na6qhi--hover="true" data-rnwi--1tgwseu--focus="true" data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="BaseCard" class="css-175oi2r r-lrvibr r-1loqt21 r-1otgn73 r-190qawg r-z2wwpe r-rs99b7 r-1udh08x r-1clhhh9 r-18u37iz r-1awozwy r-nsbfu8 r-1ro0kt6 r-16y2uox r-1wbh5a2" style="background-color:rgba(255,255,255,1.00);transition-duration:0.15s"><div class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div class="css-175oi2r"><div dir="auto" class="css-1rynq56 r-gg6oyi r-1enofrn r-16dba41 r-14yzgew r-1rasi3h">Next</div></div><div dir="auto" data-rnwibasecard--1ghhsy9-hover-focus="true" data-rnwi-handle="nearest" class="css-1rynq56 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a r-gg6oyi r-ubezar r-135wba7 r-majxgm r-1nf4jbm">Ontologies</div></div><div class="css-175oi2r r-1ow6zhx"><svg viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet" data-rnwibasecard--1ghhsy9-hover="true" data-rnwi-handle="nearest" class="r-1rasi3h" style="vertical-align:middle;width:24px;height:24px"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.076 3.576a.6.6 0 01.848 0l4 4a.6.6 0 010 .848l-4 4a.6.6 0 01-.848-.848L12.052 8.6H2.5a.6.6 0 010-1.2h9.552L9.076 4.424a.6.6 0 010-.848z" fill="currentColor"></path></svg></div></a></div><div class="css-175oi2r r-1ygmrgt r-1yv4afn r-5kkj8d"><div data-rnwrdesktop-18u37iz="true" data-rnwr1024-eqz5dr="true" class="css-175oi2r r-1awozwy r-1wtj0ep"><div data-rnwr1024-1ifxtd0="true" class="css-175oi2r r-1ro0kt6 r-16y2uox r-1wbh5a2"><div dir="auto" class="css-1rynq56 r-1rasi3h r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb">Last modified <span aria-label="2023-08-07 08:49 UTC" class="css-1qaijid">2h ago</span></div></div></div></div></div></div></div></div></div></main></div><aside aria-label="Page outline" data-rnwrdesktop-166pt5r="true" data-rnwr1280-hidden="true" data-rnwr700-hidden="true" class="r-1oszu61 r-1xc7w19 r-1phboty r-1yadl64 r-deolkf r-6koalj r-1mlwlqe r-eqz5dr r-1q142lx r-crgep1 r-ifefl9 r-bcqeeo r-t60dpp r-417010 r-k200y r-1rnoaur r-gtdqiz r-pw2am6 r-146iojx" style="top:104px;max-height:calc(100vh - 104px)" data-testid="page.outline"><div class="css-175oi2r r-146iojx"><div class="css-175oi2r r-18u37iz r-1awozwy r-1guathk r-5oul0u"><div dir="auto" class="css-1rynq56 r-gg6oyi r-1enofrn r-19r33im r-14yzgew r-tsynxw r-1rasi3h r-b88u0q">On this page</div></div><div data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-18u37iz r-1guathk r-855088 r-ms8t9i r-15zivkp r-lqms97 r-14gqq1x r-dnmrzs r-7xmw5f" style="transition-duration:0.15s"><div dir="auto" data-rnwinearest--1ghhsy9-hover="true" data-rnwi-handle="nearest" class="css-1rynq56 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb r-1bnj018">Limitation of LLM (Large Language Model)</div></div><div data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-18u37iz r-1guathk r-855088 r-ms8t9i r-15zivkp r-lqms97 r-14gqq1x r-dnmrzs r-7xmw5f" style="transition-duration:0.15s"><div dir="auto" data-rnwinearest--1ghhsy9-hover="true" data-rnwi-handle="nearest" class="css-1rynq56 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb r-1bnj018">LLM - User Story and CQs</div></div><div data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-18u37iz r-1guathk r-855088 r-ms8t9i r-15zivkp r-lqms97 r-14gqq1x r-dnmrzs r-7xmw5f" style="transition-duration:0.15s"><div dir="auto" data-rnwinearest--1ghhsy9-hover="true" data-rnwi-handle="nearest" class="css-1rynq56 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb r-1bnj018">Framester Frames&#x27; Limited Entities</div></div><div data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-18u37iz r-1guathk r-855088 r-ms8t9i r-15zivkp r-lqms97 r-14gqq1x r-dnmrzs r-7xmw5f" style="transition-duration:0.15s"><div dir="auto" data-rnwinearest--1ghhsy9-hover="true" data-rnwi-handle="nearest" class="css-1rynq56 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb r-1bnj018">Choosing The Appropriate ODPs</div></div><div data-rnwi-5xr8s6-dse9kg-2fw26j-cb7i37-focus-visible="true" data-rnwi-handle="nearest" tabindex="0" class="css-175oi2r r-1i6wzkk r-lrvibr r-1loqt21 r-1otgn73 r-18u37iz r-1guathk r-855088 r-ms8t9i r-15zivkp r-lqms97 r-14gqq1x r-dnmrzs r-7xmw5f" style="transition-duration:0.15s"><div dir="auto" data-rnwinearest--1ghhsy9-hover="true" data-rnwi-handle="nearest" class="css-1rynq56 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a r-gg6oyi r-1b43r93 r-16dba41 r-hbpseb r-1bnj018">Summary</div></div></div></aside></div><!--/$--></div></div></div><!--/$--></div></div></div>
+        <script>
+            // Rendered with GitBook 10.9.393-f05e0d9beba97c76d743582838f76ec4d7712d67-5763288894
+            // Space iCZgpcEUWhzT2CJDHLqX
+            
+            window.__GITBOOK_WAS_SSR = true;
+            window.__GITBOOK_INITIAL_PROPS__ = "㞂‖འ츂аⶁ䱀⸐ꁮ஁栁む挨Π᳀䬘Ȱ舁귎ꈐơຄꅀԄダ愄쀓詼Íꨠͯ考뢈¬傑辒劈ᄠᗕᰘ䋙쓢ស᠀▣왆錘ᠰ镇䀞韂ኒ锭̳㤉Вඔኂछꠤ则谔ذ/霊ሺ딨耣㒀⬡\u0013ඉ⒐訡 谆䠟⑜℺稡䀛'\u0003\u000b⃀܈㬗∜㐦萻杉睿櫚㕊ⵡ\u0010耧ꢜ\"뒱쀖銀㌀ઌ\u0012ꄴ萀⒔Я潍쎀ᪿ㆓ᾪ蒨됀Ⲅႆ쥈䰺趟䥃썐^阅ꢅ\u0001ဂ㠁퓀\udd00ᢹ傌矫졉䱣똆\u0007ᜄƔ釢桸藮텀=䓽\u000f딍桃ꉠ룐ᣏↃ㔊Ԃ늈խۀ谺憨a玥ू䀂蠁咉梛륀퀂釄㠀㉸耆趃喩耛貰⢺㌝杁䯤籐洓ꨁ㦝⺷ޓ헮糾 䨒꺂䡁賦డ䮌扒ၶ赦ꭁ懐ⷴ蚣熔쐃㎙떫ꙓ뗇鋰怖鋎샤甸嶮睇돍﫽ﺀ鬌꺡톨ẤҦ㇑휤ᢶ\udc42䌀Ƥ僻ᾂ땕諩烸ࠣ蘒ψ㈭蔗센ǉꌩ玍䄠w\u0013䛦㡊忛츛面䇁␘뼳岥ﱱᾚ范쩳要籮୓୑ଏ듀灇ᗙ褀뗺忍䂵٤Ⰹ⢈ࣰ䛧듔灁钸ủ遈㠜ᗨ伇ዧ㣝䈌̂逞幆㣠䴰耥Ā╿ᮄ聤䤸⷗פ灟ꄤ鑣邢僠匷縟颁䄴ﶒ鉐쵦䳑ɀퟨ礓\ud990뗶灌턤彻胒证܀쨥ṃʮ箞휹ኀₔ⁋ٞ훀틘Ԁ㔊ဤ艁稦ۃ覄儂䊑搅᥅倴ⴇ䅀ࢅ⅌ᐜ숌鄥Ѩ㓀㰒腁༖ぐ堓꟨롡ᜤ꯴㠊吼\uda14⁢䠄ఐ桄؃嗐᠜䉛훍唄薡儝璠㰛ͬ窡ᐆ⡊޵\udcdcᮮ⺘ṁ萍㾮֡ꡬԅ\ud9a8帅‸劇\ud800ɼଙ쒆풌櫡輙깨媖閣ʹخቂ嶯惄޸ꁧ岠된椉蘱况᪄挆ݜ꜅局䆤὚殁曹녮嫒జꋠ䞓ꧦ頻妶掚빭谗薐ͣ蚡隌ᐷව硱ⓘᘘѩ膙᠟䉶象볂豀⮂挨䡲蔆ࠎ蛪驌ߝ䡬勂삭轜脄뷄٣ۨ│淙碎\ud8ffꄼ㋧婃엊⮍៨ज늇㱗ꔷ꙯뎠Ƶ䁈悔ᅷ硃⛑ፐ䃁楿Щ㴨ߠ膨ˮ\ud940┡Ā젶妚ᝯ㮨軁\ude49ꛭ똄捹»ꐏ꽽ᆝ㹶舌놈ᩂ잝杜዆\n杁徙룀䂿짩礀ृ悐Ϣ惭쀂⼭벬ఌ죐㤇摍〯焠൝栏ᡇჅꔃᙊу⬩̌௄ȧ旭饗ꭰ쀝쓹漭ਡ嶏⟞낐琂썏묌삐\udc59弮ᨡˆ螞䍣ᔉᴡ鈂왴ፂ렬栐࡛닆⁓先逢臔撂왲น僙ᖌﴜ蒠壊椈ُ쁮ᘴ홨櫭푖㒔☲ⱬ㒏衠ᇻ㽜젓圯ٚᣜ䵏ƈ䘙쫂蒧ἓ싆礚Ꮘ洛섟놁肉캣ᢩ᫭ᔔ͉爀⑀\udf178㪏棆ⴡ挦ର䂤㐠뿅䒐㔗ⵠᖀ䁀\udd45哽ᗢ倫닐ꔺ䃶ဦ㍨᠃郩⃇磘潓퉐腙壓⟸ﴄ聥ແ觠㈄삸ᤌ됢๡⠦협莸ᰦ쇽큻ᬵ툙ພ돖\ud950ﭧ䉗護廌㴅齌ᓲ灘㏁⾑䈰࠱ꄀ묲\ud859䨠氤蒾ꢩ肫儋℡趀┰袹腬Źꐥż캍Ⴜᾇ觩悁䀯ᓚム心䅐跞⏢௮堩㵫彌ɳ쐔ູЬ␓犸㒄↩᣺࢝|爅簠䖰鷥茡䰆薘âᩂ䀲꛹鐺蘯ⓠ쎵檫픜㫺凋՗⤑韔垈찉⎤伦䀙䃅㼛ᴵᤃ諆Ĩ᠇댂䋅ා썫⣤敒활㋄専ي뎒퇠旋闗㔄⪐ƫ⠼瓀紮㖪勗狕佰蔯☓ད잤뼶훐ꗨછገ댂烮ሣ\udd6e꡹\udeac䓯埮ﵱ薣⏛极ࠍ踸鼤˦꥟썠䅨맵㹖ꂎো淁꼫瀾㍘ိ喨䔡迧⋾탫ݻ⪝䊬瓘৓ꨯ秱ᗜꝹ쒃Ꮄ롴浐䃉䞌醩ჳՍ⤠䂦ꚰ䴡搉薔\ud8d9旘刌贮뒶\ud9e6퀧艹沵㙼漙퍁ᢸꄉꤤ⛪啑᭦᪛鈄핶칛᠌鏙ﰥ绫溇꾃ẫ遺᭳긑៖皈͌焄펨祻ꖴ摴ૈ젦唖렄菏枩\ude33럔ȃ⣾䪩鈑歐䘼ꎱꩩ䁮蛪洼沵ꠥ΀ㄷ瞏Ⅸ咍㱤腕ǣ卼骩䴟⚙뫰ᔏ\ud868餎樍ꠓ卉᯳黜赔萿ℷ羜௱⾎⃇昌ع㦴ꏛ⯴쥭릆摶㲾愅舆嶹촼턤⑇擾쫣鐄䎉䄠蔜ꁌЈㆤ℁⠈๬䱂肁精萄拴ᆂ䃨ᗆ梸Ṁ卦蓱ࠩ柨│恌纁㇊⃀顗ྡⶒɐ䘨\ud920萞㨂》聳ᬓ攁䶙뜶ᛒ\ud95b⭽湭럶₋櫬\uddbb냶黋\udde8潣龱ヾ쀾渧\udd90⨮䪭豈ꌀ梆齈ㅊ쨥ਇ橙렲耋몏滽\udc7b콵\udc7e冾ﬅ퐀ﳘ㛚㫧飷龽쾰⿱퍠횂ዌ٩瀜\u0000㹐朅蕂汔䋕傦팿兞鰂괼≘㎐Ҹ倈ᙨ䚦龜䷑ꦄ毼㚄䯫많㇏㻇糾帋艼⹀⇪姐臃氎䏛䔻䠎\u0012姬₣❣攀棌몞尫❠ẓ쁷骷髪殧냴嚕倫嫽筶㘍竧횰歔즫뵄⇴缽難䩧싾\udea4瑁股摣䫉케韴㖲꧌楆ꚶ㄁鑁踙郉옟밅Ǵ䙟襑熤溬斒僕䤿ع쟈ꈜ뒪橯金\udfc7᠃Æㄢ䣿礉⁷뢤䛻측繗公ꉑ⦺縭ﹴ움纁戛㡪튮₨㬎ꉡ衾貛곢⨠鋆ୀ툃⠐ዒ噥谵ꋾ椯Ś葆됊㉘윈䑪蛱⻁脬ꡍ⒖⥤옠᠁넠왌쯡㈤଼ꔬ⠇做央኏숄利騛☚ꦩቼξ癫g﩯ﺯ㔯눏쳢뀀胘챘┨䃤ࢦ嗨娧ꓖꖨ꫊ꋞ頊㛣椶퍫㛳梶쭪뚰㭧똇数죩皒\udce5踸諩ṧ걞浬懂⿯\ude05쟖綯檠࠶暴\ud8a0఑⃦໡ᤎ儓ป欑࣠采敂杪諬醲꺢୑ꄞฑᔎ턒퇰䣣턁㋢Ṳ䋤丛Ց擭졼覀芍亴嶋䉌坆컾䇮醡ᇤ亨꘮绬鄋ᴮ쇡醷ᰱ기賨⠀滬脀㫥賳礭఩˞Ԛ㫣雩뛤큇ᣮ컪誮껉漓焊䝍Ẋ᜞⏀ꢉ㢚黩駢뱇ሾ跥㻦ꏥ橦ᢡ幂戦\ude1e⛂柡ᅾ웉༬\udef9裪銔⪝램䋦걑㒔㹙଩쎮짣岜昼鬾項鈓侮语貫饣脹涾찓傮즺琈⬁蟥䆞웩ꨂ㳱斌렉䁋䅡吞汴ធ쬤☬穦鉑揦䚶遁剎鸚瘥᩼঴ᐖ찐뀉ภ㭉먠䢲\udb28馆ꝯضᖲࠆ騅ⴴ唦᧱⛐掦勚⒲있섚⡸倈틮⃆鬧ꊥ骚⡣虺⧙℥셴᳤ﱯ繎梢滃뺪ଆ鎘쇂ᧆ猎얌鸐窺握ቫ牵㯊ㆠჩᇐ팗ᆈ燽Ჱ茕釫ኂⵥ㸊驮鵤凰꘮ꔒ訕ἰ썬킽ʀ蔉〣ฬ퍢䀓࠰ﴈ䂽ʶၒ〥ʀ⡐肓අ䡑텕鿬┈値հ萅ԏ桶ᄘ倨݀│蔣М琇䂃ࡐ봋㛅ਠၞ䔰崠灐蕈劅Ӣ胨妅薅҅䔤噅錎傔傶푛䗴壅챚여匾ꨟ탘쑐연堰萋礓Ʌî뙫所봄ᰒ姅遝ְ居ﱜ薨尥ᡕ藢夥婓ꕺ剥ࡔ旦婥摓ຖ嵥ﴄ䫒ࡐ섞「哅號뙿栰┅炙膶ꔍ⃽ശ聜彥뱘峥䉒◮圶ቘ䀲ĕ兘倱峅㭩旌咕⥟큩冕㴌些ᧈ\udb19任ᚈ樆袘ѱ猪焠ഥꑞ䗲啰呓䕴傀౒傱庥歭誢ꍛ└夵詝㔪張橖앋凴\udf1a₿赀짢聀鈉਄渐錩뾟黜⬉団源읮ᬅ揥ٟ栕䕖呅慐멒䃺埥왛倍㙕쌈巫㸖袒颪镖㛑儰녗唉壕捬픥ຕ饜킏ᆆ酝跕宍땟ᔍ岕䓒핤\udf0d櫢H퇉轟৏哎좑남鋮욢X镐廪鹸隵ꔑ嶵덚ꔬ徵ᱞ䦱풒諾ꝉ槡鹠֞Ⲕ㫟ꗊᲛꥲ鷉ꗦ⫬\udfc9玲幺歞︙ꩋ鉭禭뤓落騠ꚫ\ude24⪩ꆩ龩㸏⑭밧ꥀ挾既+隗ᤉࢀ볍P愀稇삎鶌묮姲๢倌怘橵훎怉ꄲ倍倫蕢禕쭆옝ሏ䄈㘄撡骇曊ↁ䚭셜ᙢဏꊛꪀᘛ曘⹢訞惔ഠ캐抟죇鋰⊪陠䦆珖劮쎝鹭夓⦙攦ࢱȴق㈁␒嶜愱⋸쿀蘙삼᪗䪀綝닱酆埠拯઀㨥늺ल㗛絴ђිꋫ莀إ셏뎔㋲̒뾊̀ἂ⪈특Ⓒ鰖豾悡동蛑ꠐ垂鵋衴鸭ࡽ䂨ᘭ젙셠戞ᥭ帖⛅ꑹꊝ⤻쎕ጃ야偕艖蕮嘥ꕙ▒휥틔ꔳ圵୘궗줦劜遭鞮홷州쪗\ude00卪ﻞ儹킐廆햩펠楑ힹ쉠秂鱹㩦⧶\udf98\ud957敬ュِ┮展밻藥娍齙ഁ啰晓ඡ峜뤜쌮헺滕稊㒩㚩攕ꘚ㣭視\udb13◩ᷦ\ud863芟䌾잗涕ꢉ갾쏹彣䕓쏘埃⸵足卍磟䶉壍ꥒ䶭帜㤗黠꼣Ở鶡፾훺⎹᨝粬ᵂꉦ蚒$蘬近剘섳긅\u001a᭼䪀왨琶쭃ﮟ嘶\udbe1龔Ꭽ㐭廒꧝㠾儰㪬鮣揭ꌉ㥳ꛜ鍾ꈀ恥谐漚Ⓝ鴣䯼္扄欳区䎿ㅆ츮泭骚⻎豿䭩숅눰ᖌ퍀㵔錒Ҁ扯햌㙣䇶朁囨᫊衆혫㷫ゲ숍눀녔脢䯚⢲쬭ꅽ픢悱谮᪨퀟ኩ㱣హ鎒㐪爎렻䒍\udcb9੏ꀾ꾮ꤠ֊촅ƀ悒됼鸄ꁾ௠錨肬଀␁ၰภ갃¾ࢴ찄쀈௠洀遱ꔀ\f佮᜻⍱㛪쌷玲榀윁栯艸➏偧ⲽ뎇黋笼폈\ud9c9褽㻶눀袰或骁￢鴟膐抶懢䬮䏉鳩숒ꁵੵ긎怌Ḳ鋎ڒ〟耐ⴈ迆賴묛攩욖Ќ븇颬᥁쟥滈橙砍貆ἒ椥鐖刢䯓㉋핫몵斳훝㗹༮㏞윹櫤⠫붬Ա㭳㯈㍅ꌵ᷽蟢琐莁⤠昛뇐雐袴딎ꉹࢆ椩\udb14殾쒹㏲쿳侵︑궢쟤拵롾爊蟭䮺ᩛ黁賛늉Æ۴\udb2bꠠ䕑켶ꅙ鑾찕ⲳ䦺咺丙桾洋刔둋ᱩ|௛꾿\udbaf놡瞱䀳ㄡઆƷ툼悏劆뿔䛝눒ꦧ鴦齌嗀ᘩ꼒㿭뱕⯈᥀聲૝嬮㉐ԇլ༚뎅⍽Ũஇ網ﭳ㍃䎹帣됩沾㯻㾑ℷ첀↳玽\uda3d㺩쮵欭㉧洹檰꯭䁐ᵨꎼ颤칢랊頌䩄ꚸめØ௸鐆ꃻÈ툂え๐셷蠖茀옆蠰Ɉᚺ뚻뚿ꥦ탳麺㬦㓃ꞙꏦ㎓띙毆硪펴ꏡ㥧쾪獋뿓ꤷ㝧䆻즘෼\ud826銚癋꾲嶜焴ਛ₥✇ࡻ谀΢à讐殧꺵➀ँ㞹灧᤺挧酣㯃嫵⩬쵮坈훚鴱㰧㐫朼㹩竖ᥴ垛빭午삌뵢伿偍\uda9d볉笯莈ﰃ멻ꕭ쭻帜뗊厳穇㲣㕰뭪㴓ൾ睍琳靿ꏦ\ud922㧲⌆陣鮧뱢祩Ðढ़ꦡꊪʠⷕ豯燷◝끝阚\uda19ვ\ud974뗞騔杋罏낡랲毮隟먚\uda4e楎ﭛ␶޷ꂖ麧ⶓ౿\udf59唢䈣䔐勰툝驵ℯ쿋䠯ᴁ憩ꐷ뉶ᨎ੠ꢀ䮍⇷﬌磠릌矬틌辆蛡؈럩㯷Ꮏ⧁㣧䃽圂몣봾ཁ푗᝸᭗烳贏ጀ잾ꊗ恻銩봆訠筷闐外ಲ䓶㉫鬠ꄇ䕸鐾\udab7밒௯븲ྌ诺ԁ혠뀱⛫뮾雙⚡뢿蜡⿀ꨍ‱⃈꓄꡾溌뉈㗸㤍鎙뉵臃⮘ቊꒇⱦ᫟㵢ܫ⣔Ț\udcfc俷⠏ﮕ헁쬪伡⹏醿伴ཝ恥課᳏覯윆⟟뤌﹟눲යᾄฟ䨘縣䫁἖ᶡ艵ꂃ뗷琳幝駽칆๲ᚙ鰾䯭㪸ݖ캻瑔렂༒諝Ϟ촂ꄇ鵩藧᱐隆됁石鬴쀰₾Ð碁䀘؄〃젚\udcd2ܸᨠ䘆о䇫倦赶릴㵽Ჺ泈왞럋饩顤坿ᡃ\udbf2仴ꮘ䴟伻睸\ud9d8䄡튇뫭嫇탢촤稆턍슟૚ᯘ踺矿뺜µ뢕썮脂\udbbd栝億\ude9f湣쐻ꈃ≯圯稆쟞⮰躰涙੠峒ᰛ腩㐀挍絡\ude2bߠ虶샳瞃莠ጠꮛ躙꺹ᑐ梁糇鴔耾ᴐ럖邡衬╿棸\udfc3➈᠍쩀✮ꍯЬꖑ丈旾䏰∏ꡎ⒌錀ୠ䋩쁒겱容荠ሓ痂쀟\u0016Ҁ軨숝朓먇䲮纰ތ₺ᶠ娂Ǉ瘂ꛁ㔍艄䍝ᤁ」ᡐ䌽ꈐ흺䠼ⅽ㉰殂둭ჶ߬㖮挵랟菙慠鷡狜亼뎐㼭똘ス蚊쬁ြ\udd20ภᬃ밿䀯䎾ց耧ܺ䠆яϘ楠桅뛺ᒭ頙靫堆\ud8e1焏殟숟蘚秒ᣗ∪摔茀ી鱨֘켮虷桫̎ἠ꧲ꈤ8쐧酈\udc26툎酴韸⟒᪟裃䝝⨹跚쀾൨䆙戙삝퓬䀖〉ௌ༐틂擌Ⲁ⡣ˑ讂璑䁢狈㟋Ⲹᗐ烬嫫裓㡘཰蒏冱≾㚀ꂘ縀ꘝဣ먮췎攈䐒ʖ誰삄\uda38⅕炐喜ꀛ낑虃춁钋톶巐᳐ᠱ蚗པ㚐渘ꤾ壌㧑ᖦ̀ห㞇㤃໌促葏⁐䒑鼀렗쀆ɀ㱃ꐁᇞ戢鉬ᭅ鯟Â쿂쑷ɱᤂ⑫屋뜴瑢絥梃蟄죡⵶ꑮ៫䍆㧛놦躉齣츐Ⴊ䘊㑀룇ꠊꇍ䲓冥⇔䶥循夤৴詄吗䌦ᡥՖⱣ爬んⱢᬖ휐̊⢤嘃ᑚጋ䢳溙ȑ뱈眙먽앯騤\ud88c鱧拠ᱨ펪츹銾඼䃣᜙㭵蜈蜖瘣ꏬᣰ靄Ⱝ톈ꅘ摃Ⱍ蛺㤱惷㦙\uddb5∘醙鰠욼跠椢႙쭸쓲턱眉≊͑䳰資总ૠ༓䜅䃈ᗶ삋䇰े咸뀸ㄔ誢産뫣㍲㢿౉鮥妸ㆷ쨄횱丨娳観볢杲䜎㐱⌶屦Ǉᤘ샛椦䨘条悖㭁응㳚룂␯懢䍺鵙㑭✼㰝蛎䁫웑⒑洏뱳鈞泸텇嵆㓊耱੥⫊譏㋏᳄켁캟疱ᆻඑꑰ虠ॴ퀐ꠋꈻዂɄ鸄ꍅ傊ॺ䡲异줕ۚ┉຋扰굝ᒰꑒ稤䆄䱑뢂\uda97擼⚮캱ヷ౟┬龠藅㓕곗๢权墔⑱㴱戆捸魠疦蠐\ude58ې쬔竔ထ䕆걷卤᥄톧\udcc7砷痚緜㉈璗롸蔾驊鼵鉡୤\udec5픾觓䢢沒꺜ᬋ◨⃑镎鱺馠郂紦㤬⧔跆ठ맫轧렓퍁잉䎶艆腡ⶂ廏 爷魭n\udb03ቓ\udd64알剹ᄴ鸄蔿鄛댲叢뷅ᒥ퀘腾靆徦莄⯝绪㒘ᘋܱ฽Ẑ佹ႚ䂖絷褡ﶷ쟿組瘲呈ힾণ檗죋䐱₉䵉化黄鄢䣠壓쯉䳯ꖴ㓆ᬀ삃ㇽ蠰溃ꃓ拓▩ǌ챖掳᎘\udcc5ㆍ般ႚꀜ䂳䔖릀ใ䌚ᓐ隆됭ꀝӨ址程肚ₔ꾸渌젉肞ЈК膎ௐ椂ఄۀ㽀縂䠲Ø໠儃\bშภ　鐁遟ڮ濠䂃衮脝郴焀聪⤮Ӏ⨣젍탇ʹᐁ餅䠟‒ീ㲇됒臉ꠎ໥眧륽젞沉踌㳑㖚僅឵㴑躚呢臁麴辚㽑롎鬅抢蘰ꎇ谄സ品츃す臌∘〃䰐ʸ䲰㇁䄢Ꞷ殱╈怛Ă௡餎⁙䀸Ố暇ဘე඀ࠀ㈝\ud8d6㲁쨂Ƣហ䝥䔂᤬挶⋀ก틥苨ⵡ稍큛넑䫠鼇Oी⣥ꠐꀧ茀㎠䘏„苬ᚁ倇ﹽꆙ݀́騕շ첱銰龝芺苠극\uda56튋\ud886ැ䆁ᱚ湪(☁訆倐䂄츸邖㢙畹譚ᯀ耀㑁灔⨤ᨚ뉐ᧂी꤂옚臂䎴㛚忈\udc54到੅벼曒⺲➇렙ꆁ⑐쀶錁2ᾠ瀄䅸ⅶͰ☃퐝䣻Π⍑쳯騚Ç᐀쒤ဳ儰ۢ婢⣤ɀ㊹齂{뉦ᢠ\udd01Ǻ๐ű䀡꽀䠊债膑偠␨ꥅ熤հ⎱᱘愠࿀ँ〈Ȕᵈ倄ꀛꇄ఼⠍䀓촐ཊ輏틁霌Ꞑꌯᥤ쮦塵Ѫ蠊滂ʄḲ氈糿懿 䀩Řਠ唂頕‎Ԉ⩁䨋騎苗E渖ᅟ䁦싒粻ꀽڑ幁摔倬䤚⨭몺ꦢ왡㳟쥌֙ή䏪鵥鬶僅ࣆㅩ謉鮌縉✗㢖ㄾ⚠渉䀒ᕍ萈⥁ꀍจ窀㠗烱⭮伂鉜큔韑踱꘤倅冼ྀᡕ스ࢹ⿉揅颦㘒ȌԀ戬⠥닊ྲྀ䈃琒ꕴق껙ಪ倊Ꮰ萫ᕽ뢮จ㐣전Ÿ㼁츁o쇀Ҡﰁꆲ謲ꂊ檥귕纫൞灣嚚볕\ud95b㖛沅긤숦燙졙䋷䍐뚅慷䆘幰嘗㈝薜⻡䏋掣᱾᜿✅꿏祉੺݅䤖砣莌㣡ጅ㠔싎ᴰஃ䅂樰ࣘ擕ࢵ㗯줡磁稂偋敜៹ￌţ胎市젗䂹邰⻒ⷋ道싧揟㴀⌂셫쩫凲㚮誃ۍ䛀摗⊐Δᮠ᭡Վ⮸上贕淓\u001eꦃゝ鲀骅䊥耮冷྆刌䫢鈎䂆濹熍౛ᛑ黅ᐆ앏謑⸠优뒩䃌聤ᑜ鮝퀔ƚ਀졃琁Ⅹ厪䏐㊵ᑌ꽉因눔耨Ɩ═쭅䠯⪑ࣱනꖑᒻऔ駄\udcc4ꭼꉊ♑᠆᧺Ӝ讲\udd96汝⣘ 餆ᱺ菄Ṁ묅ﰉ䇊࿀㠁ꠀ邔ט㼁ⵛ恊1뮠䱩​᫘퇆긴赮ꦄ⎊샡朿土㜵掀䰤̸㓃츓ヱ긝揲ꭐ퀚푑ꖊﴄซ䨦˚鎗뚴֝겹佫깗\udac4ᐎ띍ᠬⰋ쩟鍘嫕尒怓ǹ椊렏䠊ᕐꚅ琨慓੘囂踕炰疏⣀ी응ᛖ눪ᔬญ\ud8fe徐䁖ᥙ碊锅䛫隁૭풀ᛸ앳㦤煤冃邎쉣૤ꮢ䲚祄蝼拓옥捺벑\udebb碴豽捚ూ瞧㧥깥暄ꀌă艈䨂½̂Ḡ䨆ꁧ䃼ǀ蹂䮘䖀☁‚䀙䏄ᦠഋ끦↗亀捩砉䁈ࠀ鈟性茴ଡਏ栓썈ᮠ碅ﰽꃠ඀᱀븆쀎Ш㧀ᤉ㕣莈Ҡ鐆ƺĀ縂ᐅڲඁ\udee0桺舰ὠ瀄⠽牊཰氁脄䙴Ё쎃ᳲ₼៰␆쀻೨㗇鰞ꃼ̈́ഊ䘁腄Ѡက腺ׂ⮃倞ꀤĠ㷀黃怋䌲਀̄᠚這ɀ杂జɀ─䤀䠟艐ۀ㼅\ud804미ྰ⍐䀀탯珄ৡ\u0002䎔Ҡ━뀳ꇤà氃猜쀴᠐布蠥\u0012ᣠܦ⡭咠〢ဌࠠ䐘㻀帆蠤aܐ⠅ꄨκ庂ఌ큈И௡쐎瀗썸Ðﰄ笿恐ϰ佧㈉縬儂ᵰ▉䂜䊄날쥥ﰒ课ۨ揁酋洰ڻ⻀䂁栃菁ǀ㘅⃝ވ␪ကⳆĘ΀ꀍⰱ莜ᩀ㌪荶ꁠ퀗㒔蠓U檀⾁㉝銳䎡ꮀԭܶ\ud997塀҂녍⣒ꤷ䐕\ud8d2苍ന瓠頩䁆ņ萁導諄㻁쟯᫤鋡㐘鄆䤶穒쾊᥁䫅秏Ś띕瑓饵鈘韖蘿닣驑燻狘ᣈ୛秐욌낏䟎꭭㭯逞\uda0e푶莲鶼楀ਇ盟뛃뛾ᣭ𖔸ベ괼⤓촌谘暑ؘ쾁ᠣՍ柈ⵆ骯鉚鴵隸疕갑憛㳙ᔞ艔ꊍ睠쭀⯤墪艷⢽甉쟿勼諟⚝⓶ퟠㄥڱ赁鲲큩鲪ዱ洈搻舲נ␋쇶ܶ࿀ᨅݦᆐ⃘鋱뉽첩齙氡沴异䂠耇닐⒟䇟理ꌍ胡\udb0c\ud848ැླ楍⠏扮笛᪥⠄ż걬─쪧䮤౮咾\udc97溻淛뚽뷭齮ﭰ㕄஑鮵\uddb9透橻䯚\uded1뛉깼Ꝑ䮑蠼ቩ㘂䨻ᠺᡠ혁ᣯ굍៊ⵖ驯鋦飢甂ỳ璫쨍癝놈煵ਫꀧ댜왳ꢾ䍚쑐灢죖뚦龀괞낖〺㖨ⷱ睗ꍺḛ昁츃衦䄮ᙝ➆쀾\ud810࿀㫣倇䍐莆ۧใ੽ꈅ齯肔ੱ준阸낗Ứ쁇琵噠貯뇢茅\ud8faӅ䦫楄恡샩欕瘺煇개㨝骊ż휒ꎊﶿ栻쇙໨盃밐ɮ꓀㨐Ў遵莢ᵐ尺翙耆㟈ῃ墢㵳醧ꠑ菤౹ꁃᵓ秳୙ꛫ랅伨䭊武㐡薍\udd9bꃋᰅ䀚흞練嗈爕꾇烾잔㨬茑੤卌쉀覷훻ݸ茆ꀿñҠ䆀떻4΀莍“䏚᙭僣螒厀롤黟⾁䓃槕ੈ᱓\ude32祐裱犀셐ꂛ⑜ᩓ馑茛띃꠨\ud984ꪡ⯶磎᲼綸ᇔ躈£괝⁀읖㩱힎겨굔䀍鹇樻퇙軬監뼝촜쀜౑൏ස诀鹓池쇋뭍럊ᵆ௢\udee6▰䏳ᠤ캧훍锓ڞ瓬螶㉩찁䓦璴혱윹急셷壂亙뜴膰཰旗琀遰λ⍳옏瀭⇶Ꮩ憙ⴡ㪐౎퉷鎲鵐ڧ活⚥ē꒝擮ꊌᛠ띎鵖蹤H샄㢁錹︇䷴楍ꀆ㥛殀卦讗皷뗰⩳緋령捡膪窵Ȝ笖昖ㄥᵏ䰅菹꽓勧옼ꦵ캿㦋ﰚ䭱騤勒톂\u000bᶝ槦䷉몝赨뫳帧嵃ꪚ尬㸀謱놸웪ాf䎔࿐䠆ꔡ䆰༥㝂聸莠⿡渏騂爳Ȇ賘❗ޅ鴭↯䯩頩嗀앹⪇ᡕꔬ鋷䅸ꤢ覂䅟⺄㬛醔Ŝᭊ耓㪐ˎ뙴玼淜缺☀⚴꼳떝㝆쫗㩹ퟎ腴੤Z鄖䖦샱摣ઘじᄭ베悒⢒䘉曲ⱶꪋ圩륝ᙢ\ude5a磋ꬓ걻ᩚ䕩Ⲁᢠ汒㬮婤㖱슶폘쏋窖踿ቚ꺵꽋꾜䒱耍ૌ筂︜ѭ䠑鴂耕蓰筣韩員霬艭쏛쨿鳺쀊恽ʦ栣粬ܪ쁗喜쾳匜ꖉ喚诙앞෥녙亀툆\udb0d\ud806ഈᗗ\udb88崢㢻◝⻙矋녝쫯⣦q먮ﱭ䮦嵲劻낹≃竳ࢌ❜惠잚뼩⹢挌帒墶◞깛㉋͚ᝎ奅껖赱쵷⢚銳㗖⸌ᶋ鵎䄏㨠旗\udcbd殆鿋䗦ᐳ뗕⻫罫ꨙ\ud93a팫꫍ﴎ报ܩ䣁栈ƀ۠⁆τ౰㱂쌝ꟓ᧟귆枉鴱☳㨑늁嬮聐傈訋瘜첬ሊ\uda53猈廆䅃ఒヘ⪻헙껻뷓﫬㝱뭍홍逃耚煶溣璛묋㢁얜肣⋹뙬쩣鮋鬘튦렲꧎꿳瑋∪ᛤ诺렵襯鲪寶欚㪾耖⨫筳汛᠂온풵붍毒Ặ<ꗃ淭捤᩟褫眆䔃㼐뺴ꬂ㲀ⴊ차Ɓᣀ㲃\u001eₔ肼ꃷ⸇\udb5cٲﾷ䄻᧏࿯傌穧쀹몾좪ꍴ諲劕椔橘癲聉䨽\udb03壝䂶짣䖳⭽ߋ숸릻ⷝ滛矛뇝컭睃儫뾃ꭷ\udd76蘡펺巜怷睡撐䍃뮽嚥㤘滯칵荼寮圻ᛛ쌏箫ᛄ뫚ꧮ\ud9ba謎涢ﳷ禸걞茯淹ῌ뙱뮍\udfb9斢䎩ᡀ䛆㚶ꊭ긟矫뭛勉끢ᘜ頍螖\udbb8쎸亭䀊᛬ी⒆琚聆ǂ눀還࣑춽ᴫ綸쪗ශ갓켆뇨眥㯥詫셎能͐곪ꏛ똵넌ጓ⣞䫪䛨੒蕻諌剮ᇄ㷕痻ꀽ䇯⠈竃턞셨\ude93揶쵼㲁㷝矻뀽쇭ླྀ穷䨅궚㕰ⶁꭴに䋖᪈핆꘵텨廲랔皚녗匞㈸뤆愄謕ᎈἀ丠䣦䁲赬쥯ꁒ᱒䀂ꗣ铻ؤ姐鍖砹㦒缄匁㞊켽镴ꨄꑠု㠉⃋螈ঀ巎蜐┦렅ẘꄽ䧪耊竓턴䳵哦ဵ㱸ꀯ揟Ễ딽茇佔⻠㤆껮ꊇꟁ植塛썑ᛨ핅긵਺髒櫸㷕섌녁ઍꤨ⃔ಶƐ᪀虗ꠁ⃝h庂䔞洤脨㺉낹ࡋ᜘蜺阦촡踏료䎝飸㫆₯켌⯓뀳ᱞ휽㪺ぐݳ각泹歙춢넹동ꏧꘀ藮⽩筗㾣뷮퓰匹＀௖\"ҽ梃⽏㧃ڷᜃ㼋摫⋛᪹池멣襩凷鮩碕䒫틺\udb984ᨡ崆蠃䁻拐筀臸r杂ᐁ喍\udca8怨Ĩ鎻媾퇎꺞젰珍ᣲ均\ude95컭敶ǥ틠የ䖹嗇纫뀐氂뵕ൺ\udea6ᨗꈅ藠㡻瘀櫵‖봥ޯ捻\udef7彴ﯗ䆩୨櫽簳۵綾ᰬ콆侊◽䅜甀ঀﰙ탧Ÿீ䨌恷쁥笋怙먯懘畛襞驤읆\ude74즷ဢ掘佋ꪽ맦컋炢톳ᎍ봝佺﯐㻊ďꑽ촀嵦뙾坠쭝鹹墀⻏߾ꑠ쏩饆⿳䲻ꂶ껯ឃ㰥죎䥸㷴̮꽷咸ꍏ쬭鱻魰༞ǧ昻쨈鲗쌜ᣀ㍹䁹ຄ咽蠗\udc94钳実\udd1cﺷꛙ鏋㜥㨇컟᎜ဿΠɳ섏쀥Ϭႀಀ瀅ꆌ๐㔁⠄ꂮ렓亞젃㴙晸돕鹬ﯸ氯촖撀ૅ롻엑踪羇挻\uddf1鬊Ƕ才틢䝖梢䗾ퟑ熏頮ᇄ卓㮲䕌蕔篩\udaef㎀\ude8c飶傎䦂棴럢Ἥꊽ鴕닪蛢씝뷔䄬刘翓ﲕ폼晃퐆馛Ҡ윅捃뮌ڠ嘗᠘訷ߨ᤺촌찿팸䇽斪罢ݩ⮢뾦အ雿䪸뙞럽쀙䀨ٝ胭䎼鼈ꓐ᷿将潝몮ꞑ齟ﻦÚ䢞΁\u0010卛˘혼蔞Ǎ茣廑ᖖర汱⃩認갃䦕奆롛♈淭\ud815혙㑀䀇ူԞ堑姚蟙캑片홯诌軧볦퉝릠추볩墪᭔\udce6횯ᗀ珦庡璚蕠爁姹嵷腈䅠黊量玀昀㜃l⥼է跸✏颇휓⤗떨ꏑ힀Ԁ鹧稓Ḿ솰戂ဣ살㷁鴋⬯ø῀ꊳ婲칧⨂　ᣛ씁鈅苸຀븂䥘䂘ྀṂ甊ფÑⱁဨ苸Ȁ蠂䂠\u0000割荞꣐⚇㐕ꆩ츜은먝큑︀虐 㱈ｇ類첅ﰳꂘी拣뤞ꃴ⺐̡餀树耮舀〻㺃׏ꔂ倀ü栈/⨀섀耀ƒ笁ၰݯ틬⡖㈊ࠇ쀢闼ㅾ䤠藂껻ቔ䲤\udc1c㺈ၠ⣻䐚㽿Ə\udd81揧ὸ\ude77瘃젒Zᬀ㠳‚勰犁䀊梴⡑৹绅㏜䯸혗뵏詟ꗼ㜍꤇ൗꈀꠂ돯徂萜練췏豀糹琀⾳쪭醻ਯ跨䯡㐏㺴⃋Ჾ 陈줴禎꤫ᯐ覨毣鰶뺙塚ޯ膾쫌澯肦ɡ־덁寧衶輻⎾컺믪ဣ\u001e糧㮄绺ꠥ쁰纡理⶟豾쇋쟦Ოꃉ磊⚟녠㫸理龊õƚྰℊ䰃餈䀍샔Ϝැ㄂ᄈ䀭繬ᣟ뜾淺쨉\udfba沽ﯷჾ⛫ણ䔿蛫怐ꔿ鈎鏻쐎ﲾ\u0019倱䤰⅀ヺⅉ㢪ꗾퟻ䠋羽ﺏ﬿ጀጀ娏‽ꃼ˴ར֠嚆䁦莜Ȱᱜ⿹に聉㹱筈鲎铸ꗢ잝㹍점ꃅତ⳺웣\ud80aꀓ큦콒፾᠆ꨁﺗ䂬催Я骂전숊聤븘ւ٠㦲촁銺鑜̐ᚯ몔髸틊ꁵƆﭸ«⌁澥ÖᲨ㢁秊膞ﭻ偀ﻹ喀纱ň᚟遲燺蜨龂膑쪧誁鐇䠝욇⻒\u0012ࡐウ캃ꁯ젲಺뒁ڃ됚ꠦᣖܷ䰀矧\udfb3Îӽࣀ囊᐀ၤ誃ŏ㥀朠놄鈪⍎ꦘഔ␫萒퐪䇩٤ᶐ湁䠃偱䄖茓諵놀҃㈈䂍삅͐H⃀ī騂铼檢裕뢶ꓹ君㶌뚵ԉ搽贾￻М궴ꨭڀᎺ鷨ꠀ咃큌ǽ֊꠰烁䠅诮朚Œր䳁ꢡ찐䁂뛊磌꿊椉䁆솴ԛ嶘曻〗끫ćް᭯뇁໺鰒쇌ɜᰠ澾㜅蠟灤臡לּᬟ衲৸\uda01繮茨ᆟ陾槸鈅\u000f‴苬ැᨠ瀃穠䠋\ud8e0莂ᦠ琀븁恓蓘ᇟ靾죃ꈐ㾻绔蕧⨜ड쭢㾚仸ͅ䉈糘⮩龨䀢ᑶ凒ά띀㲅Рꇂ蚊ᙨ㢡ﴃ뀚㪝⠚Ϊ렠⾁脃\ty䉒ꒀӀ怊偑쨕ѿ겎䥻滬ꡟﺬ姍楒鈎ᙫ㏥ꡍ嚀\udb88٨ю乂yᑙ碚Ṡ⣁ィ騛뻓Ӡᝨ䅠쮨湤끌灁ڬᅀ溾﫺氟䁎셾蘐芀ᬁ㛺Ђᡐ繡藰ὀׁ䈆ꠍ灷聱蔇塾쭁☛⁛셩葇↘噡ꨇ䠝ꔤ退㌲߈䐀㼀谍䐈ၪ2౰㼀ҁ꟤疗蝋ಈ模궅㠘㾡΃䘰᠎샹俬呻拎ꄤ诘ˢ㚢᰹ₕ릯붖圁渒『萞ᅊ둊➅鸑뀳ꁮ舔ሷ茠蕭퀽쀑ᬺ૘鸟廽㮮뾮䒺ۣﾘ庀ҬÅϘ骅谛ਹà䛳爎䖙Ē⾙ꆳ䎂洬Б닸ハ⾾ą荓ࣼ밑࿊⅄葛ꄨ䓐Ḁᴁ\ude86䠄쁼냾蝡᠘渑鰆蘔懼نᩄ侾ꈄ߯ᡣ솉蝇䩡ㄔꁷ쇙薨ᴟ迀栙ꈉ娴䪻ƺҪᴀ碂縷̼ἔ濡퉄똘⇲䓢ᒅ㩔─䤫Ꮏ蚳ꦍ詈䂸刀 醈偱榠ᓡ앪㤛疱쀮䖹ᇤ着幄卵丘ဖ聑ං㝀瀂ఌ怉h臬ވ㻀첁㰊ꅄ芻鹞㑸滤垃Ṋ蔈枚\uda50춀\udabb˅ᅑ贔㼁縌䝥ᒔ宀䠹ᔝ鰳냂ᛲ᠑哆怙ў冸ЫꝊ䨺㨒䁍恉厕Ằ樑麅氒澏ꇵ䖑辰懁솇\udbe0䑻兄䞻夑ㆄ儗푕ᄉ蛑ᐴ牡爇밖㑗쇩缾᚟问⁂ᐊ댈ფ耬棻輠\ud800밆﹩館䄠ᐉ䱫绍萸ᛘ玁䳡龣馵い6ꡈ烀⨢ฟԯ䀲ൾ꼺ᅐ摵긠\u0003ᐌ匀⃅茑౔㄰엃ᱎ㴀﹃퐋瘜½͞ꭂ붠ﴁꠃ*葸臹ᗫ聑梁퇢ᑽṷ蕣ჸ墖떫粫홯萬失ᓆ┒퀬Ʋ奙係ꈁ쁄攒耖冓ݚᔄ圱ᗀ邨끊뻼엠꠬殡싅唑ꇢ엕᮰嘑㡅ᰗⱷƄ䑆ᠠ嗁꫆\udc1e⁵ᅏݫὄ橡䧺簙顄텆읇聖ጁ耆샥蟜ɐᮠ満蠄墼࣬睱⻆⑧녨藉ởꃀ።⅌锷䁥触攠ఉ䭢ฑ蔞↉㯹䴅׺焩ᤖఝ¹쟧ᡜ掎怀霖居熷hව봀脋ຯϴŨ࿀盄㈂и⃇)肌毾䣄휚豰军릅ᕏ葑ᅸㅌ몲쟪໬䆡渀瘣장ኀ碾緅䰛鑏룹䟌ᑔ糱了锑\ud80a蒋ᵔ䛱ఄ䬝뱴녁藡ᾼ企ᵇᄕ푉䗜ᆬ䃑嫄젚融ᡬ濁槸謆腮䄨ȰĠ휩چ\u0001뱅೰箱뭅笕Ɉ䄁塑ꄑ饢〦鴜궅䂃蓳蘃먔䑐㶆䔯驊⨼传ᔉ㐥킗ৌ⚰黂有쓣厀䠖並⧍ꏰƼ⼂鸂〓8腊췂奁㢻凫觨옷᯿饞∫뼬哚冫擘⭁ 㬓\udc5b녽열ᛠཀꌁ㜦鑓ㅎ炳᤼笱ᨦ猐呷ㅳ엳Ჰ摆춨ᢙ呚ᆵ䛺ე仱쵅灂녇윫Ꮤ污瀑籠텮⒍ឬ抁ۄﰓ顴绣Ϻ漠㄂倂ꛭ‘f腖─㵀\ud802倎恴繳⚀邲砉瘅﹍죍認遰ᖊꍩ㾓\ud801妀ḡ᤻啍퀦度婸ዴ嵉ഥ 퉋䥭⑴鼈ꋁ䰋੊Ì脰àἮ暃倃蠝䁠䄷ි羰봤ꌟ퉡庡䜕婞㣅녁小쨴멈鬲䠉곁肗ꄈ卟ꂢ䗞ꏇ⢕뉎凘ѳᴄ䇉별锔뱩짺ᬡᕀ冉謚扖䑘鋔縑߄㲙푱蘸鹼暱툇ഛ걣ᄿ⟟ᷢ翉⒀谍耳₂䖚࿐௠휫骯㈽훲¿ᰂ崀컆ꪜ詇놨ꗄ遴签儓ﶊ醈삤落艈䬔摑阦น抡쌥榶ࣀꢚ䅍䩫⧬꙲鷊䠐벧乜cኀಀꎡ䂠삦禁ۋ邀黃鰀⚗椽ꗶ阄éกຐ䠈Ǝ鴰೉\udc0c耘掐ӿȀ▐䀎䀔°Ꝣꕪ䞡옥\uda98ꉈ䁶⒰ïꊉ븁敖쑭蜻ᴀ珩쀏瀵倎Ġ໳ꉜ愁羣$틸ु鑾ﴁ꺓䆫糛ꛮ龺懩퓆ᔙĺꔨ霔禡ަ倀5Ҟ筺㕠\u0000鋈ࣃ蔓⩘雃ƌൕ㫀ᬁ､ᎀ瘗ꞻਚ椁Ɨ᥾᥮阬ᐙꡤ葪㮢\ud82f惦檡ᴸ쮪越씽機⢛ꧣ᪄㬸㈳䫟換萗࡜慰䗅ᜌ岿臅삗ቜ⥲坫♨峡牅촗ⱜ◌霫砳⟀ⴢ姉횥꼓呿胧ꔟḠ䷩瞤碟걛ꁏꙇܾ렠쩁ꎭ쑏쁁จ൐␀븈䀊傷ꝭᫌ勉哂캤ぃㄣ֏ᄼ䳦㰦᧘씑齘⤙ꬁ᱁䙔晰歑造洙쾢晟焅⪇ϲ떲㢅ᙡ䁍쪧渕鄪﹒抐唱内䑱Ă䐈逦䂅ɔ࣐❀茂㬓癩耛姄ઐ⹀ꔂ퐋涫홣Ɇ枾ᡖ欱嫸唞晅쥖昡鎖础힦↛穎뇷ꙸ黨㎙⾦䠅À࠰ठ뻪錖㲏쀷\u0012Ӌ蓀셦寨뉬Ĭ剽軼뫉ㅥ虞᥎숈桮떃ᆝᔙᦿ\udabd梀ꭥ〇除젅曂觼⅀•馑ᶠ⫇鑉蕰쭡誨瘝ᐉ`ෑꊁ谈᰿䃘凤֠㛇‣䀧臀ೈ༠恃倆렅ꀛ慲逦餹\ud800厕乍㥴齽댹ⷫ⺞ꞈ঺搙氂쎟๻ᥦ撞魪紁홧몛晆\ud9f6暍᠚廙珫ⶊ栯䁽짂鄰⠺ꘘ娆ꂬ刌Æ尀⁥㆑멄᦬新Ȇ䟰烧䆞ꩲ쥁쎡䛶庩饆ꆑ虒X昣႖縙숦ᆒ⊀㥩摶ๆ䠹奥冔籤㧴攋鸆䬙㮧讗湤뤰昣飳ꢠ쌠춄习瀵ꔌಕᘦǣ렝츝ᐔ剝貕ꕀ䜓᠎ࠜ聗âʚ甀鐉調䁊ꌲ๰ྐɨ垕幍礸䏗飞獹귤⦀⹲᦬ڨ隰憉ᙤ颟⹥痱⫥\udf16깯肿肌ภ৔뾁‏퀨⇠肼ĕीᐓ젃⃷朏騖氁爥ఊ泥쑽鏮埙䥧㜘Ṫ夗騞徶ꃦ怎๔秐懼㥀ᖘ㥄љ詆ᗂ阅馹昝⨝Έ䨶ୣ䕃쀯懶꼠଺㣻舎 삞飼ψ㥀梁考⃰쐍鈀ਅ栔쀁腖փà垁䄅䐗䶓ࠉ왚Ɯ旇Ⱖᮁ잖왲秳暯ᒶ憬⭤\ud99e뙌流邾潰ﭥ騂䪆㸿Z٨ᖞ獫㈀耻\udc4ažࡐ⾀䰕둢耈᦬ᔧ䷑蜅氀㮓≁恁숥䥾树슙맱旟鿮牙迤醜﹈秀鸞堹釥\ud805๚薐鮿䌉躅讗메뤩ఏ鏀\udb29\ud877执⠆놺獣銙똡\ud8a0ꖚ鿘띣\udb85?\u000e⅏࿤℀谹糣婭큦聃ꀦꙅ\ud914ﰋ酾䔼舔屠ㅅྜྷ蠄摮掯༉ᵼ묫ဏ䬂㧜ᖏ鯁擹侖ꂬ燐⟏飺墅珨垘〒胏 h∰옄㈈䀘鬺ௐ⊬䴖ꀂً䕞悁鮨搀ᴔ㏀蹘奝 ꌶ⻘ꘗ㌙鑍淪ᘥ魡䏹･㾔๰둡涖箅瑥쾧밤肃텬唢⻅笪瑐ň㑟⣑䌶ゔ넹醪堥\ud88f怤嘶ⴔ惢䵂᰿䃇蘜㶸ꘇ저ꅓဖ᭯郠̠䰂︇Ḏ 꺉春ﴃ扒◸阒屉䍅頀잜와䔆ᝋ鍪料簗௮เ앮섌嗲䁩ꈗ㺗㺱쀔ꡂ毸ኺҁⴇ똾쀼菬ো뼀\udab3Ɛ놅뤢鼞恅짥᱑ﲀ샧ᙬ鹡稙顥얖偯맟晍毶囦Βﹳ薁㪸凾寅復鮑ꆰ릢顾⿹䧤怐劅\ud8dc斄埆卲䠻ነ䊤䙉僢昜ⱖげ쪦⪴饇၀蒠ഺⅳ栬䩌ར㷀묃蠉⡉Ա闆奀ɥ䦔ꙟ쀚攙鐰娠⁐鴛噀>蛨ᖔ릐宽䠕靷ሀ崖辞牨녲傮悅茗ࡗ쥨씂鐄཰ৠጩ騂砿ñ珗℥ࣀ埧启聥镪ख़略떖鸔᠃旈섶塱䃱㧤湨ꉆ즨՜塩䶅튥\ud85f煃薏ᙥ鋱䑹羟㥏⃥鞊教筀㖔뺗奕胫韞賙急쵉鲦瀞ꆆᣀ祒㶁骲쁅鮥䦅㙦鴩⪽뢤ꎒ菰┨풢튏䨣⠈̲耦舕ᒡ劃䨝⠌ꀐↅ䬨璔葈劉ꚲ儾来叧癝쥯攏ꕇ⢾碀⾃怋箈၌ɝhҢ䑐 䥾삧䌟际槹蚇쑬뀶ꔇ隳᧶䷅➕\udc5a⺃얖锼勡嗥渔\ude51᧰੿հ㿹계ᒠ〄吁妥đ鴸ꃣꎑ倪姃⍼괪葥弩᥄礛̜ཨᕰ㢃䂧連橨舌ͻ겪㠂즥皎圹嫥䐀神瀷閾咖堩鞐覙\uda61⦂♺ᖪ夰步譧뙐꬟䔂ղ幠༥ﺤㅛ뙘얾Ü୘幺㜀㶂䠵蚳¤ᴤ㇀䡚榯偉魖䈆侖䲕ёꥂᓣΉ帯螹歹梨\u0011ꗷ陹䖥世⥝楲閶隩廱浕텗핛ᕻฉ圲少哪䤘摨ړᐡ虾ꕦඨ咦鐧\ud8a5Ĥ游痺쿦鮤焉肞Έ㯎㙛\uda04쐓ûˬ๸ጀ䨁ᐕ屛﹃婋浸䔾쥺挚楀뚣◈鑅㵠䪧齢ν䢃樽鿐喲畟꩕ꄻ├ꗌ吔웨뱇\ud8e5ċᏑ橕鯅岕ⱀ愲았齲姁㲞䑙䓑ᯪ囙๦ڒ쑏觑頻征瓞껛蚯鰾삃ʻ拰ූ茂\udda5C劊䨡梥䂚醤ᗵ聖⡀㾖叺馡〙戵⨾䨜➁Ԥ蕂햗坝垈ⷕﴃ\udd58샏嚽幆䥀坘谂䠜WΦ忐➶欛넏뀃耢䲡锄赯⡍䄿哽鄔怵抩Ⱪ\udc74麬㥘跸籕郗ⲑខਈ昳Ỷ峙叅᪔赧䫴얚额꘵涖麞葙覎꟣奢歑ፙ穩㖧왑ᛲ侩瑇౒ⅳᄏ쟓剈᠀樃\udc0a躼૆̸㷀鰍㞋쀢蛦ဝ環䇕ꙣ둄ল䝦镙蹶씀䤭㘿䁓謁陘輀鏺栉땤䛘切ݠꏄ卨魖浅떌❛吪렠盕ᴁ뀧⺄ã귐᐀─㠏뀚萤荙֛뽀ﺑ뵞偻ﺟ垓䞵⚕筑鶏땓⒀ገ⌶Ἂݙ④륱櫎ꅒ갵霗䝐赬셈휙ꪍ媾␨媝텊疲餬䬁䵄፝鵫ꦹ픫ᷔ夵藔䠒㕳嗢忉卄鈆耖肁İ௠ጁꠇ蠡ડꘔ࢚͜觉꟭ﵖ헿嬒搉\ud9a4ⅆॳ吤ʒṊ縩ᚙ鲏ã샦捅♲퍠긣쓻혟屽槵彑┍Ϸ☄⿠\ud800\uda06\u001d놅޳ดᤠ\udf5cힻ吲毵홒谁﵌쥚寡戴⟸㷖ￂᵁ悺县ⰼ戙ﮔꢚͺ覈ퟬ鹅ᰑ௅ꯦ똡䃉풥媝戍杜覇쒓喃䅵꼦䵉疼雥吚焍툄逋뀴\ud853⫲饀⌍攸䶂倘ტƋꚟ莍幘룕嘟疙ꝰ\uded8矘ぐ循씾¥⩄政遰Ⴏԑ\u0000ꨎ㗘⨠㎧艦跚㛨\udfa3秀蘴鸌捂頛ǟ漠ᕾ⌁먍퀒耷ϗⱰ㵀ﴩ而젊ᒷ횊頔䅞瑹滠㕟\ud903Ĵᒉ皔䇁⪗逥訌顡帊妚Ⴌ͵量㘚鮲熩돆骒፪櫋왚邶䲹沔愝牓ꥷ▵ᆃ䤑ฤ범畸㞤펕仙夶䴝⁍쁓ᕼീீ␃與蠸⁊İڈ㒀溃餅瀄i隆\ude78ύ烐㵻慨ޥᓾ뎨ࣘ《蠤薌¶ᓾ㇚쁗䔘꨷悽ᢳ狍ꬷ곙덶쵄臬\udb83需⒂캞倴੎Ͱ⑜⼂鬚茊鿤潎䜵휘≔ꦿ呅ᚶ⣘ཡ䞤ꩈါ㨼\udb06燅戧檙ᵛ맯㝬鿣砍ﬤﳕͿ춰㜥尋䦉ꂵ荖甮ꓘ颬琭麦식ⵗ욗埙儍ꢵ꟤ꀈႽɣ೨ᴀሄﶝ倅慄拚曑퇻髒䠚ꦴ럭Ộ梠ꊂ慉↸앏鸡⃥┣㑣憟ꉮ訶⽄쫗萼괼椪\udbaaꪭ弪jψௐḠ흥尀\udeb0쑝彨⃀櫛桥흔᭸姍暖혀蔞\ud89f̫戵柵ﻕ蓡썰痂嚇劰⑙箕䝘촁㕨鋶ᮭᖨ씒쥸略ꓺ\udc83滱닅፛扦ര떫ᜋ橍韆粔譣饴풆鱠↔납ᙪ遳ꀤų到㫹飫\udd6e˔팒罵薷㠔઒囥⧋叐☔첷ఈ㡇䪓壘꙾贔兙鐅ⵠ귽똎\udc3b祡掵焕䁉뚭ꨵ䓺㚔蛇楧蕖㧏좇知頣氉﫬姱팓趕\udf61⃧툩⥗䃒ꑜ\udd8b뵺፛ႀ⻀룻椈繋荈徘ꠀ튇컖侢﫜堵䃀殶Ẓภ헳垦₵ￗꀋ衉蕑暚Ὣ汙㫛桒㔳挄\udba2稀ὣ蓗筯֏똵᳻愵邵뻜ᭊ녞ꑓ叻紕좴ǒ䍋삽̹છ虁펝丱䄠Ӏஶ볔彥杺案琴흋玁葫ઢ똡⅄冴훋溔怹誯䔫惇悑ൊ⽇ᐌ怢鷊瓲ધ䌠槑뒥媱\ud935綥ꃗ띮ൾ巜璀̅⸡锩튛ⵍ짔а⛘鄙䕤\ude56\ud837愳腐⃍牵瀀栥킛่㡩ጪ䂠ﮆ䚽˹ᬻ篕刺뭕ﾼ踲唙\udf76⳪ꙷ⭮፟떘Ήᗇ䇭ց嗩ᔛ췎疳᫧暉폨춉ᆵꦭ脓垭ྷꝖ୬䴐듧娗綉↶绖᭚䴑둤팗䕵↧嘞ࠌ藄勨ዄ㡜ʆఄ老⃽Ɓؤ柡彴暜ⵖ槴뚓졥ऊᒅ텅㾔窾Ӎ蝀㸀厩抙뺏鵘\ud9e0鞷泰␂ᷘ䀱\udd04芝\udf9dᓪ빅婜인햃癞魹柝翔熙耙☇执⦘ᑖ᭡䅈蔌仏疨䝴盘萩쓯똏䃕ꟛ蛨ᐠ봂邓㚦臣懀ฌ慀ಂಯ렕\udd77푽垧宵䮶᧞獓\uddeb떙톍篝㡚؈퀪胓퓳䨊ퟫ팒筓鶪Ⓡ嗳箝䇃菕鞔㶔哃탪尽纵쓚ﭐ淈\uda1b摝ἧ䗟ﭶ㵱瑀ம䙰ಁ힔醯ꛔೈ㻀캃슒䠵䵎㑇\ud9c3爝럨ꑶ鐌瀠鲰♲泴ᱵ\ud8ed㖌೶᳘ᖚ莂뷈勛\udbd0㶽码㯒6ϵ\udd19ꟹ橕쾮\udf78結ɇ\udc89ꀸ빒ꢅ㪟鑥ǝ胒鉆ꬁ趎잀噃䄿襩栁᱆栄䨿ŀȞ蠐㼁耏倱쀿˴ྰڪ볂爞贋띻큧䏝维駑뭥䩊ꖰ\udccd舝⫵嫘\uda8d榻령\udbaa嗹õꢞ筳귳ـ푲䱰〷꟟筚留퐗娍膶㲔鍄巎➣\udbfb盙旷ڒ䍵쀈ϔࠂ눐譃 კ䆀¡ᰀﴂ냞涞픋匤䨝菻⭣ɀ쀣셴\uda50ӵ䓦ป⪸贔ݠᕧ艛ﴷ헿俽翴4Æהɲᬯ倦濕㕢οퟮ퇩䔴䧘ⱡ獒\ud8cf櫑䙅❊쌵\u0017瘶⧒ꢽ踬Д㇛\udb88䀋쁈ฒ袪娀 聴◀೨ሀ圃郭Ꝣㆇ㛗ᚌ撩ᣆ筐Ṿઓ\udd76ኩ⒀噕›楏㑅궭텧쟑ꇀό砽ᦨ竑䕙ϑ㑧原䈽⏑綨\udae2楽듗韝ⁱ胼Ȍ඀⳩㟙㴙⡛ψሕ릆鐿魷結◴¶Ὀ해녀튷膸盖ꁚ冔౱亪䔎茯䖄ㄐ푃ᥐ堇Ⴢ䍉ತ㿴硜⠀鸈쀁ꁨ؀⿠㽸᲏뀨ͩ೰鬩輎䅹땣춴̫뛖굶㷘喥滒멣᥎钪宺柰翦ⵑ꥾榍臇\udd80廤᪟僞짩⪪긏熺빶˓셶㗶ꛣ哻淉⾴藟齟䏏␌ダ푝퓔豝᭣膢ڶጀ꠆⁗ɐ؄㼀瑒砉五䧓䐬๮䈣ॖ\udb92裪ᤅ듷혰Ⲫୢ莆ᱬ\ud844蜟Ꙙ뇺蒄஄\ude6bᐌ寧ꜣ怸恃㰺먟ർ㏰缏ᎆ䃼ʿ๐㌀ⶍ䔈샷̺࣠ȸឫ囜\uda09殐﮸綄ၰĳ␾椹돦若땞ꥀ倡俷瘣筺裱ꦄ贐㖜ᐔꐏ率ཥϔ輅\ud88f崣輪퀿ୣσෟᬗ璁첃ҝ䀸․肞೨㔰༘\udc06ꀈ﩮\ud838ཐ᩾醏쌁레᧧틆㭏咃㷴葊劀롲픱䖙ꕭᔩ阢몁椤厛퍚䬔瓢賐鱝ꌎ躳೨쉐稵뢪ω왴ຨ 伥䂌쨏₼裲揈\ud80f㊟䨃⤌ꈲ飊ጨ䂡늗\u001aꥪꎪ麪ک᪢檙ꨖ꧱␦ꌚ챪놮욧᫜櫱꿆需枱麦箙떞뙺ẉ䞶궙ఌ鶐햍礎횧똥庾検䵣Ʞ徧嬀嘖砹Ƭ솤雌\udecbꇁ㌔䃛䮈຀㐰৩卓胢ϔྰ౩曕ެ쐕쮼⟂⠀ꈫ놬䙀騐⇈১⚰娪㬫갋눆쎻⽨Ⴐ黊㕫噜\ud809怽膭㡍혂䙝\ud82f觘က\u0000";
+            window.__GITBOOK_INITIAL_STATE__ = "㞂⁦ॠ上惎Ű㶬䀮净ค〱밃큀む娃饧肢ʨຠր帀ꠄ쉀刀蠁 䀣耍璠୭☀㬄瀤耏ꪡOⰱ킂䀈쀕谼ࡀװ͂شꑆ⇨ࣆ+\u0013ภ淥莁؃쀐峃ൃ字䴄Ă๑ܚ䬇쐎ᓉṃ\ud94dᧀ඀ᎀƀքꀃ鲹쀝蛞䜞䤝⩋✭켨뎫뫄࿆( 协幀ᅌ౬謀ᦍ脀ृ찉\u0012三 궟耍䀁䀕쀚좮密젢ĀᙉϚ␀ۉ༘│膢ր∓➡英蓌㲀ృ臣ᤔ黠쀆Έ\udc00쪟⠃쨊니쀀Ṻ⊀߂א戶ޘ܈牸⇶〨㒂܃考࠼覂캺ꗞ⌘ꤒ赇ꌱ\ud85c㸐豊闧휒⇑̥ﯽŨ㩓\udd29烳屲ꁱꓚ朴嬬혛ⶎ샢猸솼⇑了烙๘ༀ쐦ᔃꢴ㨽᱁₂䢤泍䲶䏘唨咪딐㵑ꌝ殠訖᳍解葁큽绡ꣂ攵鯌阫疦\udb67눺鷎ꥄ笢`脽긢逖რ拭ᐏӀ͈섴묖朻姫䯴잓耏⊋ꌹ휌㈓쀇⋁薐豸;耓䶆㍰ỷ䘲ᬐ洡뭈옄\uddcd΀緢鞇كᳫ鬇䃾䘷ഢﻜጃ狰茓왃䡴ᅀ礘琉䛺幮⠓烮氰፱냜ᆃ炢팁迀ⱏḏ⃜Ԅ䱤⢁鞴聉㱣㲃쑸ష܀Ǧ쇠⢸⣺蠷Ꮓ焔س㡘㲁␞쮰硈ః왨ゖ̓ꈴĠ䠰␑䁈仨鴉ꃜ㐸⺸Ⱔᶓ珰쌁臁恏◣〬\udc19૧Ḍރ\udc22◦‰ऌ破聓Ჩ⸀脰稱쬀´逽䓳敘᐀࠶嬁怨ᥓꗠ蜜袡櫜趄胨Ӏ㐔ఀ냀숡켁⡙趎闘녊༡칺ㅖḰ⃧뻃聐벣庀⁐㽜㟲爝샱蔄쎘㭨\udfb4쁬ሁ䁐呂淛汍焼載൷죗Ј裀茄[꺊ሂ騀M閃밫읔⠑鱈૸ᵼ藔䃓郌┍謂뛳뜣ာ瀠臁탼᠌爜䔲ꊄ鐼܃焎㒔΁耈㭙흵뵿墀උ젼Ґ䏕麄䲓擅㕌페紸치㘊萙䒣̤﨔ෲ絿ȿ⇀萰⨉【鐣ূࢲ⚊戮뾈ᏺ⫤䈘쑡胙ᬎᤦ殐⛎ᛃヌ䃑㓞\udc66背ᰵ䗓瑞멂䀖輣䠓⠴谇䠲謰㣱⩇惠鶴㴡ឆᨼꎋ㈰\ude80憪벼ڜ胂逢ং邴⬋쉈ꨡ誤焂૵鐁돥僌㽗썜鰁ඃ㐢⃒ꐋ戏凈䂊Ｃ攵犋颀ﲎܷ蓎ᑽ偰㠎๐ꠐ⧲̕䠙呗쒣ꚍ镈⼔нꬱ∉ꅇ꾄좁᷐쐴Ӽဘ㘀\u0007幁茄ᢂ遲ु蠻⩿㕌膤㙑ᩲᏻ̔ࡔ榻晈㐆ఀㄞð뺌Ǥ\r윃큭坔\ud837Ӏ簝ﲈ寲耟\udb88䁣ꂁ⡕ীԏĔ〄冘滰쇬✆ᗽ࡫ﰻ⮐鄝䋲Ճ0Ң죖ᦂ搢贚\udc35䜐贐悓ꢊ왹ក℣ἢ끙证⨪˰ﵽᐆ㡶₡롪聑ోॱ꘳葘켖ꉈ䄥㪄瀼茰ఞ䉡愭蚸좑汋覣脥僧΀㠑䃠ؖ䚠ꪘ般ᰎꦈ⭘챱Ṑ怹⨞룄ᖎ㝋ࠠ༒П䁸≈鶓䀞⒈舀えःᱼᢠ儁嫈ꇠᚑ冪⧵␁절쪑㞣쁸瀏쁀Ⰰ浒୅ǽ㽣ᕻ괠គ蕴⬶xの碘❡聠좫嵘ǉ礅̆⍌ᡎփ䃁렣婏చ㲒ꙡុ킠齎⃽で\u0003ꋖᰙ샀匌䩊݋ﺇ☃Ა戵퍀ɖ堉H맦벵⒀\udd10쨈\udf37\\吨〬\udc17崋慼ⱅ아삢졦許矗露긃赑詑䅩锜隻䩝䭓㓋탴극畛鈂脺ࠋǀ㐈䄈ข쁘᜖쳹颳煔蚐萎u堈᭰Ą⃩亨᡺觙蠹ʠ됑芰七쀄ࢅႄᜁ畂̰渧᎜ꊬ綆䂐ủ遮ὢ࿥煪邠\u001f菄^\n䇁Ή䁱ࡀƐ茤೚筧๭뒞鈲⵭凊ḃ졮؁ᑨ農⥑지✼햻珍炆娃삣蹪닻鞠囱ꨟル᠊ꂭ溁ః君뙑걸쮵盒ﴁ䃐ヲƽᛗ닎嫴幘㘈Პˏ⵬Ձ⥹շ萃髺楣쁀ᮡŮ칈ၭ嬯ꯨ﵍堍逈㜆郚᫕姮둺㎀ᧃ\udcfaᬵ囧狭梧쑄螢泱ᛠ昜ㄋ돈ᒣ賴輡桫혃뒘胪鵋ꭵẫ흜὜烽䲄췽遳᭻࣠趫蓰ᰎ뒣ۘ覛幅악ۍ歼`\udc29䝨≹सﲤ챇甾䮇⁃踹늄Ɠ㘉臉ﭖ蚔湤ⳍ㿪瓀視쎲䈌暼ᦜ涖竎\ud9a2膲䨍ؚꇤ圶☼훿쭂봠\udc4b云ੲ⼺ꞽ籚팁꾳▼ગೠ\ud880\ud940뎤┍閰㊤ࡾꎐ妫㍦꫰覃쀕䬪ꭺࢩɽ擆炋躽긐丸ꅢ욙濴‸\ude29ፔꅍ늝㘐ǈ悍鐇岈貂걳챰`倖賠喏섴ዖ₥쮫旔聘礬㺽㞮ֈ↍ࠂ⣢⎁譽숺ꜻ破㷪坝锨Ц੎或勡祇\u0015䁔꫊蕒ꨔﲍ썊㪏냏匀壴ꛞ걡⏐\u0006ퟙ蒟ꕞ㕇᝗泬嶄շ뫢壗ཡ㙊擓⣓墇笯Á綟럶ǐ㤇惢ᵃﶃ๖谄垶洸㨁 過䯈衧᠀ꃫ遀끕讱萔繚〕憾잀꿫橁틧辈ᶏຏЉ\uda8b띻൫\udf53껮\udeb8鑉멒ꚹ䆚㻹밠\udf77쁺䅭럐ꍡ쯱ꈳ荰ᰍ쎴緗೘Ԫ붙ꎼᨣ䊠\u0000꿉飯ᷥ葅췩紣딈ꀓꪎ冺ཅ餪ᯜ쁥꺔縸溴ന❵퓁耀ꆘ\u0012闝‿猑記҃ԋ쭎銳ǻ츆ꌜҘ씪鉩➐ސḋ뉠෠㦋顒멖ந脠ސЂ籅ސ؍⺲㧬Ꙕ꽐뢮절ހ纯⁐ف풋Ɒ㠇鸄൲瀅䉃첮咤䆮ꉁ㠆䆈ु瑃䇗ࡀ炌᳁《셊쒁⠖침፠渀۠┏☲狤軎ᆎ窪쩡꺧뫦⣺⽬湕䛃灬䳠ގ裻Ҁ묍‴À㜀鑸ຸḁ짩烮ﯧ샼䠈蠇腀䘉ꀨ蘀“഑숇䀈ࡰⰀ胠肞\uda17แሀꧮ鸧얞㧮깷扡䗭蘥蛡幯浞瘐ዡ渑ក㸗\u0011껩젬ഐዡ킃쏬檣圈㓡̾㺼ꘂ䯬墫উ뻎඾鴈类ߤ縙䌐꟮绣摬䂟˾ 쀰ސᬝ㫥ސ\udee5ྀ줤倒➐怃めⴁ賈ノɐ䔅ɐԃ者漁혋↨ጀ耳ٖ嬆僸ᦡ萚⣈鰐憧摡ᔝ三润星᪥䛩度萄蠳赐ࠂ僠蹸┋냫跀堋끬Àﰇ胕௑錒ᆞ찠﬉磫艀숃L౰鞄쁏༠툆dˀ硄蒆礘ᇣ譌写攛觹ꘜ廦቉甚咔ẻ୉짌髉짜鯉㪟퇑ɐᬝ膮挘黈㻓ᨀ댗㸮肱该ᐐ毫鬝颻묗ቾ煔ꩱ죫绎ࣾԜ️쫠嘜ǀ╠倝꒡怳۠ሣ¥搦亀䂔襐࢓軾쥠惐鼡낓惗ᛠ‐瑨ơ脆褠ࠠ炍䘌䠆`젠舃炷鰑릝䡰컦గ䓰쇺᫦\ud80f肺ഘ憨黄魑槢͠妨ꗊꍪٰฆꅠ堇ᛦ沇㲙ඔ殙ꉏං枥풚⁹컭银ð髀臈ጉꆉᚡ픍Ⴓ閡ㄉ맛餌琎遐،胼☌അذ귇ꄪ瞜㡌娨ྐ湏鵡瓭樱ǹ聧_麐㾗橿鐚蝁י䚨ⲉ㛤凼呙ﳂ|傒薣麁─惐ᑐ敦䨳遁ﴮࠬ츘ⲋਆ开\u000e䆹䮘좠彏ç郅᭬橗遀챝礼蛅阖䧩ꗅ倥恬╇쿹稆&匔鸦ᗓ⿅嶄Ձඔ烋斊尹쩗ꡣ鈀┃ヰ遠䄇ظ弹눒ꘊ氍⫁Ǫ않ﰃ،샻݅墘앮孹湚얏滅嘙帾家繗惼嘶腓틁娥ㄎ㡅娊昪㘕勔쪀゠嘔쥒㥩墁㴁犰 坎욊뗧芴嵁㰒ϐਚ힔泙䆈䰆⛠밊ꀴĸҏ쀈͙ԍ倓豀⬦⪍䶔ὦ祒桫Ꚑ閭ࠍ윃遈ᵠ惞瘟짘ၑ舀プච࣊쪌쫚舀⢌哧蘌騋쨤印䗋䒿Ⲑ鑘炆蛲＠惠쇔궉⪤\ud870⑟肼䞮溗⎕惈械٠伎ౡ匠ⓖ䵠슈휈ヱ栭㏏츆쾊ˀﳈ핍棞製蚵秏䈼輁䴨\udd4dᛸ횮쩩°͢艞䔺ᅀଫ瓽ր皈葐䃸驂䐯炸ꏦ\ud80cﰷ撀㽘ၿ偬瀎\udae0躭꣜遑홭ᶫސぅ\u0004慑䁬ɀ希䨨蠰遯ᴭඖඦ츈೚爈栫ꅠ⭞臇췍⨏耄ǈ쬩듀쨶伂觼鼨闲ᨘ孇굍틜규吅䛎巚׊誴ӂ\u0000Հ躝ሽ眦㴉偈镎郙佝鍃င趔\uded8䢦ࡰۄᘞՠ篝౽赇ç\udfbdᚓ涭䲢緣胐ፇ꡷\udded볓굸\udbbc᳗ꠈ鍨衃肦㌌\uda30⺀攃ぐ㣂惊峍ꃱ肐嚾؀鿏胼败Ć꡺ீ鞀磁Ͱꬂ䂷⺃㗇ꃕଁḅ锏ᖕⶐवඔ칋쁘愴明ⱌ堁\udd73ሱ敆ਊ෌㊿궆㠡䨾核赈䁆़ﴓ않춬編㭼㒏鰱ݰ恠즥쁨灠꩒ᶧꍮڀꂖ胑촭쑀少蹱㄀삄ԃᬒ僥䄀箌銢ૡ히챏ࡀ㠓よ肰냩äꬅΩ؀溁쌠塽땂綗ᑠᐂ쁮²砊ꦈ訃\udb61鰬謀턬ು揘贎咹㔀綠鐿₠ᓦ鹿側톂젿䏼ꍒ혀枧궈ನ昃般졬镅e䳐᳝\ud84c掀篜꿱艡킝м紷ú⧢舸栝䰆޺ 볼➠섄뷗ⶔ㐃쪫㘙㬿Ҁ惃뫣螭篛珼螠쐾袘荠༺팞௓힚\uddb8刀㠃ᱸפༀ側臱⤣耠፼،魙砍ᰫ껳뼸ꀒ㎠ꁗﴹઘ䴉໒좵ᕸ⋔ᇗ茴x鞊逗탽謦뵇\ud893࿌鎩㺓餽鏈뷽쿛趯\udc8c῕诎开栍痨譵嫵삟儸栋졡틌Ⓐ쯔뒲㿒ﵜ脥倈έ掉꺯輐⻩஢홁⇓?䪋崿탒Ӛ\udcb7ꑰ೚粹ᴳఐ芼⯙䃵佒凵彚\uda4e묫『ᷳ쏚陬ꇀ㶬⣍ꁸ,ව挋詠ઠﬀ砋ఐ뺼ဴÐ๸밍₪[礂䀷Ӓ鬋샇ɀ҂裊䃀怀䢪Ѡꬄ傃ྰҁ\u0005ர脸蠔벋냬ᙛ툕ㄍҒ⟆Óꐦ肐십΀᧍倱쿾믿ᦲ掷䠵靆攃ଽ─謰Ժ씃招좹哧苈쵺̭ࠇⶋ⥋ꔺ잠\uded7부ꗳ낻訅ஊ\udf13ゃ鍠᝜\udd84ඔ舊ꀜࡰᅅ룕ఐ묊魸ఠଈ蠴Āꇐ᯲뚫飒ꀠ\udd2e痟퀍\ude10쏔獽㗔墴충좽췟씫\udeddᏘ됽퐐緙ꮱ࠽푼봠⪽౽\udd28Т벇ꀋ퍠쏒\udd74灔蒁뵜ⶽ䝛뷷휖㒿Ꮗ횫﵊뼅ퟑᶪ缧쪱쭗○歚熦俗출뚫:\udcce偀㐳\ud93eΐ㴃饗̈㎀䠻ꉳ㚃ᠷ珘㆑墿삫ۀ搾吸Ϙ吵ࡂ掎؉뵆플쌋ૃ겮쌷◃创썳騠ꀔ౾㄁灢㽲梵尞괣ۋ⏲㍳솮㘪む樲麚㈀\uda3bꏺ㰐蘶ೆ㌰꘶聎楣ԍ揁祰瘷ꂎ㔃ᰉꈅÉ䲗䃫赐奎値࢈衇䥿Ͱ銚⁤ѐᎽ⌓⟘ꟴ뮶ਂ肔쇠ԉꃵ鎓䬱厕䠸씴肥㍷剕去쑑甹펍㋈稇肟㻓ꎉ펛䰖敁㏎쌽㘽詜ጵ푓㏞㌋㎨㎳뎇㙔✵⁧㋘霳ဃ란㜹菷㏧伳ႁ琷 ꗳỠ䂿㼹攈傉Ṑ碻ꊄꕃ㠆᠜ꨜ嬈숃고쾱긥熋⒳ჩ讋侹䉥㲤빋쾰緂삓쩰ﲭ䩷瓑睗碫\uda72枿\udfa7쮇Ꝺ캮ސ紇\udc0b߰碇졺蜐̫뽕螙૜咰漪뙧⁑杆鎫ﴇꭲ࿭Ήꃆ뱬暴㎛䥫횰杺轫鮖ぷ䁰炇଄蜨皇ᦿ뛯솼\udaa1븛醽᮱뼛覼鮩뺛亵鯲Λ禰孅봠▶嬸ś喳孵냛䶲\udb6d뇛嶳\udb7d묯磴㬣刀ꎾ㯋Իإ∳ꬆழ뭴悉픆미┨䨀隥瑦롻잴傧뾪⾗뵻弻笱ཻ辱\udd56ﴎ郯뚧龼哟뭦羰݀爀⁴䃠燠ﬂ쁁Ũὠ嶢䀥ހ䴂蠜䳧胃鹽瞃蝰臡왲ѱ㸎ȧ娹燞躝푣齀ḃ敾ᶎ쉲庨鶰ḽ将稂熈ႝ﹦䂬بᕺታถ奺ꯎ阚ꏴ꾬Ճ懰⚖廳펚곟ꉯ䌸篘캢௾몭l❠ᧀǎ䟀膔෌拧ဃ샑ۈ㋳꽁큨ሤ῎砰↑ై戗ਘ쐂⸴木♔煳ᄮ쥳ᆪ崸曜渚族媢਱焬㌕샤制ଌ賤榐Ԙ헙䚪㛊ৼ埈浌芵\udaa0ز㆙䦺㐃웝獄㤼ꥂ둑뤸쫢鍶鮮셦⠂ⷙ溌脨᫜㛥뜝뢀ਦﭳ喡\udc35䙙렎⊘ᅠी送鑉㌽삦릓\udcf2拷繁뷏刟狶᐀驣롴\ud870䃱㴃꠳䦱ὒṣㆇ谀㌮肶Ԟ㄀㦋ב愘\ud815끰曅脼⽂笼할꼱ឧ춾歏丳칆瑁Ͱᛸ婄䮔ᾼ끤⠆엻ⴁ༁˘廈딗ꕰᗦ駀ᩞ쾴▗উ梯ᢂ陃揵\uda12Ԥ颤\udba1騅䌆ᗀ딺져\udea6㦼ըⁿ切㠁ꀏdΠᱰ珃㯎嘷텗锣瓧⃟祪휼몷瘰粍怈烺겂홉Əꒂ免 䀌퀈˲؀蠅䀦Ĺ跴௤弈\udb4eਸ਼ㆳ趂沓抛㓘曖뻵ꅭ譪孲\ud814኶햵궳臫棛曚뛝뚝뛭降焟ԕꈎ쎨揰龬ᢧ᧺컞繷ꑟ諬埫ଵ﩮퍾㮱\udf9eﶮⁿ⏻黔ﺋ䜿耴笍罸댾\udefe澱蠇꛿忛ﻀꂀ琾࿼趁揰؀섡†肠࠰㥨\udc02ÅꍯẢ侨胬栄ᐚⱡ餣땟澔䴁쐏­쑀簵倔䜌ذ㑺㠌麾ɘ䞡ཙ煢烮ꓴ㵁㡱\udc81찏溫̷괧ⱙ乪ꄢ쾭碥逈⛺숉펩鳄ህऄ込㕩朥Ҩ⦀樎玬಴ᛧ༸ꃄ⺆௳긌넖惢᪐\udbce嘉\r荛⵱⏙\ud831ㅹŰ嬍䪁聥출簲⮪주ភ*Ɉ↫℈奜숑圈蟈ਡꎅꮬ䏢ᓗᚹ⇭獈䦍㈞蜸ၮ똴⡃越ᇀ犃攀ꁂǀ㼀\r䄸喀⠇놢ؐŁ쨆䀲,ᑀ뽃쀷Sꄓ暅䠇疼凜ᓈ灄䀝郠둥ꄢ⇏൷঄谨ꙣஓ㎓⩥゚颣֘尼쎾⩻﷕Ñ蕘䠼ᙠ㌡魬㑦룷ᦨ\ud961ѹ᰺ऀᧂꐡ烌祜⋦뜌栽슞欈ꞅ棅㖗꿜ꧡዚ鹲緣䁦؀ༀ鐁骄ꨍ焘寨褤퀑⠧聅ㅸ戱ᆒ萀裹碍㲸墉쑟∍\udde2屃曖侤ᶒ㰀꓈⁑㒍떙봮Ꚁ䛅쀙놭转杢逍\ud8de쟬ᮑ页뱶黸셄į\udeb5颣൪Ὁ䚚\uda51凵鑗漟䮨曘䠨᭢㬕\ud89e쟬२몉琍ᘛ⍆栄텥敼괓彬\udae6컑䷱澓ꉝ᧟睇矋텽惽齢㼐쐁䰱Ꮆ龌壇ㆫ蛽띭뼽\ud882彾码㶍㏺粟ㅷ떖酣酢壇練㧾ᖎ쨏꿻혬ຂ0ጁ레⁃耒Ҁ섀鰓샜ঠ㨂ᰝဠ鍠ᰃ巠肗脃圎쎏쎨堸ጧ◄퇅熔ଡ଼潵ࠚ윭윞⦁淓癣ᰏᭀ裡וּ\ud96b풓묂퀓❊䘭㳉밌籺鴄᭽磧刼䄶듾뉳皞朗꘨㻎怵偓鰴Ḅ맗䅈ㄼ谟౸⒀ἆ萲䉥苂樚Ꭱ\uda07蒔렑㼚䑉ኲ푘儠ↅ玄撍멆╕텆汏ꮜ䌚ⴙ␻覩೫멂遜背዆礁ተ\udcc4鈀ㆸ鐩癴蕂ᛤ뜕맔✀ဣ䍶嚅쓖㧷辵ᖒᙉꁓ腠ր뙊特䲤ꝷ圥贼愀⳱⯝벛ゆ項㦦봂塀㱖ᷓࢤ㐃懑䶪ໂ낃蜥⽁묱劎憏℘〪儽జ蛂㷡㓶ꩊ짧⣺⛈톔ᙐ憡茈ఎꕼ猄隌㜑讄袄젴숦楘늗蓒旧봴䐢㙩㗏驃폱᫼㼕榟컾濲\udc0d듇㏱槍⏀쵧欷姺찶熳䶒倶˝㸁鎣튍호孟\ude65ퟕ뢢뺒欈שּ忀嚰قꈓ䌔欫夺쯖䆲趒河旃⻩ࣉඒ㉋娪뻖軆䍽\udf47䖷\ud9d1ᷳ瑇ꉻﻹ嘆뚔쨌币䟣䲐鉏퉶醈晜댽繛닟껭矣첌엳ヾˎ챧ሬ쯸፜奏뒖庐ΰ㉙敾\ude59걭扺ʬ촁裂ɪ䇠硪艞ᾀ\ud9d0鰪邊ર୧ﵐ熅Ꮆ䨂ᶙᲬ炑쮜鳀ꎔꩀ靦蹌瀠局蠖읾ꂇ◥吊麿ᵧ꽀찆蜼瑶嗣ꊞߞ⟱쾌펆犞鞴䊤䆙쿼䊃﹭씌ঀ䂠癱ƞ牀遜頚맇䆞献䆃১Ҁ뤅솹ꆞ䅵䙐䡙钆뉒䥡븓扫㴾⚉쏍쮨刏৤更襜蒫ꑃꫪ쒘蟏⎉䯎殊⺺漷⃥Ҏᅁ怑뮉㱮ꔏ㹜\udd2f鍐햺\udf21ꇛ瑾瑍䲖킥᚟壮贂뉏礴௨䵡ణ쥀Ⲁ宒쩡匈ួ퟉齱腢쎂鲰낥₻䐽折牸Ꙍ줩裶㡞쵎ᚏ掚尤蔸櫑䊢ꐼ㒞㒩ꅥ勨坏纓ﾕ눸փᕀ訏༖ꟴઆ괢슁ѻ́㺖ᅃ䤑昬鄒袂孍⎵獎垂詯ᴊ\udab7针聵厪둚諄嚧㘾館㩲쭖庲춗沷攤ߙ粁๓拋旘붖펯䕖ⱜ围뜕ߓ禬ﺗᔃ㦺ᦰ嵊⃖几ඕ沧敻⠹櫀扛拄朗\ud8d1ꗳ㑅紭ᵟ䳛꒷ᤎ赯뭽崕\udf4f䛷쟑Ϸ䨳奒咼ㆵ⺝과ᩜ쳥\udb34넱楪掹遻溗嗬虐壑雟엶錪羁뱟妕嘳﹵衵頜渄쁰䀞ᵰҁꀂ傞๐ᨂΠँ同犁읛㘚뛎㤎镇ỻ燇燓趜䲚嵋阮ↁஊレꌐ䨺㲷䶜甼羳뮮룏普⒁ꙩ㱟닷လ騆ʧ଎嬃⼗ꁸ㓺남펼Ꭲ\udde3㤨ꭼ掋踬嚨佁旗약ꥀ顜鉔霬锰䲥熃ꮖ佚唷⨐ঈ䂗고犑眭섽쫥垂ޓ꒏⪉旋浰ꯊ꘤넩䛥흢拳ሓꍕ㵹ﱊ\ude52䧌殐鬘Ἶ왇좒咒撛뤅┩╉ꬃ剆銴鎤봤᤽灆䥨斪徔㪛哄ᡀ渃耕ᛠ➁퐼䬁慑੮ᖝꯕ幉˦Ⴐꂥ듈㕩܊桫偕냴ᙆ먞ॏ\ud86c橒鲏ӗꔩ㕄⫇뗂퍗轲ᘼ✵ 쭾櫩ꕔꋕ㙒⟪䀬풡묂艒ಬ　䞊ﶛ型᪃噈䗁ઈಊ쑞㓉ꝶ멤ᓪ垀掸ắ㟤洇泐ᇚ仙㫰뗾㠭稨㩳琅槆趿爓䢛쨆⚉㕮뻩퇈煏㯤ၺ쌊뢰㸆넏駫뱓⢫훎꛵侐멸ퟆ脷讴䷢浐⟫띝﫤暣㿵⤬왰᫫웹膠饹⪃慊즗ے韶\udca5䡩ᶊ᫩青谴옱癍ⵝ긛婒颮晴ꢍ䞱拈텶訴\udeca贏낖沼ꖕ㊆㗋⅙噻ᮮꇠ犚ࠄ䷺▽ᒄ鍮렱艨4맴뙀㐴휦벨⸽Ŷ淶眜﹕暏镻㛍삭量푸ꞕ馡춠ꢎ儜દ眨꿍觌୚⭹\udb3a淋龎쿹递क़離呁㒕큎ሲ햋嫧頹৺ഋ鴫狞拀坶ⶑ⭋䇜ᯜ誵瘐禾࿥䀔잟団劄⩹䵩鹴䋚팪躷㳁唼䩕䛳㈒\ud92c蒔ፕԍ᭱늄弪ꅗ춨絃櫣┿⍭믁쒵䞋鸛Ü韾淝⻐ᛝ몦ᒞ휂샔₸㗀呒뻒㌭ˬ⿭\ud82b赪厁큂겧Ⴜ⬚琻덒佦몕ⷡ֩昧쉪鿒♹咾萿覘汏雟䀢섖䇺੎\uda27鎴䖝ꢑ哓槚憾퐳굎힉\udc88㹐ሏ倖츃껧瞽៟⢹퐋낽역⽩致䖀䫷垺䀲ꓺꝑᛕ륝䞭均訵􍌕쨧隺뎬渄庨띾Ę꽪肫퍞護┿ꥆ快鉑負㓚⧝餯왎䬉龒鉤솸ꔔ짷戛ꦜ蚱\udaa1뺙쇪晨箰\ude1e䞳餝⽌屺䣘ⲋ\uda0cꔽ拋佘쨳턲틄耜넳⷏欛ᙐ庛茜ీ瀁涞Ƕʓփ제耼̹⛬㨷꤁킣㢗ŀ忈捆튰∴윝琉얳話셧卫셤튀葪⦻豃⟵㐵帲땷貂棸쿂〨〉촷ɡ肹ਁ뙧㢭㔟ᰕ跑\udc5b魞嗞ﾠ䝺ߐડꐕ❤믄쾾㥰ꠋ䈪ꈹﰽᜯ뎓뻱칼嬜ᜪॺ༮䇺ꮔ组⑘┉跎끵ಪڒ⫈᠛籽笫뮙쫌ꌿ뒉ꋱ妰貌\uda23燧羲秡࿿咫0휍᧊ꮉ誫䊷邏䬛鐖Ϛ꬛同瀊끎ᶝ挄ဌǸ༔㊐Ⰼ悙ᴀ項ã聩⣀┇㕳㵪閤缣샧葙៑尹葝둡희써㌰\udf56㶰⥌᥻䬆\uded2᫵葰戵\udc1c셯؁힠ⳁ⨩괛磡㙡࿠됝涞잞厮斚ᔺ䏔⼪洋䊹쯴襂ಬ삿祚䔁⤒頟⃷ꋭ㓩㸧踟虦懦忯䑯殱沈펨阇黄罪∴눻྿㫉ꦟ䳜䁷㘖\udfc4硫鎳꿧缭꺣뇑Ǭ獤蜙怱읎㹱賈⎊㼝ᆥ睪츣὏坷팵\ud97a钎̱允⻘呂⶜拣씛襡簒寺꒗ꌰ൩ⱷ䙊銈㔓₥꓍草䨃ᕌ迀㴑轃瑣嘆ᢜ㜌礱ꌛ䱗䨦㯒툵ଦ挗䷽謔뇩撬穥꿶换눖將瘴᐀俘́ᤆ䀐瀒΀挆㠿ྰ礀찊唹爃搣覫闢秥Ҝ뎻퍦퉌퉿뵎檤\udd03峞曷㑞↓鞝ꖴﭼ\udac9Ｕ믇錊桖強짵ℭ䒬큈ꝋ隖\udf3aᾴ셵즔\ud9fb傓悧访鼀궕椚藯\ud990䟷閸褯碌櫗ꁏꆭꊬ져ꮘ餪횵헊퍧⦴힜꫈པሸ쉋졨鏠ㄤ뵔췀햨ᨵ䷲뜬ྭ뎕﹞擶\uda40ஶﶷ鸃쀄腠ᘀ꽩馛똀늃Ắ쳷ꪋヶぢꧥ鴊敦\ud83d姰磅⺳冪셣暑푹ᴹ䬐\uddc2蜰첼첩铴䝡檾ጹ듫ʴ⒑୥럆뙢끈适蹤直⵰②푛뚢庇髭沽ꑕ憹ᑞ篍䦙ᒫ㩖뚵趬똫鴐宐䡛\udf3cⶩ捋ࠂ틔t랥茭ᥧ祵䜦ᗔ⢣瑑㵂ᚒ㴟Ⴕꑣ㛔\udfe0㪗㒽ꗝ⿩烋왛싐浊㵮誌酵╘켢뉞ۜ陁뢙큪⥹㏠\uded1ㅶ饬媌挳ᩘㆄ쓱掙笳្쓷ଶ捗撗彭◕跉絣䫋捹봈À⺣섆d؋ᬀअc曬Ԣԇ對셌땬ꑍ㞾\ud956姓彺㭙ꁺ치컗非堜霵鉽뵧认쾗겸짛෣白⾈뽝젮⮯ᗊ೟屖讙ӄ꿯봭銝䫉﮲\udf29ꡃ鐉꒷ꊃ᠄婀偂깈⭓圅厗缄羱筴䤕濻횦귏㖫उ×嫭㯖蝎䜍啥╴ြ㗲蚍窡퟈샔횚ጵ댥液姹ጀ捨礴杫릞억؋㴰\uda9bᙸ鴺廕퍋깅㫫\udf6d뫯\uda63式縍Χ댯寬쐺ܱ⇡컃꟫눟﫤\udd60벀\udc46蛗쌝ꄨ測刖✀䉡⬂▒俾⑭ઽᙘ\udf11町ㆳ\udad4澞曃㇉绾㟶퓀࿭洖蝈虜輪䣃ꔇ昀⇛ໞ#딝쎀읱ၱ\ud9b8⠗ᄞ֠뒷硑来뗢셯ﴺ师ಎ᷈瘻雾紕뢒둤Ƶ嬎玻㖺滑斣۞ﵽ\ud9d1ｷ瑰㷬墶혚韤ㆤ웛悍㇭쟺咞볇ರ넋ᮿ钖돜杆㙖⅋裡໵퐘ྤﴦ腄ꀊð㫠ꀉ硃耬Ӏ焏⠰䠙呐绲❡뷉\uddb8ﲛⲹ㤦겎虨욃쬬苯\ud97b㮎巎沼㏊丞⏋◝ꓸ犺知묎흾ᕏ黑홰뺖쬕串譆ﭢ됩睵ⴽ\ude4a\udf77獞佲慓契윞㪊\ud93dᕻ厥巔\udfd5嗕捻櫋婷낼疹↝墀侳Ǿ겍ꢡ몪䃾ꬪ᭽骳Ώ\ud932泗꼹擫┠ἠ耦䑿다ꮷｻ毠⮻懗ក胲곌࿃卵꡻䚱⥈㰇受ፖ菬ꚦ뛡僬鉶狴༎졧\ud9fb꜋㒭ᰴ쨂碂⒛ꫠ䫖䆇璁왡༾쏉ᗋ틃枟酒컱덹薒ﰄ뫑훎⦵⎟೜Ⴇ\udc06⧒Ŋ疐ઝ哦Ꝝ⒨͎掏\ude0dᾗ᳗⯩퇷㙠뾣땴䨨윗깈챰厢齰ҧ放痵佪绫节㓿볶㰶ᖺ鱻溪趑緇甚ꋶ뙨병ﵭ箱讁㤶탞淌㐌爧훞觾ᮣ\ude31읯ॺ揉\udcc6Ⓘ㋏湤\ud93f鋞篽륵ื瀈쬐畐㒁簥q\ude08ಀ㣘Z繥뮌랩\ud9a6洣鷊ᮀ㏏ⰹ낓๞ⓓ阦爾詍륦柁쮙쟘돜濰\ud9df긶箺\ude4d꾪츱Ƅ瑖Կ鲣鹷睽折ꕹ칰浊ꮟ郎卨䡔찀欘者퍮\ud9c0켻⭫쿧뻳誮糠껟㤴﫶촱⫙띻鱈媺떼ﺧ㩼ﮃ宅\ud9f2䚸讴༚뉫࿎샅ꨱ硫颂栔᰸Ҍ李ᄉ᧪莣咗㦞ŉ⿳㙋싏è䤺ﰋ캵ε萲尞旽훙箂뒥ࡹ㗜봐쩕莯껃ꡗ罞ꞁ໅絠쪃꥚ꂥ慕쏅脙邤鳮⪚椳欤遐䅺៝在\udcc4娷輹쏝彰ｗힸ૥쑘瘾燳䃜紦𢡊⑶逃ᓜѷ᷄\udd3b\ud9df컻휻꿤微릸窠\udc24恛憺ᛩ輂冑\ud8bf엲睉箝易쀆鮸f츻띵䙀퇣摒兩ꍺ\udcf7䌖ნ淐쑖ᱜ뛭湚寅뭮ᆾ❂媘칢\udb7aⲷ濌暍駯ꍖ乳휲趍⥠㭴ɸ⻊쀍⁕膐ደ嶣″膄혀碈\udc05肋릸탢㩱ʎݴ繋鱨\u0000杀礃䓃囒拃瞴ۢ荠泇\uda88槚梴⍡콞膇곻\ud8e1뻻〃퀴송耡A墌㰞샾킇쏀绶륨粆蠴ー䟺ѱ꤅봂ಅ郸Ӆ㿈뽠ᘨႣ઀縝聲궳濒㰘⃨ﯖ艵底浶줧ᵐⳃ蜃뒾㳭坪▝\uda9e훶\udfb4Ω呍爥萺泘躔璾⋪搊㫁萁萆㬪⎢ᣠ姖h蛀⠃⯾䀥팮蕴긍嵬䵴慄䞽属˷秲黳㬧먎倪虺㻲늻ڹ뷐囧\ude23ꑖ薩\ud97d쇏ԶӤ뚊粕ᗊꕿ矫鬩诶行㣠霯勼瀇ߙⷧ꿪᩾ꛖ憍⍍麞嘞2햠嶵搗\udd6fß孺猙᝚ꢾ㘫蓹⟰րИ샘۠ࠀሐ䃇΅⫁벀砨㊈ᵯꪼ杰㜵謤耟⟸ਁ쵷\udef1吝홄屢ｗ㶢ܕ骓썛➌ᗝ憳詺䞳暤ꁟ泜䱝饁㊚ꞑ࿶沅ﲼꅉ勇㏓줝䌽ਡ䤚㡚햨싰ത稑㒥삗呍郀چự峱ビ圪疵瓆콗ᱬ鼴업缰릤ݟ옮ⷽ싰뗒⼇壐͛썯ⶼ盳\udbc0ր咽䠈쯅ᶔ웋\udf9b僝⏧ව꽠撝抠ⶀ䶽뛵\udbcf⁽봎얀⪼櫷⣘謗ᷭ톨슋᝴ᨳ睗嬏痨덨쀧ຍ쭱ৌ\udb7a鑃틢쨧㰴ꏓᣀ䭦\uddc6大焭폗䧛띹뵻瑛얍㽭㘷짐䁑ǩ@ᴐ䑀䠀『耩ÜАᄐ涔ꀄ룎彫賚炻\ud9bd洵寗컇眑鷞埝\udc67淝轶ꁝ쬳\udc5c덳勷弬ﳷ髅一ﳫ랽펓䟝틶緃ᔸ듛됹쨿ᷴ勓\udf4cﴉ䴀\udd2b殝䃱끍汖醛唩쌿⳼틡쿑༼﶐쯧沸ힴ歓筳䶚띫堗緭䅰⏂̞곓ꃐ咏塜侐ꏚשׁ㷆랾캏⟬굗⡃脌դ࠼ʁ萅⠐霾㶉焩齿牝࿳佦ത䫫䙜鏖ｃ蒔ힳ㔼翷჏ｯ걤ぇ彏兝ᐳ퀆號勆࿡䯠\udf81롊˂莠灈븑㵣䷷㕆쭗଍伱¦䶗რ踍㠬鑟嶊༠⃅眃㰎샿ʐЈ㠠쯁䈉怢邰ﱢ㐍\udde9㹭౲鑏⼓ᱵ풍욐₠艂࿠ـ윝櫲췔謵浳璢쭛䚍\uddd3ꋕꍃ涴૫쪥㴃⭰〳謰焰⾋ᆽ裓ᯑ✗淛皛펷䖍陛㴵貖╯⇜쀂怌걄䆂ߘೠɁ턅숍耔䅤и८㎽∋櫚₴৩썷⌴띱矊朇絆版㢁㳭㷵䠿\udc3d쯟֜爍쀦묂荖甏솻湌菲煒칝鰺ծ\ud809ⷵ蹵﷖㼆艌ᒹ큻〼ꄀ砋둉줗ㅬ脮്䫖쿛镊딗뒪픏ᆂ繴쏑꭬㴭㚯콻旤ླÞ퍮┣良ힼ斂畕堹̛퓕㑜瀴描悬岚ؒፀ㬀郧㠷缽갼逿쟉儼ᠳǂ伺嶠煁䚳♜破䇃궔㯿జ왠쵋企岛਄㠀큂\udf76х⑉ဌj䪲᷐설ꠌꐠ酠 ȏ窥ꣅ䀵蝴ʏメ쩅⸝\udcf1鬼͔僤మᏃ萅怲邷청知闐㴎탐 ા襮㙂ﲶ퇓⼞涹࠱쐷㹃砏쯐僂붨诈ϐ꽂뢇ꈿ타슖₋㊌淔꣞傷ᵪ㉔⯇䋜\udaf4퀣傽뛫읐\udebd쉱귕餈즷磴鶱ዒ演鷝닭캍㭂ᛰ琹샅⶿妾́嘇⠜࠲ƄӴ㖈⠁켄᠗怒耉؈а魥\uda77ద\udf35\udd6e倳廥⨸蠫㭄芝唰ﭼ툈찥₲෷휠繁潱૔냝ᒗ퟊⨋⢵Ḅ閐␪쏛뛽\uda3f滭ꃀ∲땨㪆斁쨂䀥ꑉ奁⇨らᵌ؎⮈烀葇གྷ챠뾜랰鰪뽙啫쮫ậĢ堵뼸ౖీ쵠鐌酱ꏛ炅ﳷ࿳쇸彈ఇ㰓䀕↢暐᪂㏃皳쳟欛莯ਿ\udee0뎬Ἆ鏉᳤㖗矃䇓ｗ걹痼㠬翃￳蝏㕡巰焄ↅ拕鄉솒䓀課旸ҙ鹷崸圫ᖵ᪭킊쐣䌱ෂ㟏㳃쪒ఽꈎ讪ᣨ謈ꈪ⽃ꖜ赲㷈켢䭅ဇ좿∂踈ֈꊣﵲ쯓裠\udd3c凢⟅㸢백ᛉ홊拜訂ژ粏⢩⌍ᓍ칈휜鐈훙꼂\udd5a㵐＜㒋ⷋ䢚鑴躭죀썂䘶ᯎ❓䈓팲㫀軝氍ꍙ捱籲瀝헀ꇝ䔤᠗聞₧ᒜ᥈㯀㠇끀䦂谄쨠퓭슉륟䵲㤷熊㌠Ⳕ矄鍃\uddc9ㅊ㴰튏᎛\udf71ᛊ⸹⟌\ud933쨨ꂰ걋ཎ㈫ៜ념䞜ꊪੋ䚠飼銲솅⬆ꉚ๏짐科풢猙␬ꢺ詿圿犬憎䏀梡甫茏狽윌꿊悚ﱦய\ude70촩챠옔藦譴틻硝⣴㕎ﬔ尟냚㧻ⶣཅ凍匧耼ШҠ䑀事ﻊ㴼阓틨뮂砶﴾햬췠럂灐ﰫ嶿්䯨쳔鸔郑㴿肜젘傎ᙸ䥁⚾ଘ㹥阁윇㘯⁧䒨ࢬ啍鳷緗猔挱贚䏏Ⱒ畵쐫᣼䎫뗆㥁竉򐈫碝蹮틗牢ו똾\ud8f9ĝ袜᧘菁嶏瘨ꁦ抳蹮\udd88깃轐⍾䎵헦ⳇ㈒ᶏ䨊蒞䭶㣭⊀▌⋎䂺붳灔ㅈ锂嫵吷윒\udd3a䠧ᘭ뒊ཏ꼈鷴覶솷㌂ᶱ㈥뜉붍誴㓘림沌瀮죜鴇甃齠愀儀》数䁈܀呀☀䨇射ࠄřꓶ㠚旜戍巎₴슉㑊┰곂팊⻚鍿ሲ辤쬨鱢뚍쨨䄖扊೷譧⢬⨎갣뭪ꍎ疪‏䛂殖铔﵊큸ਐᚥ䫀⠎谀夛褪\udfa0難좓渺ꬲ璆讪쑨覃Ű騰碩ꏦഞㆿᗃ\udd33尡᜹疣\uda6b瑝鞋젻棼掠ˆݣ䧑瞏磳ꊏ誁䱏叢溌䅑ﴸ㚿섇枣澍稣ｂᗐ牾⿠ퟣ끲郗ܠ∁넂␀┉媎鄃鸩ᇾⓨ鏼⪀侅플걮䤠裘躌㐣၍酛႓쵾䨿嬘艂㨑蠇梍킠ʙ㡀ᦓࡈ里颊ά䶱㻄윓ꨆ焵쓷ፙꁡ⢰ꘓ\ud80f篏䝶扲㮘腂롌⯑ᒻᎪq⧄霒\udc4f尃쓞䅄䦒㥛Ԃ᫷囉꽼\udc55ཐⵐ뼝䭱퀽增賔䷒㭘솼扴淜삽ጬ੉튍።퉳㘫\udb59Ⲙ헶쇈镥᱇殗졠腄ܨƀɁ᠂葂灠↶┻Դḳ耒ᨏケㆮ韄ꌊ訰㢓㐢䢳䷥ළ鈍訴Ⓛ瘎㬰ꢒ⟒並ᔂ싯盅⸔꼌⊱씼ꂬ哻쀄肸주讈䫓⓱䳪觉⡗ʒ螰砆蜗褀 钠䪒ჱ⹾ꎿ됚⮸ﹶ\udec7༩싰Ⱇ縤暉\ude4b됞鎏鈥ᬨ⌁⼄㼄ᱳ쇑՘Ა䈁ꭁ頀႞ٰደী⑂耥फ़㝺ᇭ㟲橉遞֙㋠잹긌夤ݥ鎩瞼ⵤ뮢㙊븩듯㎗瞣๏竏霓鎴쏸肎ش⩺쥊ԩነѸ몔猌Ɋ헜Ƭ剄圁᧰ꅏ猺瓆铂㌀鰢運숼଼ȉƝム㧒ᝍꟖᓠﴩ덀ᕔ虁⼀픫咝卂菀ὔ뛲씴ꂎ䎠넔䂔릊흙଀鐄จᤌ㕎픷咬㈍䬠ᆔꕭꯇ㝩ጼ畐㯇⋝\udaf2퀵墾厵ࣖご굢ഉᔻ䓻浆㖷䌒䙑鯃\udb6b≤랴⟛䝃镏捏좷ģ㍰旔ꄥၩ쁘\u001bᰠ댭컳ధ\ud886䵭⧔삓쎍踱쵔ꉣ譵㈤諭絉褬撸鉃㒘郒妉䤢㼯\uddaa஍⺠蓓뉎깘﵄ﴚ蹏\udf76粴⑃⬜ꑘ㱻ࡿ帏㧬筊▆ୋ㑠ꚓ䭋ᨿ룩쏥劭⹠髓竢\ude48␆튆놞㵠膒획䗂瓍뒧䱾Ҡ䎀뾓쀟耿뛟샸캌밢鍯ೝ⳸⾎簵틸㝥폰蟣쇒㤣툀贜ퟫ俢䕰僎腿썐蛢恄漣䤉차䃗适晹瑁ᘟ鈀칁㠌큍츼ʠ٫㖬㫋∣㣸叩ᝓ㍌뙕팭\ud8fd㌴г⼌꒒\ud80c賖ጉ䴣⤋ࣝ૲﬽鴟뎪ϻ∀s೎挪墕洔౫켷敂퐉뜎벍뉑㝀ꄲ쉱ጪ\udb31㍌࢓⃘팣꓎锨쓙剌䱓㛈질眷¬韘ౠ☀츱‌剫솄ˀŠሌ䶒㔴⣳㌫떷\udd77㭒挊ั퓻㎝䧎\ud930裣䮲甬Ⓩ句컈㨤道﵉丸⭸錘不㯱弲玌砃ꀖ즣䠋㘴鎝苏﷌뢋鳾踃\udcfd䊓쪏㇊䠰ܴ钲܏촮꒴㶋䧋㑨뻢耶頦烙菫哻朁䞈ꬼ轵숶ྞ⡤鷂ᣵ᤹罰厈ꌼʀ㠀㔢쳕핓ꈄ⠇揢䬲ᬵ擖౷䲾◰頻澎䇃霐瑦쭺썏㿃︉폟̮佛㰀㢳┇蕏巺靿๴⻐ꄑ븗吕䷁₻ⶇ瑢Ō묬ಿ級죏▐Ⳳ珋笻쳚䑈俥莜쑀막猯\u0017⡜酳턆ܾ嵬쿅∜鈳콕铔賌盟㝼\ude73溜怐峡犏䝄ജ\ud943ꖌ윭铬玔豖㮔蔓ো䒒犫琰㑌茣䕉턲䲚爌䮧㙌匢񏦖※☁次 ꁋ쁨-᤺ဤ観쀐䀆h̗㯘讔⌋⣫㋃蠽컌심㵈젳峸獳✨胒펊സ㽐펞霨㿌쉔ꪎ⸦ꢐ돭쾪㜤뒭ςﴹ턟䊡貤銐펧哉⸎啺࿬ⅻ㽲蘎ᰫⳑ쉻蠅\udcb4뚓쏊Ḩ﬽ᤡ狈䉸\udbf3⏏ꓙ뉏㵨屮ጲ忔ᒌꡎ㉀༠⠀紀ꀀ連Ĝ酵峭ẳோ璛슩瀍岼训⯋ᬱ䮯㩬鏒縉ﰸ蓟誡奬鯓㯉︴橶쥚迈ᦞₑ㞊ꇟﱨু┩\udbe2㰁ꣀ‐๤戚䰅ⳃᐒ뀋쐮䯐Ҡ伋밭싀識謠⏬쎤瀫\u000fʂઈ⯈҂젨ꂬﳭᖒ䷅⶘礍뼸铎ሟ찫푢ࠪ削抙腈⼠Ꚁ濳쑋鐦墬犔諣╈ꕢ祌儬˓浵௨\udfaf䴓Ꜥ탁Ⲥ챀뗛搋豈직삚壻牕⶜퀹꺠㉉聵섴ë⚀ցꨂ》i<Ƹ୺琹賊仄⣪଺炳⯔肓ᠭ画ከ쭠뺂緵猧岖䳵찏태︊䷊Ⴆ⬘펅ㆷ⿷㣽쮎邠笤ﱲ합ܜ栈邋嶑ï狺ോⷽ崋\udb88쐴뽮킯싓熣耵ィ꓾ⓕ倄霠欋鸲곥ꈷ೘ⅸ䙌鴳ꊘ肠Ȩঀ梹瑆這쁄䄊삼漣숮⼠泈詏쑬Ẋ\ud925霃퉞軬\udf64曏竟⥖䰄‘훋좪衇딩ᒬ㔈殊֌癹巎ᚲਜ襂鼣ࣴ涰覻㐌が欰틣䬡攴볒슸ቊꐰ䪦⢄ꨒ顊䒩ዟ釦Ⲉ삌힤렍墱ାϸ貣⊲K怚ዘ䯡ⱄ뤒鎋撈융铅䉤䡖⹄ﱲీ䲮谠⯔㧢帮㐿墏訐⪰⤂풝曳쒀䪜ࢱ㫘퀹⼄ယꀦŖ̼ꣀᘀ씧Ћ婸‧܄ၠ䄀꠫㌦苟捭䠎㙜蝓褭\uddd1゠鉕촎䖂㌋럎㣌ꋉⷌ뷌鸊෋生㎩⬬⒨ꪭ怌뜤䋀늙⾬ㄴ첵ﺉ䴥냖鄟䖆첤瞧〠ᒫ䊤㵛褔뺤ᩍ輪Ⲑ좬죲Ⱝ젌왊퓣쾰몬윋َ炧悆돵ⴀ㳰㾨ਁ\u0016FȈꊃ㷢坈㸪䮏퓿䞃먥詯⩬ﯢ刬縬㰃⽾㶼閳ƍಯ鄺♘᷀籱鍷겇㙊譁럯᭼䧙媔糃჋돾䫳촄か겚ᦄꥦᑊ쪠⒫弨蒲쨅피볲쯋愩벲쬎|꧲섁ᬯ烌㓂㊯쾈웼禌\ud8b2貨ꨯ⪼긪蒪銮粤狦勘쪑㥀츳摊䒂猵ਧ㾔킝 퐼鲘௄콸ꋀ䒲鯇狷⩧Ⳅ陲輮琤አי✨଀删⦏恷ꄑ뗲謬坱딤⒨쩠꧌땳堭ʪ첒䨓誎俔詋⾧휳첐珈衂긊좵老ꠡ鋚썪๤ꆰ낲氢⹖鄀⓿ݴ⊵긠䬽䋍䴴⧪⚤빔ꢨ༼劒펃캔뼬쫒⏎ḱ劳ᡌ撞㶿磳爫곅ⱟ케₏鴂됿Ǐj䥴뷼瓁늢⹒본靋풫璡住䯟⃤풊泟ꏎ丌뛴냋Ḣ鄋쁩퇇떽૸寑뇔ꁏ蠈ꨄ龩堒팫䘨ಌ拧짌꿊섪熬䁎硼訦브㟈ꀼคĦ꺚릶樉䈎괊∉⭒ꬦ쓺易쇊쪭닣ᰶ⥂킯絫ඩ骤\udaf9ꯍ곐Ც혳⑈刺꫹挹䯇㞌퐡犁卉쪀붪괒\ude2f岻ꫧ浺ꢲ⹌ꬣ춈唲\ud8cc੕酄฀最였ꀌ⨶ᅄҀⰀ攦ဆ봉쀓땄떧瑊\udf2c쒲岈ꏽ诩\ud8cd䆝효悿㎶ꡗを붫嗈㪳苲䬂뒤날㰶㜱છꬱ匷ⴺ䊹剌ꨣ઺썋貮䩂虝邞ↅ醩㜀좪ڰ烿犋伆꠼隓谭钰곘毌⻈张䣠唨᫑梫賜⭠看伽싰刕焨ࣀⲘ釢뒦䪀ᲄ벚蝊钪璢병덝⧻巒즳㸋稹骽⮛컺ナ셝販좠켫鈹Ꭲ⊰ꀣ瘔엟쐀鎞ᕍᄉ碕꣙毜댲摗鼸갿ꭜ\udbfa슪㜿楊⎝䋎Ꜻ볪ꀀ⺵ၢ꼮뵇告티몹늎ɕ펂\udb88떊죉蜲貮᭳꿎낺脚瘲ᆻ\uda89Ꮴ趖㶔鱳룍刹壞勃급텲꞊㑉岨킽掌衉섺氈᪶킡ꨏ⼱⫘놪蠁‟耛ݘᮀ㜀젃반䁩Ƕڐ᝭嶁턆媧쓚૖ꬂꅜ춪霸઴ꌻ꫗㈊렪Ằ낯㏂갪㱺溫䤴䊠늞껂꩓ᤊ\udead肉퀬憉䀑嘖๹瞮渿竐欏껳ಿ䥋箊蚴㲁⮜㋺땕ꎂ졃唤櫬⩚ℼ骲뜋ꬳᫍꌄꦘᐜℑꠠꀘ䪐醉ꢼ㳭礫聬劦靈Პও퍤ꠛ\ud92b튦橽⩯㌇搚\u000e좫⭪鋊颇扐Ḅ䱐䱰淺Є鐑䧈䉇게ꒊ᪐䪡딄ꚋ갷숩轱簾潅ݘ禛줌ᢡ꯹捱ꏆ꼚籫⚠髜ĉ닚똢阨择ᩲ꾿⧚쨲ꅪ픦ᛟᨏ߱뀦뿋넅涤襣⍆ￌ뢶ꪠ襖㐺ꚫӈ躵ꫥ쮌ූ⣈걪㘻狋≭ୀ괺谊鴊삨睫ꤔ蚨۠ց뀔ؒþጩ㕀⠀쉬믆ጆǙƀࣀ匡䁇옟ꈴ⑻\ud9ef\u0018\udef4㵘䠬臦䀤᜔ෑ툂〆\tޝ冹㕫떠ØԢ誊䭚솁⟞ĺ糴݄ᯖꐁ珎柅훛孱䝵돖ꃚ⵩ඡ候〤氠ட᭨ځ䀞\uda65㕎ꋕџཨం㫿栽䐎驟洱旷▭\ude28涵Ꝗ蔀㟊㨘Ƃ̘ၠ䏉ᰣ趜ဒ脄Λ霺︁ꨄ㠄\udf33紙·쪺䬁귲쒮⚄艝乗㦂뾕뮫댩⛄⹎㓪ꩊ䞭糊鬄Ⰲ庒ꭳᤨ庬ੲ伋㦠헪螷⦵ᴞ졫⒝隦ឲ翄䘰檚梔뱠ꥋ☏榠곛䲺櫪잦麭慤뱘㲊Ơᧀ縀儆밈쁞᩼࿠ደ犀✆䁐뷏ܾ 慳䳗ᢎ ΄렠쎴袩⭿뎙㙊ꋳ⁕妺殝⹸⫿ᶛ\ude0b\ud9ad踔ᑛ㎽뵦仍뙧꼥伏ꏔ붚聃\t㊤㊩쳾悑ৢⶐ섡嗍㩦픰⟸萤唈吥樻鉌ꢑ未忴鼫ᬺᬗ湧䫢䰺뀆쎷ຍ絘桃⎆셵╮閶嚒䋰U낢酬墲ﳎΈ쾶ꎄ跆㩥檽苎ꬺ镮㟌雸搩沖⟼뇋\ud8cf铜牸챥ꃆ陛쎩檩狓ᬹ氲ⱔ\udd13祭ꜻ쯤쵎ꥌ앒哎Ҩ耈Ȩ྿⒀뱠鰐苯耋ꀤደⰁ啩᱁ꑄ샖鵨椥ꃦ飲䩩探쀖驺棔葦馚ᰁ妣ԝ驎槁匆ᑁŨ薥⨔娰懅ꚐᎮ鈨眨嚏鰆ꆕꀍ긩捩㖥펇⨡萶螮욺ր䶯ᓋ榠ۧ훚㓛藺춥\uda2c\udbb4씗휶譢୪甊彠뒎莀棩軫䚎뛯뮓ꕎ鴺䯁㎦캗㨘ǳꐮ鯮蓨ݯ⺒멋顫ꅄ\udc1aż鶠标㒚췣⮽燡搙ᩌ䵞㔀ᵄ掀訧颞႙㒘쏇ꢸ䱍尭愉輆羠ﺢ宩驯醦씅ۦ箁﹅䌉聮뫼䈨谘幁뀄뮫촅ꃎថ⾠\udde1嚅缇ꕧꃮ荩鹢Ꞿ桙鸶戶䶧鼻楮팶띨獫춻⺏Şꏮ鄚ꎣ逕遪篾ᑀր᠝灔酄ń᪠⠀⚃琾䁡肌߭뺴勩ݯ螪\udf2b刢榲쨦뿊ኈኝꩀꮝꎂ\udcc2ޯ젭⛀툷榤묦㽳몧皇ꩋ违ꥺ쏛庨೨骠娰諗䆑Ⲣ궒찔럜뒲飪⿁馚湽떦ퟛ᢬騳౺槩꾫ᬊᚍ尶눩ⓥ⛭諤ᦀ밭쀣ₐܨრπ쀇쀎Ƕ@ɰ眙舅䎭슭㨊ʹᧀቺ㠂砆恎䁥ꢎ耛ྊƢ⊵骷企Ꚛ膡領쾳昻念掹⋸᭽⭍䶚貋乌㚈㊎櫯㬫嵐嬔猊䐯袜쑪叢๸ꝁ汆ꋠ醂䏀ٚ蚊梩寧比뻬ﾛ࿪쀘ﺯÏ냎鵫𫌹퐂몊ᩀ劻쫩쀒껪뭬〉蜻텬䛨珸ල䧖؇諮恩2몞«맀⪺뀇冬⦪ꩲ몪朩ຳ䣖嫢꽈댚륮䮾˽኷⽋ꁖ퐊닮朧⻖猬䨠Ṁ⌀\udc04받슲Ǒ̀觠悁萎ࠋ됔䂊얫ꉜ缨鶩岯销굲쇌㺨⭒湝롺쳺栞䕕皿㎷潂뫜뷚뉈㶥髋꾼ᡙ㰀✊ɗ᧫퀚몚琨쬯䊱䬟梆ꓺ짂䰯㺬슯\udb9dㄾ펊ꆛ冭娴暌毸ꭃ놬뱴ཡ怀쀂䄗ᑆ⯻靉뾥曻﯈꘢蠛榩ꎫ䫘ᮽ⫿퀁긺䀜봬Ǟ㫐滾⿦毡瘘妛↨꛸彉컢嶖葛蠌ڑᨸ氆铨䄣쪙ꯀ捎퓻įꆁ虚䚦᪁芢밴䌺쇛߬ᱰ瓾霆쀃灯‏ٰӠ沠⑩ᚇ橜㠠羆老솧فᬄ我뤇翏Უ貀뛢퀋鑈碳墨똺쬚촎놦䲌멓꾕㳞酛哋瀥耰놜ԐᴐᎼ渆ကظ샰➁獪꺩眵娞ㅇ믣全㇩뀒퓕ꪣ꘾짚Ȟ鶺杇㍂ᾝ꣪촺享厕㣘⩢᧸決쏴䡦낟\udd1eꫂ됬\ud92c謳銽댿읒靶抵ਙ秇\udced૒쿪㪉䚚㯪綹꒗\udb5a䬾ꏶꏏℷƚᢛ噉榵钔﨎浵┴雒坉䆁㉏纼ʦ樟\ud99e厱ꐅ趑曞뎖欦ꉡ閒⣪羪軭魟ꤢ鴪\u001a㦷ｮ㩰眀澎﹥픉ꐚゃ蘡철予㨇谼璶êⲤ뱘䬩䖓룻蝔煚\udf2b蠝옳ㆈƳ᩵ᜱ阁븝Ặ膽毃샤殑鹆落ᑨ冑䚡ἑ볮\ud846뢋ᛇ樨쨐秖䷆ꀄ醖Źῤ灑更蔘〇ᆐ몪ꮖ㰮\udd1a温±꫻詺⊑鞋챮⻚䛹樰示셛䰞᪼쇑꫅洃駀䡀⩳怑롚젧ɠԐ秒\udc01怌耨\u0017猔瓌閫굌呷뫥䟼ṷ퐡㔟悢અ\uda5eᣳ⁂곺䴛꒳蝷沴煺႐졮퇲﬽牪娏䟓꽪ᒣ鯴ⶢ거ꌊ樚౿༖⮲ᒕ鈸ก騘纳劧૆注罾賔쩅耈\u0016联蔌糇䈬ⱼ⊫ꉋ᪘糿柺⬞븱⋭⫠氹돨કk⊼᷸\udfe6ඈ섦⠘ꀎ腌ᤩ灈棅䥾ꔠ웸菦뾒Ḟꆩغ⹟윪殑㉱䀁譋⸘ꁝ搦㠅䉽রİ黂澼㰦࢜㱢ﲘ䝠뎄泱葆뱧⦼꜎Â欉鰦䪜ꯟ컘锂㑲陓䋪ﱧ䛫讀⡪뾌쌛쀫斾⻭ܒꪜ跊చ锪ঔ૥䧭퇆醫鱬䉨耚^ᚐҀ筢堉rਠ܄۠抡萃\uda6b쇷쫇淰縨镆ꢟᶽ冐蛨駵↉袆靫푬❢Ἲ볼킯㑣ⓛ牙⡷⣶\ud90b鷈ቶ萵৔ꙉ᎞儧鯮ᒬꇑ䩋磺胇侫༮ꇹ䭃᱘㒠唦꫌纫勤Ό뼲ꊁ鐗碓鹯鈈쒚鈺㸬볒잦ᦲ潴蒊㴫ꎭ躯쎖ᾬ畡얳㦨聫懹짵䐎ᚌ栈杍峎琕র氥ᢇ硈杁\udd11仸ጚ⢜挲ꜟ械甼쪍⤦線䂐樫脻㻢ረࣚ紐ⶦ皛\uda60Ꙏ鯚沩龧፭沾ᇧ㭪鯗䚾䶧뚛᠗槽꘵梶椀厦逇籧ꧏ잴氀멲饯偶⻽ʴḕ⪑뗊検쇋䏺규뻆脬끨\ud803Ƅ͠ػ␢ᦵ驵솵泏҆澨袝ఢ쬜穖ネ땍㾍㇮䓁凮鵛꺉뜒꧛㮩ꉡ䪵ᢅ冉頪뺘墼ᚬ魘髝붉뾦쐯贮\udce2﯒ᶴ漊㊧픇ᰐ䤹醆揑롦Ȗ䧀겆Ꞿ諒風뺡ꆊ脗ಌ穉棇ᒕ豵䤄윖홌由햵ট䎸䀎ŉᚨ೒촁봅앒馋莩鶴뒎뉳暵⩟疙Ლ塮놗☨凣곦햲ӯ鲆恐Ꚅ샒䣶≐뙇\ud87a琈֊䗀讴墳꾆該鵉웢鵖濦믦ᾘ教輪᭝띚梅㎚칲嘖䀉ώ篬䋧皛嵚\ud9cd\uda5bⱳ뻙믲⼝现꽚ឳ顡榅苦栂⹭甿未꯶꾩ꃦ吙๺⺀❔䲎궪쩆掩蹧隈⛒憑頦餛ぽ㫑婕闘ࢫ㠁順䷄缃XΠව㔡렃\udc1c趑紞髦蓂㺏쬛颢汧ᛧꢙ鶷檤ﯨ黔箹砬㑭熸蛂姏뙺싣㢜⾵↉ᢋ㩹늚ᓪ販ꥄ쒊ɞ把\uda92䔫幢ꇟ䚪᥆癉둧茞⬴ㆋᦱ頙녨꣆ꛕ㹶浹딓ᩛ䔱閴훕풠䫥ﴴ݆໪㹥萃젛䲓♭⬲滾謧羘\ud9b5䫝펫쳒뻉薆๫Ź짹뎹飦ꦱ춆⹯亊臢雁㓨䄤ꑟ䡁┄肀㔨顂តצ议즡ꠔ駇ኟ炳ꗾꆺ夸⾥Ꙡ셬몺藃ꒌ夷蓅ꘀ챛噒엫៴鏜ᶅ兩愮\udaee៖ⱄ泇侗අㅯꖿ隬妱潰ग綪토ʫ誀⾪뙲냦豫ᩲ㧨୔墱뵅룦텸쇅ꟾ⩙ဒ\udcba펟笇3셶֢裀ρ⃉혂䠰뤪肠ễ﫧ⳏ≯쇯᝕ᵮ濅쓻ቮ侻岗ꝵ쪈紦넛퟊遛㺄螇齉㑹聧麬䥸柰꾰冩硈쩈҇竗䜛램鲗ꊹᬃਗ਼榒晒銗蚼옦ﲊ퇆捒쓳碬퉭ꖮ蜄깊愀ʁᄅ󧀵巟餈끥騍虛꙲骿媯㱬陦恫븴֎㭾࡙痉떇\udc98뤲ư쩶ᦨᐒϘ桤퇟⚠裸馞ㅰ\udf9d롱妕㮕鵨뛬᫊햿因\r痥縞㎦쐆嚙奥昶ਁ\ud95e퀒퐲\uda7d癭粩츗砟愧薨埸徥漀䙖敵閞홑å竨ᑗ㑨뢲狀껢퉇兣隝抒몜\ud9a6ⴋ䖓ݴ宂罅홆蝰㰌恡玄ðᰐ檁砄뮆恛삼∨ᣠᘁ丠ᵺ몯捫ꢮ橑锵鱙鱖맼㧜岺珅﹖錌ᕷ엻Ꟃ䣮汕朝褧릏ꚍᮕ灹\udfa6镘⦪톴蛕夆曧殈療碚﵉奜ˉ磕遫쥱ᦂ鞑黯뀱魗颫땷뱋ᡔ骩汾骖ꥮㆆ霯鹛䴱\udfaa편鐧腽廲ැ㠀⠂䘯㳠训⸣꯹\uda67䯏൬旵銣壒뭤Ნ塡㖴誓岁熱趇칭腿ꐘ姧䕬鬝᫅㊥鐦鲨晪䪲᳙ɇґ≳需청搌\uda1aኟ噰䫱㜤\udbecი夷⡘㙾鄻혟婽旵럖㽜⚻偄没曚첪ꑮꩡ\ud9c1ڝ鸈ȭ὞絵앢\udafd柵闖楬偠醟윆黅浘贆⎟儢榃횦髪ꉔ麪汩锩㦡宙ᵎ磲\udff9ꕭ倎耤胹酠ᦴ檧熗죮坈顮稾頶«呭\udf76鳮母ᵇު镣㺙圲潝ꍭ踗牫麹↮⚋涒꒖佯슬ȕ朗͖꾼⾘൛竒蘅凴柽椦쭎⥣꛴査䇕晴瀢畸暴毚᧔뗺뵋평ḑ䀼膄@௵虰ٚ卨旯孓泿翦♞赪斝㙦塯㝊칦⁙蝐㊓㙠嫲毈䤤樂琌⦉႐走ᄢ丕䖬＋⨓燀糕푣⡭詥姂ٮ寳琝ꌦ⇚蝸瞵곃疎㵫竟䁁랆\udc38ᑭ蘁粎թ૛暸孋籵읧툶몁怾똆\ud828࡭ꌀ䛝淁聊\ud850缑ښ앭䇪럃鱸꺭꣧ज़ɿ䇉协婎ꅩ왲厙ꕻ궣恑נႆ㯑◒〉渼⟿᪠㘁쩰魲㺩랥쫼뾧㥲꺘䰶㺭ꯠ\udf9b焍얷郞穥⛗꘍瞹ꛋ敘襻涐埃䴪⍉᧫萩ṯ෮❙⥞ꍕ쀤ꤲ鄽㟕翪\udec3訙붡\udcef뿑꘷冟筴ꖅ➾\udd55俭횆龮풥䀹\udf7e돂蠅ꍄ튖豘盆ᨬ焝읋퓝袲ۊ읨潍폓ၩ縱斑춯䴳毉뺤ꀣ⬉Ꜽ畽캌≑탗摐䦒郳缁딻뀋噪鮺⭌왽跕꯫홵皰뜎铷篝짐渃檲ă\ude0f粧㥷⋐坴痜붕\ud8cb紣‏舁Ͽ瘠㰸쨃ෛ쑬⻾ꜱ嵐琹護煜큺\udd82块⨥簉鉗ᷝ놽귘➖龂畩镥\udce8䀊暶Ƹᡀ濪਀ꀗ뱀飲ƫ뒹髪䢟ཷ閠⩦\udb8f껩ꓶ㗊䍰▮巔猽㊚\udb7b띳빺获㭸᧒鮮♉δȁ㙀㞁ꬪᾨ덗㮊㺳秪螭寯盕쯫ߚ옘綇૚Ṿꔼ휊ꄏ棈愁஬荛蝤㖄盃奟礝죖ꚳ緝㝦忓疚쇌ᬟ읺ד⫌\udca1誆戜섓봆ꁓ㴚雸隸ꙹ﯂踔ꝉ墟\udaf9ꪵ鼪\udfde퉡欿༴\b₏䋘薹푖࿘㳠ﮃ픜၁๠㸪⸃關蕥嶌\ud83a㷡ꮣ鸏稸ჶ䇶ꚿ冔㓢\udc47窜๣ᗠ碜뱗젾躲莻瞏塷焺먏㋬뵱菫훲彠੩쨃怑꧈⠼ð搧켁䐅閰庛竩쨦銎荡ෙ๓\udf90省훝ॿ㷏꘰\ud9c9덃붷扟Ⴜ禽ཋ泭ꄱ吡ꥉာ㾩듕黜サ࿟湰ݖ揊槝쏮⬼㬟篃걫﹯鱱ကꎎ$ሒ밉͜危緳✢㴁땽馇X鬽﻽骱\uddac繥鍙斣༑ᶲ❁尅铩퀓䁅鳮㿢퉆␐遮ᡖ省ꕧ㳴Ⅳ鷚踳ẙ뺓艁᤾擵ꎬꟹ挘᫣鯠⠁↞㡤跣艁ؽ昭ᚑ軇嬘遥괽룾思㥸陸\udc0f嘿䕾雍힉ῼ杵씗\ud968䮡귎ꫣ깫溑﹛ꂘ뵩榪圏⹠䟀᭩렂灄䅄Аڀ䯁૩D㌿ᦄ㠃瑃쾎锜郡㷩ྂṏ樦ꖶꮷ佲喷ꙗ沉焤௚ṯ㺎☋ꤋ졦붖ꖣ苸鸀ㄿ潳⳼靱㲵缓瞟ꡢ̒伆휤账㨟畮ꏋ裵ë㝔染࿦畞䷩⮯㐵픶ꈹ劣䷘軦ẙ渵妫⏽\udf48逃࿥ỉ瘼甜옅鹴娑媌鲍䉬琘䍜튣뙷꨹鷷谼鬥㳼폖훨ᰗ䜳ꈙ⳸돒칊ܬ砘ί伻⪼竪氮⳨뎒캊̬➀䌸๬㏥ؙ櫝撑젺ᔢ菐⛴᰸漢쥙睸嚮뙜樶༠ጀ諅蚜ၰ䄯Ȩ᰼ࠀ ᠅౼쀾㪃毣룶溝䯆츁㹬ꂗᐽ季돨蟁㨗笽뒪㐾襾䛢墐ꄥꚂ裚樰쎨ࡔ⃒䄖侩㉝뭵붱✆ໄ뽇榷뻶錾\ud8c8䇕鷥꒖蘼㴟悙鄷⟚펫됂䇺ሰூ쎁鰂\uda01綫츢㦼彨ט횏䰔츺릝ᓩ斂瘲㫲掠⧐ᜰㄟᰧ鮗㝿ਸ粇Ꮬꢭ睓忙군䫴꼲뻊쎁킿祠嵩⸌䇀๋蔮钿퉵䯵⼡᱋灝ꆏ輜ꩴ佤滴֯撻耞䯅⾔뽚ﳰ糁墺酭揰캉᯼硩颻䠽꭯讽踄먽晩ꎏ嫟Ꜿ莳踳㩱ꌺ\udc07㰃䥁肊ˀፀ㛘〆恝膦͈飠䑁㒿꺡독爅嶺瘽茮褬ө⻛㩐⳷℺ꅫ෈阕忬찪⯚ٱᏤ霌㹪䤎ﱰ矢쯮ꉊ᳴惺筯ⲷ\uda61ꭜ﫢\udcfd䧗坷㸇綥隽یs쇦ཚᆇ㾟蝥䷐ᵆ太\ud986㟟项蹷\ud958溫ꠖ㲙池姍ౡ撕訸኏怤鉆琵ࣔ꙳ᵶ栉㔻ᱣ圹檼\udacc긋荏﹭雳ɹ漕뢚ᙫۼᯈ澡뿘ᘛᆻꀙᯢ⽁嶶딭莮Мꋳⶰ顮䛫$漑ֺ멚㢸賩娔帱띣锗ዻ⹓㹷灪흶Ⱏ督赆₎鸸ༀ䂢᠈쁎\uda82ఘᏨ呮簛䮟辂俒器薶貺ӵ돔㞠꤉惑쬯쉞닪\udaa4⭶\ud989灳뇧蜹⾯覆湈璂⿡᪁慡哖玮渤顜킯랝꡿뷡妚㛺顜쟫剥헴檁\ud89f穛괻埶䢖瑔逸@ࣀ粯䦨꯵骵매빏཈ᓽ軃潪먳洣퍯爫漣瘕ঘ哀䧑㧤褊יᘖ撑㿅盰毴쮆붂﫥齯熍ﻯ뱶죀∁ꋰ据쏮㺀仾캓웘伢듯嗘我ṻ뫡Ḟ ⻭疥ط屺諯ꌺ껽뺚縺젦쥝䳢闽쬁륚砛ﲜ渂㰁鈚⤷ڀ噽砇⠗者聰ż늳㩱㷐꾬﬛鬿\udaa5뎅봄糧黎ℽ꒯뎭࿶\udc72︓홋䜺䓽뚨怸憩暥쾹幣붞溑龰艏ָ왯䘦ﴉ䛩⸫鵙ᦫ쏛쿕讲ള踁䀙寮닙㠪ﵛ跒釛볻寞乣忤ꪮ꫷᷌譎楁ﴵ穒踋쀴鬩ຌ䮇꼧᧬ቼğ䔹族♷윚᫥ꋯ㞨笚勵⪞ꧮ꟦ᾼー퓇阁챺듽顫Ạֱﻇ윞ꩮ\ud9d1辄紥⮲乼뇢鸜簐็\uda5b흜⑷ṱ崚瞋뉲㑽큫ἴ嬽瑋쒻睲䯚נ၀䚁踆ࠄ聟䌆Ĩʀ渀㠸䀉ᘫ齈ৣ₩魼䎠蘱붃欛뇮熹杼渔㰦㬹廬鮼碞껋ﳺᲺᳵ喗⸌㨽麵縱ￅ⠊筶溛譯拻ꎁ쓺ﮭ\uda70霏⎃㆗퉦蜲徒嗄섁』‍ⴴۙༀᗠ浞䤨Ƹζ㱴钯뾹퉱ᣡ뾾ր束檁Ǧ馊崹㢁ꠟ馟䝢ꮸḹ鼁烍뱷혚ﳬ\udbe2햪僒媲㌏渥肊䑐壨䁞琒待䄦苠薑껚⫙ﷂꠀᵹ頉힗幦뻚ﶗ쎟鵀≩ប廑磅鱟椢絖훈먥㇧벪꼛ⷹៅ鄫筰጗煺絛뙍\udc20궏骫竤ថ⛁竑鴞ꅻ퇬䯎뛡筚棘汅妇ࡠ肘фᚶ䯀ਇၧ{섴%䕼믄#婞ੜ嶯쇵믅\udc28緾퀟ሌᇵߖ⍛\udf21퇷\ud87c緦ଚ糑㾼懵쟄㑼緓芈\ud89fྐ짷唄呻肩뻀ⶻ氄‭Ｐ\udb4e፧\udb5e\ud9e9ནힺ籝옃磞엷춲张ꅟ㙽ᷫ埄耍粵ݟ㵽ꠄ㟘\udf68箋꘏볟ヺ䝬荭ᯯṢ槱紛\ud9db䕛黠⟈蟌뺕玗헯䦹䤫ᕇ蠪ǃ缦驯ໜ꽷૓럞꠫䲵䧘掄秕⟼ﶿ렫슖篛筰鏥徉㲎୹᪀ｨ碛⡮ﵻ큿懽䟷ῒ罩ﵧ글ટҭ﻾⡞๘Ƿꪬڟﾪ槣ퟰ἟粱\udf5f듟軃愘忻⪿臵蠿甆襎깎⤞ቼ듧㈉Ä䥙靧沜ꑠ妇ᯇ围㓟㶺륾鴬\ude7f렠㿏钘苸㧱ಕ\udf57睸鰟瞆Ĵޭ葽仩옺ﭝෞ띻᠇瞽\ude0f翭舎㘺㎞⻇縂杁쏖Ᵹ䮫ẛ빎瘗훯몜刈Ƹӭ⬀ሁ駦쨄聩§䝜ڀ⌲｟ᑬ⢭⽫㻸봯㻹郷ᯙ縄듺艻廢⼁봴煕刚狡ᏽ﬩ꃃॱ굒䥽㼂뱻挧蘶뉽㏧⟕컲簒䧓䉐얿绰ᷱ㿹빒硋쒬쪌튱퓝繓簯赯婾ꚺ⿉面﫩ﶙ웳蔿糸\udbcf캆翦群ത拍⬏餜\ud800⊨ൾ₀ꨩ讌.턲ꋀ泥閟\uddbd杽㞪Ὺ＃⪟Ꞁ槻恺绿\udaec셵컼믵恫뽮ﾻ蛽\udafe⼛뎿휀믪뿐抷枾雿샦䗎⼣㹺鶏푸鷧澦뛶ﾎ癷쎾㫛텥釋輈뜶悁섅樍腄0ᖐ喁؅㙇ꉧᾍ䮮둻쿽究訧弩綛桕ﾏﻻ쯆帗뢓謯꓾ⷶ俓犺⩸鐖ܽ篾師豇え煔薆뉓1ﲢ꠫᜺햕컻缧ꬿ竤纵䩑걊９븪茣쁍ĴфⅤኁ㬇ꢼ㭆ᬋ袿蛋Ⱬ暘뻟ﮧ뒾ၭ쫔躌꼧辙햗곡ꖓ灳쁌೏ؖ⬰䠰鸁㺀愃埒螆콍绢緜⧄耿쇗⧿㚾왴鏻瀁俦鿀뀒LﻙﵳﭔИ୯\ud962ꍯ⡲軼孺斴쀝耽㾞¬﹛礈Л끘襣띓䤖엝繸喳㝬䇞犫휫皡ﶶ卑둌풕둿徊䝼᝸鷲左遽뱘ι짐ƀ੬鹠ᄐ⏞銌鱘쨱煢Ꜽ廮㴫賂盱퍑뵿⁾䲼䇺䧷孪\udfdb뎟獨䙊綴㥄쓭땻⑾偠㎃ꂱ⯤\uded5섒夻뚜\udcd2祴厫䂂垛鸧繮㩩⿲⟪綟ꚺ､橗ၸ\ud8c6㞩慼줱邛᯦㚼㵘環떊抷䈶닉ℙ嶺癧훳鬿篾᳽Ὸ㍖軈㞈Ꜥạ봅⚝ᖘ․㻰麘渢䋀䞅뙐ȴ㘝큗샩Ɛꅃ\udd67鞷䶞嫽熊栆정耗⁙\u0005ʋ砀瀗䇏਀ᲀਂ頁⠉倗䶘贁횢㕛瀑征蔀垌嘅갈\ud815뀸㶎삛肾ﶤ宬疑榱\udb8b꣯縁Є♵蹩륔䁓뭱Ʊﲯ寇悀᪠Ǡ䢠밁溠蓐ꈈ꤆耜M\u000b\nİݐ᲏嫠ی⽲ߡ提篁ꬉ媱ᥦ䆢঻ć킢⭝≼㄀ᅂ脃耚娵쁾ý耖蒢肼ڐ昼䙨ᓵ喣톣䐟舁稾쯒࠰ܪẬ㘟乼靴卪䶤潞뵒㻦풣寮ꄠﻀ륀﹁緓蔂퀊㨦耈lƜɬגࠠʀऀ⌀ࠁ䐀堊뀝鴐絳ボ紭큏鰛愾︭䓺Ϸ黫狝뎳缩㹶ɛ嬚㒇쪛긛ᔾ먜扻퍲ῧẆ눍衹퀝Ѯ\udb37돰ῥ혙膟ᾂ蚘蕰嗫\udedc쾞츧\ud923腂ᝡ䞼Ӝ⮠㡥丁逎렅솠聒鳻ƎiӲ⹸րⶏԨ㹽韰\u0007ꯀ뀝ࡀ逧뤬휈슚ꥀ쨺퇚珲翠ﾙ昒弗ﱛㅒ暴쁟驫ⅾ鐰嬒홅턍브딛졋≠휻袑Ĉ踀ↁ県홺岷詯ן玃섽苠Ƕ௸亀㌋蠠끁袀℆⋗䐍࠽순₄䅌H޺焛챯ꔀ澃섆䈎ﰖ䀆ၟ䄏Ϯ몗牑힀倯䶾쨬쏹ࠎ竘孓軩鱽ꄃ瀱滆蒀ਠ无㡤⢁谆ဈ㩓椁聑ç脚馸Ğ位⥿筒ⷔꞺ먎ꗥ㷄쁣팗㉩똦\udf59꙱氶㬹ḃ뫠瀙Ꮟ鞑䴔ᩎ\ud841쇐张Ⱜ斀鏼䵙揲뻥頡쎂（깑ʛЬᩏ첧锧ແ뵚Ｃ㰍‖ဢ鵁섅趇ܔജ᱕\udbd7錳ઁ喌ሸ䣯ꕅ벇ｹ↍̲㯻ꚧ浟䮩ᵪ嚢ꕠ侃悱ꠄ풒ᘔ㘽曤㰽뫀ଘἀ㺆ꗄ䬡蜁겆\ud909簑䁔衹ვ肔䎨蝑芊ངㆈ怐끖쁃젆㠙雗⡢ Ⅴ¨蓑สჄ⾼Ȑ訽ﹸꄉᩦ䣈আ჏臔趉壼ච㆑脐刂喑垠⳩媆琟穮Łȕ텩ຈ៵聝ጲ旍쉨홳鞏\udf6dꅿ糩硞ᷨ⮝邐︄≃￙褎ఞᏆᎶ噲䍸饏㚌ᆜ᫸ุ侈㯱앹☈澯垠䃲蛴浧ﭷ랟삟ꑗだ낱鯳ꪡ㈐ໜꞆ䃛셺òʤ섺H᳒謀ᬡᒉ餴爝翅龘︀ⶠ穴⡓齏惞̼雈Ԋ㬂ꀩ썒鲓ꁩ萼䞗౶ᘔ祾鯄ဈ벲퓬컏ƕ䜸ƿ㐦ص鑆ᆦ䄀ਰ얪늇툢騚 桜킊킋䏵䌨ࡋ澰⤭ꉷᒶ啌᷹唌뱥䀩ဌ냧³䈪珋ࡠҴ⥘子鋮ᵃ⫛鮵䈓퐯疜朊牪ⶨ㤍ෂ៵\udf08攫䈡䘽袅렗Ѓ䀆聨䪍䢡쁐܄e風◠㾜׽었崷쐺ゴ筲ﺜ䎛馺ะᇨ㓀墟咡ྈ鞹菲ᢦꇀば⇖煛⎾혟둏ݲ嗭ᒇ䢅ւ懓ꀾ䀟Ěᐹ뫽༒洿\udb48䦟恡ᄂ㻙⿰蘘街‬䃕䫱Ȓ롒牊쩛Ꙁŭ︡逎№疡䃬愥蒹ନ၌⇿螐챶⿼燛ꚢ䆧ꢷ｀ꄠE魯芡蟰霣ᕀ纮఼慄औᘞ㨘ƣ˪ࡀᘦ콈∠䧡폃憣ô堜濜ื냟懾슎嘎ኀఁ㲀㊡䧜㖆跳㠝갵嶠耿숖\u0007ਁሜ㐄妰츁ꛬ蠻좵凢ῃ팯膃䉰蛽瑎櫬⃇뮰꘎옼蝳鸃怌ဨûį菦熂ႀᾀᷔ昡琔掄쮓踑쐷轸㖓蒊땎ᗨ㧸儷玡겼氅崋旧⟔ꢃ前ᒛ\uddec믽㐩굨\udfc8壧㊚툠様㨃䡍ᬭ℀쏥竩आᢿ첥렰晴㷂ģ䌌ꓬ闋䦞Źjᅔ茈$থᄐၷ噎ꅽ䁻年帕硪㬭㚕˙鯿횪\udcf4蟧⯒\ud97d৘耐ओ碒ℎ肴懥ﭯ薝؈赊⟩Ⱡケꨃ鸏ⵢ〪ୁ憂嗬䖀ѱ᳢㪠⮈ꉸ靂ⴻ㪂ꄓ䈫㨝zᆌ⍾숨աᔀᰄ窰ﶮ倢떅ꌭ券‭ࢺ鄌∸İ詩᝵ഄ䊏㾞雂砇甍\udd6b᧞궽낪໶믍㟸Ⴡ탇뤈콡䎹踁爰怌\ud87c뼂耯࡬䥕횩였ᐦ葰豊캃㼩㝕谠怫衞킉ีﴎ蕤ᘺᨢ㦗낐褑맃㛙؎鄑\udfc6‟쉀࣒䍡㯷ᣮ偗郹堰糈뙁뒅턕懛鮫烆㛭쉷题襢규㓻᫿绡茴\udfba餉넛뿃ﶟ䬬帵Ȓˬܼ〇⅗漑酽겛돴鰐ራ綁띴빯ﵼ薄賿␀똺䤐傁쩂넌ሓĮ苺ꁫ 엀褄幙鮷㜼鼴悻웃䏑粞⣐恬肉䔸۾ᥒⴀ⛈\udb23癆艀㤒蠈쀓醭⍈롕സ᧒⤑骨赑㐀檍픒爴摹嬌ᇃ뵞ӕ띸ᖷ켄䃐읡萢䒹컱藩‡ঊ눿䅸pטจԐጀ廮픁嘃뛗Џ葤䵞ᆆʼ硗ᜡ쑄穰꘦ꨜ빆ᰊ蟪ᠦᾎ蜸纑舑隸ຸ輯씤⳦઀ዕꅇꖗ턒ဳ➟㜆⪈ꏴ蚘軮ᓟ脒ᖈ溭䞇쌍퉭爐胂Ǌĵ蓆ᰚ풔䣠通㸣위꼏爟ᇝ硒慵Ƀ窦닦ꪃ\ude72⻼窜締蓁범紉㤄笣쑷犳녽`뎾ኯ\udc54䱓畾劣鸛ϰ縅둎\u0003ꊚ쁦褎冑hꃑ↢썆ఀ贕ᨿ킁꣣臙呪餝皼捆ᚪ㯨탑⍇퉇樰瞪\udf40︪㰶ךּ诪᫪⇘䋈䬢ȏ㣤࠭뮯:釫臁递ސවπむ礀偡萂㠊‐⢲⃷킐㈩팽쓖賤嶮㣆⛂ᄊ将\ude0e딠ךּ톈ࣲᓖℨ殑⢡쪄挘젧쐆糨紎΅ࣆⱐ扭㰾ꦴࣹ窃뮬⾑봗뫤綋栆蔭ꚴヘᑴرꗁᷩ蚏逈蠍耲㜖¢\u000fϧ㇖䓀ᓰ㸅㭁趠ᴇ໔䞭঒冪⃵䄘菀\ud829ꅣ᫷趌懪㕁؁褄⽄疥߂遡뀖䃔荩Ұ衤ၾᦐ撘뙁惀憠ꇷଓ젫萦壡ꂊ掦औቦ莟᪘襁﫴滪ᇶ판㐓\udd33空ⴕёꕇ핐徘骃ᷩ㐔栦\tꂳ䄖芭Ӛ୰໦␾鰽䝁裴⹄埵뤙㷞㑲梼滼䈉먉෴ᛲ▿蟈똚᲼훆ԗ琹䑁ᬁ幪⎋䔑ꂀ䩧鈘賀䫑귴돺昋渜맘쑣棤処⊗ࠍ옩靤ᷟր瑂㍀萞渍汑낌̾偠ϣ䘈兀猡婴據襁퀌\uda9fﰊ萒冀㓉䒔ਫ਼᤺⿄屇㵮ῴዹ翗䰛퀞灛︒懁∌\ud82e袦ᯌ\ud9b1諨ﺐ泚䤡㏄ट′쀠邙傊퇎艸萒ࢭ㳨篡뤣㗳뗩ฬ몖\u0018燛ꌥ蘝⏃᷶ႌ焘툱䨂冎ꌘᑏ흁Ḡ䎠䕴袛㑜䤘눱ᑢ꣄톊͂⍖䂛Ô囲㳭䔎ặ췠礣搱\udd45ꆉ鷧ొ좲ᄗᴡ℀\u0000";
+            window.__GITBOOK_INITIAL_RENDER__ = true;
+            window.__GITBOOK_LAZY_MODULES__ = [];
+        </script>
+        
+                
+    </body>
+</html>
