@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#"
+     xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl"
+     xmlns:deo="http://purl.org/spar/deo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:term="http://modellingdh.github.io/ont/odp/term/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:dterms="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#dterms:"
+     xmlns:ContrastEffect="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#">
+    <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl">
+        <terms:creator>Nicole Liggeri</terms:creator>
+        <terms:description>The contrast effect bias, also known as the &quot;contrast effect,&quot; is a cognitive bias that influences how people perceive information or experiences in relation to the context in which they are presented. This bias occurs when the perception of something is significantly influenced by the presence of a previous or simultaneous event, object, or experience that differs from it.
+
+In simple terms, when individuals evaluate something, their judgment can be distorted based on the context in which it is presented. The perceived qualities or characteristics of an object or experience may be exaggerated or diminished when compared to a similar but different object or experience encountered beforehand.</terms:description>
+        <deo:Scenario>User Story:
+As Sarah, the HR Manager, I begin the performance evaluation process for the company&apos;s employees. I schedule one-on-one meetings with each employee to discuss their performance over the past year. I aim to provide constructive feedback and set achievable goals for the upcoming year.
+
+One of the employees, John, has been consistently performing below expectations in his role as a Sales Executive. Before meeting with John, I review his performance metrics, and I am concerned about the downward trend in his sales figures. However, I am mindful of the contrast effect bias and want to ensure I assess John&apos;s performance fairly.
+
+During the meeting with John, I begin by outlining the specific metrics and areas where he has fallen short. I avoid making comparisons to high-performing colleagues at this stage. I encourage John to share his insights and challenges that may have contributed to the decline in sales performance.
+
+After discussing John&apos;s situation in detail, I provide him with examples of successful strategies that other team members have implemented. I highlight that these examples are meant to offer insights and not to create unrealistic expectations. I make it clear that each sales executive has their unique strengths and challenges.
+
+Recognizing the contrast effect bias, I ensure that John&apos;s evaluation focuses on his individual progress rather than comparing him to others. I propose a performance improvement plan (PIP) that includes targeted training and mentoring sessions to help John refine his sales techniques and boost his confidence. The plan also includes regular follow-up meetings to track his progress and provide ongoing support.
+
+By approaching the performance evaluation with consideration for the contrast effect bias, I aim to help John see his potential for growth and motivate him to improve without feeling unfairly compared to his colleagues. My goal is to create a positive and supportive environment where all employees can thrive and achieve their professional goals</deo:Scenario>
+        <dterms:title>Contrast effect</dterms:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/spar/deo/Scenario -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/spar/deo/Scenario"/>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#dterms:title -->
+
+    <owl:AnnotationProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#dterms:title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#hasEngagement -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#hasEngagement">
+        <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#inActivity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#inActivity -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#inActivity">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Engagement"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#influences -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#influences">
+        <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#isInfluencedBy"/>
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#TermOfComparison"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Observation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#isEngagedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#isEngagedIn">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Engagement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#isInfluencedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#isInfluencedBy"/>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#isReflectedUponIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#isReflectedUponIn">
+        <owl:inverseOf rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#isReflectionOn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#isReflectionOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#isReflectionOn">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Observation"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Engagement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#producedObservation -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#producedObservation">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Origin"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Observation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Activity -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Activity">
+        <rdfs:comment>Action influeced by a certain experience</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Engagement -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Engagement">
+        <rdfs:comment>An opinion that the subject formulates based on their observations. It influences possible actions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Observation -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Observation">
+        <rdfs:comment>The product of an act of scrutiny which may or may not have been performed with a critical disposition.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#TermOfComparison -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#TermOfComparison">
+        <rdfs:comment>A class representing the surrounding environment or situation in which a particular object, event, or experience is presented.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:comment>Someone that can be influnced by the contrast effect.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/Origin -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Origin">
+        <rdfs:comment>The object observed in context with another object.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#HRManager -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#HRManager">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#unproductiveEmployee"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#employee -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#employee">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Origin"/>
+        <producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#performanceBelowStandards"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#otherTeamMembers -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#otherTeamMembers">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#TermOfComparison"/>
+        <influences rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#performanceBelowStandards"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#performanceBelowStandards -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#performanceBelowStandards">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Observation"/>
+        <isInfluencedBy rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#otherTeamMembers"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#unproductiveEmployee -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#unproductiveEmployee">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Engagement"/>
+        <isReflectedUponIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#performanceBelowStandards"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Activity"/>
+            <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Engagement"/>
+            <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#Observation"/>
+            <rdf:Description rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/ContrastEffect.owl#TermOfComparison"/>
+            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+            <rdf:Description rdf:about="https://w3id.org/framester/data/framestercore/Origin"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#"
+     xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl"
+     xmlns:dc="http://purl.org/dc/terms/"
+     xmlns:fs="https://w3id.org/framester/data/framestercore/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:par="http://ontologydesignpatterns.org/cp/owl/parameter.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl1="http://www.ontologydesignpatterns.org/cp/owl/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:term="http://modellingdh.github.io/ont/odp/term/"
+     xmlns:activ="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/"
+     xmlns:VonRostorffEffect="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
+    <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+        <dc:creator>Evan Arnoldi</dc:creator>
+        <dc:title xml:lang="en">Von Rostorff effect</dc:title>
+        <cpannotationschema:extractedFrom rdf:resource="https://raw.githubusercontent.com/eureadit/reading-experience-ontology/master/data-model-v2.owl"/>
+        <cpannotationschema:hasComponent rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://ontologydesignpatterns.org/cp/owl/transition.owl"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/observation.owl"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/persons.owl"/>
+        <cpannotationschema:scenarios xml:lang="en">As a student, Maria has a big biology exam coming up. She has a lot of material to cover and wants to ensure she remembers the most important points. She decides to use the Von Restorff effect to her advantage.
+
+Maria goes through her biology textbook and notes, highlighting key points and important facts with a bright yellow highlighter. She doesn&apos;t highlight everything, just the points she thinks are most important and wants to remember.
+
+As she studies, Maria notices that the highlighted points stand out from the rest of the text. When she tries to recall information, she finds that the highlighted points come to mind first. The bright yellow color of the highlighter has made these points distinctive, and they&apos;re more memorable as a result.
+
+On the day of the exam, Maria is able to recall the highlighted information easily. The Von Restorff effect has helped her remember the most important points, and she feels confident answering the exam questions. After the exam, Maria plans to use this study technique for her other subjects as well, as it has proven to be effective.</cpannotationschema:scenarios>
+        <rdfs:comment xml:lang="en">Von Rostorff effect is a phenomenon where memory for isolated items is better than memory for non-isolated (homogeneous) items presented in the same serial list position.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#IsReflectionOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#IsReflectionOn">
+        <rdfs:domain rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#StudyTechnique"/>
+        <dc:description xml:lang="en">Used to connect the subjective elements of an experience with the corresponding observation, which is extrapolated from the content being interacted with and in itself may not be including a critique.</dc:description>
+        <rdfs:label xml:lang="en">isReflectionOn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#inActivity -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#inActivity">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#StudyTechnique"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Studying"/>
+        <dc:description xml:lang="en">what activity/ies are affecting or affected by a certain engagement</dc:description>
+        <rdfs:label xml:lang="en">inActivity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#includes -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#includes">
+        <rdfs:range rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <dc:description xml:lang="en">A relation of mereological nature that connects a given observation with the activity that originates them: it strengthens the argument that observations are always active processes from a cognitive standpoint, regardless of how conscious they may be.</dc:description>
+        <rdfs:comment xml:lang="en">A standard mereological property from another content pattern may be used in lieu of this one and therefore aligned with it.</rdfs:comment>
+        <rdfs:label xml:lang="en">Includes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#isEngagedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#isEngagedIn">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#StudyTechnique"/>
+        <dc:description xml:lang="en">Because an activity may engage other participants than the one performing it, engagements are in general considered individual rather than collective, therefore each participants has their own engagement and only some of them will be conscious and/or documented.</dc:description>
+        <rdfs:label xml:lang="en">isEngagedIn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#leverages -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#leverages">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#StudyTechnique"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
+        <rdfs:label>leverages</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#producedObservation -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#producedObservation">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
+        <rdfs:range rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <dc:description xml:lang="en">This property can be used to denote that something is (even indirectly, not necessary through direct reflection) responsible for the existence of an observation.</dc:description>
+        <rdfs:label xml:lang="en">producedObservation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/Observation -->
+
+    <owl:Class rdf:about="http://modellingdh.github.io/ont/odp/term/Observation">
+        <dc:description xml:lang="en">The product of an act of scrutiny which may or may not have been performed with a critical disposition (Example: &quot;My thoughts from reading this passage of &apos;To Kill a Mockingbird&apos;&quot;).</dc:description>
+        <rdfs:comment xml:lang="en">A disjointness or alignment between this class and &lt;http://www.ontologydesignpatterns.org/cp/owl/observation.owl#Observation&gt; in the Observation content pattern is plausible but subject to debate, hence will not be formalised herein.</rdfs:comment>
+        <rdfs:label xml:lang="en">Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#StudyTechnique -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#StudyTechnique">
+        <rdfs:comment>This class represents the technique used by the student to study. It could have properties like name (e.g., &quot;highlighting&quot;) and effectiveness (how effective the technique is).</rdfs:comment>
+        <rdfs:label>StudyTechnique</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:comment>The foaf:Person class represents people. Something is a foaf:Person if it is a person. We don&apos;t nitpic about whether they&apos;re alive, dead, real, or imaginary. The foaf:Person class is a sub-class of the foaf:Agent class, since all people are considered &apos;agents&apos; in FOAF.</rdfs:comment>
+        <rdfs:label>Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/Studying -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Studying">
+        <rdfs:comment>A Student enrolls and then remains at an Institution for the purposes of education within a Subject. They may receive instruction from a particular Teacher at the Institution. The Place, Time, and Duration of the study may also be specified. He spent ten years studying physics at the lycee before he flunked out.</rdfs:comment>
+        <rdfs:label>Studying</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/SubjectiveInfluence -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/SubjectiveInfluence">
+        <rdfs:comment>An Agent, Situation or Entity has an influence on a Cognizer. The influence may be general; or it may be manifested in the Cognizer&apos;s engaging in an Action as a consequence of the influence; or the Cognizer may be influenced in how they carry out a Behavior that they are engaged in already.</rdfs:comment>
+        <rdfs:label>SubjectiveInfluence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#observe_enhanced_info -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#observe_enhanced_info">
+        <rdf:type rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <IsReflectionOn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying_technique1"/>
+        <rdfs:label>An individual is more likely to remember an item that stands out from a group of similar items.</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#student_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#student_1">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying_technique1"/>
+        <rdfs:label>Maria</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Studying"/>
+        <includes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#observe_enhanced_info"/>
+        <rdfs:label>devote time and attention to gaining knowledge of (an academic subject), especially by means of books.</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying_technique1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying_technique1">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#StudyTechnique"/>
+        <inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#studying"/>
+        <leverages rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#von_rostorff_effect"/>
+        <rdfs:label>highlighting key points during studies.</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#von_rostorff_effect -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#von_rostorff_effect">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
+        <producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/VonRostorffEffect.owl#observe_enhanced_info"/>
+        <rdfs:comment>The Von Restorff effect, also known as the &quot;isolation effect&quot;, is a psychological phenomenon where an individual is more likely to remember an item that stands out from a group of similar items. This effect was first identified by Hedwig von Restorff in 1933. The principle behind this effect is that the item that differs from the rest is more memorable due to its increased salience.</rdfs:comment>
+        <rdfs:label>Von Rostorff effect</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+

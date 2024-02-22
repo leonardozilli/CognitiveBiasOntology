@@ -1,0 +1,311 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#"
+     xml:base="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl"
+     xmlns:dc="http://purl.org/dc/terms/"
+     xmlns:fs="http://etna.istc.cnr.it/framesterpage/data/framestercore/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:par="http://ontologydesignpatterns.org/cp/owl/parameter.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:term="http://modellingdh.github.io/ont/odp/term/"
+     xmlns:activ="http://ontology.eil.utoronto.ca/icity/ActivitySpecification/"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:SelfReferenceEffect="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#">
+    <owl:Ontology rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+        <dc:creator>Evan Arnoldi</dc:creator>
+        <dc:title xml:lang="en">Self-reference effect</dc:title>
+        <cpannotationschema:extractedFrom rdf:resource="https://raw.githubusercontent.com/eureadit/reading-experience-ontology/master/data-model-v2.owl"/>
+        <cpannotationschema:hasComponent rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://ontology.eil.utoronto.ca/icity/ActivitySpecification"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://ontologydesignpatterns.org/cp/owl/transition.owl"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/observation.owl"/>
+        <cpannotationschema:relatedCPs rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/persons.owl"/>
+        <cpannotationschema:scenarios xml:lang="en">As a psychology student, Alice has a big exam coming up. One of the concepts she needs to understand and remember is &quot;cognitive dissonance.&quot; She reads the textbook definition, but it doesn&apos;t stick in her mind. She decides to apply the self-reference effect to help her remember.
+
+Alice thinks back to a time when she experienced cognitive dissonance herself. She recalls a situation where she had to choose between attending a friend&apos;s party and studying for another exam. She wanted to do both, but they were happening at the same time. She remembers the discomfort she felt at having these conflicting desires.
+
+Alice then relates this personal experience to the definition of cognitive dissonance - the mental discomfort experienced by a person who holds two or more contradictory beliefs, ideas, or values. By connecting the term to her own experience, it becomes more meaningful and easier to remember.
+
+When the exam day comes, Alice sees a question about cognitive dissonance. She immediately recalls her personal experience and is able to remember the definition clearly. She writes down her answer confi</cpannotationschema:scenarios>
+        <rdfs:comment xml:lang="en">Self-reference effect generally refers to the tendency for individuals to have better memory for information that they have related to themselves.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#inActivity -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#inActivity">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/Studying"/>
+        <dc:description xml:lang="en">what activity/ies are affecting or affected by a certain engagement</dc:description>
+        <rdfs:label xml:lang="en">inActivity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#includes -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#includes">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/Studying"/>
+        <rdfs:range rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/PerceptionExperience"/>
+        <dc:description xml:lang="en">A relation of mereological nature that connects a given observation with the activity that originates them: it strengthens the argument that observations are always active processes from a cognitive standpoint, regardless of how conscious they may be.</dc:description>
+        <rdfs:comment xml:lang="en">A standard mereological property from another content pattern may be used in lieu of this one and therefore aligned with it.</rdfs:comment>
+        <rdfs:label xml:lang="en">Includes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#isEngagedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#isEngagedIn">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
+        <dc:description xml:lang="en">Because an activity may engage other participants than the one performing it, engagements are in general considered individual rather than collective, therefore each participants has their own engagement and only some of them will be conscious and/or documented.</dc:description>
+        <rdfs:label xml:lang="en">isEngagedIn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#isReflectionOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#isReflectionOn">
+        <rdfs:domain rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <rdfs:range rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
+        <dc:description xml:lang="en">Used to connect the subjective elements of an experience with the corresponding observation, which is extrapolated from the content being interacted with and in itself may not be including a critique.</dc:description>
+        <rdfs:label xml:lang="en">isReflectionOn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#leverages -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#leverages">
+        <rdfs:domain rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
+        <rdfs:range rdf:resource="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
+        <rdfs:label>leverages</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#producedObservation -->
+
+    <owl:ObjectProperty rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#producedObservation">
+        <rdfs:domain rdf:resource="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
+        <rdfs:range rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <dc:description xml:lang="en">This property can be used to denote that something is (even indirectly, not necessary through direct reflection) responsible for the existence of an observation.</dc:description>
+        <rdfs:label xml:lang="en">producedObservation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://modellingdh.github.io/ont/odp/term/Observation -->
+
+    <owl:Class rdf:about="http://modellingdh.github.io/ont/odp/term/Observation">
+        <dc:description xml:lang="en">The product of an act of scrutiny which may or may not have been performed with a critical disposition (Example: &quot;My thoughts from reading this passage of &apos;To Kill a Mockingbird&apos;&quot;).</dc:description>
+        <rdfs:comment xml:lang="en">A disjointness or alignment between this class and &lt;http://www.ontologydesignpatterns.org/cp/owl/observation.owl#Observation&gt; in the Observation content pattern is plausible but subject to debate, hence will not be formalised herein.</rdfs:comment>
+        <rdfs:label xml:lang="en">Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique -->
+
+    <owl:Class rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique">
+        <rdfs:comment>This class represents the technique used by the student to study. It could have properties like name (e.g., &quot;highlighting&quot;) and effectiveness (how effective the technique is).</rdfs:comment>
+        <rdfs:label>StudyTechnique</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:comment>The foaf:Person class represents people. Something is a foaf:Person if it is a person. We don&apos;t nitpic about whether they&apos;re alive, dead, real, or imaginary. The foaf:Person class is a sub-class of the foaf:Agent class, since all people are considered &apos;agents&apos; in FOAF.</rdfs:comment>
+        <rdfs:label>Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/PerceptionExperience -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/PerceptionExperience">
+        <rdfs:comment>This frame contains perception words whose Perceivers have perceptual experiences that they do not necessarily intend to.</rdfs:comment>
+        <rdfs:label>PerceptionExperience</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/Studying -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/Studying">
+        <rdfs:comment>A Student enrolls and then remains at an Institution for the purposes of education within a Subject. They may receive instruction from a particular Teacher at the Institution. The Place, Time, and Duration of the study may also be specified. He spent ten years studying physics at the lycee before he flunked out.</rdfs:comment>
+        <rdfs:label>Studying</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/framester/data/framestercore/SubjectiveInfluence -->
+
+    <owl:Class rdf:about="https://w3id.org/framester/data/framestercore/SubjectiveInfluence">
+        <rdfs:comment>An Agent, Situation or Entity has an influence on a Cognizer. The influence may be general; or it may be manifested in the Cognizer&apos;s engaging in an Action as a consequence of the influence; or the Cognizer may be influenced in how they carry out a Behavior that they are engaged in already.</rdfs:comment>
+        <rdfs:label>SubjectiveInfluence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#observe_enhanced_info -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#observe_enhanced_info">
+        <rdf:type rdf:resource="http://modellingdh.github.io/ont/odp/term/Observation"/>
+        <isReflectionOn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#studying_technique1"/>
+        <rdfs:label>An individual is more likely to remember a concept by connecting it to their own memory or experience.</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#self_experience -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#self_experience">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/PerceptionExperience"/>
+        <rdfs:label>Alice remembers the concept of cognitive dissonance since it happened to her before, when she had to choose between attending a party or studying for an exam.</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#self_reference_effect -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#self_reference_effect">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/SubjectiveInfluence"/>
+        <producedObservation rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#observe_enhanced_info"/>
+        <rdfs:comment>The self-reference effect is a cognitive process where the self is implicated in processing personal information.</rdfs:comment>
+        <rdfs:label>Self-reference effect</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#student_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#student_1">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <isEngagedIn rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#studying"/>
+        <rdfs:label>Alice</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#studying -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#studying">
+        <rdf:type rdf:resource="https://w3id.org/framester/data/framestercore/Studying"/>
+        <includes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#observe_enhanced_info"/>
+        <rdfs:label>devote time and attention to gaining knowledge of (an academic subject), especially by means of books.</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#studying_technique1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#studying_technique1">
+        <rdf:type rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#StudyTechnique"/>
+        <inActivity rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#studying"/>
+        <includes rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#self_experience"/>
+        <leverages rdf:resource="http://www.leonardozilli.it/CognitiveBiasOntology/SelfReferenceEffect.owl#self_reference_effect"/>
+        <rdfs:label>relates an experience to remember a concept for the exam</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
